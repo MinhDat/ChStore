@@ -1,4 +1,4 @@
-# demo
+# ChStore
 
 A new Flutter project.
 

@@ -64,8 +64,8 @@ class _WidgetList extends State<BottomNavigation> {
           BottomNavigationBarItem(
             icon: new Image.asset(
               'images/today-icon.png',
-              height: 25,
-              width: 25,
+              height: 22,
+              width: 22,
               color: index == 0 ? Colors.blue : Colors.black54,
             ),
             title: SizedBox.shrink(),
@@ -73,8 +73,8 @@ class _WidgetList extends State<BottomNavigation> {
           BottomNavigationBarItem(
             icon: new Image.asset(
               'images/toggle-menu-icon.png',
-              height: 25,
-              width: 25,
+              height: 22,
+              width: 22,
               color: index == 1 ? Colors.blue : Colors.black54,
             ),
             title: SizedBox.shrink(),
@@ -82,8 +82,8 @@ class _WidgetList extends State<BottomNavigation> {
           BottomNavigationBarItem(
             icon: new Image.asset(
               'images/search-icon.png',
-              height: 25,
-              width: 25,
+              height: 22,
+              width: 22,
               color: index == 2 ? Colors.blue : Colors.black54,
             ),
             title: SizedBox.shrink(),

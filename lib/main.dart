@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 // import 'package:english_words/english_words.dart';
 import 'package:flutter/rendering.dart';
 
-import 'screens/Home/index.dart';
-import 'screens/category.dart';
-import 'screens/search.dart';
-import 'screens/shopping-cart.dart';
-import 'screens/profile.dart';
+import 'views/home/main.dart';
+import 'views/category.dart';
+import 'views/search.dart';
+import 'views/shopping-cart.dart';
+import 'views/profile.dart';
 
 void main() => runApp(MyApp());
 

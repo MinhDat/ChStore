@@ -1,22 +1,31 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 
+import '../models/product.dart';
+
 class PageViewContainer extends Container {
+  PageViewContainer(this.allProducts);
+  final List<Product> allProducts;
+
   @override
   Widget build(BuildContext context) {
-    return Container(child: _PageView());
+    return Container(child: _PageView(allProducts));
   }
 }
 
 class _PageView extends StatefulWidget {
+  _PageView(this.allProducts);
+  final List<Product> allProducts;
+
   @override
   State<StatefulWidget> createState() {
-    return _WidgetList();
+    return _WidgetList(allProducts);
   }
 }
 
 class _WidgetList extends State<_PageView> with WidgetsBindingObserver {
+  _WidgetList(this.allProducts);
+  final List<Product> allProducts;
   PageController _pageController;
   int _currentIndex = 0;
   Timer _timer;
@@ -48,14 +57,29 @@ class _WidgetList extends State<_PageView> with WidgetsBindingObserver {
     setState(() {
       _currentIndex = page;
     });
+    _timer.cancel();
   }
 
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     _timer = new Timer(new Duration(seconds: 7), () {
-      _currentIndex == 4 ? _nextPage(0) : _nextPage(_currentIndex + 1);
+      _currentIndex == allProducts.length - 1
+          ? _nextPage(0)
+          : _nextPage(_currentIndex + 1);
     });
+
+    List<Container> productList = allProducts.map((product) {
+      return Container(
+        child: ClipRRect(
+          borderRadius: new BorderRadius.circular(10.0),
+          child: Image.asset(
+            product.image,
+            fit: BoxFit.cover,
+          ),
+        ),
+      );
+    }).toList();
 
     return Container(
       height: screenSize.width - 40,
@@ -65,7 +89,7 @@ class _WidgetList extends State<_PageView> with WidgetsBindingObserver {
         boxShadow: <BoxShadow>[
           BoxShadow(
             color: Colors.black38,
-            offset: Offset(0.0, 8.0),
+            offset: Offset(0.0, 3.0),
             blurRadius: 10.0,
           ),
         ],
@@ -74,38 +98,7 @@ class _WidgetList extends State<_PageView> with WidgetsBindingObserver {
         controller: _pageController,
         scrollDirection: Axis.horizontal,
         onPageChanged: _handlePageChanged,
-        children: <Widget>[
-          Container(
-            decoration: new BoxDecoration(
-              color: Colors.red,
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-          ),
-          Container(
-            decoration: new BoxDecoration(
-              color: Colors.blue,
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-          ),
-          Container(
-            decoration: new BoxDecoration(
-              color: Colors.green,
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-          ),
-          Container(
-            decoration: new BoxDecoration(
-              color: Colors.yellow,
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-          ),
-          Container(
-            decoration: new BoxDecoration(
-              color: Colors.orange,
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-          ),
-        ],
+        children: productList,
       ),
     );
   }

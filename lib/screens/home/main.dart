@@ -2,29 +2,41 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../components/listView.dart';
-import '../../components/pageView.dart';
-import '../../models/product.dart';
+import '../../widgets/listView.dart';
+import '../../widgets/pageView.dart';
+import '../../data/product.dart';
 
 class Home extends StatelessWidget {
+  Home(this._parentContext, this.allProducts);
+  final BuildContext _parentContext;
+  final List<Product> allProducts;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Welcome to Home places',
       theme: ThemeData(primaryColor: Colors.white),
-      home: HorizontalList(),
+      home: HorizontalList(_parentContext, allProducts),
     );
   }
 }
 
 class HorizontalList extends StatefulWidget {
+  HorizontalList(this._parentContext, this.allProducts);
+  final BuildContext _parentContext;
+  final List<Product> allProducts;
+
   @override
   State<StatefulWidget> createState() {
-    return _WidgetList();
+    return _WidgetList(_parentContext, allProducts);
   }
 }
 
 class _WidgetList extends State<HorizontalList> {
+  _WidgetList(this._parentContext, this.allProducts);
+  final BuildContext _parentContext;
+  final List<Product> allProducts;
+
   DateTime _now = new DateTime.now();
   List<String> _month = [
     "JANUARY",
@@ -61,11 +73,7 @@ class _WidgetList extends State<HorizontalList> {
               Padding(
                 padding: EdgeInsets.only(left: 20.0, top: 20.0),
                 child: Text(
-                  _week[_now.weekday - 1] +
-                      " " +
-                      _now.day.toString() +
-                      " " +
-                      _month[_now.month - 1],
+                  "${_week[_now.weekday - 1]} ${_now.day} ${_month[_now.month - 1]}",
                 ),
               ),
               Padding(
@@ -80,43 +88,10 @@ class _WidgetList extends State<HorizontalList> {
                 "Today",
                 style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),
               )),
-          PageViewContainer(allProducts),
+          PageViewContainer(allProducts, _parentContext),
           ListViewContainer(allProducts),
         ],
       ),
     );
   }
 }
-
-List<Product> allProducts = [
-  Product(
-    image: "lib/assets/picture_one.webp",
-    name: "Product demo 1",
-    price: "65.00",
-  ),
-  Product(
-    image: "lib/assets/picture_two.webp",
-    name: "Product demo 2",
-    price: "65.00",
-  ),
-  Product(
-    image: "lib/assets/picture_three.webp",
-    name: "Product demo 3",
-    price: "65.00",
-  ),
-  Product(
-    image: "lib/assets/picture_four.webp",
-    name: "Product demo 4",
-    price: "65.00",
-  ),
-  Product(
-    image: "lib/assets/picture_five.webp",
-    name: "Product demo 5",
-    price: "65.00",
-  ),
-  Product(
-    image: "lib/assets/picture_six.jpg",
-    name: "Product demo 6",
-    price: "65.00",
-  )
-];

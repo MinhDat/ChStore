@@ -1,31 +1,36 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
-import '../models/product.dart';
+import '../data/product.dart';
+// import '../routes.dart';
 
 class PageViewContainer extends Container {
-  PageViewContainer(this.allProducts);
+  PageViewContainer(this.allProducts, this._parentContext);
   final List<Product> allProducts;
+  final BuildContext _parentContext;
 
   @override
   Widget build(BuildContext context) {
-    return Container(child: _PageView(allProducts));
+    return Container(child: _PageView(allProducts, _parentContext));
   }
 }
 
 class _PageView extends StatefulWidget {
-  _PageView(this.allProducts);
+  _PageView(this.allProducts, this._parentContext);
   final List<Product> allProducts;
+  final BuildContext _parentContext;
 
   @override
   State<StatefulWidget> createState() {
-    return _WidgetList(allProducts);
+    return _WidgetList(allProducts, _parentContext);
   }
 }
 
 class _WidgetList extends State<_PageView> with WidgetsBindingObserver {
-  _WidgetList(this.allProducts);
+  _WidgetList(this.allProducts, this._parentContext);
   final List<Product> allProducts;
+  final BuildContext _parentContext;
+
   PageController _pageController;
   int _currentIndex = 0;
   Timer _timer;
@@ -40,8 +45,8 @@ class _WidgetList extends State<_PageView> with WidgetsBindingObserver {
 
   @override
   void dispose() {
-    // print("========== dispose ==============");
     _timer.cancel();
+    _pageController.dispose();
     super.dispose();
   }
 
@@ -69,13 +74,22 @@ class _WidgetList extends State<_PageView> with WidgetsBindingObserver {
           : _nextPage(_currentIndex + 1);
     });
 
-    List<Container> productList = allProducts.map((product) {
-      return Container(
-        child: ClipRRect(
-          borderRadius: new BorderRadius.circular(10.0),
-          child: Image.asset(
-            product.image,
-            fit: BoxFit.cover,
+    List<GestureDetector> productList = allProducts.map((product) {
+      return GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(
+            _parentContext,
+            '/product-detail',
+            arguments: product,
+          );
+        },
+        child: Container(
+          child: ClipRRect(
+            borderRadius: new BorderRadius.circular(10.0),
+            child: Image.asset(
+              product.image,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
       );

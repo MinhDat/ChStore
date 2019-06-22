@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/product.dart';
+import '../data/product.dart';
 
 class ListViewContainer extends Container {
   ListViewContainer(this.allProducts);
@@ -51,7 +51,7 @@ class ListViewContainer extends Container {
                     ),
                   ),
                   child: Text(
-                    "\$" + product.price,
+                    "\$${product.price}",
                     style: new TextStyle(
                       fontSize: 15.0,
                     ),

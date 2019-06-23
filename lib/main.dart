@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'screens/home/main.dart';
 import 'screens/category.dart';
 import 'screens/search.dart';
-import 'screens/shopping-cart.dart';
+import 'screens/shoppingCart/main.dart';
 import 'screens/profile.dart';
 
 import 'data/product.dart';
@@ -21,7 +21,7 @@ void main() {
       initialRoute: '/',
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
-        '/': (context) => new MyApp(),
+        '/': (context) => new Homepage(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/product-detail': (context) => new ProductDetail(),
       },
@@ -29,7 +29,7 @@ void main() {
   );
 }
 
-class MyApp extends StatelessWidget {
+class Homepage extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,7 @@ class _WidgetList extends State<BottomNavigation> {
       case 2:
         return Search();
       case 3:
-        return ShoppingCart();
+        return ShoppingCart(allProducts);
       case 4:
         return Profile();
       default:

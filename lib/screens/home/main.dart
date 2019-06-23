@@ -13,10 +13,10 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Welcome to Home places',
-      theme: ThemeData(primaryColor: Colors.white),
-      home: HorizontalList(_parentContext, allProducts),
+    return Scaffold(
+      // title: 'Welcome to Home places',
+      // theme: ThemeData(primaryColor: Colors.white),
+      body: HorizontalList(_parentContext, allProducts),
     );
   }
 }
@@ -64,34 +64,32 @@ class _WidgetList extends State<HorizontalList> {
 
   @override
   build(BuildContext context) {
-    return Scaffold(
-      body: ListView(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(left: 20.0, top: 20.0),
-                child: Text(
-                  "${_week[_now.weekday - 1]} ${_now.day} ${_month[_now.month - 1]}",
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(right: 20.0, top: 20.0),
-                child: Icon(Icons.person),
-              )
-            ],
-          ),
-          Padding(
-              padding: EdgeInsets.only(left: 20.0, bottom: 10.0),
+    return ListView(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(left: 20.0, top: 20.0),
               child: Text(
-                "Today",
-                style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),
-              )),
-          PageViewContainer(allProducts, _parentContext),
-          ListViewContainer(allProducts),
-        ],
-      ),
+                "${_week[_now.weekday - 1]} ${_now.day} ${_month[_now.month - 1]}",
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(right: 20.0, top: 20.0),
+              child: Icon(Icons.person),
+            )
+          ],
+        ),
+        Padding(
+            padding: EdgeInsets.only(left: 20.0, bottom: 10.0),
+            child: Text(
+              "Today",
+              style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),
+            )),
+        PageViewContainer(allProducts, _parentContext),
+        ListViewContainer(allProducts: allProducts),
+      ],
     );
   }
 }

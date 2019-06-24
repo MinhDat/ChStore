@@ -7,10 +7,12 @@ class Product {
     this.price,
     this.description,
     this.favorited: false,
+    this.count: 1,
   });
   final String image;
   final String name;
   final String price;
   final String description;
   bool favorited;
+  int count;
 }

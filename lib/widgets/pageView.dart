@@ -45,22 +45,23 @@ class _WidgetList extends State<_PageView> with WidgetsBindingObserver {
 
   @override
   void dispose() {
-    // print("=============dispose=============");
+    super.dispose();
     _timer.cancel();
     _pageController.dispose();
-    super.dispose();
   }
 
   void _nextPage(int delta) {
-    _pageController.animateToPage(
-      delta,
-      duration: const Duration(milliseconds: 800),
-      curve: Curves.ease,
-    );
+    _timer.cancel();
+    if (_pageController.hasClients) {
+      _pageController.animateToPage(
+        delta,
+        duration: const Duration(milliseconds: 800),
+        curve: Curves.ease,
+      );
+    }
   }
 
   void _handlePageChanged(int page) {
-    _timer.cancel();
     setState(() {
       _currentIndex = page;
     });

@@ -5,8 +5,30 @@ import '../data/product.dart';
 const NORMAL_LIST_TYPE = 1;
 const SHOPPING_CART_LIST_TYPE = 2;
 
-class ListViewContainer extends Container {
+class ListViewContainer extends StatelessWidget {
   ListViewContainer({this.allProducts, this.type: NORMAL_LIST_TYPE});
+  final List<Product> allProducts;
+  final int type;
+  @override
+  Widget build(BuildContext context) {
+    return new Container(
+      child: ListTileItem(allProducts: this.allProducts, type: this.type),
+    );
+  }
+}
+
+class ListTileItem extends StatefulWidget {
+  ListTileItem({this.allProducts, this.type});
+  final List<Product> allProducts;
+  final int type;
+
+  @override
+  _ListTileItemState createState() =>
+      new _ListTileItemState(allProducts: this.allProducts, type: this.type);
+}
+
+class _ListTileItemState extends State<ListTileItem> {
+  _ListTileItemState({this.allProducts, this.type});
   final List<Product> allProducts;
   final int type;
 
@@ -31,11 +53,19 @@ class ListViewContainer extends Container {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    IconButton(icon: new Icon(Icons.remove)),
-                    Container(
-                      child: Text("0"),
+                    IconButton(
+                      icon: new Icon(Icons.remove),
+                      onPressed: () => product.count > 1
+                          ? setState(() => (product.count--))
+                          : null,
                     ),
-                    IconButton(icon: new Icon(Icons.add)),
+                    Container(
+                      child: Text(product.count.toString()),
+                    ),
+                    IconButton(
+                      icon: new Icon(Icons.add),
+                      onPressed: () => setState(() => (product.count++)),
+                    ),
                   ],
                 ),
               )

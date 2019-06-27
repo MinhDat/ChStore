@@ -5,30 +5,27 @@ import '../data/product.dart';
 // import '../routes.dart';
 
 class PageViewContainer extends Container {
-  PageViewContainer(this.allProducts, this._parentContext);
-  final List<Product> allProducts;
+  PageViewContainer(this._parentContext);
   final BuildContext _parentContext;
 
   @override
   Widget build(BuildContext context) {
-    return Container(child: _PageView(allProducts, _parentContext));
+    return Container(child: _PageView(_parentContext));
   }
 }
 
 class _PageView extends StatefulWidget {
-  _PageView(this.allProducts, this._parentContext);
-  final List<Product> allProducts;
+  _PageView(this._parentContext);
   final BuildContext _parentContext;
 
   @override
   State<StatefulWidget> createState() {
-    return _WidgetList(allProducts, _parentContext);
+    return _WidgetList(_parentContext);
   }
 }
 
 class _WidgetList extends State<_PageView> with WidgetsBindingObserver {
-  _WidgetList(this.allProducts, this._parentContext);
-  final List<Product> allProducts;
+  _WidgetList(this._parentContext);
   final BuildContext _parentContext;
 
   PageController _pageController;

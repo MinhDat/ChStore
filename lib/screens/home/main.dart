@@ -7,35 +7,32 @@ import '../../widgets/pageView.dart';
 import '../../data/product.dart';
 
 class Home extends StatelessWidget {
-  Home(this._parentContext, this.allProducts);
+  Home(this._parentContext);
   final BuildContext _parentContext;
-  final List<Product> allProducts;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // title: 'Welcome to Home places',
       // theme: ThemeData(primaryColor: Colors.white),
-      body: HorizontalList(_parentContext, allProducts),
+      body: HorizontalList(_parentContext),
     );
   }
 }
 
 class HorizontalList extends StatefulWidget {
-  HorizontalList(this._parentContext, this.allProducts);
+  HorizontalList(this._parentContext);
   final BuildContext _parentContext;
-  final List<Product> allProducts;
 
   @override
   State<StatefulWidget> createState() {
-    return _WidgetList(_parentContext, allProducts);
+    return _WidgetList(_parentContext);
   }
 }
 
 class _WidgetList extends State<HorizontalList> {
-  _WidgetList(this._parentContext, this.allProducts);
+  _WidgetList(this._parentContext);
   final BuildContext _parentContext;
-  final List<Product> allProducts;
 
   DateTime _now = new DateTime.now();
   List<String> _month = [
@@ -87,8 +84,8 @@ class _WidgetList extends State<HorizontalList> {
               "Today",
               style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),
             )),
-        PageViewContainer(allProducts, _parentContext),
-        ListViewContainer(allProducts: allProducts),
+        PageViewContainer(_parentContext),
+        ListViewContainer(),
       ],
     );
   }

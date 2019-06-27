@@ -6,30 +6,26 @@ const NORMAL_LIST_TYPE = 1;
 const SHOPPING_CART_LIST_TYPE = 2;
 
 class ListViewContainer extends StatelessWidget {
-  ListViewContainer({this.allProducts, this.type: NORMAL_LIST_TYPE});
-  final List<Product> allProducts;
+  ListViewContainer({this.type: NORMAL_LIST_TYPE});
   final int type;
   @override
   Widget build(BuildContext context) {
     return new Container(
-      child: ListTileItem(allProducts: this.allProducts, type: this.type),
+      child: ListTileItem(type: this.type),
     );
   }
 }
 
 class ListTileItem extends StatefulWidget {
-  ListTileItem({this.allProducts, this.type});
-  final List<Product> allProducts;
+  ListTileItem({this.type});
   final int type;
 
   @override
-  _ListTileItemState createState() =>
-      new _ListTileItemState(allProducts: this.allProducts, type: this.type);
+  _ListTileItemState createState() => new _ListTileItemState(type: this.type);
 }
 
 class _ListTileItemState extends State<ListTileItem> {
-  _ListTileItemState({this.allProducts, this.type});
-  final List<Product> allProducts;
+  _ListTileItemState({this.type});
   final int type;
 
   @override
@@ -39,7 +35,7 @@ class _ListTileItemState extends State<ListTileItem> {
     List<Container> productList = allProducts.map((product) {
       List<Widget> productLineSecond = [
         Expanded(
-          flex: 5, // 20%
+          flex: 4, // 20%
           child: Text(
             "\$${product.price}",
             style: new TextStyle(
@@ -49,7 +45,7 @@ class _ListTileItemState extends State<ListTileItem> {
         ),
         (type == SHOPPING_CART_LIST_TYPE
             ? Expanded(
-                flex: 5, // 20%
+                flex: 6, // 20%
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [

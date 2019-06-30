@@ -1,14 +1,13 @@
-import 'package:demo/screens/detail/main.dart';
 import 'package:flutter/material.dart';
-// import 'package:english_words/english_words.dart';
-// import 'package:flutter/rendering.dart';
 
-import 'screens/home/main.dart';
-import 'screens/category/main.dart';
 import 'screens/search.dart';
-import 'screens/shoppingCart/main.dart';
 import 'screens/profile.dart';
-import 'screens/card/main.dart';
+
+import 'screens/Home/main.dart';
+import 'screens/ProductCategory/main.dart';
+import 'screens/ProductDetail/main.dart';
+import 'screens/ShoppingCart/main.dart';
+import 'screens/ItemCategory/main.dart';
 
 void main() {
   runApp(
@@ -20,18 +19,18 @@ void main() {
       initialRoute: '/',
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
-        '/': (context) => new Homepage(),
+        '/': (context) => new Mainpage(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/product-detail': (context) => new ProductDetail(),
-        '/women-category': (context) => new CardView(),
-        '/men-category': (context) => new CardView(),
-        '/sports-category': (context) => new CardView(),
+        '/woman-category': (context) => new ItemCategory(),
+        '/man-category': (context) => new ItemCategory(),
+        '/sport-category': (context) => new ItemCategory(),
       },
     ),
   );
 }
 
-class Homepage extends StatelessWidget {
+class Mainpage extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -54,9 +53,9 @@ class _WidgetList extends State<BottomNavigation> {
   _navigateToScreen(int index) {
     switch (index) {
       case 0:
-        return Home(context);
+        return HomePage();
       case 1:
-        return Category(context);
+        return ProductCategory();
       case 2:
         return Search();
       case 3:
@@ -64,7 +63,7 @@ class _WidgetList extends State<BottomNavigation> {
       case 4:
         return Profile();
       default:
-        return Home(context);
+        return HomePage();
     }
   }
 

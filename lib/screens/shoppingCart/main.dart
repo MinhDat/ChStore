@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../data/product.dart';
-import '../../widgets/listView.dart';
+import '../../widgets/ItemListView.dart';
 
 class ShoppingCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ShoppingCartContainer(),
-    );
+    return ShoppingCartContainer();
   }
 }
 
@@ -23,7 +20,7 @@ class _WidgetList extends State<ShoppingCartContainer> {
   build(BuildContext context) {
     return ListView(
       children: [
-        ListViewContainer(type: SHOPPING_CART_LIST_TYPE),
+        ItemListView(context, type: SHOPPING_CART_LIST_TYPE),
       ],
     );
   }

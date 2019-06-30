@@ -53,8 +53,13 @@ flutter:
    - lib/assets/picture_four.webp
    - lib/assets/picture_five.webp
    - lib/assets/picture_six.jpg
-   - lib/assets/men-category.jpg
-   - lib/assets/women-category.jpg
+   - lib/assets/picture_seven.webp
+   - lib/assets/picture_eight.webp
+   - lib/assets/picture_nine.webp
+   - lib/assets/picture_ten.jpg
+
+   - lib/assets/man-category.jpg
+   - lib/assets/woman-category.jpg
    - lib/assets/sport-category.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

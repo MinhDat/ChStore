@@ -1,39 +1,26 @@
 // import 'dart:async';
+import 'package:demo/widgets/ItemPageView.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../widgets/listView.dart';
-import '../../widgets/pageView.dart';
-import '../../data/product.dart';
+import '../../widgets/ItemListView.dart';
+import '../../widgets/ItemPageView.dart';
 
-class Home extends StatelessWidget {
-  Home(this._parentContext);
-  final BuildContext _parentContext;
-
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // title: 'Welcome to Home places',
-      // theme: ThemeData(primaryColor: Colors.white),
-      body: HorizontalList(_parentContext),
-    );
+    return HomePageState();
   }
 }
 
-class HorizontalList extends StatefulWidget {
-  HorizontalList(this._parentContext);
-  final BuildContext _parentContext;
-
+class HomePageState extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _WidgetList(_parentContext);
+    return _WidgetList();
   }
 }
 
-class _WidgetList extends State<HorizontalList> {
-  _WidgetList(this._parentContext);
-  final BuildContext _parentContext;
-
+class _WidgetList extends State<HomePageState> {
   DateTime _now = new DateTime.now();
   List<String> _month = [
     "JANUARY",
@@ -84,8 +71,8 @@ class _WidgetList extends State<HorizontalList> {
               "Today",
               style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),
             )),
-        PageViewContainer(_parentContext),
-        ListViewContainer(),
+        ItemPageView(context),
+        ItemListView(context),
       ],
     );
   }

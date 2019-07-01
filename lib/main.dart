@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'screens/search.dart';
+import 'screens/Search/main.dart';
 import 'screens/profile.dart';
 
 import 'screens/Home/main.dart';

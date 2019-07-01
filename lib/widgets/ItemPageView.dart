@@ -49,7 +49,6 @@ class ItemPageState extends State<ItemPageContainer>
   }
 
   void _nextPage(int delta) {
-    _timer.cancel();
     if (_pageController.hasClients) {
       _pageController.animateToPage(
         delta,
@@ -60,6 +59,7 @@ class ItemPageState extends State<ItemPageContainer>
   }
 
   void _handlePageChanged(int page) {
+    _timer.cancel();
     setState(() {
       _currentIndex = page;
     });

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../data/category.dart';
 
 //Template Type
@@ -29,12 +30,6 @@ class CategoryListState extends State<CategoryListContainer> {
   CategoryListState(this._parentContext, {this.type});
   final BuildContext _parentContext;
   final int type;
-
-  // @override
-  // void dispose() {
-  //   print("Text=========================");
-  //   super.dispose();
-  // }
 
   @override
   build(BuildContext context) {
@@ -129,6 +124,8 @@ class CategoryListState extends State<CategoryListContainer> {
         .values
         .toList();
 
-    return ListView(children: _categories);
+    return Column(
+      children: _categories,
+    );
   }
 }

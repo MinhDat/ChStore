@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../widgets/HeaderView.dart';
 import '../../widgets/ItemListView.dart';
 
 class ShoppingCart extends StatelessWidget {
@@ -20,6 +22,7 @@ class _WidgetList extends State<ShoppingCartContainer> {
   build(BuildContext context) {
     return ListView(
       children: [
+        HeaderView(),
         ItemListView(context, type: SHOPPING_CART_LIST_TYPE),
       ],
     );

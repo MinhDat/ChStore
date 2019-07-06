@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../widgets/HeaderView.dart';
 import '../../widgets/CategoryListView.dart';
 
 class ProductCategory extends StatelessWidget {
@@ -18,6 +20,9 @@ class ProductCategoryContainer extends StatefulWidget {
 class _WidgetList extends State<ProductCategoryContainer> {
   @override
   build(BuildContext context) {
-    return CategoryListView(context);
+    return ListView(children: <Widget>[
+      HeaderView(),
+      CategoryListView(context),
+    ]);
   }
 }

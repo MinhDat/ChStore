@@ -49,12 +49,15 @@ class _WidgetList extends State<HomePageState> {
 
   @override
   build(BuildContext context) {
-    return ListView(
-      children: [
-        HeaderView(),
-        ItemPageView(context),
-        ItemListView(context),
-      ],
+    return Container(
+      color: Colors.white,
+      child: ListView(
+        children: [
+          HeaderView(),
+          ItemPageView(context),
+          ItemListView(context),
+        ],
+      ),
     );
   }
 }

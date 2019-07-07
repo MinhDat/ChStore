@@ -51,7 +51,7 @@ class ItemListState extends State<ItemListContainer> {
         case SHOPPING_CART_LIST_TYPE:
           productLineSecond.add(
             Expanded(
-              flex: 6, // 60%
+              flex: 7, // 60%
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -62,6 +62,7 @@ class ItemListState extends State<ItemListContainer> {
                         : null,
                   ),
                   Container(
+                    margin: const EdgeInsets.only(top: 10.0),
                     child: Text(product.count.toString()),
                   ),
                   IconButton(
@@ -92,7 +93,7 @@ class ItemListState extends State<ItemListContainer> {
               Expanded(
                 flex: 3,
                 child: Container(
-                  margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
+                  margin: const EdgeInsets.only(top: 10.0, bottom: 10.0),
                   child: ClipRRect(
                     borderRadius: new BorderRadius.circular(5.0),
                     child: Image.asset(
@@ -110,7 +111,7 @@ class ItemListState extends State<ItemListContainer> {
                       flex: 7,
                       child: Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.only(top: 10.0, left: 10.0),
+                        padding: EdgeInsets.only(top: 5.0, left: 10.0),
                         child: Text(
                           product.name,
                           style: new TextStyle(
@@ -123,11 +124,12 @@ class ItemListState extends State<ItemListContainer> {
                     Expanded(
                       flex: 3,
                       child: Container(
-                        alignment: Alignment.topLeft,
-                        padding: EdgeInsets.only(left: 10.0),
+                        alignment: Alignment.bottomLeft,
+                        padding: EdgeInsets.only(left: 10.0, bottom: 10),
                         decoration: new BoxDecoration(
                           border: Border(
-                            bottom: BorderSide(width: 1.0),
+                            bottom:
+                                BorderSide(width: 0.5, color: Colors.grey[600]),
                           ),
                         ),
                         child: Row(

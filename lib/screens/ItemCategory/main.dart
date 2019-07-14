@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../widgets/ItemCardListView.dart';
-import '../../data/category.dart';
+import 'package:ChStore/widgets/ItemCardListView.dart';
+import 'package:ChStore/data/Category.dart';
 
 class ItemCategory extends StatelessWidget {
   @override

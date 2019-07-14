@@ -1,11 +1,9 @@
-// import 'dart:async';
-import 'package:demo/widgets/ItemPageView.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../widgets/HeaderView.dart';
-import '../../widgets/ItemListView.dart';
-import '../../widgets/ItemPageView.dart';
+import 'package:ChStore/widgets/ItemPageView.dart';
+import 'package:ChStore/widgets/HeaderView.dart';
+import 'package:ChStore/widgets/ItemListView.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -22,31 +20,6 @@ class HomePageState extends StatefulWidget {
 }
 
 class _WidgetList extends State<HomePageState> {
-  // DateTime _now = new DateTime.now();
-  // List<String> _month = [
-  //   "JANUARY",
-  //   "FEBRUARY",
-  //   "MARCH",
-  //   "APRIL",
-  //   "MAY",
-  //   "JUNE",
-  //   "JULY",
-  //   "AUGUST",
-  //   "SEPTEMBER",
-  //   "OCTOBER",
-  //   "NOVEMBER",
-  //   "DECEMBER"
-  // ];
-  // List<String> _week = [
-  //   "MONDAY",
-  //   "TUESDAY",
-  //   "WEDNESDAY",
-  //   "THURSDAY",
-  //   "FRIDAY",
-  //   "SATURDAY",
-  //   "SUNDAY"
-  // ];
-
   @override
   build(BuildContext context) {
     return Container(

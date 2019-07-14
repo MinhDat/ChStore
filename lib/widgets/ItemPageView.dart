@@ -1,8 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
-import '../data/product.dart';
-// import '../routes.dart';
+import 'package:ChStore/data/Product.dart';
 
 class ItemPageView extends Container {
   ItemPageView(this._parentContext);

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-// import '../../widgets/HeaderView.dart';
-import '../../widgets/SearchBarView.dart';
+import 'package:ChStore/widgets/SearchBarView.dart';
 
 class Search extends StatelessWidget {
   @override
@@ -18,13 +16,56 @@ class SearchContainer extends StatefulWidget {
 }
 
 class _WidgetList extends State<SearchContainer> with WidgetsBindingObserver {
-  final ScrollController _scrollController = ScrollController();
+  ScrollController _scrollController;
+  bool _isFocused;
+  bool _hasFocused;
+
+  @override
+  void initState() {
+    super.initState();
+    _isFocused = UNFOCUSED_TEXT;
+    _hasFocused = UNFOCUSED_TEXT;
+    _scrollController = ScrollController()
+      ..addListener(() {
+        if (_scrollController.offset == 40.0) {
+          setState(() {
+            _isFocused = FOCUSED_TEXT;
+            _scrollController.jumpTo(0.0);
+          });
+        }
+      });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _onFocused() {
+    if (_hasFocused == UNFOCUSED_TEXT) {
+      _hasFocused = FOCUSED_TEXT;
+      _scrollController.animateTo(
+        40.0,
+        duration: Duration(milliseconds: 700),
+        curve: Curves.ease,
+      );
+    } else if (_isFocused == UNFOCUSED_TEXT) {
+      setState(() {
+        _hasFocused = UNFOCUSED_TEXT;
+      });
+    }
+  }
+
+  void _onUnfocused() {
+    print("test_2");
+    setState(() {
+      _isFocused = UNFOCUSED_TEXT;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    // Size screenSize = MediaQuery.of(context).size;
-
-    // TODO: implement build
     return Container(
       color: Colors.white,
       child: SafeArea(
@@ -32,16 +73,17 @@ class _WidgetList extends State<SearchContainer> with WidgetsBindingObserver {
           controller: _scrollController,
           slivers: <Widget>[
             SliverPersistentHeader(
-              delegate: SliverHeader(headerHeight: 40),
+              delegate: SliverHeader(headerHeight: 40, isFocused: _isFocused),
               pinned: true,
             ),
             SliverAppBar(
               pinned: true,
-              expandedHeight: 80.0,
-              floating: true,
+              expandedHeight: _isFocused ? 0.0 : 95.0,
+              floating: !_isFocused,
               bottom: PreferredSize(
                 // Add this code
-                preferredSize: Size.fromHeight(85.0), // Add this code
+                preferredSize:
+                    Size.fromHeight(_isFocused ? 0.0 : 95.0), // Add this code
                 child: Container(
                   alignment: Alignment.topLeft,
                   child: Text(""),
@@ -51,20 +93,27 @@ class _WidgetList extends State<SearchContainer> with WidgetsBindingObserver {
                 builder: (BuildContext context, BoxConstraints constraints) {
                   return Stack(
                     children: <Widget>[
-                      Container(
-                        alignment: Alignment.topLeft,
-                        padding: EdgeInsets.only(left: 20.0),
-                        child: Text(
-                          "Search",
-                          style: TextStyle(
-                              fontSize: 28.0, fontWeight: FontWeight.bold),
-                        ),
-                      ),
+                      !_isFocused
+                          ? Container(
+                              alignment: Alignment.topLeft,
+                              padding: EdgeInsets.only(left: 20.0),
+                              child: Text(
+                                "Search",
+                                style: TextStyle(
+                                    fontSize: 28.0,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            )
+                          : null,
                       Align(
                         alignment: Alignment.bottomCenter,
-                        child: SearchBarView(),
+                        child: SearchBarView(
+                          isFocused: _isFocused,
+                          onFocused: _onFocused,
+                          onUnfocused: _onUnfocused,
+                        ),
                       ),
-                    ],
+                    ].where((f) => f != null).toList(),
                   );
                 },
               ),
@@ -125,33 +174,35 @@ class _WidgetList extends State<SearchContainer> with WidgetsBindingObserver {
 
 class SliverHeader extends SliverPersistentHeaderDelegate {
   final double headerHeight;
+  bool isFocused;
 
-  SliverHeader({@required this.headerHeight});
+  SliverHeader({@required this.headerHeight, this.isFocused});
 
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
-        color: Colors.white,
-        child: Stack(
-          fit: StackFit.expand,
-          overflow: Overflow.visible,
-          children: [
-            Center(
-              child: Opacity(
-                opacity: shrinkOffset / headerHeight,
-                child: Text(
-                  "Search",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                  ),
+      color: Colors.white,
+      child: Stack(
+        fit: StackFit.expand,
+        overflow: Overflow.visible,
+        children: [
+          Center(
+            child: Opacity(
+              opacity: this.isFocused ? 1 : (shrinkOffset / headerHeight),
+              child: Text(
+                "Search",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
                 ),
               ),
             ),
-          ],
-        ));
+          ),
+        ],
+      ),
+    );
   }
 
   @override

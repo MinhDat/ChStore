@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../data/category.dart';
+import 'package:ChStore/data/Category.dart';
 
 //Template Type
 const NORMAL_LIST_TYPE = 1;

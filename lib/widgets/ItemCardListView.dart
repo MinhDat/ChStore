@@ -1,6 +1,7 @@
-import 'package:demo/data/category.dart';
 import 'package:flutter/material.dart';
-import '../data/product.dart';
+
+import 'package:ChStore/data/Category.dart';
+import 'package:ChStore/data/Product.dart';
 
 //Template Type
 const NORMAL_LIST_TYPE = 0;

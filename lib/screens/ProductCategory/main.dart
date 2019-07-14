@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/HeaderView.dart';
-import '../../widgets/CategoryListView.dart';
+import 'package:ChStore/widgets/HeaderView.dart';
+import 'package:ChStore/widgets/CategoryListView.dart';
 
 class ProductCategory extends StatelessWidget {
   @override

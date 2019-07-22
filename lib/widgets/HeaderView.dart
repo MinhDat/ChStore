@@ -1,20 +1,6 @@
 import 'package:flutter/material.dart';
 
 class HeaderView extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return HeaderContainer();
-  }
-}
-
-class HeaderContainer extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return HeaderState();
-  }
-}
-
-class HeaderState extends State<HeaderContainer> {
   DateTime _now = new DateTime.now();
   List<String> _month = [
     "JANUARY",
@@ -39,7 +25,6 @@ class HeaderState extends State<HeaderContainer> {
     "SATURDAY",
     "SUNDAY"
   ];
-
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;

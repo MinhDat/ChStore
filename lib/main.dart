@@ -30,27 +30,17 @@ void main() {
   );
 }
 
-class Mainpage extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: BottomNavigation(),
-    );
-  }
-}
-
-class BottomNavigation extends StatefulWidget {
+class Mainpage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _WidgetList();
   }
 }
 
-class _WidgetList extends State<BottomNavigation> {
+class _WidgetList extends State<Mainpage> {
   int index = 0;
 
-  _navigateToScreen(int index) {
+  Widget _navigateToScreen(int index) {
     switch (index) {
       case 0:
         return HomePage();
@@ -81,7 +71,7 @@ class _WidgetList extends State<BottomNavigation> {
         items: [
           BottomNavigationBarItem(
             icon: new Image.asset(
-              'images/today-icon.png',
+              'icons/today-icon.png',
               height: 22,
               width: 22,
               color: index == 0 ? Colors.blue : Colors.black54,
@@ -90,7 +80,7 @@ class _WidgetList extends State<BottomNavigation> {
           ),
           BottomNavigationBarItem(
             icon: new Image.asset(
-              'images/toggle-menu-icon.png',
+              'icons/toggle-menu-icon.png',
               height: 22,
               width: 22,
               color: index == 1 ? Colors.blue : Colors.black54,
@@ -99,7 +89,7 @@ class _WidgetList extends State<BottomNavigation> {
           ),
           BottomNavigationBarItem(
             icon: new Image.asset(
-              'images/search-icon.png',
+              'icons/search-icon.png',
               height: 22,
               width: 22,
               color: index == 2 ? Colors.blue : Colors.black54,

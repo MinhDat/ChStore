@@ -58,7 +58,7 @@ List<PopularCategory> popularTags = [
   ),
   PopularCategory(
     id: 3,
-    name: "Heidi",
+    name: "Unbroken",
   ),
   PopularCategory(
     id: 4,
@@ -67,5 +67,17 @@ List<PopularCategory> popularTags = [
   PopularCategory(
     id: 5,
     name: "Perfect",
+  ),
+  PopularCategory(
+    id: 6,
+    name: "Far from home",
+  ),
+  PopularCategory(
+    id: 7,
+    name: "Heidi",
+  ),
+  PopularCategory(
+    id: 8,
+    name: "I miss you",
   ),
 ];

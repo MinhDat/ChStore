@@ -7,18 +7,8 @@ import 'package:ChStore/data/Product.dart';
 const NORMAL_LIST_TYPE = 0;
 const SHOPPING_CART_LIST_TYPE = 1;
 
-class ItemCardListView extends StatelessWidget {
+class ItemCardListView extends StatefulWidget {
   ItemCardListView(this._parentContext, {this.type: NORMAL_LIST_TYPE});
-  final BuildContext _parentContext;
-  final int type;
-  @override
-  Widget build(BuildContext context) {
-    return ItemCardContainer(_parentContext, type: this.type);
-  }
-}
-
-class ItemCardContainer extends StatefulWidget {
-  ItemCardContainer(this._parentContext, {this.type});
   final BuildContext _parentContext;
   final int type;
 
@@ -27,7 +17,7 @@ class ItemCardContainer extends StatefulWidget {
       new ItemCardState(_parentContext, type: this.type);
 }
 
-class ItemCardState extends State<ItemCardContainer> {
+class ItemCardState extends State<ItemCardListView> {
   ItemCardState(this._parentContext, {this.type});
   // AppLifecycleState appState;
 

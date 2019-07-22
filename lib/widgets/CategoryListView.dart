@@ -11,28 +11,6 @@ class CategoryListView extends StatelessWidget {
   final int type;
   @override
   Widget build(BuildContext context) {
-    return CategoryListContainer(_parentContext, type: this.type);
-  }
-}
-
-class CategoryListContainer extends StatefulWidget {
-  CategoryListContainer(this._parentContext, {this.type});
-  final BuildContext _parentContext;
-
-  final int type;
-
-  @override
-  CategoryListState createState() =>
-      new CategoryListState(_parentContext, type: this.type);
-}
-
-class CategoryListState extends State<CategoryListContainer> {
-  CategoryListState(this._parentContext, {this.type});
-  final BuildContext _parentContext;
-  final int type;
-
-  @override
-  build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
 
     List<GestureDetector> _categories = allCategories

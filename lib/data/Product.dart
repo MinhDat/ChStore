@@ -22,82 +22,68 @@ class Product {
 List<Product> allProducts = [
   Product(
     id: 0,
-    image: "lib/assets/picture_one.webp",
-    name: "Product Demo One JDK MAX NICE 87320",
+    image: "lib/pictures/men/man_and_the_streets.jpeg",
+    name: "Life is always the difficulties and challenges",
     price: "65.00",
     description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae hendrerit nisi. Curabitur eu sodales nibh. Cras posuere mauris vitae risus tincidunt fermentum. Nunc aliquet mauris quis urna tristique suscipit. Nulla feugiat imperdiet justo, vitae sollicitudin orci ultricies ut. Praesent id mauris euismod, auctor sem vitae, ultrices libero. Etiam vulputate, dui eget sollicitudin porttitor, nulla augue placerat mi, at porta quam ante at dolor. Vivamus scelerisque nibh vitae eros hendrerit, sit amet laoreet lectus ornare. Nullam quis massa a est imperdiet dictum. Praesent ut elit a sem aliquet fermentum. Donec in mollis lacus. Cras sit amet tortor tincidunt, convallis nibh vitae, luctus magna.",
+        "A man always smiles in front of someone but he always hides his sad in behind (man and the streets)",
   ),
   Product(
     id: 1,
-    image: "lib/assets/picture_two.webp",
-    name: "Product Demo 2 MAVEN DATALOG 13412",
+    image: "lib/pictures/women/woman_and_sunset.jpeg",
+    name: "A woman and the sunset",
     price: "65.00",
-    description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae hendrerit nisi. Curabitur eu sodales nibh. Cras posuere mauris vitae risus tincidunt fermentum. Nunc aliquet mauris quis urna tristique suscipit. Nulla feugiat imperdiet justo, vitae sollicitudin orci ultricies ut. Praesent id mauris euismod, auctor sem vitae, ultrices libero. Etiam vulputate, dui eget sollicitudin porttitor, nulla augue placerat mi, at porta quam ante at dolor. Vivamus scelerisque nibh vitae eros hendrerit, sit amet laoreet lectus ornare. Nullam quis massa a est imperdiet dictum. Praesent ut elit a sem aliquet fermentum. Donec in mollis lacus. Cras sit amet tortor tincidunt, convallis nibh vitae, luctus magna.",
+    description: "A woman was wearing black hat and staring at the sunset",
   ),
   Product(
     id: 2,
-    image: "lib/assets/picture_three.webp",
-    name: "Product Demo Three Decentralize Application",
+    image: "lib/pictures/travels/girl_and_beaches.jpg",
+    name: "Tiny girl and the beach (I miss u)",
     price: "65.00",
     description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae hendrerit nisi. Curabitur eu sodales nibh. Cras posuere mauris vitae risus tincidunt fermentum. Nunc aliquet mauris quis urna tristique suscipit. Nulla feugiat imperdiet justo, vitae sollicitudin orci ultricies ut. Praesent id mauris euismod, auctor sem vitae, ultrices libero. Etiam vulputate, dui eget sollicitudin porttitor, nulla augue placerat mi, at porta quam ante at dolor. Vivamus scelerisque nibh vitae eros hendrerit, sit amet laoreet lectus ornare. Nullam quis massa a est imperdiet dictum. Praesent ut elit a sem aliquet fermentum. Donec in mollis lacus. Cras sit amet tortor tincidunt, convallis nibh vitae, luctus magna.",
+        "A girl was wearing pink dress and being the side with the beach",
   ),
   Product(
     id: 3,
-    image: "lib/assets/picture_four.webp",
-    name: "Product Demo 4 ZSU-1000",
+    image: "lib/pictures/children/boy_and_teddy.jpeg",
+    name: "A boy and his teddy",
     price: "65.00",
-    description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae hendrerit nisi. Curabitur eu sodales nibh. Cras posuere mauris vitae risus tincidunt fermentum. Nunc aliquet mauris quis urna tristique suscipit. Nulla feugiat imperdiet justo, vitae sollicitudin orci ultricies ut. Praesent id mauris euismod, auctor sem vitae, ultrices libero. Etiam vulputate, dui eget sollicitudin porttitor, nulla augue placerat mi, at porta quam ante at dolor. Vivamus scelerisque nibh vitae eros hendrerit, sit amet laoreet lectus ornare. Nullam quis massa a est imperdiet dictum. Praesent ut elit a sem aliquet fermentum. Donec in mollis lacus. Cras sit amet tortor tincidunt, convallis nibh vitae, luctus magna.",
+    description: "When I was a child, I dreamed to become a hero",
   ),
   Product(
-    id: 4,
-    image: "lib/assets/picture_five.webp",
-    name: "Product Demo Five KAKA NATINA",
-    price: "65.00",
-    description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae hendrerit nisi. Curabitur eu sodales nibh. Cras posuere mauris vitae risus tincidunt fermentum. Nunc aliquet mauris quis urna tristique suscipit. Nulla feugiat imperdiet justo, vitae sollicitudin orci ultricies ut. Praesent id mauris euismod, auctor sem vitae, ultrices libero. Etiam vulputate, dui eget sollicitudin porttitor, nulla augue placerat mi, at porta quam ante at dolor. Vivamus scelerisque nibh vitae eros hendrerit, sit amet laoreet lectus ornare. Nullam quis massa a est imperdiet dictum. Praesent ut elit a sem aliquet fermentum. Donec in mollis lacus. Cras sit amet tortor tincidunt, convallis nibh vitae, luctus magna.",
-  ),
+      id: 4,
+      image: "lib/pictures/animals/girl_and_dog.jpeg",
+      name: "Tiny girl and corgi dog",
+      price: "65.00",
+      description: "I'm looking a dog"),
   Product(
     id: 5,
-    image: "lib/assets/picture_six.jpg",
-    name: "Product demo 6 MINIMIZE CC 1000",
+    image: "lib/pictures/lifes/bad_boy.jpeg",
+    name: "Bad boy",
     price: "65.00",
     description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae hendrerit nisi. Curabitur eu sodales nibh. Cras posuere mauris vitae risus tincidunt fermentum. Nunc aliquet mauris quis urna tristique suscipit. Nulla feugiat imperdiet justo, vitae sollicitudin orci ultricies ut. Praesent id mauris euismod, auctor sem vitae, ultrices libero. Etiam vulputate, dui eget sollicitudin porttitor, nulla augue placerat mi, at porta quam ante at dolor. Vivamus scelerisque nibh vitae eros hendrerit, sit amet laoreet lectus ornare. Nullam quis massa a est imperdiet dictum. Praesent ut elit a sem aliquet fermentum. Donec in mollis lacus. Cras sit amet tortor tincidunt, convallis nibh vitae, luctus magna.",
+        "I before might be a bad person, but I now  still always try to become perfect",
   ),
   Product(
     id: 6,
-    image: "lib/assets/picture_seven.webp",
-    name: "Product Demo Seven Maxium H12000",
+    image: "lib/pictures/women/alone_girl.jpeg",
+    name: "Sometimes I want alone",
     price: "65.00",
-    description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae hendrerit nisi. Curabitur eu sodales nibh. Cras posuere mauris vitae risus tincidunt fermentum. Nunc aliquet mauris quis urna tristique suscipit. Nulla feugiat imperdiet justo, vitae sollicitudin orci ultricies ut. Praesent id mauris euismod, auctor sem vitae, ultrices libero. Etiam vulputate, dui eget sollicitudin porttitor, nulla augue placerat mi, at porta quam ante at dolor. Vivamus scelerisque nibh vitae eros hendrerit, sit amet laoreet lectus ornare. Nullam quis massa a est imperdiet dictum. Praesent ut elit a sem aliquet fermentum. Donec in mollis lacus. Cras sit amet tortor tincidunt, convallis nibh vitae, luctus magna.",
+    description: "Alone make me stronger, but it makes me a crazy -_-",
   ),
   Product(
     id: 7,
-    image: "lib/assets/picture_eight.webp",
-    name: "Product Demo 8 Phantom and beauty",
+    image: "lib/pictures/lifes/man_is_walking_in_desert.png",
+    name: "And sometimes I forget that I'm still a human being",
     price: "65.00",
-    description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae hendrerit nisi. Curabitur eu sodales nibh. Cras posuere mauris vitae risus tincidunt fermentum. Nunc aliquet mauris quis urna tristique suscipit. Nulla feugiat imperdiet justo, vitae sollicitudin orci ultricies ut. Praesent id mauris euismod, auctor sem vitae, ultrices libero. Etiam vulputate, dui eget sollicitudin porttitor, nulla augue placerat mi, at porta quam ante at dolor. Vivamus scelerisque nibh vitae eros hendrerit, sit amet laoreet lectus ornare. Nullam quis massa a est imperdiet dictum. Praesent ut elit a sem aliquet fermentum. Donec in mollis lacus. Cras sit amet tortor tincidunt, convallis nibh vitae, luctus magna.",
+    description: "Maybe I'm too greedy",
   ),
   Product(
     id: 8,
-    image: "lib/assets/picture_nine.webp",
-    name: "Product Demo Nine Malog Resize",
+    image: "lib/pictures/books/diary.jpg",
+    name: "The pieces of stories are separate",
     price: "65.00",
     description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae hendrerit nisi. Curabitur eu sodales nibh. Cras posuere mauris vitae risus tincidunt fermentum. Nunc aliquet mauris quis urna tristique suscipit. Nulla feugiat imperdiet justo, vitae sollicitudin orci ultricies ut. Praesent id mauris euismod, auctor sem vitae, ultrices libero. Etiam vulputate, dui eget sollicitudin porttitor, nulla augue placerat mi, at porta quam ante at dolor. Vivamus scelerisque nibh vitae eros hendrerit, sit amet laoreet lectus ornare. Nullam quis massa a est imperdiet dictum. Praesent ut elit a sem aliquet fermentum. Donec in mollis lacus. Cras sit amet tortor tincidunt, convallis nibh vitae, luctus magna.",
-  ),
-  Product(
-    id: 9,
-    image: "lib/assets/picture_ten.jpg",
-    name: "Product Demo 10 Fantasy Zero & One",
-    price: "65.00",
-    description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae hendrerit nisi. Curabitur eu sodales nibh. Cras posuere mauris vitae risus tincidunt fermentum. Nunc aliquet mauris quis urna tristique suscipit. Nulla feugiat imperdiet justo, vitae sollicitudin orci ultricies ut. Praesent id mauris euismod, auctor sem vitae, ultrices libero. Etiam vulputate, dui eget sollicitudin porttitor, nulla augue placerat mi, at porta quam ante at dolor. Vivamus scelerisque nibh vitae eros hendrerit, sit amet laoreet lectus ornare. Nullam quis massa a est imperdiet dictum. Praesent ut elit a sem aliquet fermentum. Donec in mollis lacus. Cras sit amet tortor tincidunt, convallis nibh vitae, luctus magna.",
-  ),
+        "Because it is my diary which is my feelings are implemented on the lines of code.",
+  )
 ];

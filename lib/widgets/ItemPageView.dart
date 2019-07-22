@@ -3,18 +3,8 @@ import 'package:flutter/material.dart';
 
 import 'package:ChStore/data/Product.dart';
 
-class ItemPageView extends Container {
+class ItemPageView extends StatefulWidget {
   ItemPageView(this._parentContext);
-  final BuildContext _parentContext;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(child: ItemPageContainer(_parentContext));
-  }
-}
-
-class ItemPageContainer extends StatefulWidget {
-  ItemPageContainer(this._parentContext);
   final BuildContext _parentContext;
 
   @override
@@ -23,8 +13,7 @@ class ItemPageContainer extends StatefulWidget {
   }
 }
 
-class ItemPageState extends State<ItemPageContainer>
-    with WidgetsBindingObserver {
+class ItemPageState extends State<ItemPageView> with WidgetsBindingObserver {
   ItemPageState(this._parentContext);
   final BuildContext _parentContext;
 

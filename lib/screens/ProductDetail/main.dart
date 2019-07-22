@@ -3,30 +3,16 @@ import 'package:flutter/rendering.dart';
 
 import 'package:ChStore/data/Product.dart';
 
-class ProductDetail extends StatelessWidget {
-  Product product;
-  int index = 0;
-
-  @override
-  Widget build(BuildContext context) {
-    RouteSettings settings = ModalRoute.of(context).settings;
-    product = settings.arguments;
-    return ProductDetailContainer(product);
-  }
-}
-
-class ProductDetailContainer extends StatefulWidget {
-  ProductDetailContainer(this.product);
-  final Product product;
+class ProductDetail extends StatefulWidget {
+  ProductDetail();
   @override
   State<StatefulWidget> createState() {
-    return _WidgetList(product);
+    return _WidgetList();
   }
 }
 
-class _WidgetList extends State<ProductDetailContainer>
-    with WidgetsBindingObserver {
-  _WidgetList(this.product);
+class _WidgetList extends State<ProductDetail> with WidgetsBindingObserver {
+  _WidgetList();
   Product product;
   Choice _selectedChoice;
 
@@ -42,7 +28,6 @@ class _WidgetList extends State<ProductDetailContainer>
   }
 
   void _select(Choice choice) {
-    // Causes the app to rebuild with the new _selectedChoice.
     _selectedChoice = choice;
   }
 
@@ -54,6 +39,11 @@ class _WidgetList extends State<ProductDetailContainer>
 
   @override
   Widget build(BuildContext context) {
+    RouteSettings settings = ModalRoute.of(context).settings;
+    setState(() {
+      product = settings.arguments;
+    });
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Product Detail"),

@@ -12,17 +12,17 @@ class Category {
 List<Category> allCategories = [
   Category(
     id: 0,
-    image: "lib/assets/woman-category.jpg",
+    image: "lib/pictures/woman-category.jpg",
     name: "Woman",
   ),
   Category(
     id: 1,
-    image: "lib/assets/man-category.jpg",
+    image: "lib/pictures/man-category.jpg",
     name: "Man",
   ),
   Category(
     id: 2,
-    image: "lib/assets/sport-category.png",
+    image: "lib/pictures/sport-category.png",
     name: "Sport",
   ),
 ];

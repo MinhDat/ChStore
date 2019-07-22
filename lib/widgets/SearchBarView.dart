@@ -1,30 +1,22 @@
 import 'package:flutter/material.dart';
 
-//Template Type
+//Focus Type
 const UNFOCUSED_TEXT = false;
 const FOCUSED_TEXT = true;
+//Change Type
+const NO_WORDS = false;
+const HAS_WORDS = true;
 
-class SearchBarView extends StatelessWidget {
-  SearchBarView({this.isFocused: true, this.onFocused, this.onUnfocused});
+class SearchBarView extends StatefulWidget {
+  SearchBarView(
+      {this.isFocused: true,
+      this.onFocused,
+      this.onUnfocused,
+      this.onChangeWords});
   bool isFocused;
   FocusedCalback onFocused;
   UnfocusedCalback onUnfocused;
-
-  @override
-  Widget build(BuildContext context) {
-    return SearchBarContainer(
-      isFocused: isFocused,
-      onFocused: onFocused,
-      onUnfocused: onUnfocused,
-    );
-  }
-}
-
-class SearchBarContainer extends StatefulWidget {
-  SearchBarContainer({this.isFocused, this.onFocused, this.onUnfocused});
-  bool isFocused;
-  FocusedCalback onFocused;
-  UnfocusedCalback onUnfocused;
+  ChangeWordsCalback onChangeWords;
 
   @override
   State<StatefulWidget> createState() {
@@ -32,16 +24,19 @@ class SearchBarContainer extends StatefulWidget {
       isFocused: isFocused,
       onFocused: onFocused,
       onUnfocused: onUnfocused,
+      onChangeWords: onChangeWords,
     );
   }
 }
 
-class SearchBarState extends State<SearchBarContainer>
+class SearchBarState extends State<SearchBarView>
     with TickerProviderStateMixin {
-  SearchBarState({this.isFocused, this.onFocused, this.onUnfocused});
+  SearchBarState(
+      {this.isFocused, this.onFocused, this.onUnfocused, this.onChangeWords});
   bool isFocused;
   FocusedCalback onFocused;
   UnfocusedCalback onUnfocused;
+  ChangeWordsCalback onChangeWords;
 
   AnimationController _animationController;
   CurvedAnimation _sideFinalTextAnimation;
@@ -73,7 +68,7 @@ class SearchBarState extends State<SearchBarContainer>
   }
 
   void _handleChange(data) {
-    print(data);
+    onChangeWords(data.toString());
   }
 
   @override
@@ -185,3 +180,4 @@ class SearchBarState extends State<SearchBarContainer>
 
 typedef UnfocusedCalback = void Function();
 typedef FocusedCalback = void Function();
+typedef ChangeWordsCalback = void Function(String);

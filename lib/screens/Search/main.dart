@@ -2,28 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:ChStore/widgets/SearchBarView.dart';
 import 'package:ChStore/widgets/PopularityView.dart';
 
-class Search extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return SearchContainer();
-  }
-}
-
-class SearchContainer extends StatefulWidget {
+class Search extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _WidgetList();
   }
 }
 
-class _WidgetList extends State<SearchContainer> with WidgetsBindingObserver {
+class _WidgetList extends State<Search> with WidgetsBindingObserver {
   ScrollController _scrollController;
   bool _isFocused;
+  bool _hasWords;
 
   @override
   void initState() {
     super.initState();
     _isFocused = UNFOCUSED_TEXT;
+    _hasWords = NO_WORDS;
     _scrollController = ScrollController()
       ..addListener(() {
         if (_scrollController.offset == 40.0) {
@@ -45,7 +40,7 @@ class _WidgetList extends State<SearchContainer> with WidgetsBindingObserver {
     if (_isFocused == UNFOCUSED_TEXT) {
       _scrollController.animateTo(
         40.0,
-        duration: Duration(milliseconds: 700),
+        duration: Duration(milliseconds: 500),
         curve: Curves.ease,
       );
     }
@@ -55,6 +50,19 @@ class _WidgetList extends State<SearchContainer> with WidgetsBindingObserver {
     setState(() {
       _isFocused = UNFOCUSED_TEXT;
     });
+  }
+
+  void _onChangeWords(String data) {
+    if (data.length > 0 && _hasWords == NO_WORDS) {
+      setState(() {
+        _hasWords = HAS_WORDS;
+      });
+    }
+    if (data.length == 0 && _hasWords == HAS_WORDS) {
+      setState(() {
+        _hasWords = NO_WORDS;
+      });
+    }
   }
 
   @override
@@ -104,6 +112,7 @@ class _WidgetList extends State<SearchContainer> with WidgetsBindingObserver {
                           isFocused: _isFocused,
                           onFocused: _onFocused,
                           onUnfocused: _onUnfocused,
+                          onChangeWords: _onChangeWords,
                         ),
                       ),
                     ].where((f) => f != null).toList(),
@@ -113,7 +122,8 @@ class _WidgetList extends State<SearchContainer> with WidgetsBindingObserver {
             ),
             SliverToBoxAdapter(
               child: Container(
-                child: PopularityView(),
+                child:
+                    PopularityView(isFocused: _isFocused, hasWords: _hasWords),
               ),
             ),
           ],

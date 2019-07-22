@@ -43,24 +43,41 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-   - images/today-icon.png
-   - images/toggle-menu-icon.png
-   - images/search-icon.png
+   - icons/today-icon.png
+   - icons/toggle-menu-icon.png
+   - icons/search-icon.png
 
-   - lib/assets/picture_one.webp
-   - lib/assets/picture_two.webp
-   - lib/assets/picture_three.webp
-   - lib/assets/picture_four.webp
-   - lib/assets/picture_five.webp
-   - lib/assets/picture_six.jpg
-   - lib/assets/picture_seven.webp
-   - lib/assets/picture_eight.webp
-   - lib/assets/picture_nine.webp
-   - lib/assets/picture_ten.jpg
+   - lib/pictures/picture_one.webp
+   - lib/pictures/picture_two.webp
+   - lib/pictures/picture_three.webp
+   - lib/pictures/picture_four.webp
+   - lib/pictures/picture_five.webp
+   - lib/pictures/picture_six.jpg
+   - lib/pictures/picture_seven.webp
+   - lib/pictures/picture_eight.webp
+   - lib/pictures/picture_nine.webp
+   - lib/pictures/picture_ten.jpg
 
-   - lib/assets/man-category.jpg
-   - lib/assets/woman-category.jpg
-   - lib/assets/sport-category.png
+   - lib/pictures/man-category.jpg
+   - lib/pictures/woman-category.jpg
+   - lib/pictures/sport-category.png
+   # Travel categoies
+   - lib/pictures/travels/girl_and_flowers.jpg
+   - lib/pictures/travels/girl_and_beaches.jpg
+   # Woman categories
+   - lib/pictures/women/woman_and_sunset.jpeg
+   - lib/pictures/women/alone_girl.jpeg
+   # Man categories
+   - lib/pictures/men/man_and_the_streets.jpeg
+   # Animal categories
+   - lib/pictures/animals/girl_and_dog.jpeg
+   # Children categories
+   - lib/pictures/children/boy_and_teddy.jpeg
+   # life categories
+   - lib/pictures/lifes/bad_boy.jpeg
+   - lib/pictures/lifes/man_is_walking_in_desert.png
+   # books categories
+   - lib/pictures/books/diary.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

@@ -72,6 +72,10 @@ class SearchBarState extends State<SearchBarContainer>
     onFocused();
   }
 
+  void _handleChange(data) {
+    print(data);
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
@@ -87,6 +91,9 @@ class SearchBarState extends State<SearchBarContainer>
             child: isFocused
                 ? TextField(
                     autofocus: true,
+                    onChanged: (data) {
+                      _handleChange(data);
+                    },
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.grey[200],

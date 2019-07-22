@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ChStore/widgets/SearchBarView.dart';
+import 'package:ChStore/widgets/PopularityView.dart';
 
 class Search extends StatelessWidget {
   @override
@@ -110,53 +111,11 @@ class _WidgetList extends State<SearchContainer> with WidgetsBindingObserver {
                 },
               ),
             ),
-            SliverList(
-              delegate: SliverChildListDelegate(
-                [
-                  Container(
-                    alignment: Alignment.topLeft,
-                    margin: EdgeInsets.only(left: 20.0, right: 20.0),
-                    padding: EdgeInsets.only(bottom: 10.0),
-                    decoration: new BoxDecoration(
-                      color: Colors.white,
-                      border: Border(
-                        bottom: BorderSide(width: 0.5, color: Colors.grey[600]),
-                      ),
-                    ),
-                    child: Text(
-                      "Trending",
-                      style: TextStyle(
-                          fontSize: 18.0, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ],
+            SliverToBoxAdapter(
+              child: Container(
+                child: PopularityView(),
               ),
             ),
-            SliverList(delegate:
-                SliverChildBuilderDelegate((BuildContext context, int index) {
-              return Container(
-                child: Column(
-                  children: [
-                    Container(
-                      alignment: Alignment.topLeft,
-                      margin: EdgeInsets.only(left: 20.0, right: 20.0),
-                      padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-                      decoration: new BoxDecoration(
-                        color: Colors.white,
-                        border: Border(
-                          bottom:
-                              BorderSide(width: 0.5, color: Colors.grey[600]),
-                        ),
-                      ),
-                      child: Text(
-                        "Product demo $index",
-                        style: TextStyle(fontSize: 18.0, color: Colors.blue),
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            }))
           ],
         ),
       ),

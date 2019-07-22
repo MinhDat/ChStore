@@ -18,13 +18,11 @@ class SearchContainer extends StatefulWidget {
 class _WidgetList extends State<SearchContainer> with WidgetsBindingObserver {
   ScrollController _scrollController;
   bool _isFocused;
-  bool _hasFocused;
 
   @override
   void initState() {
     super.initState();
     _isFocused = UNFOCUSED_TEXT;
-    _hasFocused = UNFOCUSED_TEXT;
     _scrollController = ScrollController()
       ..addListener(() {
         if (_scrollController.offset == 40.0) {
@@ -43,22 +41,16 @@ class _WidgetList extends State<SearchContainer> with WidgetsBindingObserver {
   }
 
   void _onFocused() {
-    if (_hasFocused == UNFOCUSED_TEXT) {
-      _hasFocused = FOCUSED_TEXT;
+    if (_isFocused == UNFOCUSED_TEXT) {
       _scrollController.animateTo(
         40.0,
         duration: Duration(milliseconds: 700),
         curve: Curves.ease,
       );
-    } else if (_isFocused == UNFOCUSED_TEXT) {
-      setState(() {
-        _hasFocused = UNFOCUSED_TEXT;
-      });
     }
   }
 
   void _onUnfocused() {
-    print("test_2");
     setState(() {
       _isFocused = UNFOCUSED_TEXT;
     });

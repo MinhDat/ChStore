@@ -43,7 +43,7 @@ class SearchBarState extends State<SearchBarContainer>
   FocusedCalback onFocused;
   UnfocusedCalback onUnfocused;
 
-  FocusNode _focusNode;
+  // FocusNode _focusNode;
   AnimationController _animationController;
   CurvedAnimation _sideFinalTextAnimation;
 
@@ -58,22 +58,26 @@ class SearchBarState extends State<SearchBarContainer>
       parent: _animationController,
     );
 
-    _focusNode = FocusNode()
-      ..addListener(() {
-        onFocused();
-      });
+    // _focusNode = FocusNode()
+    //   ..addListener(() {
+    //     onFocused();
+    //   });
   }
 
   @override
   void dispose() {
-    _focusNode.dispose();
+    // _focusNode.dispose();
     _animationController.dispose();
     super.dispose();
   }
 
-  void _handCancel() {
-    _focusNode.unfocus();
+  void _handleCancel() {
+    // _focusNode.unfocus();
     onUnfocused();
+  }
+
+  void _handleTap() {
+    onFocused();
   }
 
   @override
@@ -88,29 +92,68 @@ class SearchBarState extends State<SearchBarContainer>
         children: [
           Expanded(
             flex: isFocused ? 8 : 10,
-            child: TextField(
-              focusNode: _focusNode,
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: Colors.grey[200],
-                prefixIcon: new Icon(
-                  Icons.search,
-                  color: Colors.grey,
-                ),
-                // suffixIcon: new Icon(Icons.close),
-                border: InputBorder.none,
-                contentPadding: const EdgeInsets.only(left: 14.0, top: 7.0),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey[200]),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey[200]),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                hintText: 'Enter a search term',
-              ),
-            ),
+            child: isFocused
+                ? TextField(
+                    // focusNode: _focusNode,
+                    autofocus: true,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey[200],
+                      prefixIcon: new Icon(
+                        Icons.search,
+                        color: Colors.grey,
+                      ),
+                      // suffixIcon: new Icon(Icons.close),
+                      border: InputBorder.none,
+                      contentPadding:
+                          const EdgeInsets.only(left: 14.0, top: 7.0),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey[200]),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey[200]),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      hintText: 'Enter a search term',
+                    ),
+                  )
+                : GestureDetector(
+                    onTap: () {
+                      _handleTap();
+                    },
+                    child: Container(
+                      height: 35.0,
+                      alignment: Alignment.centerLeft,
+                      padding: const EdgeInsets.only(left: 11.0),
+                      decoration: BoxDecoration(
+                          border: new Border.all(color: Colors.grey[200]),
+                          borderRadius: BorderRadius.circular(10.0)),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Icon(
+                            Icons.search,
+                            color: Colors.grey[500],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 12.0,
+                              top: 2.0,
+                            ),
+                            child: Text(
+                              'Enter a search term',
+                              style: TextStyle(
+                                color: Colors.grey[500],
+                                fontSize: 16.0,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
           ),
           (isFocused
               ? Expanded(
@@ -120,7 +163,7 @@ class SearchBarState extends State<SearchBarContainer>
                     axis: Axis.horizontal,
                     axisAlignment: -1,
                     child: GestureDetector(
-                      onTap: () => _handCancel(),
+                      onTap: () => _handleCancel(),
                       child: AnimatedContainer(
                         duration: Duration(seconds: 1),
                         alignment: Alignment.center,

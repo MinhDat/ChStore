@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ChStore/widgets/SearchBarView.dart';
+
+import 'package:ChStore/screens/Search/SliverHeader.dart';
+import 'package:ChStore/widgets/SearchView/SearchBox.dart';
+import 'package:ChStore/widgets/SearchView/SearchResult.dart';
 import 'package:ChStore/widgets/PopularityView.dart';
 
 class Search extends StatefulWidget {
@@ -9,7 +12,7 @@ class Search extends StatefulWidget {
   }
 }
 
-class _WidgetList extends State<Search> with WidgetsBindingObserver {
+class _WidgetList extends State<Search> {
   ScrollController _scrollController;
   bool _isFocused;
   bool _hasWords;
@@ -49,6 +52,7 @@ class _WidgetList extends State<Search> with WidgetsBindingObserver {
   void _onUnfocused() {
     setState(() {
       _isFocused = UNFOCUSED_TEXT;
+      _hasWords = NO_WORDS;
     });
   }
 
@@ -101,14 +105,15 @@ class _WidgetList extends State<Search> with WidgetsBindingObserver {
                               child: Text(
                                 "Search",
                                 style: TextStyle(
-                                    fontSize: 28.0,
-                                    fontWeight: FontWeight.bold),
+                                  fontSize: 28.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             )
                           : null,
                       Align(
                         alignment: Alignment.bottomCenter,
-                        child: SearchBarView(
+                        child: SearchBox(
                           isFocused: _isFocused,
                           onFocused: _onFocused,
                           onUnfocused: _onUnfocused,
@@ -122,8 +127,25 @@ class _WidgetList extends State<Search> with WidgetsBindingObserver {
             ),
             SliverToBoxAdapter(
               child: Container(
-                child:
-                    PopularityView(isFocused: _isFocused, hasWords: _hasWords),
+                child: Stack(
+                  children: [
+                    PopularityView(),
+                    _isFocused
+                        ? Positioned(
+                            bottom: 0,
+                            right: 0,
+                            top: 0,
+                            left: 0,
+                            child: Scaffold(
+                              backgroundColor: _hasWords
+                                  ? Colors.white
+                                  : Colors.black.withOpacity(0.5),
+                              body: _hasWords ? SearchResult() : null,
+                            ),
+                          )
+                        : null,
+                  ].where((f) => (f != null)).toList(),
+                ),
               ),
             ),
           ],
@@ -131,47 +153,4 @@ class _WidgetList extends State<Search> with WidgetsBindingObserver {
       ),
     );
   }
-}
-
-class SliverHeader extends SliverPersistentHeaderDelegate {
-  final double headerHeight;
-  bool isFocused;
-
-  SliverHeader({@required this.headerHeight, this.isFocused});
-
-  @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return Container(
-      color: Colors.white,
-      child: Stack(
-        fit: StackFit.expand,
-        overflow: Overflow.visible,
-        children: [
-          Center(
-            child: Opacity(
-              opacity: this.isFocused ? 1 : (shrinkOffset / headerHeight),
-              child: Text(
-                "Search",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16,
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  @override
-  double get maxExtent => headerHeight;
-
-  @override
-  double get minExtent => headerHeight;
-
-  @override
-  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) => true;
 }

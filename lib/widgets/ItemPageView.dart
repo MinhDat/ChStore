@@ -13,7 +13,7 @@ class ItemPageView extends StatefulWidget {
   }
 }
 
-class ItemPageState extends State<ItemPageView> with WidgetsBindingObserver {
+class ItemPageState extends State<ItemPageView> {
   ItemPageState(this._parentContext);
   final BuildContext _parentContext;
 

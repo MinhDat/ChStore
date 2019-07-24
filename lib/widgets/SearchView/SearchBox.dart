@@ -7,8 +7,8 @@ const FOCUSED_TEXT = true;
 const NO_WORDS = false;
 const HAS_WORDS = true;
 
-class SearchBarView extends StatefulWidget {
-  SearchBarView(
+class SearchBox extends StatefulWidget {
+  SearchBox(
       {this.isFocused: true,
       this.onFocused,
       this.onUnfocused,
@@ -20,7 +20,7 @@ class SearchBarView extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return SearchBarState(
+    return SearchBoxState(
       isFocused: isFocused,
       onFocused: onFocused,
       onUnfocused: onUnfocused,
@@ -29,9 +29,8 @@ class SearchBarView extends StatefulWidget {
   }
 }
 
-class SearchBarState extends State<SearchBarView>
-    with TickerProviderStateMixin {
-  SearchBarState(
+class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
+  SearchBoxState(
       {this.isFocused, this.onFocused, this.onUnfocused, this.onChangeWords});
   bool isFocused;
   FocusedCalback onFocused;

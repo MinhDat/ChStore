@@ -11,7 +11,7 @@ class ProductDetail extends StatefulWidget {
   }
 }
 
-class _WidgetList extends State<ProductDetail> with WidgetsBindingObserver {
+class _WidgetList extends State<ProductDetail> {
   _WidgetList();
   Product product;
   Choice _selectedChoice;

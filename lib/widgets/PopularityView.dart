@@ -1,50 +1,22 @@
+// TODO Implement this library.
 import 'package:flutter/material.dart';
+
+// import 'package:ChStore/widgets/ProgressBarView.dart';
 import 'package:ChStore/data/Popularity.dart';
 
 const RIGHT = true;
 const LEFT = false;
 
 class PopularityView extends StatelessWidget {
-  PopularityView({this.isFocused: false, this.hasWords});
-  final bool isFocused;
-  final bool hasWords;
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
-    return Stack(
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Column(
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            PopularCategories(),
-            PopularTags(),
-          ],
-        ),
-        isFocused
-            ? Positioned(
-                bottom: 0,
-                right: 0,
-                top: 0,
-                left: 0,
-                child: hasWords
-                    ? Container(
-                        height: screenSize.height,
-                        width: screenSize.width,
-                        decoration: new BoxDecoration(
-                          color: Colors.white,
-                        ),
-                      )
-                    : Container(
-                        height: screenSize.height,
-                        width: screenSize.width,
-                        decoration: new BoxDecoration(
-                          color: Colors.black.withOpacity(0.5),
-                        ),
-                      ),
-              )
-            : null,
-      ].where((f) => (f != null)).toList(),
+        PopularCategories(),
+        PopularTags(),
+      ],
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ChStore/utils/MixColor.dart';
 
 import 'screens/Search/main.dart';
 import 'screens/profile.dart';
@@ -22,9 +23,15 @@ void main() {
         '/': (context) => new Mainpage(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/product-detail': (context) => new ProductDetail(),
+        // Category route
         '/woman-category': (context) => new ItemCategory(),
         '/man-category': (context) => new ItemCategory(),
         '/sport-category': (context) => new ItemCategory(),
+        '/animal-category': (context) => new ItemCategory(),
+        '/life-category': (context) => new ItemCategory(),
+        '/book-category': (context) => new ItemCategory(),
+        '/travel-category': (context) => new ItemCategory(),
+        '/child-category': (context) => new ItemCategory(),
       },
     ),
   );
@@ -74,7 +81,7 @@ class _WidgetList extends State<Mainpage> {
               'icons/today-icon.png',
               height: 22,
               width: 22,
-              color: index == 0 ? Colors.blue : Colors.black54,
+              color: index == 0 ? mixColor.mainColor : Colors.black54,
             ),
             title: SizedBox.shrink(),
           ),
@@ -83,7 +90,7 @@ class _WidgetList extends State<Mainpage> {
               'icons/toggle-menu-icon.png',
               height: 22,
               width: 22,
-              color: index == 1 ? Colors.blue : Colors.black54,
+              color: index == 1 ? mixColor.mainColor : Colors.black54,
             ),
             title: SizedBox.shrink(),
           ),
@@ -92,21 +99,21 @@ class _WidgetList extends State<Mainpage> {
               'icons/search-icon.png',
               height: 22,
               width: 22,
-              color: index == 2 ? Colors.blue : Colors.black54,
+              color: index == 2 ? mixColor.mainColor : Colors.black54,
             ),
             title: SizedBox.shrink(),
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.shopping_cart,
-              color: index == 3 ? Colors.blue : Colors.black54,
+              color: index == 3 ? mixColor.mainColor : Colors.black54,
             ),
             title: SizedBox.shrink(),
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.person,
-              color: index == 4 ? Colors.blue : Colors.black54,
+              color: index == 4 ? mixColor.mainColor : Colors.black54,
             ),
             title: SizedBox.shrink(),
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ChStore/utils/MixColor.dart';
 
 class HeaderView extends StatelessWidget {
   DateTime _now = new DateTime.now();
@@ -42,8 +43,11 @@ class HeaderView extends StatelessWidget {
                 alignment: Alignment.topLeft,
                 padding: EdgeInsets.only(left: 20.0, top: 20.0),
                 child: Text(
-                  "Today",
-                  style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),
+                  "ChStore",
+                  style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: mixColor.mainColor),
                 ),
               ),
               Container(

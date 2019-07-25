@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 import 'package:ChStore/data/Product.dart';
+import 'package:ChStore/utils/MixColor.dart';
 
 class ProductDetail extends StatefulWidget {
   ProductDetail();
@@ -56,7 +57,7 @@ class _WidgetList extends State<ProductDetail> {
           // action button
           IconButton(
             icon: Icon(Icons.favorite),
-            color: product.favorited ? Colors.red : Colors.black,
+            color: product.favorited ? mixColor.mainColor : Colors.black,
             onPressed: () {
               _favoriteHandle();
             },

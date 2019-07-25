@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:ChStore/screens/Search/SliverHeader.dart';
 import 'package:ChStore/widgets/SearchView/SearchBox.dart';
 import 'package:ChStore/widgets/SearchView/SearchResult.dart';
+import 'package:ChStore/widgets/TextView/Header.dart';
+
 import 'package:ChStore/widgets/PopularityView.dart';
 
 class Search extends StatefulWidget {
@@ -102,13 +104,7 @@ class _WidgetList extends State<Search> {
                           ? Container(
                               alignment: Alignment.topLeft,
                               padding: EdgeInsets.only(left: 20.0),
-                              child: Text(
-                                "Search",
-                                style: TextStyle(
-                                  fontSize: 28.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
+                              child: Header("Search"),
                             )
                           : null,
                       Align(

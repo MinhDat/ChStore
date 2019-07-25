@@ -33,7 +33,10 @@ class SearchResultState extends State<SearchResult> {
     return Center(
       child: showResult
           ? ListView(children: [ItemListView(context)])
-          : CircularProgressIndicator(),
+          : Align(
+              alignment: Alignment.topCenter,
+              child: CircularProgressIndicator(),
+            ),
     );
   }
 }

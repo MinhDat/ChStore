@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 import 'package:ChStore/data/Product.dart';
 
+const RADIUS_CIRCULAR = 20.0;
+
 class ItemPageView extends StatefulWidget {
   ItemPageView(this._parentContext);
   final BuildContext _parentContext;
@@ -78,12 +80,37 @@ class ItemPageState extends State<ItemPageView> {
           child: Stack(
             children: [
               ClipRRect(
-                borderRadius: new BorderRadius.circular(10.0),
+                borderRadius: new BorderRadius.circular(RADIUS_CIRCULAR),
                 child: Image.asset(
                   product.image,
                   height: ITEM_HEIGHT,
                   width: ITEM_WIDTH,
                   fit: BoxFit.cover,
+                ),
+              ),
+              Container(
+                alignment: Alignment.bottomLeft,
+                padding: EdgeInsets.only(left: 10.0, bottom: 10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      product.name,
+                      style: new TextStyle(
+                        fontSize: 30.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      "\$${product.price}",
+                      style: new TextStyle(
+                        fontSize: 18.0,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Positioned(
@@ -96,8 +123,8 @@ class ItemPageState extends State<ItemPageView> {
                   child: Container(
                     decoration: new BoxDecoration(
                       borderRadius: new BorderRadius.only(
-                        bottomLeft: Radius.circular(10.0),
-                        bottomRight: Radius.circular(10.0),
+                        bottomLeft: Radius.circular(RADIUS_CIRCULAR),
+                        bottomRight: Radius.circular(RADIUS_CIRCULAR),
                       ),
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
@@ -107,48 +134,6 @@ class ItemPageState extends State<ItemPageView> {
                           Colors.black,
                         ],
                       ),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Expanded(
-                          flex: 8,
-                          child: Container(
-                            alignment: Alignment.bottomLeft,
-                            padding: EdgeInsets.only(left: 10.0),
-                            child: Text(
-                              product.name,
-                              style: new TextStyle(
-                                fontSize: 33.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 2,
-                          child: Container(
-                            alignment: Alignment.centerLeft,
-                            padding: EdgeInsets.only(left: 10.0),
-                            decoration: new BoxDecoration(
-                              border: Border(
-                                bottom: BorderSide(
-                                  width: 1.0,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                            child: Text(
-                              "\$${product.price}",
-                              style: new TextStyle(
-                                fontSize: 18.0,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
                     ),
                   ),
                 ),

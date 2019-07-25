@@ -1,8 +1,10 @@
 // TODO Implement this library.
 import 'package:flutter/material.dart';
 
-// import 'package:ChStore/widgets/ProgressBarView.dart';
+import 'package:ChStore/widgets/TextView/TextTitle.dart';
 import 'package:ChStore/data/Popularity.dart';
+
+import 'package:ChStore/utils/MixColor.dart';
 
 const RIGHT = true;
 const LEFT = false;
@@ -43,7 +45,7 @@ class PopularCategories extends StatelessWidget {
           children: <Widget>[
             Text(
               data.name,
-              style: TextStyle(color: Color(0xFFFF2D55), fontSize: 20),
+              style: TextStyle(color: mixColor.mainColor, fontSize: 20),
             ),
             Align(
               alignment: Alignment.topRight,
@@ -64,9 +66,8 @@ class PopularCategories extends StatelessWidget {
     List<Widget> _popularCategories = [
       Padding(
         padding: EdgeInsets.only(left: 20, bottom: 10),
-        child: Text(
+        child: TextTitle(
           "Popular Categories",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
       )
     ];
@@ -99,9 +100,8 @@ class PopularTags extends StatelessWidget {
     List<Widget> _popularTags = [
       Padding(
         padding: EdgeInsets.only(left: 20, top: 20),
-        child: Text(
+        child: TextTitle(
           "Popular Tags",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
       )
     ];
@@ -120,7 +120,7 @@ class PopularTags extends StatelessWidget {
             child: Text(
               popularTags[i].name,
               style: TextStyle(
-                color: Color(0xFFFF2D55),
+                color: mixColor.mainColor,
                 fontSize: 22,
               ),
             )),

@@ -43,28 +43,26 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+   # Icons
    - icons/today-icon.png
    - icons/toggle-menu-icon.png
    - icons/search-icon.png
 
-   - lib/pictures/picture_one.webp
-   - lib/pictures/picture_two.webp
-   - lib/pictures/picture_three.webp
-   - lib/pictures/picture_four.webp
-   - lib/pictures/picture_five.webp
-   - lib/pictures/picture_six.jpg
-   - lib/pictures/picture_seven.webp
-   - lib/pictures/picture_eight.webp
-   - lib/pictures/picture_nine.webp
-   - lib/pictures/picture_ten.jpg
-
-   - lib/pictures/man-category.jpg
-   - lib/pictures/woman-category.jpg
-   - lib/pictures/sport-category.png
+   # Categories
+   - lib/pictures/categories/man-category.jpg
+   - lib/pictures/categories/woman-category.jpg
+   - lib/pictures/categories/sport-category.png
    # Travel categoies
    - lib/pictures/travels/girl_and_flowers.jpg
    - lib/pictures/travels/girl_and_beaches.jpg
    # Woman categories
+   - lib/pictures/women/picture_one.webp
+   - lib/pictures/women/picture_five.webp
+   - lib/pictures/women/picture_six.jpg
+   - lib/pictures/women/picture_seven.webp
+   - lib/pictures/women/picture_eight.webp
+   - lib/pictures/women/picture_nine.webp
+   - lib/pictures/women/picture_ten.jpg
    - lib/pictures/women/woman_and_sunset.jpeg
    - lib/pictures/women/alone_girl.jpeg
    # Man categories
@@ -73,6 +71,7 @@ flutter:
    - lib/pictures/animals/girl_and_dog.jpeg
    # Children categories
    - lib/pictures/children/boy_and_teddy.jpeg
+   - lib/pictures/children/child_and_forest.jpeg
    # life categories
    - lib/pictures/lifes/bad_boy.jpeg
    - lib/pictures/lifes/man_is_walking_in_desert.png

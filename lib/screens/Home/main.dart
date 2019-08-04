@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/widgets/TextView/TextTitle.dart';
-
-import 'package:ChStore/widgets/ItemPageView.dart';
-import 'package:ChStore/widgets/HeaderView.dart';
-import 'package:ChStore/widgets/ItemListView.dart';
+import 'package:ChStore/widgets/CustomText/TextTitle.dart';
+import 'package:ChStore/widgets/CustomLists/ItemList.dart';
+import 'package:ChStore/widgets/Header/main.dart';
+import 'package:ChStore/widgets/CustomLists/ItemPage.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -14,7 +13,7 @@ class HomePage extends StatelessWidget {
       color: Colors.white,
       child: ListView(
         children: [
-          HeaderView(),
+          Header(),
           Padding(
             padding: EdgeInsets.only(
               left: 20,
@@ -22,7 +21,7 @@ class HomePage extends StatelessWidget {
             ),
             child: TextTitle("Today"),
           ),
-          ItemPageView(context),
+          ItemPage(context),
           Padding(
             padding: EdgeInsets.only(
               top: 20,
@@ -31,7 +30,7 @@ class HomePage extends StatelessWidget {
             ),
             child: TextTitle("Top trends"),
           ),
-          ItemListView(context),
+          ItemList(context),
         ],
       ),
     );

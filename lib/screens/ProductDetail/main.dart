@@ -57,7 +57,7 @@ class _WidgetList extends State<ProductDetail> {
           // action button
           IconButton(
             icon: Icon(Icons.favorite),
-            color: product.favorited ? mixColor.mainColor : Colors.black,
+            color: product.favorited ? mixColor.main : Colors.black,
             onPressed: () {
               _favoriteHandle();
             },

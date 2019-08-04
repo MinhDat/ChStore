@@ -5,8 +5,8 @@ import 'package:ChStore/data/Product.dart';
 
 const RADIUS_CIRCULAR = 20.0;
 
-class ItemPageView extends StatefulWidget {
-  ItemPageView(this._parentContext);
+class ItemPage extends StatefulWidget {
+  ItemPage(this._parentContext);
   final BuildContext _parentContext;
 
   @override
@@ -15,7 +15,7 @@ class ItemPageView extends StatefulWidget {
   }
 }
 
-class ItemPageState extends State<ItemPageView> {
+class ItemPageState extends State<ItemPage> {
   ItemPageState(this._parentContext);
   final BuildContext _parentContext;
 

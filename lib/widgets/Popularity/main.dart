@@ -1,7 +1,7 @@
 // TODO Implement this library.
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/widgets/TextView/TextTitle.dart';
+import 'package:ChStore/widgets/CustomText/TextTitle.dart';
 import 'package:ChStore/data/Popularity.dart';
 
 import 'package:ChStore/utils/MixColor.dart';
@@ -45,7 +45,7 @@ class PopularCategories extends StatelessWidget {
           children: <Widget>[
             Text(
               data.name,
-              style: TextStyle(color: mixColor.mainColor, fontSize: 20),
+              style: TextStyle(color: mixColor.main, fontSize: 20),
             ),
             Align(
               alignment: Alignment.topRight,
@@ -120,7 +120,7 @@ class PopularTags extends StatelessWidget {
             child: Text(
               popularTags[i].name,
               style: TextStyle(
-                color: mixColor.mainColor,
+                color: mixColor.main,
                 fontSize: 22,
               ),
             )),

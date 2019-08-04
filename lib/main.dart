@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+
+import 'package:ChStore/screens/Search/main.dart';
+import 'package:ChStore/screens/profile.dart';
+import 'package:ChStore/screens/Home/main.dart';
+import 'package:ChStore/screens/ProductCategory/main.dart';
+import 'package:ChStore/screens/ProductDetail/main.dart';
+import 'package:ChStore/screens/ShoppingCart/main.dart';
+import 'package:ChStore/screens/ItemCategory/main.dart';
+
 import 'package:ChStore/utils/MixColor.dart';
-
-import 'screens/Search/main.dart';
-import 'screens/profile.dart';
-
-import 'screens/Home/main.dart';
-import 'screens/ProductCategory/main.dart';
-import 'screens/ProductDetail/main.dart';
-import 'screens/ShoppingCart/main.dart';
-import 'screens/ItemCategory/main.dart';
 
 void main() {
   runApp(
@@ -81,7 +81,7 @@ class _WidgetList extends State<Mainpage> {
               'icons/today-icon.png',
               height: 22,
               width: 22,
-              color: index == 0 ? mixColor.mainColor : Colors.black54,
+              color: index == 0 ? mixColor.main : mixColor.unfocused,
             ),
             title: SizedBox.shrink(),
           ),
@@ -90,7 +90,7 @@ class _WidgetList extends State<Mainpage> {
               'icons/toggle-menu-icon.png',
               height: 22,
               width: 22,
-              color: index == 1 ? mixColor.mainColor : Colors.black54,
+              color: index == 1 ? mixColor.main : mixColor.unfocused,
             ),
             title: SizedBox.shrink(),
           ),
@@ -99,21 +99,21 @@ class _WidgetList extends State<Mainpage> {
               'icons/search-icon.png',
               height: 22,
               width: 22,
-              color: index == 2 ? mixColor.mainColor : Colors.black54,
+              color: index == 2 ? mixColor.main : mixColor.unfocused,
             ),
             title: SizedBox.shrink(),
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.shopping_cart,
-              color: index == 3 ? mixColor.mainColor : Colors.black54,
+              color: index == 3 ? mixColor.main : mixColor.unfocused,
             ),
             title: SizedBox.shrink(),
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.person,
-              color: index == 4 ? mixColor.mainColor : Colors.black54,
+              color: index == 4 ? mixColor.main : mixColor.unfocused,
             ),
             title: SizedBox.shrink(),
           ),

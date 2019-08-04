@@ -6,8 +6,8 @@ import 'package:ChStore/utils/MixColor.dart';
 //Template Type
 const NORMAL_LIST_TYPE = 1;
 
-class CategoryListView extends StatelessWidget {
-  CategoryListView(this._parentContext, {this.type: NORMAL_LIST_TYPE});
+class CategoryList extends StatelessWidget {
+  CategoryList(this._parentContext, {this.type: NORMAL_LIST_TYPE});
   final BuildContext _parentContext;
   final int type;
   @override
@@ -35,8 +35,7 @@ class CategoryListView extends StatelessWidget {
               child: Stack(
                 children: [
                   Container(
-                    padding:
-                        EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
+                    margin: EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
                     height: 130,
                     width: screenSize.width,
                     decoration: new BoxDecoration(
@@ -44,7 +43,7 @@ class CategoryListView extends StatelessWidget {
                       boxShadow: <BoxShadow>[
                         BoxShadow(
                           color: Colors.black38,
-                          offset: Offset(0.0, 3.0),
+                          offset: Offset(0.0, 1.0),
                           blurRadius: 10.0,
                         ),
                       ],
@@ -80,7 +79,7 @@ class CategoryListView extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 33.0,
                             fontWeight: FontWeight.bold,
-                            color: mixColor.mainColor,
+                            color: mixColor.main,
                           ),
                         ),
                       ),

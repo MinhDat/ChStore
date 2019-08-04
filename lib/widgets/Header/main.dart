@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ChStore/utils/MixColor.dart';
 
-class HeaderView extends StatelessWidget {
+class Header extends StatelessWidget {
   DateTime _now = new DateTime.now();
   List<String> _month = [
     "JANUARY",
@@ -47,7 +47,7 @@ class HeaderView extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
-                      color: mixColor.mainColor),
+                      color: mixColor.main),
                 ),
               ),
               Container(

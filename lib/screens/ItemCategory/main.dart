@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ChStore/widgets/ItemCardListView.dart';
+import 'package:ChStore/widgets/CustomLists/ItemCardList.dart';
 import 'package:ChStore/data/Category.dart';
 
 class ItemCategory extends StatelessWidget {
@@ -11,7 +11,7 @@ class ItemCategory extends StatelessWidget {
       appBar: AppBar(
         title: Text("${category.name} categories"),
       ),
-      body: ItemCardListView(context),
+      body: ItemCardList(context),
     );
   }
 }

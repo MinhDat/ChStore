@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/screens/Search/SliverHeader.dart';
-import 'package:ChStore/widgets/SearchView/SearchBox.dart';
-import 'package:ChStore/widgets/SearchView/SearchResult.dart';
-import 'package:ChStore/widgets/TextView/Header.dart';
+import 'package:ChStore/widgets/SearchBox/main.dart';
+import 'package:ChStore/widgets/SearchBox/SearchResult.dart';
+import 'package:ChStore/widgets/CustomText/Header.dart';
 
-import 'package:ChStore/widgets/PopularityView.dart';
+import 'package:ChStore/widgets/Popularity/main.dart';
 
 class Search extends StatefulWidget {
   @override

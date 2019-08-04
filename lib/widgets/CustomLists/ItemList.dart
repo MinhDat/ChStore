@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:ChStore/data/Product.dart';
+import 'package:ChStore/data/Category.dart';
 
 //Template Type
 const NORMAL_LIST_TYPE = 0;
 const SHOPPING_CART_LIST_TYPE = 1;
 
-class ItemListView extends StatefulWidget {
-  ItemListView(this._parentContext, {this.type: NORMAL_LIST_TYPE});
+class ItemList extends StatefulWidget {
+  ItemList(this._parentContext, {this.type: NORMAL_LIST_TYPE});
   final BuildContext _parentContext;
   final int type;
 
@@ -15,7 +16,7 @@ class ItemListView extends StatefulWidget {
       new ItemListState(_parentContext, type: this.type);
 }
 
-class ItemListState extends State<ItemListView> {
+class ItemListState extends State<ItemList> {
   ItemListState(this._parentContext, {this.type});
   final BuildContext _parentContext;
   final int type;
@@ -95,37 +96,47 @@ class ItemListState extends State<ItemListView> {
               ),
               Expanded(
                 flex: 7,
-                child: Column(
+                child: Stack(
                   children: [
-                    Expanded(
-                      flex: 7,
-                      child: Container(
-                        alignment: Alignment.topLeft,
-                        padding: EdgeInsets.only(top: 5.0, left: 10.0),
-                        child: Text(
-                          product.name,
-                          style: new TextStyle(
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
+                    Container(
+                      alignment: Alignment.topLeft,
+                      margin: EdgeInsets.only(top: 5.0, left: 10.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            allCategories[product.categoryId]
+                                .name
+                                .toUpperCase(),
+                            style: new TextStyle(
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey[400],
+                            ),
                           ),
-                        ),
+                          Text(
+                            product.name,
+                            style: new TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    Expanded(
-                      flex: 3,
-                      child: Container(
-                        alignment: Alignment.bottomLeft,
-                        padding: EdgeInsets.only(left: 10.0, bottom: 10),
-                        decoration: new BoxDecoration(
-                          border: Border(
-                            bottom:
-                                BorderSide(width: 0.5, color: Colors.grey[600]),
-                          ),
+                    Container(
+                      alignment: Alignment.bottomLeft,
+                      margin: EdgeInsets.only(left: 10.0),
+                      padding: EdgeInsets.only(bottom: 10),
+                      decoration: new BoxDecoration(
+                        border: Border(
+                          bottom:
+                              BorderSide(width: 0.5, color: Colors.grey[600]),
                         ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: productLineSecond,
-                        ),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: productLineSecond,
                       ),
                     ),
                   ],

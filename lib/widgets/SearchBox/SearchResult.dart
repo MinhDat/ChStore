@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:ChStore/widgets/ItemListView.dart';
+import 'package:ChStore/widgets/CustomLists/ItemList.dart';
 
 class SearchResult extends StatefulWidget {
   @override
@@ -32,7 +32,7 @@ class SearchResultState extends State<SearchResult> {
   Widget build(BuildContext context) {
     return Center(
       child: showResult
-          ? ListView(children: [ItemListView(context)])
+          ? ListView(children: [ItemList(context)])
           : Align(
               alignment: Alignment.topCenter,
               child: CircularProgressIndicator(),

@@ -49,34 +49,34 @@ flutter:
    - icons/search-icon.png
 
    # Categories
-   - lib/pictures/categories/man-category.jpg
-   - lib/pictures/categories/woman-category.jpg
-   - lib/pictures/categories/sport-category.png
+   - lib/picture/categories/man-category.jpg
+   - lib/picture/categories/woman-category.jpg
+   - lib/picture/categories/sport-category.png
    # Travel categoies
-   - lib/pictures/travels/girl_and_flowers.jpg
-   - lib/pictures/travels/girl_and_beaches.jpg
+   - lib/picture/travels/girl_and_flowers.jpg
+   - lib/picture/travels/girl_and_beaches.jpg
    # Woman categories
-   - lib/pictures/women/picture_one.webp
-   - lib/pictures/women/picture_five.webp
-   - lib/pictures/women/picture_six.jpg
-   - lib/pictures/women/picture_seven.webp
-   - lib/pictures/women/picture_eight.webp
-   - lib/pictures/women/picture_nine.webp
-   - lib/pictures/women/picture_ten.jpg
-   - lib/pictures/women/woman_and_sunset.jpeg
-   - lib/pictures/women/alone_girl.jpeg
+   - lib/picture/women/picture_one.webp
+   - lib/picture/women/picture_five.webp
+   - lib/picture/women/picture_six.jpg
+   - lib/picture/women/picture_seven.webp
+   - lib/picture/women/picture_eight.webp
+   - lib/picture/women/picture_nine.webp
+   - lib/picture/women/picture_ten.jpg
+   - lib/picture/women/woman_and_sunset.jpeg
+   - lib/picture/women/alone_girl.jpeg
    # Man categories
-   - lib/pictures/men/man_and_the_streets.jpeg
+   - lib/picture/men/man_and_the_streets.jpeg
    # Animal categories
-   - lib/pictures/animals/girl_and_dog.jpeg
+   - lib/picture/animals/girl_and_dog.jpeg
    # Children categories
-   - lib/pictures/children/boy_and_teddy.jpeg
-   - lib/pictures/children/child_and_forest.jpeg
+   - lib/picture/children/boy_and_teddy.jpeg
+   - lib/picture/children/child_and_forest.jpeg
    # life categories
-   - lib/pictures/lifes/bad_boy.jpeg
-   - lib/pictures/lifes/man_is_walking_in_desert.png
+   - lib/picture/lifes/bad_boy.jpeg
+   - lib/picture/lifes/man_is_walking_in_desert.png
    # books categories
-   - lib/pictures/books/diary.jpg
+   - lib/picture/books/diary.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

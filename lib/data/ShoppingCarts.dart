@@ -16,7 +16,7 @@ class ShoppingCarts extends Product {
 List<ShoppingCarts> allShoppingCarts = <ShoppingCarts>[
   ShoppingCarts(
     id: 0,
-    image: "lib/pictures/picture_one.webp",
+    image: "lib/picture/picture_one.webp",
     name: "Product Demo One JDK MAX NICE 87320",
     price: "65.00",
     description:

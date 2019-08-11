@@ -23,7 +23,7 @@ List<Product> allProducts = [
   Product(
     id: 0,
     categoryId: 1,
-    image: "lib/pictures/men/man_and_the_streets.jpeg",
+    image: "lib/picture/men/man_and_the_streets.jpeg",
     name: "Life is always the difficulties and challenges",
     price: "65.00",
     description:
@@ -31,7 +31,7 @@ List<Product> allProducts = [
   ),
   Product(
     id: 1,
-    image: "lib/pictures/women/woman_and_sunset.jpeg",
+    image: "lib/picture/women/woman_and_sunset.jpeg",
     name: "A woman and the sunset",
     price: "65.00",
     description: "A woman was wearing black hat and staring at the sunset",
@@ -39,7 +39,7 @@ List<Product> allProducts = [
   Product(
     id: 2,
     categoryId: 6,
-    image: "lib/pictures/travels/girl_and_beaches.jpg",
+    image: "lib/picture/travels/girl_and_beaches.jpg",
     name: "Tiny girl and the beach (I miss u)",
     price: "65.00",
     description:
@@ -48,7 +48,7 @@ List<Product> allProducts = [
   Product(
     id: 3,
     categoryId: 3,
-    image: "lib/pictures/children/boy_and_teddy.jpeg",
+    image: "lib/picture/children/boy_and_teddy.jpeg",
     name: "A boy and his teddy",
     price: "65.00",
     description: "When I was a child, I dreamed to become a hero",
@@ -56,7 +56,7 @@ List<Product> allProducts = [
   Product(
     id: 4,
     categoryId: 4,
-    image: "lib/pictures/animals/girl_and_dog.jpeg",
+    image: "lib/picture/animals/girl_and_dog.jpeg",
     name: "Tiny girl and corgi dog",
     price: "65.00",
     description: "I'm looking a dog",
@@ -64,7 +64,7 @@ List<Product> allProducts = [
   Product(
     id: 5,
     categoryId: 5,
-    image: "lib/pictures/lifes/bad_boy.jpeg",
+    image: "lib/picture/lifes/bad_boy.jpeg",
     name: "Bad boy",
     price: "65.00",
     description:
@@ -72,7 +72,7 @@ List<Product> allProducts = [
   ),
   Product(
     id: 6,
-    image: "lib/pictures/women/alone_girl.jpeg",
+    image: "lib/picture/women/alone_girl.jpeg",
     name: "Sometimes I want alone",
     price: "65.00",
     description: "Alone make me stronger, but it makes me a crazy -_-",
@@ -80,7 +80,7 @@ List<Product> allProducts = [
   Product(
     id: 7,
     categoryId: 5,
-    image: "lib/pictures/lifes/man_is_walking_in_desert.png",
+    image: "lib/picture/lifes/man_is_walking_in_desert.png",
     name: "And sometimes I forget that I'm still a human being",
     price: "65.00",
     description: "Maybe I'm too greedy",
@@ -88,7 +88,7 @@ List<Product> allProducts = [
   Product(
     id: 8,
     categoryId: 7,
-    image: "lib/pictures/books/diary.jpg",
+    image: "lib/picture/books/diary.jpg",
     name: "The pieces of stories are separate",
     price: "65.00",
     description:

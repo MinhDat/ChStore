@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/screens/Search/main.dart';
-import 'package:ChStore/screens/profile.dart';
-import 'package:ChStore/screens/Home/main.dart';
-import 'package:ChStore/screens/ProductCategory/main.dart';
-import 'package:ChStore/screens/ProductDetail/main.dart';
-import 'package:ChStore/screens/ShoppingCart/main.dart';
-import 'package:ChStore/screens/ItemCategory/main.dart';
+import 'package:ChStore/screen/Search/main.dart';
+import 'package:ChStore/screen/profile.dart';
+import 'package:ChStore/screen/Home/main.dart';
+import 'package:ChStore/screen/ProductCategory/main.dart';
+import 'package:ChStore/screen/ProductDetail/main.dart';
+import 'package:ChStore/screen/ShoppingCart/main.dart';
+import 'package:ChStore/screen/ItemCategory/main.dart';
 
 import 'package:ChStore/utils/MixColor.dart';
 

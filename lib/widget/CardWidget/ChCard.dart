@@ -31,7 +31,9 @@ class ChCard extends StatelessWidget {
       ),
       Container(
         alignment: Alignment.bottomLeft,
-        padding: EdgeInsets.only(left: 10.0, bottom: 10),
+        padding: EdgeInsets.only(left: 10, bottom: 10),
+        height: itemHeight,
+        width: itemWidth,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,

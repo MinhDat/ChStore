@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:ChStore/data/Product.dart';
 import 'package:ChStore/data/Category.dart';
+import 'package:ChStore/widget/Button/CounterButton.dart';
 
-//Template Type
+// Constants
+const RADIUS = 10.0;
+// Template Type
 const NORMAL_LIST_TYPE = 0;
 const SHOPPING_CART_LIST_TYPE = 1;
 
@@ -34,30 +37,14 @@ class ItemListState extends State<ItemList> {
           ),
         )
       ];
-
       switch (type) {
         case SHOPPING_CART_LIST_TYPE:
           productLineSecond.add(
             Expanded(
-              flex: 7, // 60%
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                    icon: new Icon(Icons.remove),
-                    onPressed: () => product.count > 1
-                        ? setState(() => (product.count--))
-                        : null,
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 10.0),
-                    child: Text(product.count.toString()),
-                  ),
-                  IconButton(
-                    icon: new Icon(Icons.add),
-                    onPressed: () => setState(() => (product.count++)),
-                  ),
-                ],
+              flex: 6, // 60%
+              child: CounterButton(
+                count: product.count,
+                id: product.id,
               ),
             ),
           );

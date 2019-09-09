@@ -103,10 +103,10 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                         borderSide: BorderSide(color: Colors.grey[200]),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey[200]),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
+                      // enabledBorder: UnderlineInputBorder(
+                      //   borderSide: BorderSide(color: Colors.grey[200]),
+                      //   borderRadius: BorderRadius.circular(10.0),
+                      // ),
                       hintText: 'Enter a search term',
                     ),
                   )

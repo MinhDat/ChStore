@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ChStore/widget/CardWidget/SmallChCardList.dart';
+import 'package:ChStore/widget/Card/SmallChCardList.dart';
 import 'package:ChStore/data/Category.dart';
 
 class ItemCategory extends StatelessWidget {

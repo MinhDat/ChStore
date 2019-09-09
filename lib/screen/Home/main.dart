@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/widget/CustomText/TextTitle.dart';
-import 'package:ChStore/widget/ItemWidget/ItemList.dart';
+import 'package:ChStore/widget/Item/ItemList.dart';
 import 'package:ChStore/widget/Header/main.dart';
-import 'package:ChStore/widget/CardWidget/ChCardPage.dart';
-import 'package:ChStore/widget/CardWidget/ChCardSlider.dart';
+import 'package:ChStore/widget/Card/ChCardPage.dart';
+import 'package:ChStore/widget/Card/ChCardSlider.dart';
 
 class HomePage extends StatelessWidget {
   @override

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/screen/Search/SliverHeader.dart';
 import 'package:ChStore/widget/SearchBox/main.dart';
 import 'package:ChStore/widget/SearchBox/SearchResult.dart';
-import 'package:ChStore/widget/CustomText/Header.dart';
-
 import 'package:ChStore/widget/Popularity/main.dart';
+import 'package:ChStore/widget/Header/ScrollHeader.dart';
 
 class Search extends StatefulWidget {
   @override
@@ -75,76 +73,36 @@ class _WidgetList extends State<Search> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      child: SafeArea(
-        child: CustomScrollView(
-          controller: _scrollController,
-          slivers: <Widget>[
-            SliverPersistentHeader(
-              delegate: SliverHeader(headerHeight: 40, isFocused: _isFocused),
-              pinned: true,
-            ),
-            SliverAppBar(
-              pinned: true,
-              expandedHeight: _isFocused ? 0.0 : 95.0,
-              floating: !_isFocused,
-              bottom: PreferredSize(
-                // Add this code
-                preferredSize:
-                    Size.fromHeight(_isFocused ? 0.0 : 95.0), // Add this code
-                child: Container(
-                  alignment: Alignment.topLeft,
-                  child: Text(""),
-                ), // Add this code
-              ),
-              flexibleSpace: LayoutBuilder(
-                builder: (BuildContext context, BoxConstraints constraints) {
-                  return Stack(
-                    children: <Widget>[
-                      !_isFocused
-                          ? Container(
-                              alignment: Alignment.topLeft,
-                              padding: EdgeInsets.only(left: 20.0),
-                              child: Header("Search"),
-                            )
-                          : null,
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: SearchBox(
-                          isFocused: _isFocused,
-                          onFocused: _onFocused,
-                          onUnfocused: _onUnfocused,
-                          onChangeWords: _onChangeWords,
-                        ),
+      child: ScrollHeader(
+        title: "Search",
+        childAppBar: SearchBox(
+          isFocused: _isFocused,
+          onFocused: _onFocused,
+          onUnfocused: _onUnfocused,
+          onChangeWords: _onChangeWords,
+        ),
+        isAutoScroll: _isFocused,
+        scrollController: _scrollController,
+        child: Container(
+          child: Stack(
+            children: [
+              PopularityView(),
+              _isFocused
+                  ? Positioned(
+                      bottom: 0,
+                      right: 0,
+                      top: 0,
+                      left: 0,
+                      child: Scaffold(
+                        backgroundColor: _hasWords
+                            ? Colors.white
+                            : Colors.black.withOpacity(0.5),
+                        body: _hasWords ? SearchResult() : null,
                       ),
-                    ].where((f) => f != null).toList(),
-                  );
-                },
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: Container(
-                child: Stack(
-                  children: [
-                    PopularityView(),
-                    _isFocused
-                        ? Positioned(
-                            bottom: 0,
-                            right: 0,
-                            top: 0,
-                            left: 0,
-                            child: Scaffold(
-                              backgroundColor: _hasWords
-                                  ? Colors.white
-                                  : Colors.black.withOpacity(0.5),
-                              body: _hasWords ? SearchResult() : null,
-                            ),
-                          )
-                        : null,
-                  ].where((f) => (f != null)).toList(),
-                ),
-              ),
-            ),
-          ],
+                    )
+                  : null,
+            ].where((f) => (f != null)).toList(),
+          ),
         ),
       ),
     );

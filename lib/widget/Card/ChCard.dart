@@ -11,29 +11,29 @@ class ChCard extends StatelessWidget {
   ChCard(this.product, {this.itemHeight, this.itemWidth, this.type = NONE});
   final Product product;
   final int type;
-  double itemHeight, itemWidth;
+  final double itemHeight, itemWidth;
 
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
-    itemWidth = itemWidth ?? screenSize.width - 40;
-    itemHeight = itemHeight ?? itemWidth * 1.2;
+    double _itemWidth = itemWidth ?? screenSize.width - 40;
+    double _itemHeight = itemHeight ?? _itemWidth * 1.2;
 
     List<Widget> widgetList = [
       ClipRRect(
         borderRadius: new BorderRadius.circular(RADIUS_CIRCULAR),
         child: Image.asset(
           product.image,
-          height: itemHeight,
-          width: itemWidth,
+          height: _itemHeight,
+          width: _itemWidth,
           fit: BoxFit.cover,
         ),
       ),
       Container(
         alignment: Alignment.bottomLeft,
         padding: EdgeInsets.only(left: 10, bottom: 10),
-        height: itemHeight,
-        width: itemWidth,
+        height: _itemHeight,
+        width: _itemWidth,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,7 +63,7 @@ class ChCard extends StatelessWidget {
         widgetList.add(Positioned(
           bottom: -1.0,
           right: 0,
-          top: itemHeight / 2.0,
+          top: _itemHeight / 2.0,
           left: 0,
           child: Opacity(
             opacity: 0.5,

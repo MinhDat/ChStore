@@ -8,15 +8,16 @@ const NO_WORDS = false;
 const HAS_WORDS = true;
 
 class SearchBox extends StatefulWidget {
-  SearchBox(
-      {this.isFocused: true,
-      this.onFocused,
-      this.onUnfocused,
-      this.onChangeWords});
-  bool isFocused;
-  FocusedCalback onFocused;
-  UnfocusedCalback onUnfocused;
-  ChangeWordsCalback onChangeWords;
+  SearchBox({
+    this.isFocused: false,
+    this.onFocused,
+    this.onUnfocused,
+    this.onChangeWords,
+  });
+  final bool isFocused;
+  final FocusedCalback onFocused;
+  final UnfocusedCalback onUnfocused;
+  final ChangeWordsCalback onChangeWords;
 
   @override
   State<StatefulWidget> createState() {

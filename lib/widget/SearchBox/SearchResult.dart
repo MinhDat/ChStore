@@ -35,7 +35,7 @@ class SearchResultState extends State<SearchResult> {
           ? ListView(children: [ItemList()])
           : Align(
               alignment: Alignment.topCenter,
-              child: CircularProgressIndicator(),
+              child: LinearProgressIndicator(),
             ),
     );
   }

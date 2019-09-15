@@ -10,7 +10,7 @@ const INCREMENT = 1;
 
 class CounterButton extends StatefulWidget {
   CounterButton({this.count: 0, this.id});
-  int count;
+  final int count;
   final int id;
 
   @override

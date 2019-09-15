@@ -3,20 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:ChStore/widget/Button/Progress/RadialPainter.dart';
 import 'package:ChStore/utils/MixColor.dart';
 
+const RADIAL_ACTIVE = true;
+const RADIAL_DEACTIVE = false;
+
 class RadialProgress extends StatefulWidget {
-  RadialProgress({this.child});
   final Widget child;
+  final bool active;
+  RadialProgress({Key key, this.child, this.active}) : super(key: key);
 
   @override
-  _RadialProgressState createState() => _RadialProgressState(child: child);
+  State<StatefulWidget> createState() => RadialProgressState();
 }
 
-class _RadialProgressState extends State<RadialProgress> {
-  _RadialProgressState({this.child});
-  final Widget child;
+class RadialProgressState extends State<RadialProgress> {
   double percentage;
   Timer _timer;
   double step;
+  bool active;
 
   @override
   void initState() {
@@ -24,36 +27,56 @@ class _RadialProgressState extends State<RadialProgress> {
     setState(() {
       percentage = 0.0;
       step = 1.0;
+      active = widget.active != null;
     });
   }
 
   @override
   void dispose() {
     super.dispose();
-    _timer.cancel();
+    if (_timer != null) {
+      _timer.cancel();
+    }
+  }
+
+  void reset(bool enable) {
+    setState(() {
+      percentage = 0.0;
+      step = 1.0;
+      if (enable) {
+        active = RADIAL_ACTIVE;
+      } else {
+        active = RADIAL_DEACTIVE;
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    _timer = Timer(Duration(milliseconds: 10), () {
-      if (percentage <= 20) {
-        setState(() {
-          step++;
-        });
-      }
-      if (percentage < 100 && percentage >= 80 && step > 0) {
-        setState(() {
-          step--;
-        });
-      }
-      if (percentage >= 100.0) {
-        _timer.cancel();
-      } else {
-        setState(() {
-          percentage += step;
-        });
-      }
-    });
+    if (active) {
+      _timer = Timer(Duration(milliseconds: 10), () {
+        if (percentage <= 20) {
+          setState(() {
+            step++;
+          });
+        }
+        if (percentage < 100 && percentage >= 80 && step > 0) {
+          setState(() {
+            step--;
+          });
+        }
+        if (percentage >= 100.0) {
+          _timer.cancel();
+          setState(() {
+            active = RADIAL_DEACTIVE;
+          });
+        } else {
+          setState(() {
+            percentage += step;
+          });
+        }
+      });
+    }
 
     return Center(
       child: Container(
@@ -75,7 +98,7 @@ class _RadialProgressState extends State<RadialProgress> {
                 color: Colors.white,
                 shape: BoxShape.circle,
               ),
-              child: child,
+              child: widget.child,
             ),
           ),
         ),

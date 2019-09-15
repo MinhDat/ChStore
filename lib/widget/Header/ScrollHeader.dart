@@ -14,15 +14,32 @@ class ScrollHeader extends StatelessWidget {
   final Widget childAppBar;
   final Widget child;
   final ScrollController scrollController;
+  PageController _pageController =
+      PageController(initialPage: 0, keepPage: true);
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _currentIndex = 0;
+  //   _pageController =
+  //       new PageController(initialPage: _currentIndex, keepPage: true);
+  // }
+
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  //   _pageController.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
       child: SafeArea(
-        child: CustomScrollView(
+        child: NestedScrollView(
           controller: scrollController ?? ScrollController(),
-          slivers: <Widget>[
+          headerSliverBuilder: (BuildContext context, bool boxIsScrolled) =>
+              <Widget>[
             SliverPersistentHeader(
               delegate: SliverHeader(
                 headerHeight: 40,
@@ -63,8 +80,8 @@ class ScrollHeader extends StatelessWidget {
                 },
               ),
             ),
-            SliverToBoxAdapter(child: child)
           ],
+          body: child,
         ),
       ),
     );

@@ -27,12 +27,17 @@ class ChCardPageState extends State<ChCardPage> {
   @override
   void dispose() {
     super.dispose();
-    _timer.cancel();
+    if (_timer != null) {
+      _timer.cancel();
+    }
     _pageController.dispose();
   }
 
-  void _nextPage(int delta) {
+  void _changePage() {
     if (_pageController.hasClients) {
+      int delta =
+          _currentIndex == allProducts.length - 1 ? 0 : _currentIndex + 1;
+
       _pageController.animateToPage(
         delta,
         duration: const Duration(milliseconds: 800),
@@ -55,9 +60,7 @@ class ChCardPageState extends State<ChCardPage> {
     double _screenHeight = _screenWidth * 1.2;
 
     _timer = new Timer(new Duration(seconds: 7), () {
-      _currentIndex == allProducts.length - 1
-          ? _nextPage(0)
-          : _nextPage(_currentIndex + 1);
+      _changePage();
     });
 
     List<GestureDetector> productList = allProducts.map((product) {

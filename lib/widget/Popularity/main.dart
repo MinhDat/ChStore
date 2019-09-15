@@ -12,9 +12,9 @@ const LEFT = false;
 class PopularityView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return ListView(
+      // mainAxisSize: MainAxisSize.max,
+      // crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         PopularCategories(),
         PopularTags(),

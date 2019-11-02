@@ -18,6 +18,7 @@ class ShoppingCart extends StatefulWidget {
 class ShoppingCartState extends State<ShoppingCart> {
   int _currentIndex;
   PageController _pageController;
+  ScrollController _scrollController;
   GlobalKey<LinearProgressState> globalLinearCheckOutKey = GlobalKey();
   GlobalKey<LinearProgressState> globalLinearDoneKey = GlobalKey();
   GlobalKey<RadialProgressState> globalRadialCheckOutKey = GlobalKey();
@@ -28,12 +29,14 @@ class ShoppingCartState extends State<ShoppingCart> {
     super.initState();
     _currentIndex = 0;
     _pageController = new PageController(initialPage: _currentIndex);
+    _scrollController = ScrollController();
   }
 
   @override
   void dispose() {
     super.dispose();
     _pageController.dispose();
+    _scrollController.dispose();
   }
 
   void _changePage(action) {
@@ -66,6 +69,7 @@ class ShoppingCartState extends State<ShoppingCart> {
           globalRadialDoneKey.currentState.reset(RADIAL_DEACTIVE);
       }
 
+      _scrollController.jumpTo(0.0);
       _pageController.animateToPage(
         delta,
         duration: const Duration(milliseconds: 200),
@@ -79,6 +83,7 @@ class ShoppingCartState extends State<ShoppingCart> {
     return Scaffold(
       body: ScrollHeader(
         title: "Shopping Cart",
+        scrollController: _scrollController,
         childAppBar: Padding(
           padding: EdgeInsets.only(left: 10, right: 10),
           child: Row(

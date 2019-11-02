@@ -14,8 +14,8 @@ class ScrollHeader extends StatelessWidget {
   final Widget childAppBar;
   final Widget child;
   final ScrollController scrollController;
-  PageController _pageController =
-      PageController(initialPage: 0, keepPage: true);
+  // PageController _pageController =
+  //     PageController(initialPage: 0, keepPage: true);
 
   // @override
   // void initState() {

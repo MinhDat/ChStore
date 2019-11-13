@@ -22,20 +22,20 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^0.1.2
-  english_words: ^3.1.5
+  # cupertino_icons: ^0.1.2
+  # english_words: ^3.1.5
+  redux: 3.0.0
+  flutter_redux: ^0.5.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -43,46 +43,44 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-   # Icons
-   - icons/today-icon.png
-   - icons/toggle-menu-icon.png
-   - icons/search-icon.png
+    # Icons
+    - icons/today-icon.png
+    - icons/toggle-menu-icon.png
+    - icons/search-icon.png
 
-   # Categories
-   - lib/picture/categories/man-category.jpg
-   - lib/picture/categories/woman-category.jpg
-   - lib/picture/categories/sport-category.png
-   # Travel categoies
-   - lib/picture/travels/girl_and_flowers.jpg
-   - lib/picture/travels/girl_and_beaches.jpg
-   # Woman categories
-   - lib/picture/women/picture_one.webp
-   - lib/picture/women/picture_five.webp
-   - lib/picture/women/picture_six.jpg
-   - lib/picture/women/picture_seven.webp
-   - lib/picture/women/picture_eight.webp
-   - lib/picture/women/picture_nine.webp
-   - lib/picture/women/picture_ten.jpg
-   - lib/picture/women/woman_and_sunset.jpeg
-   - lib/picture/women/alone_girl.jpeg
-   # Man categories
-   - lib/picture/men/man_and_the_streets.jpeg
-   # Animal categories
-   - lib/picture/animals/girl_and_dog.jpeg
-   # Children categories
-   - lib/picture/children/boy_and_teddy.jpeg
-   - lib/picture/children/child_and_forest.jpeg
-   # life categories
-   - lib/picture/lifes/bad_boy.jpeg
-   - lib/picture/lifes/man_is_walking_in_desert.png
-   # books categories
-   - lib/picture/books/diary.jpg
+    # Categories
+    - lib/picture/categories/man-category.jpg
+    - lib/picture/categories/woman-category.jpg
+    - lib/picture/categories/sport-category.png
+    # Travel categoies
+    - lib/picture/travels/girl_and_flowers.jpg
+    - lib/picture/travels/girl_and_beaches.jpg
+    # Woman categories
+    - lib/picture/women/picture_one.webp
+    - lib/picture/women/picture_five.webp
+    - lib/picture/women/picture_six.jpg
+    - lib/picture/women/picture_seven.webp
+    - lib/picture/women/picture_eight.webp
+    - lib/picture/women/picture_nine.webp
+    - lib/picture/women/picture_ten.jpg
+    - lib/picture/women/woman_and_sunset.jpeg
+    - lib/picture/women/alone_girl.jpeg
+    # Man categories
+    - lib/picture/men/man_and_the_streets.jpeg
+    # Animal categories
+    - lib/picture/animals/girl_and_dog.jpeg
+    # Children categories
+    - lib/picture/children/boy_and_teddy.jpeg
+    - lib/picture/children/child_and_forest.jpeg
+    # life categories
+    - lib/picture/lifes/bad_boy.jpeg
+    - lib/picture/lifes/man_is_walking_in_desert.png
+    # books categories
+    - lib/picture/books/diary.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a

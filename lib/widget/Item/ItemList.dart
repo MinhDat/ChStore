@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ChStore/data/Product.dart';
 import 'package:ChStore/data/Category.dart';
-import 'package:ChStore/widget/Button/CounterButton.dart';
+import 'package:ChStore/widget/Button/Counter.dart';
+import 'package:ChStore/widget/Button/AddCart.dart';
 
 // Constants
 const RADIUS = 10.0;
@@ -38,11 +39,20 @@ class ItemListState extends State<ItemList> {
         )
       ];
       switch (type) {
+        case NORMAL_LIST_TYPE:
+          productLineSecond.add(
+            Expanded(
+              flex: 6, // 60%
+              child: AddCart(),
+            ),
+          );
+          break;
+
         case SHOPPING_CART_LIST_TYPE:
           productLineSecond.add(
             Expanded(
               flex: 6, // 60%
-              child: CounterButton(
+              child: Counter(
                 count: product.count,
                 id: product.id,
               ),

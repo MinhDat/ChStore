@@ -8,18 +8,18 @@ const RADIUS = 10.0;
 const DECREMENT = 0;
 const INCREMENT = 1;
 
-class CounterButton extends StatefulWidget {
-  CounterButton({this.count: 0, this.id});
+class Counter extends StatefulWidget {
+  Counter({this.count: 0, this.id});
   final int count;
   final int id;
 
   @override
-  CounterButtonState createState() =>
-      new CounterButtonState(count: this.count, id: this.id);
+  CounterState createState() =>
+      new CounterState(count: this.count, id: this.id);
 }
 
-class CounterButtonState extends State<CounterButton> {
-  CounterButtonState({this.count, this.id});
+class CounterState extends State<Counter> {
+  CounterState({this.count, this.id});
   int count;
   final int id;
 

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_redux/flutter_redux.dart';
-import 'package:redux/redux.dart';
-
 import 'package:ChStore/screen/Search/main.dart';
-import 'package:ChStore/screen/profile.dart';
+import 'package:ChStore/screen/Profile/main.dart';
 import 'package:ChStore/screen/Home/main.dart';
 import 'package:ChStore/screen/ProductCategory/main.dart';
 import 'package:ChStore/screen/ProductDetail/main.dart';
@@ -13,41 +10,30 @@ import 'package:ChStore/screen/ItemCategory/main.dart';
 
 import 'package:ChStore/utils/MixColor.dart';
 import 'package:ChStore/utils/System.dart';
-import 'package:ChStore/redux/Reducer.dart';
 
 void main() {
-  final store = Store<AnimationOffset>(
-    animatePositionReducer,
-    initialState: AnimationOffset(), // new
-    middleware: [],
-  );
-
   runApp(
-    StoreProvider(
-      // new
-      store: store, // new
-      child: MaterialApp(
-        title: 'Welcome to Flutter',
-        theme: ThemeData(primaryColor: Colors.white),
-        // Start the app with the "/" named route. In this case, the app starts
-        // on the FirstScreen widget.
-        initialRoute: '/',
-        routes: {
-          // When navigating to the "/" route, build the FirstScreen widget.
-          '/': (context) => new Mainpage(),
-          // When navigating to the "/second" route, build the SecondScreen widget.
-          '/product-detail': (context) => new ProductDetail(),
-          // Category route
-          '/woman-category': (context) => new ItemCategory(),
-          '/man-category': (context) => new ItemCategory(),
-          '/sport-category': (context) => new ItemCategory(),
-          '/animal-category': (context) => new ItemCategory(),
-          '/life-category': (context) => new ItemCategory(),
-          '/book-category': (context) => new ItemCategory(),
-          '/travel-category': (context) => new ItemCategory(),
-          '/child-category': (context) => new ItemCategory(),
-        },
-      ),
+    MaterialApp(
+      title: 'Welcome to Flutter',
+      theme: ThemeData(primaryColor: Colors.white),
+      // Start the app with the "/" named route. In this case, the app starts
+      // on the FirstScreen widget.
+      initialRoute: '/',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/': (context) => new Mainpage(),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/product-detail': (context) => new ProductDetail(),
+        // Category route
+        '/woman-category': (context) => new ItemCategory(),
+        '/man-category': (context) => new ItemCategory(),
+        '/sport-category': (context) => new ItemCategory(),
+        '/animal-category': (context) => new ItemCategory(),
+        '/life-category': (context) => new ItemCategory(),
+        '/book-category': (context) => new ItemCategory(),
+        '/travel-category': (context) => new ItemCategory(),
+        '/child-category': (context) => new ItemCategory(),
+      },
     ),
   );
 }
@@ -68,6 +54,8 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
   Offset _end;
   Animation _offsetAnimation;
   Offset _itemCouterOffset;
+  double _visibleAnimate;
+  int _count;
 
   @override
   void initState() {
@@ -77,19 +65,24 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
     _begin = Offset.zero;
     _end = Offset.zero;
     _itemCouterOffset = Offset.zero;
+    _visibleAnimate = 0.0;
+    _count = 0;
 
     _controller = AnimationController(
-      duration: const Duration(seconds: 2),
+      duration: const Duration(milliseconds: 500),
       vsync: this,
     )..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
-          _controller.reset();
+          setState(() {
+            _visibleAnimate = 0.0;
+            _controller.reset();
+          });
         }
       });
 
     _offsetAnimation = _generateAnimationPosition();
-
     chSystem.move = _handleAnimation;
+    chSystem.count = _handleCouter;
   }
 
   @override
@@ -128,9 +121,6 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: index,
             onTap: (int index) {
-              // _end = Offset(chSystem.shoppingCartOffset.dx / 10,
-              //     chSystem.shoppingCartOffset.dy / 10);
-              // _handleAnimation();
               setState(() {
                 this.index = index;
               });
@@ -183,30 +173,30 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
         ),
         SlideTransition(
           position: _offsetAnimation,
-          child: Container(width: 10.0, height: 10.0, color: Colors.green),
+          child: Opacity(
+            opacity: _visibleAnimate,
+            child: Container(width: 10.0, height: 10.0, color: Colors.green),
+          ),
         ),
         Positioned(
           top: _itemCouterOffset.dy,
           left: _itemCouterOffset.dx,
-          child: Container(width: 10.0, height: 10.0, color: Colors.red),
-        ),
-        StoreConnector<AnimationOffset, AnimationOffset>(
-            converter: (store) => store.state,
-            builder: (context, state) {
-              return SizedBox.shrink();
-            })
+          child: Container(
+            width: 20.0,
+            height: 20.0,
+            // padding: EdgeInsets.all(0.0),
+            // color: Colors.red,
+            child: Text(
+              "$_count",
+              style: TextStyle(
+                color: Colors.red,
+                fontSize: 15.0,
+              ),
+            ),
+          ),
+        )
       ],
     );
-  }
-
-  void _handleAnimation(AnimationOffset state) {
-    setState(() {
-      _begin = Offset(state.begin.dx / 10, state.begin.dy / 10);
-      _end = Offset(chSystem.shoppingCartOffset.dx / 10,
-          chSystem.shoppingCartOffset.dy / 10);
-      _offsetAnimation = _generateAnimationPosition();
-      _controller.forward();
-    });
   }
 
   _getPositions() {
@@ -228,5 +218,22 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
       parent: _controller,
       curve: Curves.easeOut,
     ));
+  }
+
+  _handleAnimation(AnimationOffset state) {
+    setState(() {
+      _visibleAnimate = 1.0;
+      _begin = Offset(state.begin.dx / 10, state.begin.dy / 10);
+      _end = Offset(chSystem.shoppingCartOffset.dx / 10,
+          chSystem.shoppingCartOffset.dy / 10);
+      _offsetAnimation = _generateAnimationPosition();
+      _controller.forward();
+    });
+  }
+
+  _handleCouter() {
+    setState(() {
+      ++_count;
+    });
   }
 }

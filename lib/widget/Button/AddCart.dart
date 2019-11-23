@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter_redux/flutter_redux.dart';
-
 import 'package:ChStore/utils/System.dart';
-import 'package:ChStore/redux/Action.dart';
-import 'package:ChStore/redux/Constant.dart';
 
 class AddCart extends StatefulWidget {
   @override
@@ -30,10 +25,8 @@ class AddCartState extends State<AddCart> {
     AnimationOffset _next =
         AnimationOffset(begin: currentOffset, end: chSystem.shoppingCartOffset);
 
-    StoreProvider.of<AnimationOffset>(context).dispatch(AnimatePositionAction(
-        Constants.AddShoppingCart,
-        animationOffset: _next));
     chSystem.move(_next);
+    chSystem.count();
   }
 
   @override

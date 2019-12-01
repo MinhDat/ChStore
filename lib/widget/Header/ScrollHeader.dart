@@ -1,3 +1,4 @@
+import 'package:ChStore/utils/AppColor.dart';
 import 'package:flutter/material.dart';
 import 'package:ChStore/widget/CustomText/Header.dart';
 
@@ -34,7 +35,7 @@ class ScrollHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: appColor.white,
       child: SafeArea(
         child: NestedScrollView(
           controller: scrollController ?? ScrollController(),
@@ -100,7 +101,7 @@ class SliverHeader extends SliverPersistentHeaderDelegate {
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
-      color: Colors.white,
+      color: appColor.white,
       child: Stack(
         fit: StackFit.expand,
         overflow: Overflow.visible,
@@ -111,7 +112,7 @@ class SliverHeader extends SliverPersistentHeaderDelegate {
               child: Text(
                 title,
                 style: TextStyle(
-                  color: Colors.black,
+                  color: appColor.black,
                   fontWeight: FontWeight.w600,
                   fontSize: 16,
                 ),

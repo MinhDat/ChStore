@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:ChStore/widget/CustomText/TextTitle.dart';
 import 'package:ChStore/data/Popularity.dart';
 
-import 'package:ChStore/utils/MixColor.dart';
+import 'package:ChStore/utils/AppColor.dart';
 
 const RIGHT = true;
 const LEFT = false;
@@ -45,7 +45,7 @@ class PopularCategories extends StatelessWidget {
           children: <Widget>[
             Text(
               data.name,
-              style: TextStyle(color: mixColor.main, fontSize: 20),
+              style: TextStyle(color: appColor.main, fontSize: 20),
             ),
             Align(
               alignment: Alignment.topRight,
@@ -112,7 +112,7 @@ class PopularTags extends StatelessWidget {
         alignment: Alignment.centerLeft,
         decoration: new BoxDecoration(
           border: Border(
-            bottom: BorderSide(width: 0.5, color: Colors.grey[600]),
+            bottom: BorderSide(width: 0.5, color: appColor.grey500),
           ),
         ),
         child: Padding(
@@ -120,7 +120,7 @@ class PopularTags extends StatelessWidget {
             child: Text(
               popularTags[i].name,
               style: TextStyle(
-                color: mixColor.main,
+                color: appColor.main,
                 fontSize: 22,
               ),
             )),

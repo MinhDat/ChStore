@@ -1,3 +1,4 @@
+import 'package:ChStore/utils/AppColor.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/widget/SearchBox/main.dart';
@@ -72,7 +73,7 @@ class _WidgetList extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: appColor.white,
       child: ScrollHeader(
         title: "Search",
         childAppBar: SearchBox(
@@ -95,8 +96,8 @@ class _WidgetList extends State<Search> {
                       left: 0,
                       child: Scaffold(
                         backgroundColor: _hasWords
-                            ? Colors.white
-                            : Colors.black.withOpacity(0.5),
+                            ? appColor.white
+                            : appColor.blackWithOpacity0_5,
                         body: _hasWords ? SearchResult() : null,
                       ),
                     )

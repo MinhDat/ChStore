@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ChStore/utils/MixColor.dart';
+import 'package:ChStore/utils/AppColor.dart';
 import 'package:ChStore/data/Product.dart';
 
 // Constants
@@ -33,17 +33,17 @@ class CounterState extends State<Counter> {
     countNumber = TextField(
       controller: _textEditingController,
       textAlign: TextAlign.center,
-      style: TextStyle(color: mixColor.counterButton),
+      style: TextStyle(color: appColor.redAccent100),
       decoration: InputDecoration(
         filled: true,
-        fillColor: Colors.white,
+        fillColor: appColor.white,
         contentPadding: const EdgeInsets.all(5),
         border: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.white),
+          borderSide: BorderSide(color: appColor.white),
           borderRadius: BorderRadius.circular(RADIUS),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.white),
+          borderSide: BorderSide(color: appColor.white),
           borderRadius: BorderRadius.circular(RADIUS),
         ),
       ),
@@ -83,7 +83,7 @@ class CounterState extends State<Counter> {
             height: 40,
             width: 40,
             decoration: BoxDecoration(
-              color: mixColor.counterButton,
+              color: appColor.redAccent100,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(RADIUS),
                 bottomLeft: Radius.circular(RADIUS),
@@ -92,7 +92,7 @@ class CounterState extends State<Counter> {
             child: Icon(
               Icons.remove,
               size: 25.0,
-              color: Colors.white,
+              color: appColor.white,
             ),
           ),
         ),
@@ -101,10 +101,10 @@ class CounterState extends State<Counter> {
           width: 35,
           decoration: BoxDecoration(
             border: Border(
-              top: BorderSide(color: mixColor.counterButton, width: 5.0),
-              bottom: BorderSide(color: mixColor.counterButton, width: 5.0),
+              top: BorderSide(color: appColor.redAccent100, width: 5.0),
+              bottom: BorderSide(color: appColor.redAccent100, width: 5.0),
             ),
-            color: mixColor.counterButton,
+            color: appColor.redAccent100,
           ),
           child: countNumber,
         ),
@@ -116,7 +116,7 @@ class CounterState extends State<Counter> {
             height: 40,
             width: 40,
             decoration: BoxDecoration(
-              color: mixColor.counterButton,
+              color: appColor.redAccent100,
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(RADIUS),
                 bottomRight: Radius.circular(RADIUS),
@@ -125,7 +125,7 @@ class CounterState extends State<Counter> {
             child: Icon(
               Icons.add,
               size: 25.0,
-              color: Colors.white,
+              color: appColor.white,
             ),
           ),
         ),

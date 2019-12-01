@@ -46,6 +46,9 @@ flutter:
     - icons/today-icon.png
     - icons/toggle-menu-icon.png
     - icons/search-icon.png
+    - icons/facebook.png
+    - icons/facebook_white.png
+    - icons/zalo.png
 
     # Categories
     - lib/picture/categories/man-category.jpg

@@ -1,3 +1,4 @@
+import 'package:ChStore/utils/AppColor.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/data/Category.dart';
@@ -80,8 +81,8 @@ class SmallChCardListState extends State<SmallChCardList> {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      Colors.white,
-                      Colors.black,
+                      appColor.white,
+                      appColor.black,
                     ],
                   ),
                 ),
@@ -98,7 +99,7 @@ class SmallChCardListState extends State<SmallChCardList> {
                           style: new TextStyle(
                             fontSize: 15.0,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: appColor.white,
                           ),
                         ),
                       ),
@@ -112,7 +113,7 @@ class SmallChCardListState extends State<SmallChCardList> {
                           border: Border(
                             bottom: BorderSide(
                               width: 1.0,
-                              color: Colors.white,
+                              color: appColor.white,
                             ),
                           ),
                         ),
@@ -120,7 +121,7 @@ class SmallChCardListState extends State<SmallChCardList> {
                           "\$${product.price}",
                           style: new TextStyle(
                             fontSize: 12.0,
-                            color: Colors.white,
+                            color: appColor.white,
                           ),
                         ),
                       ),

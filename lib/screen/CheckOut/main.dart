@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ChStore/utils/AppColor.dart';
 
 enum SingingCharacter { CASH_MONEY, VISA, INTERNET_BANKING }
 
@@ -27,17 +28,17 @@ class CheckOutState extends State<CheckOut> {
                   decoration: InputDecoration(
                     contentPadding: const EdgeInsets.all(14),
                     filled: true,
-                    fillColor: Colors.grey[200],
+                    fillColor: appColor.grey200,
                     border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey),
+                      borderSide: BorderSide(color: appColor.grey),
                       // borderRadius: BorderRadius.circular(RADIUS),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey),
+                      borderSide: BorderSide(color: appColor.grey),
                       // borderRadius: BorderRadius.circular(RADIUS),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey),
+                      borderSide: BorderSide(color: appColor.grey),
                     ),
                     hintText: 'Enter your address',
                   ),

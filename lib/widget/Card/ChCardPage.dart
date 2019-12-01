@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:ChStore/utils/AppColor.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/data/Product.dart';
@@ -86,7 +87,7 @@ class ChCardPageState extends State<ChCardPage> {
       decoration: new BoxDecoration(
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: Colors.black38,
+            color: appColor.black38,
             offset: Offset(0.0, 3.0),
             blurRadius: 20.0,
           ),

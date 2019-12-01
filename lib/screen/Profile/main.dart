@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ChStore/widget/Profile/ProfilePainter.dart';
 
+import 'package:ChStore/utils/AppColor.dart';
+
 class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -9,7 +11,7 @@ class Profile extends StatelessWidget {
     double avatarSize = screenSize.height / 16;
 
     return Container(
-      color: Colors.grey[200],
+      color: appColor.grey200,
       child: Stack(
         children: <Widget>[
           Positioned(
@@ -18,7 +20,7 @@ class Profile extends StatelessWidget {
               height: profileSize - 5,
               width: screenSize.width,
               child: CustomPaint(
-                foregroundPainter: ProfilePainter(color: Colors.pink),
+                foregroundPainter: ProfilePainter(color: appColor.red400),
               ),
             ),
           ),
@@ -36,8 +38,70 @@ class Profile extends StatelessWidget {
                     child: Container(
                       height: profileSize,
                       decoration: new BoxDecoration(
-                        color: Colors.white,
+                        color: appColor.white,
                         borderRadius: new BorderRadius.all(Radius.circular(20)),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          Expanded(
+                            flex: 5,
+                            child: FlatButton(
+                              color: appColor.facebook,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Image.asset(
+                                    'icons/facebook_white.png',
+                                    height: 22,
+                                    width: 22,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 10),
+                                    child: Text(
+                                      "Facebook",
+                                      style: TextStyle(
+                                        color: appColor.white,
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              onPressed: () {},
+                            ),
+                          ),
+                          Expanded(
+                            flex: 5,
+                            child: FlatButton(
+                              color: appColor.zalo,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Image.asset(
+                                    'icons/zalo.png',
+                                    height: 27,
+                                    width: 27,
+                                    color: appColor.white,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 10),
+                                    child: Text(
+                                      "Zalo",
+                                      style: TextStyle(
+                                        color: appColor.white,
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              onPressed: () {},
+                            ),
+                          )
+                        ],
                       ),
                     ),
                   ),

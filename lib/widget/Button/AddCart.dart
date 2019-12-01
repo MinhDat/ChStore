@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ChStore/utils/System.dart';
+import 'package:ChStore/utils/AppColor.dart';
 
 class AddCart extends StatefulWidget {
   @override
@@ -33,8 +34,11 @@ class AddCartState extends State<AddCart> {
   Widget build(BuildContext context) {
     return FlatButton(
       key: _buttonKey,
-      color: Colors.green[400],
-      textColor: Colors.white,
+      color: appColor.redAccent100,
+      textColor: appColor.white,
+      shape: new RoundedRectangleBorder(
+          borderRadius: new BorderRadius.circular(5.0),
+          side: BorderSide(color: appColor.redAccent100)),
       child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,

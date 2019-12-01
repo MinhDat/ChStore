@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ChStore/utils/MixColor.dart';
+import 'package:ChStore/utils/AppColor.dart';
 
 class Header extends StatelessWidget {
   DateTime _now = new DateTime.now();
@@ -47,7 +47,7 @@ class Header extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
-                      color: mixColor.main),
+                      color: appColor.main),
                 ),
               ),
               Container(

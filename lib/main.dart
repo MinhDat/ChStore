@@ -8,14 +8,14 @@ import 'package:ChStore/screen/ProductDetail/main.dart';
 import 'package:ChStore/screen/ShoppingCart/main.dart';
 import 'package:ChStore/screen/ItemCategory/main.dart';
 
-import 'package:ChStore/utils/MixColor.dart';
+import 'package:ChStore/utils/AppColor.dart';
 import 'package:ChStore/utils/System.dart';
 
 void main() {
   runApp(
     MaterialApp(
       title: 'Welcome to Flutter',
-      theme: ThemeData(primaryColor: Colors.white),
+      theme: ThemeData(primaryColor: appColor.white),
       // Start the app with the "/" named route. In this case, the app starts
       // on the FirstScreen widget.
       initialRoute: '/',
@@ -131,7 +131,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
                   'icons/today-icon.png',
                   height: 22,
                   width: 22,
-                  color: index == 0 ? mixColor.main : mixColor.unfocused,
+                  color: index == 0 ? appColor.main : appColor.unfocused,
                 ),
                 title: SizedBox.shrink(),
               ),
@@ -140,7 +140,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
                   'icons/toggle-menu-icon.png',
                   height: 22,
                   width: 22,
-                  color: index == 1 ? mixColor.main : mixColor.unfocused,
+                  color: index == 1 ? appColor.main : appColor.unfocused,
                 ),
                 title: SizedBox.shrink(),
               ),
@@ -149,7 +149,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
                   'icons/search-icon.png',
                   height: 22,
                   width: 22,
-                  color: index == 2 ? mixColor.main : mixColor.unfocused,
+                  color: index == 2 ? appColor.main : appColor.unfocused,
                 ),
                 title: SizedBox.shrink(),
               ),
@@ -157,14 +157,14 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
                 icon: Icon(
                   Icons.shopping_cart,
                   key: _keyShoppingCart,
-                  color: index == 3 ? mixColor.main : mixColor.unfocused,
+                  color: index == 3 ? appColor.main : appColor.unfocused,
                 ),
                 title: SizedBox.shrink(),
               ),
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.person,
-                  color: index == 4 ? mixColor.main : mixColor.unfocused,
+                  color: index == 4 ? appColor.main : appColor.unfocused,
                 ),
                 title: SizedBox.shrink(),
               ),
@@ -175,7 +175,8 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
           position: _offsetAnimation,
           child: Opacity(
             opacity: _visibleAnimate,
-            child: Container(width: 10.0, height: 10.0, color: Colors.green),
+            child: Container(
+                width: 10.0, height: 10.0, color: appColor.redAccent100),
           ),
         ),
         // Positioned(

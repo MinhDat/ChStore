@@ -7,11 +7,13 @@ import 'package:ChStore/widget/Header/main.dart';
 import 'package:ChStore/widget/Card/ChCardPage.dart';
 import 'package:ChStore/widget/Card/ChCardSlider.dart';
 
+import 'package:ChStore/utils/AppColor.dart';
+
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: appColor.white,
       child: ListView(
         children: [
           Header(),

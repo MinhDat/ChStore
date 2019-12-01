@@ -1,3 +1,4 @@
+import 'package:ChStore/utils/AppColor.dart';
 import 'package:flutter/material.dart';
 import 'package:ChStore/data/Product.dart';
 import 'package:ChStore/data/Category.dart';
@@ -105,7 +106,7 @@ class ItemListState extends State<ItemList> {
                             style: new TextStyle(
                               fontSize: 15.0,
                               fontWeight: FontWeight.bold,
-                              color: Colors.grey[400],
+                              color: appColor.grey400,
                             ),
                           ),
                           Text(
@@ -125,7 +126,7 @@ class ItemListState extends State<ItemList> {
                       decoration: new BoxDecoration(
                         border: Border(
                           bottom:
-                              BorderSide(width: 0.5, color: Colors.grey[600]),
+                              BorderSide(width: 0.5, color: appColor.grey500),
                         ),
                       ),
                       child: Row(

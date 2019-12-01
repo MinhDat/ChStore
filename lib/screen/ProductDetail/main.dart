@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 import 'package:ChStore/data/Product.dart';
-import 'package:ChStore/utils/MixColor.dart';
+import 'package:ChStore/utils/AppColor.dart';
 
 class ProductDetail extends StatefulWidget {
   @override
@@ -55,7 +55,7 @@ class _WidgetList extends State<ProductDetail> {
           // action button
           IconButton(
             icon: Icon(Icons.favorite),
-            color: product.favorited ? mixColor.main : Colors.black,
+            color: product.favorited ? appColor.main : appColor.black,
             onPressed: () {
               _favoriteHandle();
             },
@@ -132,7 +132,7 @@ class ChoiceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextStyle textStyle = Theme.of(context).textTheme.display1;
     return Card(
-      color: Colors.white,
+      color: appColor.white,
       child: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,

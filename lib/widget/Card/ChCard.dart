@@ -1,3 +1,4 @@
+import 'package:ChStore/utils/AppColor.dart';
 import 'package:flutter/material.dart';
 import 'package:ChStore/data/Product.dart';
 
@@ -43,14 +44,14 @@ class ChCard extends StatelessWidget {
               style: new TextStyle(
                 fontSize: 30.0,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: appColor.white,
               ),
             ),
             Text(
               "\$${product.price}",
               style: new TextStyle(
                 fontSize: 18.0,
-                color: Colors.white,
+                color: appColor.white,
               ),
             ),
           ],
@@ -77,8 +78,8 @@ class ChCard extends StatelessWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    Colors.white,
-                    Colors.black,
+                    appColor.white,
+                    appColor.black,
                   ],
                 ),
               ),

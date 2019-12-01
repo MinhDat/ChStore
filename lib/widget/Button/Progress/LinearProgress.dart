@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:ChStore/widget/Button/Progress/LinearPainter.dart';
-import 'package:ChStore/utils/MixColor.dart';
+import 'package:ChStore/utils/AppColor.dart';
 
 const LINEAR_ACTIVE = true;
 const LINEAR_DEACTIVE = false;
@@ -86,8 +86,8 @@ class LinearProgressState extends State<LinearProgress> {
         margin: EdgeInsets.only(top: 35),
         child: CustomPaint(
           foregroundPainter: LinearPainter(
-            lineColor: mixColor.lineColor,
-            completeColor: mixColor.completeColor,
+            lineColor: appColor.grey,
+            completeColor: appColor.redAccent100,
             completePercent: percentage,
             width: 2,
           ),

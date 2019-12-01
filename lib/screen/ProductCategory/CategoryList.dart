@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/data/Category.dart';
-import 'package:ChStore/utils/MixColor.dart';
+import 'package:ChStore/utils/AppColor.dart';
 
 //Template Type
 const NORMAL_LIST_TYPE = 1;
@@ -42,7 +42,7 @@ class CategoryList extends StatelessWidget {
                       borderRadius: new BorderRadius.circular(10.0),
                       boxShadow: <BoxShadow>[
                         BoxShadow(
-                          color: Colors.black38,
+                          color: appColor.black38,
                           offset: Offset(0.0, 1.0),
                           blurRadius: 10.0,
                         ),
@@ -56,7 +56,7 @@ class CategoryList extends StatelessWidget {
                               fit: BoxFit.cover,
                             )
                           : Container(
-                              color: Colors.white,
+                              color: appColor.white,
                             ),
                     ),
                   ),
@@ -79,7 +79,7 @@ class CategoryList extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 33.0,
                             fontWeight: FontWeight.bold,
-                            color: mixColor.main,
+                            color: appColor.main,
                           ),
                         ),
                       ),

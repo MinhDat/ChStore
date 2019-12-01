@@ -178,23 +178,21 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
             child: Container(width: 10.0, height: 10.0, color: Colors.green),
           ),
         ),
-        Positioned(
-          top: _itemCouterOffset.dy,
-          left: _itemCouterOffset.dx,
-          child: Container(
-            width: 20.0,
-            height: 20.0,
-            // padding: EdgeInsets.all(0.0),
-            // color: Colors.red,
-            child: Text(
-              "$_count",
-              style: TextStyle(
-                color: Colors.red,
-                fontSize: 15.0,
-              ),
-            ),
-          ),
-        )
+        // Positioned(
+        //   top: _itemCouterOffset.dy,
+        //   left: _itemCouterOffset.dx,
+        //   child: Container(
+        //     width: 20.0,
+        //     height: 20.0,
+        //     child: Text(
+        //       "$_count",
+        //       style: TextStyle(
+        //         color: Colors.red,
+        //         fontSize: 15.0,
+        //       ),
+        //     ),
+        //   ),
+        // )
       ],
     );
   }

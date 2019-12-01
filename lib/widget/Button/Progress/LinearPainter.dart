@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class LinearPainter extends CustomPainter {
   Color lineColor;

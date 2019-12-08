@@ -9,7 +9,7 @@ class Profile extends StatelessWidget {
     Size screenSize = MediaQuery.of(context).size;
     double profileSize = screenSize.height / 3;
     double avatarSize = screenSize.height / 16;
-    double panelSize = 3 * profileSize / 4;
+    double panelSize = 4 * profileSize / 5;
     double analyticSize = profileSize / 4;
     double activeSize = screenSize.height;
 
@@ -49,8 +49,7 @@ class Profile extends StatelessWidget {
                           left: 0,
                           bottom: 0,
                           child: Container(
-                            padding: EdgeInsets.only(
-                                left: 20, right: 20, top: avatarSize),
+                            padding: EdgeInsets.only(top: avatarSize),
                             decoration: new BoxDecoration(
                               color: appColor.white,
                               borderRadius:
@@ -75,63 +74,71 @@ class Profile extends StatelessWidget {
                                   children: <Widget>[
                                     Expanded(
                                       flex: 5,
-                                      child: FlatButton(
-                                        color: appColor.facebook,
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Image.asset(
-                                              'icons/facebook_white.png',
-                                              height: 22,
-                                              width: 22,
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 10),
-                                              child: Text(
-                                                "Facebook",
-                                                style: TextStyle(
-                                                  color: appColor.white,
-                                                  fontSize: 18,
+                                      child: Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 20, right: 10),
+                                        child: FlatButton(
+                                          color: appColor.facebook,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Image.asset(
+                                                'icons/facebook_white.png',
+                                                height: 22,
+                                                width: 22,
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(left: 10),
+                                                child: Text(
+                                                  "Facebook",
+                                                  style: TextStyle(
+                                                    color: appColor.white,
+                                                    fontSize: 14,
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
+                                          onPressed: () {},
                                         ),
-                                        onPressed: () {},
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
-                                      child: FlatButton(
-                                        color: appColor.zalo,
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Image.asset(
-                                              'icons/zalo.png',
-                                              height: 27,
-                                              width: 27,
-                                              color: appColor.white,
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 10),
-                                              child: Text(
-                                                "Zalo",
-                                                style: TextStyle(
-                                                  color: appColor.white,
-                                                  fontSize: 18,
+                                      child: Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 10, right: 20),
+                                        child: FlatButton(
+                                          color: appColor.zalo,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Image.asset(
+                                                'icons/zalo.png',
+                                                height: 27,
+                                                width: 27,
+                                                color: appColor.white,
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(left: 10),
+                                                child: Text(
+                                                  "Zalo",
+                                                  style: TextStyle(
+                                                    color: appColor.white,
+                                                    fontSize: 14,
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
+                                          onPressed: () {},
                                         ),
-                                        onPressed: () {},
                                       ),
                                     )
                                   ],
@@ -159,6 +166,26 @@ class Profile extends StatelessWidget {
                       decoration: new BoxDecoration(
                         color: appColor.white,
                         borderRadius: new BorderRadius.all(Radius.circular(20)),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(left: 10, right: 10),
+                            child: Icon(Icons.share),
+                          ),
+                          Text("| 200"),
+                          Padding(
+                            padding: EdgeInsets.only(left: 10, right: 10),
+                            child: Icon(Icons.share),
+                          ),
+                          Text("| 200"),
+                          Padding(
+                            padding: EdgeInsets.only(left: 10, right: 10),
+                            child: Icon(Icons.share),
+                          ),
+                          Text("| 200"),
+                        ],
                       ),
                     ),
                   ),

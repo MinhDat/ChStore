@@ -1,18 +1,19 @@
 import 'package:ChStore/data/Topic.dart';
 
-class Category {
+class Category extends Topic {
   Category({
-    this.id,
-    this.image,
-    this.name,
-  });
-  final int id;
-  final String image;
-  final String name;
+    final int id,
+    final String image,
+    final String name,
+  }) : super(
+          id: id,
+          image: image,
+          name: name,
+        );
 }
 
 List<Category> allCategories = <Category>[
-  Category(id: 0, name: "Sports", image: "lib/picture/categories/sports.jpg"),
+  Category(id: 0, name: "Sport", image: "lib/picture/categories/sports.jpg"),
   Category(id: 1, name: "Travel", image: "lib/picture/categories/travel.jpg"),
   Category(id: 2, name: "Music", image: "lib/picture/categories/music.jpg"),
   Category(id: 3, name: "Gaming", image: "lib/picture/categories/gaming.jpg"),

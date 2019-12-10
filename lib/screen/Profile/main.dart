@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ChStore/widget/Profile/ProfilePainter.dart';
+import 'package:ChStore/screen/Profile/Wallpaper.dart';
 
 import 'package:ChStore/utils/AppColor.dart';
 
@@ -19,12 +19,9 @@ class Profile extends StatelessWidget {
         children: <Widget>[
           Positioned(
             top: 0,
-            child: Container(
+            child: Wallpaper(
               height: profileSize - 5,
               width: screenSize.width,
-              child: CustomPaint(
-                foregroundPainter: ProfilePainter(color: appColor.red400),
-              ),
             ),
           ),
           Positioned(

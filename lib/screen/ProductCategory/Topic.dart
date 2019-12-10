@@ -28,14 +28,14 @@ class Topic extends StatelessWidget {
               onTap: () {
                 Navigator.pushNamed(
                   _parentContext,
-                  '/${category.name.toLowerCase()}-category',
+                  '/${category.name.toLowerCase()}-topic',
                   arguments: category,
                 );
               },
               child: Stack(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
+                    margin: EdgeInsets.only(left: 20.0, right: 20.0, top: 10.0),
                     height: 130,
                     width: screenSize.width,
                     decoration: new BoxDecoration(

@@ -34,8 +34,8 @@ class SmallChCardListState extends State<SmallChCardList> {
       double itemMaxHeight,
       bool isLeftColumn,
       int index) {
-    final double leftOffset = isLeftColumn ? 20.0 : 5.0;
-    final double rightOffset = isLeftColumn ? 5.0 : 20.0;
+    final double leftOffset = isLeftColumn ? 20.0 : 10.0;
+    final double rightOffset = isLeftColumn ? 10.0 : 20.0;
 
     List<Widget> nameDes = [
       Expanded(
@@ -58,6 +58,7 @@ class SmallChCardListState extends State<SmallChCardList> {
     switch (type) {
       case CATEGORIES_TYPE:
         lastItem = allCategories.length - 1;
+
         break;
       case PRODUCTS_TYPE:
         nameDes.add(
@@ -92,7 +93,9 @@ class SmallChCardListState extends State<SmallChCardList> {
       onTap: () {
         Navigator.pushNamed(
           _parentContext,
-          '/product-detail',
+          type == CATEGORIES_TYPE
+              ? '/${data.name.toLowerCase()}-category'
+              : '/product-detail',
           arguments: data,
         );
       },
@@ -105,7 +108,7 @@ class SmallChCardListState extends State<SmallChCardList> {
                 : itemMaxHeight,
             width: itemWidth,
             margin: EdgeInsets.only(
-              top: 10.0,
+              top: 20.0,
               left: leftOffset,
               right: rightOffset,
             ),
@@ -154,10 +157,10 @@ class SmallChCardListState extends State<SmallChCardList> {
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
     final RouteSettings settings = ModalRoute.of(context).settings;
-    final double itemWidth = (screenSize.width - 50.0) / 2.0;
-    final double itemMediumHeight = screenSize.width / 2.0;
-    double itemMaxHeight = itemMediumHeight * 1.2;
-    final Topic _topic = settings.arguments;
+    final double itemWidth = screenSize.width / 2.0;
+    double itemMediumHeight = screenSize.width / 2.0;
+    double itemMaxHeight = itemMediumHeight * 1.3;
+    final Category _category = settings.arguments;
     List dataFilters = [];
 
     final List<GestureDetector> leftItems = <GestureDetector>[];
@@ -165,12 +168,13 @@ class SmallChCardListState extends State<SmallChCardList> {
 
     switch (type) {
       case CATEGORIES_TYPE:
+        itemMediumHeight = itemMediumHeight - 30;
         itemMaxHeight = itemMediumHeight;
         dataFilters = allCategories;
         break;
       case PRODUCTS_TYPE:
         dataFilters = allProducts
-            .where((item) => (item.categoryId == _topic.id))
+            .where((item) => (item.categoryId == _category.id))
             .toList();
         break;
       default:

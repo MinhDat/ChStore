@@ -10,7 +10,15 @@ class ShoppingCarts extends Product {
     bool favorited,
     int count,
     final int categoryId,
-  }) : super();
+  }) : super(
+            id: id,
+            image: image,
+            name: name,
+            price: price,
+            description: description,
+            favorited: favorited,
+            count: count,
+            categoryId: categoryId);
 }
 
 List<ShoppingCarts> allShoppingCarts = <ShoppingCarts>[

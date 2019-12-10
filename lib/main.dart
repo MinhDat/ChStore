@@ -24,15 +24,22 @@ void main() {
         '/': (context) => new Mainpage(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/product-detail': (context) => new ProductDetail(),
-        // Topic route
-        '/woman-category': (context) => new ItemCategory(),
-        '/man-category': (context) => new ItemCategory(),
+        // Topic routes
+        '/woman-topic': (context) => new ItemCategory(),
+        '/man-topic': (context) => new ItemCategory(),
+        '/sport-topic': (context) => new ItemCategory(),
+        '/animal-topic': (context) => new ItemCategory(),
+        '/life-topic': (context) => new ItemCategory(),
+        '/book-topic': (context) => new ItemCategory(),
+        '/travel-topic': (context) => new ItemCategory(),
+        '/child-topic': (context) => new ItemCategory(),
+        // Category routes
         '/sport-category': (context) => new ItemCategory(),
-        '/animal-category': (context) => new ItemCategory(),
-        '/life-category': (context) => new ItemCategory(),
-        '/book-category': (context) => new ItemCategory(),
         '/travel-category': (context) => new ItemCategory(),
-        '/child-category': (context) => new ItemCategory(),
+        '/music-category': (context) => new ItemCategory(),
+        '/gaming-category': (context) => new ItemCategory(),
+        '/photo-category': (context) => new ItemCategory(),
+        '/food-category': (context) => new ItemCategory(),
       },
     ),
   );

@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/data/Category.dart';
+import 'package:ChStore/data/Topic.dart';
 import 'package:ChStore/utils/AppColor.dart';
 
 //Template Type
 const NORMAL_LIST_TYPE = 1;
 
-class CategoryList extends StatelessWidget {
-  CategoryList(this._parentContext, {this.type: NORMAL_LIST_TYPE});
+class Topic extends StatelessWidget {
+  Topic(this._parentContext, {this.type: NORMAL_LIST_TYPE});
   final BuildContext _parentContext;
   final int type;
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
 
-    List<GestureDetector> _categories = allCategories
+    List<GestureDetector> _categories = allTopics
         .asMap()
         .map((index, category) {
           AlignmentGeometry _alignment = Alignment.centerRight;
@@ -85,36 +85,6 @@ class CategoryList extends StatelessWidget {
                       ),
                     ),
                   ),
-                  // Positioned(
-                  //   top: 10,
-                  //   right: 10,
-                  //   bottom: 0,
-                  //   child: Opacity(
-                  //     opacity: 0.25,
-                  //     child: Container(
-                  //       height: 130,
-                  //       width: screenSize.width - 20,
-                  //       alignment: _alignment,
-                  //       decoration: new BoxDecoration(
-                  //         borderRadius: new BorderRadius.circular(10.0),
-                  //         gradient: LinearGradient(
-                  //           colors: _colors,
-                  //         ),
-                  //       ),
-                  //       child: Padding(
-                  //         padding: EdgeInsets.only(right: 20.0, left: 20.0),
-                  //         child: Text(
-                  //           category.name,
-                  //           style: TextStyle(
-                  //             fontSize: 33.0,
-                  //             fontWeight: FontWeight.bold,
-                  //             color: Colors.white,
-                  //           ),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               ),
             ),

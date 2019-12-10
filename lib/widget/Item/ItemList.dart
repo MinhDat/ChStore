@@ -1,7 +1,7 @@
 import 'package:ChStore/utils/AppColor.dart';
 import 'package:flutter/material.dart';
 import 'package:ChStore/data/Product.dart';
-import 'package:ChStore/data/Category.dart';
+import 'package:ChStore/data/Topic.dart';
 import 'package:ChStore/widget/Button/Counter.dart';
 import 'package:ChStore/widget/Button/AddCart.dart';
 
@@ -100,9 +100,7 @@ class ItemListState extends State<ItemList> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            allCategories[product.categoryId]
-                                .name
-                                .toUpperCase(),
+                            allTopics[product.categoryId].name.toUpperCase(),
                             style: new TextStyle(
                               fontSize: 15.0,
                               fontWeight: FontWeight.bold,

@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:ChStore/widget/Card/SmallChCardList.dart';
-import 'package:ChStore/data/Category.dart';
+import 'package:ChStore/data/Topic.dart';
 
 class ItemCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     RouteSettings settings = ModalRoute.of(context).settings;
-    Category category = settings.arguments;
+    Topic topic = settings.arguments;
     return Scaffold(
       appBar: AppBar(
-        title: Text("${category.name} categories"),
+        title: Text("${topic.name} categories"),
       ),
-      body: SmallChCardList(context),
+      body: ListView(children: [
+        SmallChCardList(context),
+      ]),
     );
   }
 }

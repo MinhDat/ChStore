@@ -50,13 +50,23 @@ flutter:
     - icons/facebook_white.png
     - icons/zalo.png
 
-    # Categories
-    - lib/picture/categories/man-category.jpg
-    - lib/picture/categories/woman-category.jpg
-    - lib/picture/categories/sport-category.png
-    # Travel categoies
+    # Topic
+    - lib/picture/topics/man-category.jpg
+    - lib/picture/topics/woman-category.jpg
+    - lib/picture/topics/sport-category.png
+
+    # Category
+    - lib/picture/categories/sports.jpg
+    - lib/picture/categories/travel.jpg
+    - lib/picture/categories/music.jpg
+    - lib/picture/categories/gaming.jpg
+    - lib/picture/categories/photography.jpg
+    - lib/picture/categories/food.jpg
+
+    # Travel categories
     - lib/picture/travels/girl_and_flowers.jpg
     - lib/picture/travels/girl_and_beaches.jpg
+
     # Woman categories
     - lib/picture/women/picture_one.webp
     - lib/picture/women/picture_five.webp

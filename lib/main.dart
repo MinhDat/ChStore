@@ -24,7 +24,7 @@ void main() {
         '/': (context) => new Mainpage(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/product-detail': (context) => new ProductDetail(),
-        // Category route
+        // Topic route
         '/woman-category': (context) => new ItemCategory(),
         '/man-category': (context) => new ItemCategory(),
         '/sport-category': (context) => new ItemCategory(),

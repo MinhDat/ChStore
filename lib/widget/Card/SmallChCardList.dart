@@ -1,15 +1,16 @@
 import 'package:ChStore/utils/AppColor.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/data/Category.dart';
+import 'package:ChStore/data/Topic.dart';
 import 'package:ChStore/data/Product.dart';
+import 'package:ChStore/data/Category.dart';
 
 //Template Type
-const NORMAL_LIST_TYPE = 0;
-const SHOPPING_CART_LIST_TYPE = 1;
+const PRODUCTS_TYPE = 0;
+const CATEGORIES_TYPE = 1;
 
 class SmallChCardList extends StatefulWidget {
-  SmallChCardList(this._parentContext, {this.type: NORMAL_LIST_TYPE});
+  SmallChCardList(this._parentContext, {this.type: PRODUCTS_TYPE});
   final BuildContext _parentContext;
   final int type;
 
@@ -24,23 +25,75 @@ class SmallChCardListState extends State<SmallChCardList> {
   final BuildContext _parentContext;
   final int type;
   final int firstItem = 0;
-  final int lastItem = allProducts.length - 1;
+  int lastItem = allProducts.length - 1;
 
-  GestureDetector _renderProductItem(
-      Product product,
+  GestureDetector _renderItem(
+      var data,
       double itemWidth,
-      double itemMediumWidth,
-      double itemMaxWidth,
+      double itemMediumHeight,
+      double itemMaxHeight,
       bool isLeftColumn,
       int index) {
     final double leftOffset = isLeftColumn ? 20.0 : 5.0;
     final double rightOffset = isLeftColumn ? 5.0 : 20.0;
+
+    List<Widget> nameDes = [
+      Expanded(
+        flex: 8,
+        child: Container(
+          alignment: Alignment.bottomLeft,
+          padding: EdgeInsets.only(left: 10.0),
+          child: Text(
+            data.name,
+            style: new TextStyle(
+              fontSize: 15.0,
+              fontWeight: FontWeight.bold,
+              color: appColor.white,
+            ),
+          ),
+        ),
+      ),
+    ];
+
+    switch (type) {
+      case CATEGORIES_TYPE:
+        lastItem = allCategories.length - 1;
+        break;
+      case PRODUCTS_TYPE:
+        nameDes.add(
+          Expanded(
+            flex: 2,
+            child: Container(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.only(left: 10.0),
+              decoration: new BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    width: 1.0,
+                    color: appColor.white,
+                  ),
+                ),
+              ),
+              child: Text(
+                "\$${data.price}",
+                style: new TextStyle(
+                  fontSize: 12.0,
+                  color: appColor.white,
+                ),
+              ),
+            ),
+          ),
+        );
+        break;
+      default:
+    }
+
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(
           _parentContext,
           '/product-detail',
-          arguments: product,
+          arguments: data,
         );
       },
       child: Stack(
@@ -48,8 +101,8 @@ class SmallChCardListState extends State<SmallChCardList> {
           Container(
             height: ((index == firstItem && isLeftColumn) ||
                     index == lastItem && !isLeftColumn)
-                ? itemMediumWidth
-                : itemMaxWidth,
+                ? itemMediumHeight
+                : itemMaxHeight,
             width: itemWidth,
             margin: EdgeInsets.only(
               top: 10.0,
@@ -59,7 +112,7 @@ class SmallChCardListState extends State<SmallChCardList> {
             child: ClipRRect(
               borderRadius: new BorderRadius.circular(10.0),
               child: Image.asset(
-                product.image,
+                data.image,
                 fit: BoxFit.cover,
               ),
             ),
@@ -87,47 +140,8 @@ class SmallChCardListState extends State<SmallChCardList> {
                   ),
                 ),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Expanded(
-                      flex: 8,
-                      child: Container(
-                        alignment: Alignment.bottomLeft,
-                        padding: EdgeInsets.only(left: 10.0),
-                        child: Text(
-                          product.name,
-                          style: new TextStyle(
-                            fontSize: 15.0,
-                            fontWeight: FontWeight.bold,
-                            color: appColor.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: Container(
-                        alignment: Alignment.centerLeft,
-                        padding: EdgeInsets.only(left: 10.0),
-                        decoration: new BoxDecoration(
-                          border: Border(
-                            bottom: BorderSide(
-                              width: 1.0,
-                              color: appColor.white,
-                            ),
-                          ),
-                        ),
-                        child: Text(
-                          "\$${product.price}",
-                          style: new TextStyle(
-                            fontSize: 12.0,
-                            color: appColor.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: nameDes),
               ),
             ),
           ),
@@ -141,37 +155,50 @@ class SmallChCardListState extends State<SmallChCardList> {
     final Size screenSize = MediaQuery.of(context).size;
     final RouteSettings settings = ModalRoute.of(context).settings;
     final double itemWidth = (screenSize.width - 50.0) / 2.0;
-    final double itemMediumWidth = screenSize.width / 2.0;
-    final double itemMaxWidth = itemMediumWidth * 1.2;
-    final Category _category = settings.arguments;
+    final double itemMediumHeight = screenSize.width / 2.0;
+    double itemMaxHeight = itemMediumHeight * 1.2;
+    final Topic _topic = settings.arguments;
+    List dataFilters = [];
 
-    final List<GestureDetector> leftProduct = <GestureDetector>[];
-    final List<GestureDetector> rightProduct = <GestureDetector>[];
+    final List<GestureDetector> leftItems = <GestureDetector>[];
+    final List<GestureDetector> rightItems = <GestureDetector>[];
 
-    final List<Product> productFilters =
-        allProducts.where((item) => (item.categoryId == _category.id)).toList();
-    for (int index = 0; index < productFilters.length; index++) {
-      final Product product = productFilters[index];
+    switch (type) {
+      case CATEGORIES_TYPE:
+        itemMaxHeight = itemMediumHeight;
+        dataFilters = allCategories;
+        break;
+      case PRODUCTS_TYPE:
+        dataFilters = allProducts
+            .where((item) => (item.categoryId == _topic.id))
+            .toList();
+        break;
+      default:
+    }
+
+    for (int index = 0; index < dataFilters.length; index++) {
+      var data = dataFilters[index];
+      // print(data.image)
       if (index % 2 == 0) {
-        leftProduct.add(_renderProductItem(
-            product, itemWidth, itemMediumWidth, itemMaxWidth, true, index));
+        leftItems.add(_renderItem(
+            data, itemWidth, itemMediumHeight, itemMaxHeight, true, index));
       } else {
-        rightProduct.add(_renderProductItem(
-            product, itemWidth, itemMediumWidth, itemMaxWidth, false, index));
+        rightItems.add(_renderItem(
+            data, itemWidth, itemMediumHeight, itemMaxHeight, false, index));
       }
     }
 
-    return ListView(children: [
+    return Column(children: [
       Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Expanded(
             flex: 5,
-            child: Column(children: leftProduct),
+            child: Column(children: leftItems),
           ),
           Expanded(
             flex: 5,
-            child: Column(children: rightProduct),
+            child: Column(children: rightItems),
           ),
         ],
       )

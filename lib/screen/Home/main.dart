@@ -6,6 +6,7 @@ import 'package:ChStore/widget/Item/ItemList.dart';
 import 'package:ChStore/widget/Header/main.dart';
 import 'package:ChStore/widget/Card/ChCardPage.dart';
 import 'package:ChStore/widget/Card/ChCardSlider.dart';
+import 'package:ChStore/widget/Item/FourItemList.dart';
 
 import 'package:ChStore/utils/AppColor.dart';
 
@@ -25,13 +26,14 @@ class HomePage extends StatelessWidget {
             child: TextTitle("Today"),
           ),
           ChCardPage(),
+          FourItemList(),
           Padding(
             padding: EdgeInsets.only(
               top: 20,
               left: 20,
               bottom: 10,
             ),
-            child: TextTitle("New"),
+            child: TextTitle("News"),
           ),
           ChCardSlider(),
           Padding(

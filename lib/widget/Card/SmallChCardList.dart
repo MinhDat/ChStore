@@ -1,9 +1,11 @@
-import 'package:ChStore/utils/AppColor.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/data/Topic.dart';
+import 'package:ChStore/utils/AppColor.dart';
+import 'package:ChStore/utils/AppTextStyle.dart';
+
 import 'package:ChStore/data/Product.dart';
 import 'package:ChStore/data/Category.dart';
+import 'package:ChStore/data/Topic.dart';
 
 //Template Type
 const PRODUCTS_TYPE = 0;
@@ -42,15 +44,8 @@ class SmallChCardListState extends State<SmallChCardList> {
         flex: 8,
         child: Container(
           alignment: Alignment.bottomLeft,
-          padding: EdgeInsets.only(left: 10.0),
-          child: Text(
-            data.name,
-            style: new TextStyle(
-              fontSize: 15.0,
-              fontWeight: FontWeight.bold,
-              color: appColor.white,
-            ),
-          ),
+          padding: EdgeInsets.only(left: 10.0, bottom: 10.0),
+          child: Text(data.name, style: appTextStyle.smallCardName),
         ),
       ),
     ];
@@ -75,13 +70,8 @@ class SmallChCardListState extends State<SmallChCardList> {
                   ),
                 ),
               ),
-              child: Text(
-                "\$${data.price}",
-                style: new TextStyle(
-                  fontSize: 12.0,
-                  color: appColor.white,
-                ),
-              ),
+              child:
+                  Text("\$${data.price}", style: appTextStyle.smallCardPrice),
             ),
           ),
         );
@@ -160,7 +150,6 @@ class SmallChCardListState extends State<SmallChCardList> {
     final double itemWidth = screenSize.width / 2.0;
     double itemMediumHeight = screenSize.width / 2.0;
     double itemMaxHeight = itemMediumHeight * 1.3;
-    final Category _category = settings.arguments;
     List dataFilters = [];
 
     final List<GestureDetector> leftItems = <GestureDetector>[];
@@ -168,13 +157,14 @@ class SmallChCardListState extends State<SmallChCardList> {
 
     switch (type) {
       case CATEGORIES_TYPE:
-        itemMediumHeight = itemMediumHeight - 30;
+        itemMediumHeight = (itemMediumHeight - 30) / 1.2;
         itemMaxHeight = itemMediumHeight;
         dataFilters = allCategories;
         break;
       case PRODUCTS_TYPE:
+        Topic _topic = settings.arguments as Topic;
         dataFilters = allProducts
-            .where((item) => (item.categoryId == _category.id))
+            .where((item) => (item.categoryId == _topic.id))
             .toList();
         break;
       default:

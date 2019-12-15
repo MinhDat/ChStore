@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-import 'package:ChStore/data/Product.dart';
+import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:ChStore/utils/AppColor.dart';
+import 'package:ChStore/data/Product.dart';
 
 class ProductDetail extends StatefulWidget {
   @override
@@ -45,7 +46,7 @@ class _WidgetList extends State<ProductDetail> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Product Detail"),
+        title: Text("Product Detail", style: appTextStyle.normal),
         actions: <Widget>[
           // action button
           IconButton(
@@ -67,7 +68,7 @@ class _WidgetList extends State<ProductDetail> {
               return choices.skip(2).map((Choice choice) {
                 return PopupMenuItem<Choice>(
                   value: choice,
-                  child: Text(choice.title),
+                  child: Text(choice.title, style: appTextStyle.normal),
                 );
               }).toList();
             },
@@ -85,19 +86,11 @@ class _WidgetList extends State<ProductDetail> {
                   fit: BoxFit.cover,
                 ),
               ),
-              Text(
-                product.name,
-                style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),
-              ),
-              Text(
-                "\$${product.price}",
-                style: TextStyle(fontSize: 15),
-              ),
+              Text(product.name, style: appTextStyle.header),
+              Text("\$${product.price}", style: appTextStyle.price),
               Padding(
                 padding: EdgeInsets.only(left: 20.0, right: 20.0),
-                child: Text(
-                  product.description,
-                ),
+                child: Text(product.description, style: appTextStyle.normal),
               ),
             ],
           ),

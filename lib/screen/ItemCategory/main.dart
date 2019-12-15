@@ -1,3 +1,4 @@
+import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:flutter/material.dart';
 import 'package:ChStore/widget/Card/SmallChCardList.dart';
 import 'package:ChStore/data/Topic.dart';
@@ -9,7 +10,7 @@ class ItemCategory extends StatelessWidget {
     Topic topic = settings.arguments;
     return Scaffold(
       appBar: AppBar(
-        title: Text("${topic.name} categories"),
+        title: Text("${topic.name}", style: appTextStyle.normal),
       ),
       body: ListView(children: [
         SmallChCardList(context),

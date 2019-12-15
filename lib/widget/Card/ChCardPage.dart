@@ -76,6 +76,8 @@ class ChCardPageState extends State<ChCardPage> {
         child: ChCard(
           product,
           type: FOR_PAGE_VIEW,
+          itemWidth: _screenWidth,
+          itemHeight: _screenHeight,
         ),
       );
     }).toList();

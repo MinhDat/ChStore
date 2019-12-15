@@ -24,7 +24,7 @@ class RadialPainter extends CustomPainter {
     double radius = min(size.width / 2, size.height / 2);
     canvas.drawCircle(center, radius, line);
     double arcAngle = 2 * pi * (completePercent / 100);
-    canvas.drawArc(new Rect.fromCircle(center: center, radius: radius), 0,
+    canvas.drawArc(new Rect.fromCircle(center: center, radius: radius), pi,
         arcAngle, false, complete);
   }
 

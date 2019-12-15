@@ -1,5 +1,5 @@
+import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:flutter/material.dart';
-import 'package:ChStore/utils/AppColor.dart';
 
 class Header extends StatelessWidget {
   DateTime _now = new DateTime.now();
@@ -42,19 +42,14 @@ class Header extends StatelessWidget {
               Container(
                 alignment: Alignment.topLeft,
                 padding: EdgeInsets.only(left: 20.0, top: 20.0),
-                child: Text(
-                  "ChStore",
-                  style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                      color: appColor.main),
-                ),
+                child: Text("ChStore", style: appTextStyle.logo),
               ),
               Container(
                 alignment: Alignment.topLeft,
                 padding: EdgeInsets.only(left: 20.0, bottom: 10.0),
                 child: Text(
                   "${_week[_now.weekday - 1]} ${_now.day} ${_month[_now.month - 1]}",
+                  style: appTextStyle.normal,
                 ),
               ),
             ],

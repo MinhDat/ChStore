@@ -1,10 +1,10 @@
 // TODO Implement this library.
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/widget/CustomText/TextTitle.dart';
-import 'package:ChStore/data/Popularity.dart';
-
+import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:ChStore/utils/AppColor.dart';
+
+import 'package:ChStore/data/Popularity.dart';
 
 const RIGHT = true;
 const LEFT = false;
@@ -43,10 +43,7 @@ class PopularCategories extends StatelessWidget {
         ),
         child: Stack(
           children: <Widget>[
-            Text(
-              data.name,
-              style: TextStyle(color: appColor.main, fontSize: 20),
-            ),
+            Text(data.name, style: appTextStyle.popularCategory),
             Align(
               alignment: Alignment.topRight,
               child: Icon(
@@ -66,9 +63,7 @@ class PopularCategories extends StatelessWidget {
     List<Widget> _popularCategories = [
       Padding(
         padding: EdgeInsets.only(left: 20, bottom: 10),
-        child: TextTitle(
-          "Popular Categories",
-        ),
+        child: Text("Popular Categories", style: appTextStyle.title),
       )
     ];
     int index = 0;
@@ -100,9 +95,7 @@ class PopularTags extends StatelessWidget {
     List<Widget> _popularTags = [
       Padding(
         padding: EdgeInsets.only(left: 20, top: 20),
-        child: TextTitle(
-          "Popular Tags",
-        ),
+        child: Text("Popular Tags", style: appTextStyle.title),
       )
     ];
 
@@ -116,14 +109,9 @@ class PopularTags extends StatelessWidget {
           ),
         ),
         child: Padding(
-            padding: EdgeInsets.only(top: 10, bottom: 10),
-            child: Text(
-              popularTags[i].name,
-              style: TextStyle(
-                color: appColor.main,
-                fontSize: 22,
-              ),
-            )),
+          padding: EdgeInsets.only(top: 10, bottom: 10),
+          child: Text(popularTags[i].name, style: appTextStyle.popularTag),
+        ),
       ));
     }
 

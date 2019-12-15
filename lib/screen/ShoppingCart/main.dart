@@ -1,3 +1,4 @@
+import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/widget/Header/ScrollHeader.dart';
@@ -121,7 +122,7 @@ class ShoppingCartState extends State<ShoppingCart> {
           children: [
             ListView(children: [ItemList(type: SHOPPING_CART_LIST_TYPE)]),
             CheckOut(),
-            Text("Completed payment")
+            Text("Completed payment", style: appTextStyle.normal)
           ],
         ),
       ),
@@ -143,13 +144,7 @@ class ShoppingCartState extends State<ShoppingCart> {
                   ),
                   Padding(
                     padding: EdgeInsets.all(20),
-                    child: Text(
-                      "Back",
-                      style: TextStyle(
-                        color: appColor.white,
-                        fontSize: 18,
-                      ),
-                    ),
+                    child: Text("Back", style: appTextStyle.text18),
                   ),
                 ],
               ),
@@ -168,13 +163,7 @@ class ShoppingCartState extends State<ShoppingCart> {
                 children: [
                   Padding(
                     padding: EdgeInsets.all(20),
-                    child: Text(
-                      "Next",
-                      style: TextStyle(
-                        color: appColor.white,
-                        fontSize: 18,
-                      ),
-                    ),
+                    child: Text("Next", style: appTextStyle.text18),
                   ),
                   Icon(
                     Icons.arrow_forward,

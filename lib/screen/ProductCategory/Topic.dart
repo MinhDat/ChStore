@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/data/Topic.dart';
+import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:ChStore/utils/AppColor.dart';
+import 'package:ChStore/data/Topic.dart';
 
 //Template Type
 const NORMAL_LIST_TYPE = 1;
@@ -16,7 +17,7 @@ class Topic extends StatelessWidget {
 
     List<GestureDetector> _categories = allTopics
         .asMap()
-        .map((index, category) {
+        .map((index, topic) {
           AlignmentGeometry _alignment = Alignment.centerRight;
 
           if (index % 2 > 0) {
@@ -28,8 +29,8 @@ class Topic extends StatelessWidget {
               onTap: () {
                 Navigator.pushNamed(
                   _parentContext,
-                  '/${category.name.toLowerCase()}-topic',
-                  arguments: category,
+                  '/${topic.name.toLowerCase()}-topic',
+                  arguments: topic,
                 );
               },
               child: Stack(
@@ -50,9 +51,9 @@ class Topic extends StatelessWidget {
                     ),
                     child: ClipRRect(
                       borderRadius: new BorderRadius.circular(10.0),
-                      child: category.image != null
+                      child: topic.image != null
                           ? Image.asset(
-                              category.image,
+                              topic.image,
                               fit: BoxFit.cover,
                             )
                           : Container(
@@ -74,14 +75,7 @@ class Topic extends StatelessWidget {
                       ),
                       child: Padding(
                         padding: EdgeInsets.only(right: 20.0, left: 20.0),
-                        child: Text(
-                          category.name,
-                          style: TextStyle(
-                            fontSize: 33.0,
-                            fontWeight: FontWeight.bold,
-                            color: appColor.main,
-                          ),
-                        ),
+                        child: Text(topic.name, style: appTextStyle.topic),
                       ),
                     ),
                   ),

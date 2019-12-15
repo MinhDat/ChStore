@@ -1,12 +1,12 @@
+import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/widget/CustomText/TextTitle.dart';
 import 'package:ChStore/widget/Item/ItemList.dart';
 import 'package:ChStore/widget/Header/main.dart';
 import 'package:ChStore/widget/Card/ChCardPage.dart';
 import 'package:ChStore/widget/Card/ChCardSlider.dart';
-import 'package:ChStore/widget/Item/FourItemList.dart';
+import 'package:ChStore/widget/Item/FourCircleItem.dart';
 
 import 'package:ChStore/utils/AppColor.dart';
 
@@ -23,17 +23,17 @@ class HomePage extends StatelessWidget {
               left: 20,
               bottom: 10,
             ),
-            child: TextTitle("Today"),
+            child: Text("Today", style: appTextStyle.title),
           ),
           ChCardPage(),
-          FourItemList(),
+          FourCircleItem(),
           Padding(
             padding: EdgeInsets.only(
               top: 20,
               left: 20,
               bottom: 10,
             ),
-            child: TextTitle("News"),
+            child: Text("News", style: appTextStyle.title),
           ),
           ChCardSlider(),
           Padding(
@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
               left: 20,
               bottom: 10,
             ),
-            child: TextTitle("Top trends"),
+            child: Text("Top trends", style: appTextStyle.title),
           ),
           ItemList(),
         ],

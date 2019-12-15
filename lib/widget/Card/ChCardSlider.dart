@@ -39,7 +39,7 @@ class ChCardSliderState extends State<ChCardSlider> {
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     double _screenWidth = screenSize.width - 40;
-    double _screenHeight = _screenWidth * 1.2;
+    double _screenHeight = _screenWidth / 1.2;
 
     return Container(
       height: _screenHeight,

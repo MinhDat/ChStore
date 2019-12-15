@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ChStore/screen/Profile/Wallpaper.dart';
 
+import 'package:ChStore/screen/Profile/Wallpaper.dart';
+import 'package:ChStore/widget/Button/SocialInfo.dart';
+
+import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:ChStore/utils/AppColor.dart';
 
 class Profile extends StatelessWidget {
@@ -54,18 +57,9 @@ class Profile extends StatelessWidget {
                             ),
                             child: Column(
                               children: [
-                                Text(
-                                  "Charlie",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                  ),
-                                ),
-                                Text(
-                                  "Software Developer",
-                                  style: TextStyle(
-                                    color: appColor.grey,
-                                  ),
-                                ),
+                                Text("Charlie", style: appTextStyle.title),
+                                Text("Software Developer",
+                                    style: appTextStyle.description),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: <Widget>[
@@ -74,32 +68,15 @@ class Profile extends StatelessWidget {
                                       child: Padding(
                                         padding: EdgeInsets.only(
                                             left: 20, right: 10),
-                                        child: FlatButton(
-                                          color: appColor.facebook,
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Image.asset(
-                                                'icons/facebook_white.png',
-                                                height: 22,
-                                                width: 22,
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    EdgeInsets.only(left: 10),
-                                                child: Text(
-                                                  "Facebook",
-                                                  style: TextStyle(
-                                                    color: appColor.white,
-                                                    fontSize: 14,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
+                                        child: SocialInfo(
+                                          "Facebook",
+                                          bgColor: appColor.facebook,
+                                          textColor: appColor.white,
+                                          assetImage: Image.asset(
+                                            'icons/facebook_white.png',
+                                            height: 22,
+                                            width: 22,
                                           ),
-                                          onPressed: () {},
                                         ),
                                       ),
                                     ),
@@ -108,33 +85,16 @@ class Profile extends StatelessWidget {
                                       child: Padding(
                                         padding: EdgeInsets.only(
                                             left: 10, right: 20),
-                                        child: FlatButton(
-                                          color: appColor.zalo,
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Image.asset(
-                                                'icons/zalo.png',
-                                                height: 27,
-                                                width: 27,
-                                                color: appColor.white,
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    EdgeInsets.only(left: 10),
-                                                child: Text(
-                                                  "Zalo",
-                                                  style: TextStyle(
-                                                    color: appColor.white,
-                                                    fontSize: 14,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
+                                        child: SocialInfo(
+                                          "Zalo",
+                                          bgColor: appColor.zalo,
+                                          textColor: appColor.white,
+                                          assetImage: Image.asset(
+                                            'icons/zalo.png',
+                                            height: 27,
+                                            width: 27,
+                                            color: appColor.white,
                                           ),
-                                          onPressed: () {},
                                         ),
                                       ),
                                     )
@@ -171,17 +131,17 @@ class Profile extends StatelessWidget {
                             padding: EdgeInsets.only(left: 10, right: 10),
                             child: Icon(Icons.share),
                           ),
-                          Text("| 200"),
+                          Text("| 200", style: appTextStyle.normal),
                           Padding(
                             padding: EdgeInsets.only(left: 10, right: 10),
                             child: Icon(Icons.share),
                           ),
-                          Text("| 200"),
+                          Text("| 200", style: appTextStyle.normal),
                           Padding(
                             padding: EdgeInsets.only(left: 10, right: 10),
                             child: Icon(Icons.share),
                           ),
-                          Text("| 200"),
+                          Text("| 200", style: appTextStyle.normal),
                         ],
                       ),
                     ),

@@ -1,3 +1,4 @@
+import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/utils/AppColor.dart';
@@ -137,13 +138,8 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                               left: 12.0,
                               top: 2.0,
                             ),
-                            child: Text(
-                              'Enter a search term',
-                              style: TextStyle(
-                                color: appColor.grey500,
-                                fontSize: 16.0,
-                              ),
-                            ),
+                            child: Text('Enter a search term',
+                                style: appTextStyle.searchPlaceHolder),
                           )
                         ],
                       ),
@@ -162,13 +158,7 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                       child: AnimatedContainer(
                         duration: Duration(seconds: 1),
                         alignment: Alignment.center,
-                        child: Text(
-                          "Cancel",
-                          style: new TextStyle(
-                            color: appColor.blue,
-                            fontSize: 16,
-                          ),
-                        ),
+                        child: Text("Cancel", style: appTextStyle.cancelButton),
                       ),
                     ),
                   ),

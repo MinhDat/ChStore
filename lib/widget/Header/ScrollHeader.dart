@@ -1,6 +1,6 @@
 import 'package:ChStore/utils/AppColor.dart';
+import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:flutter/material.dart';
-import 'package:ChStore/widget/CustomText/Header.dart';
 
 class ScrollHeader extends StatelessWidget {
   ScrollHeader({
@@ -56,10 +56,7 @@ class ScrollHeader extends StatelessWidget {
               bottom: PreferredSize(
                 preferredSize:
                     Size.fromHeight(isAutoScroll ? 0.0 : 95.0), // Add this code
-                child: Container(
-                  alignment: Alignment.topLeft,
-                  child: Text(""),
-                ), // Add this code
+                child: Container(alignment: Alignment.topLeft), // Add this code
               ),
               flexibleSpace: LayoutBuilder(
                 builder: (BuildContext context, BoxConstraints constraints) {
@@ -69,7 +66,7 @@ class ScrollHeader extends StatelessWidget {
                           ? Container(
                               alignment: Alignment.topLeft,
                               padding: EdgeInsets.only(left: 20.0),
-                              child: Header(title),
+                              child: Text(title, style: appTextStyle.header),
                             )
                           : null,
                       Align(
@@ -109,14 +106,7 @@ class SliverHeader extends SliverPersistentHeaderDelegate {
           Center(
             child: Opacity(
               opacity: this.isAutoScroll ? 1 : (shrinkOffset / headerHeight),
-              child: Text(
-                title,
-                style: TextStyle(
-                  color: appColor.black,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16,
-                ),
-              ),
+              child: Text(title, style: appTextStyle.scrollHeader),
             ),
           ),
         ],

@@ -1,5 +1,7 @@
-import 'package:ChStore/utils/AppColor.dart';
 import 'package:flutter/material.dart';
+
+import 'package:ChStore/utils/AppColor.dart';
+import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:ChStore/data/Product.dart';
 import 'package:ChStore/data/Topic.dart';
 import 'package:ChStore/widget/Button/Counter.dart';
@@ -31,12 +33,7 @@ class ItemListState extends State<ItemList> {
       List<Widget> productLineSecond = [
         Expanded(
           flex: 4, // 20%
-          child: Text(
-            "\$${product.price}",
-            style: new TextStyle(
-              fontSize: 15.0,
-            ),
-          ),
+          child: Text("\$${product.price}", style: appTextStyle.price),
         )
       ];
       switch (type) {
@@ -99,21 +96,9 @@ class ItemListState extends State<ItemList> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            allTopics[product.categoryId].name.toUpperCase(),
-                            style: new TextStyle(
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                              color: appColor.grey400,
-                            ),
-                          ),
-                          Text(
-                            product.name,
-                            style: new TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          Text(allTopics[product.categoryId].name.toUpperCase(),
+                              style: appTextStyle.categoryLabel),
+                          Text(product.name, style: appTextStyle.itemName),
                         ],
                       ),
                     ),

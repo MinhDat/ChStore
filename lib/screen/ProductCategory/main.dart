@@ -1,9 +1,9 @@
+import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/widget/Header/main.dart';
 import 'package:ChStore/screen/ProductCategory/Topic.dart';
 import 'package:ChStore/screen/ProductCategory/Category.dart';
-import 'package:ChStore/widget/CustomText/TextTitle.dart';
 
 class ProductCategory extends StatelessWidget {
   @override
@@ -12,12 +12,12 @@ class ProductCategory extends StatelessWidget {
       Header(),
       Padding(
         padding: EdgeInsets.only(left: 20),
-        child: TextTitle('Categories'),
+        child: Text('Categories', style: appTextStyle.title),
       ),
       Category(),
       Padding(
         padding: EdgeInsets.only(left: 20, top: 20),
-        child: TextTitle('Topics'),
+        child: Text('Topics', style: appTextStyle.title),
       ),
       Topic(context),
     ]);

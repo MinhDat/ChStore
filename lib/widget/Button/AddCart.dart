@@ -1,3 +1,4 @@
+import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:flutter/material.dart';
 import 'package:ChStore/utils/System.dart';
 import 'package:ChStore/utils/AppColor.dart';
@@ -43,7 +44,7 @@ class AddCartState extends State<AddCart> {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           children: [
-            Text("Add Cart"),
+            Text("Add Cart", style: appTextStyle.text16),
             Icon(Icons.add_shopping_cart),
           ]),
       onPressed: () => handleClick(context),

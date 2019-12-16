@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
+import 'package:ChStore/widget/Button/Counter.dart';
+import 'package:ChStore/widget/Button/AddCart.dart';
+
 import 'package:ChStore/utils/AppColor.dart';
 import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:ChStore/data/Product.dart';
 import 'package:ChStore/data/Topic.dart';
-import 'package:ChStore/widget/Button/Counter.dart';
-import 'package:ChStore/widget/Button/AddCart.dart';
 
 // Constants
 const RADIUS = 10.0;
@@ -25,106 +26,119 @@ class ItemListState extends State<ItemList> {
   ItemListState({this.type});
   final int type;
 
-  @override
-  Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
+  GestureDetector _renderItem(Product item, Size size) {
+    List<Widget> productLineSecond = [
+      Expanded(
+        flex: 4, // 20%
+        child: Text("\$${item.price}", style: appTextStyle.price),
+      )
+    ];
+    switch (type) {
+      case NORMAL_LIST_TYPE:
+        productLineSecond.add(
+          Expanded(
+            flex: 6, // 60%
+            child: AddCart(data: item),
+          ),
+        );
+        break;
 
-    List<GestureDetector> productList = allProducts.map((product) {
-      List<Widget> productLineSecond = [
-        Expanded(
-          flex: 4, // 20%
-          child: Text("\$${product.price}", style: appTextStyle.price),
-        )
-      ];
-      switch (type) {
-        case NORMAL_LIST_TYPE:
-          productLineSecond.add(
-            Expanded(
-              flex: 6, // 60%
-              child: AddCart(),
+      case SHOPPING_CART_LIST_TYPE:
+        productLineSecond.add(
+          Expanded(
+            flex: 6, // 60%
+            child: Counter(
+              count: item.count,
+              id: item.id,
             ),
-          );
-          break;
+          ),
+        );
+        break;
+    }
 
-        case SHOPPING_CART_LIST_TYPE:
-          productLineSecond.add(
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          '/product-detail',
+          arguments: item,
+        );
+      },
+      child: Container(
+        height: 130.0,
+        width: size.width - 40,
+        margin: const EdgeInsets.only(top: 5.0, left: 20.0, right: 20.0),
+        child: Row(
+          children: [
             Expanded(
-              flex: 6, // 60%
-              child: Counter(
-                count: product.count,
-                id: product.id,
-              ),
-            ),
-          );
-          break;
-      }
-
-      return GestureDetector(
-        onTap: () {
-          Navigator.pushNamed(
-            context,
-            '/product-detail',
-            arguments: product,
-          );
-        },
-        child: Container(
-          height: 130.0,
-          width: screenSize.width - 40,
-          margin: const EdgeInsets.only(top: 5.0, left: 20.0, right: 20.0),
-          child: Row(
-            children: [
-              Expanded(
-                flex: 3,
-                child: Container(
-                  margin: const EdgeInsets.only(top: 10.0, bottom: 10.0),
-                  child: ClipRRect(
-                    borderRadius: new BorderRadius.circular(5.0),
-                    child: Image.asset(
-                      product.image,
-                      fit: BoxFit.cover,
-                    ),
+              flex: 3,
+              child: Container(
+                margin: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+                child: ClipRRect(
+                  borderRadius: new BorderRadius.circular(5.0),
+                  child: Image.asset(
+                    item.image,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
-              Expanded(
-                flex: 7,
-                child: Stack(
-                  children: [
-                    Container(
-                      alignment: Alignment.topLeft,
-                      margin: EdgeInsets.only(top: 5.0, left: 10.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(allTopics[product.categoryId].name.toUpperCase(),
-                              style: appTextStyle.categoryLabel),
-                          Text(product.name, style: appTextStyle.itemName),
-                        ],
+            ),
+            Expanded(
+              flex: 7,
+              child: Stack(
+                children: [
+                  Container(
+                    alignment: Alignment.topLeft,
+                    margin: EdgeInsets.only(top: 5.0, left: 10.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(allTopics[item.categoryId].name.toUpperCase(),
+                            style: appTextStyle.categoryLabel),
+                        Text(item.name, style: appTextStyle.itemName),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    alignment: Alignment.bottomLeft,
+                    margin: EdgeInsets.only(left: 10.0),
+                    padding: EdgeInsets.only(bottom: 10),
+                    decoration: new BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(width: 0.5, color: appColor.grey500),
                       ),
                     ),
-                    Container(
-                      alignment: Alignment.bottomLeft,
-                      margin: EdgeInsets.only(left: 10.0),
-                      padding: EdgeInsets.only(bottom: 10),
-                      decoration: new BoxDecoration(
-                        border: Border(
-                          bottom:
-                              BorderSide(width: 0.5, color: appColor.grey500),
-                        ),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: productLineSecond,
-                      ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: productLineSecond,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-      );
-    }).toList();
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
+    List<Product> dataList = [];
+
+    switch (type) {
+      case NORMAL_LIST_TYPE:
+        dataList = allProducts;
+        break;
+
+      case SHOPPING_CART_LIST_TYPE:
+        dataList = allShoppingCarts;
+        break;
+    }
+
+    List<GestureDetector> productList =
+        dataList.map((product) => _renderItem(product, screenSize)).toList();
 
     return Column(
       mainAxisSize: MainAxisSize.min,

@@ -1,14 +1,20 @@
+import 'package:ChStore/data/Product.dart';
 import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:flutter/material.dart';
 import 'package:ChStore/utils/System.dart';
 import 'package:ChStore/utils/AppColor.dart';
 
 class AddCart extends StatefulWidget {
+  AddCart({this.data});
+  Product data;
+
   @override
-  AddCartState createState() => new AddCartState();
+  AddCartState createState() => new AddCartState(data: data);
 }
 
 class AddCartState extends State<AddCart> {
+  AddCartState({this.data});
+  Product data;
   GlobalKey _buttonKey = GlobalKey();
 
   @override
@@ -26,6 +32,14 @@ class AddCartState extends State<AddCart> {
     final currentOffset = renderBoxRed.localToGlobal(Offset.zero);
     AnimationOffset _next =
         AnimationOffset(begin: currentOffset, end: chSystem.shoppingCartOffset);
+    Product existed =
+        allShoppingCarts.firstWhere((p) => p.id == data.id, orElse: () => null);
+
+    if (existed == null) {
+      allShoppingCarts.add(data);
+    } else {
+      existed.count++;
+    }
 
     chSystem.move(_next);
     chSystem.count();

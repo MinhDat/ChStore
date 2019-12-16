@@ -95,3 +95,5 @@ List<Product> allProducts = [
         "Because it is my diary which is my feelings are implemented on the lines of code.",
   )
 ];
+
+List<Product> allShoppingCarts = <Product>[];

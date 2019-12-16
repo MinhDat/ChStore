@@ -1,3 +1,4 @@
+import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/screen/Search/main.dart';
@@ -161,10 +162,31 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
                 title: SizedBox.shrink(),
               ),
               BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.shopping_cart,
-                  key: _keyShoppingCart,
-                  color: index == 3 ? appColor.main : appColor.unfocused,
+                icon: Container(
+                  height: 40,
+                  width: 40,
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        top: 8,
+                        right: 10,
+                        child: Icon(
+                          Icons.shopping_cart,
+                          key: _keyShoppingCart,
+                          color:
+                              index == 3 ? appColor.main : appColor.unfocused,
+                        ),
+                      ),
+                      Positioned(
+                        top: 0,
+                        right: 0,
+                        child: _count > 0
+                            ? Text("$_count",
+                                style: appTextStyle.flexColor(appColor.main))
+                            : SizedBox.shrink(),
+                      )
+                    ],
+                  ),
                 ),
                 title: SizedBox.shrink(),
               ),
@@ -186,21 +208,6 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
                 width: 10.0, height: 10.0, color: appColor.redAccent100),
           ),
         ),
-        // Positioned(
-        //   top: _itemCouterOffset.dy,
-        //   left: _itemCouterOffset.dx,
-        //   child: Container(
-        //     width: 20.0,
-        //     height: 20.0,
-        //     child: Text(
-        //       "$_count",
-        //       style: TextStyle(
-        //         color: Colors.red,
-        //         fontSize: 15.0,
-        //       ),
-        //     ),
-        //   ),
-        // )
       ],
     );
   }

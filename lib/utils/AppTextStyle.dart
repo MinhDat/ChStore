@@ -25,7 +25,6 @@ class AppTextStyle {
   final TextStyle popularCategory =
       TextStyle(color: appColor.main, fontSize: 20);
   final TextStyle popularTag = TextStyle(color: appColor.main, fontSize: 22);
-  TextStyle social(textColor) => TextStyle(color: textColor, fontSize: 13);
   final TextStyle categoryLabel = TextStyle(
       fontSize: 15.0, fontWeight: FontWeight.bold, color: appColor.grey400);
   final TextStyle itemName =
@@ -33,6 +32,7 @@ class AppTextStyle {
   final TextStyle cancelButton = TextStyle(fontSize: 16, color: appColor.blue);
   final TextStyle searchPlaceHolder =
       TextStyle(color: appColor.grey500, fontSize: 16.0);
+  TextStyle flexColor(color) => TextStyle(color: color, fontSize: 13);
 }
 
 var appTextStyle = AppTextStyle();

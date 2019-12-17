@@ -42,7 +42,7 @@ class AddCartState extends State<AddCart> {
     }
 
     chSystem.move(_next);
-    chSystem.count();
+    chSystem.countUp(1);
   }
 
   @override

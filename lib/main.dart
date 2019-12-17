@@ -90,7 +90,8 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
 
     _offsetAnimation = _generateAnimationPosition();
     chSystem.move = _handleAnimation;
-    chSystem.count = _handleCouter;
+    chSystem.countUp = _handleCartIncreaseCount;
+    chSystem.countDown = _handleCartDecreaseCount;
   }
 
   @override
@@ -244,9 +245,15 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
     });
   }
 
-  _handleCouter() {
+  _handleCartIncreaseCount(int value) {
     setState(() {
-      ++_count;
+      _count += value;
+    });
+  }
+
+  _handleCartDecreaseCount(int value) {
+    setState(() {
+      _count -= value;
     });
   }
 }

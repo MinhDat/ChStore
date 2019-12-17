@@ -1,3 +1,4 @@
+import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/widget/Button/Counter.dart';
@@ -125,24 +126,48 @@ class ItemListState extends State<ItemList> {
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
-    List<Product> dataList = [];
+    List productList = [];
 
     switch (type) {
       case NORMAL_LIST_TYPE:
-        dataList = allProducts;
+        productList = allProducts
+            .map((product) => _renderItem(product, screenSize))
+            .toList();
         break;
 
       case SHOPPING_CART_LIST_TYPE:
-        dataList = allShoppingCarts;
+        productList = allShoppingCarts
+            .map(
+              (item) => Dismissible(
+                background: stackBehindDismiss(),
+                key: ObjectKey(item),
+                child: _renderItem(item, screenSize),
+                onDismissed: (direction) {
+                  chSystem.countDown(item.count);
+                  item.count = 1;
+                  allShoppingCarts.removeWhere((p) => p.id == item.id);
+                },
+              ),
+            )
+            .toList();
         break;
     }
-
-    List<GestureDetector> productList =
-        dataList.map((product) => _renderItem(product, screenSize)).toList();
 
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: productList,
+    );
+  }
+
+  Widget stackBehindDismiss() {
+    return Container(
+      alignment: Alignment.centerRight,
+      padding: EdgeInsets.only(right: 20.0),
+      color: Colors.red,
+      child: Icon(
+        Icons.delete,
+        color: Colors.white,
+      ),
     );
   }
 }

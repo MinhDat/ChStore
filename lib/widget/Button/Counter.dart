@@ -1,3 +1,4 @@
+import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
 import 'package:ChStore/utils/AppColor.dart';
 import 'package:ChStore/data/Product.dart';
@@ -58,9 +59,11 @@ class CounterState extends State<Counter> {
 
   void handleChange(type) {
     if (type == DECREMENT && count > 1) {
+      chSystem.countDown(1);
       count--;
     }
     if (type == INCREMENT) {
+      chSystem.countUp(1);
       count++;
     }
     if (id != null) {

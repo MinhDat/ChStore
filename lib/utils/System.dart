@@ -12,26 +12,36 @@ class AnimationOffset {
 class System {
   Offset shoppingCartOffset = Offset(0, 0);
   SetPositionAnimateCalback setPositionAnimateCalback;
-  SetCartCounterCalback setCartCounterCalback;
+  SetCartIncreaseCountCalback setCartIncreaseCountCalback;
+  SetCartDecreaseCountCalback setCartDecreaseCountCalback;
 
   Function get move {
     return setPositionAnimateCalback;
   }
 
-  Function get count {
-    return setCartCounterCalback;
+  Function get countUp {
+    return setCartIncreaseCountCalback;
+  }
+
+  Function get countDown {
+    return setCartDecreaseCountCalback;
   }
 
   set move(SetPositionAnimateCalback function) {
     setPositionAnimateCalback = function;
   }
 
-  set count(SetCartCounterCalback function) {
-    setCartCounterCalback = function;
+  set countUp(SetCartIncreaseCountCalback function) {
+    setCartIncreaseCountCalback = function;
+  }
+
+  set countDown(SetCartDecreaseCountCalback function) {
+    setCartDecreaseCountCalback = function;
   }
 }
 
 var chSystem = System();
 
 typedef SetPositionAnimateCalback = void Function(AnimationOffset state);
-typedef SetCartCounterCalback = void Function();
+typedef SetCartIncreaseCountCalback = void Function(int value);
+typedef SetCartDecreaseCountCalback = void Function(int value);

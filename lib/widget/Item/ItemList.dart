@@ -163,7 +163,7 @@ class ItemListState extends State<ItemList> {
     return Container(
       alignment: Alignment.centerRight,
       padding: EdgeInsets.only(right: 20.0),
-      color: Colors.red,
+      color: appColor.red300,
       child: Icon(
         Icons.delete,
         color: Colors.white,

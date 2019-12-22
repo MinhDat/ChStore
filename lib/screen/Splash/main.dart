@@ -1,4 +1,5 @@
 import 'package:ChStore/utils/AppColor.dart';
+import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -12,13 +13,13 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(
-      Duration(seconds: 5),
-      () => Navigator.pushNamed(
-        context,
-        '/main',
-      ),
-    );
+    System.firstUsage.then((first) {
+      Timer(
+        Duration(seconds: 5),
+        () =>
+            Navigator.pushReplacementNamed(context, first ? '/guide' : '/main'),
+      );
+    });
   }
 
   @override

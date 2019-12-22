@@ -1,4 +1,5 @@
 import 'package:ChStore/screen/Splash/main.dart';
+import 'package:ChStore/screen/UsageGuide/main.dart';
 import 'package:ChStore/screen/ProductDetail/main.dart';
 import 'package:ChStore/screen/MainPage/main.dart';
 import 'package:ChStore/screen/ItemCategory/main.dart';
@@ -17,6 +18,7 @@ void main() {
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
         '/': (context) => SplashScreen(),
+        '/guide': (context) => UsageGuide(),
         '/main': (context) => Mainpage(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/product-detail': (context) => ProductDetail(),

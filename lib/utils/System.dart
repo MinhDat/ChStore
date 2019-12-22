@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:shared_preferences/shared_preferences.dart';
+
 class AnimationOffset {
   AnimationOffset({
     this.begin = const Offset(0, 0),
@@ -9,7 +11,32 @@ class AnimationOffset {
   Offset end;
 }
 
+// class Preference {
+//   final key = 'first_usage';
+//   static bool _firstUsage;
+
+//   bool get firstUsage {
+//     bool data = await _read();
+//     return data;
+//   }
+
+//   set firstUsage(bool value) {
+//     _save(value);
+//   }
+
+//   Future<bool> _read() async {
+//     final prefs = await SharedPreferences.getInstance();
+//     return prefs.getBool(key);
+//   }
+
+//   _save(bool value) async {
+//     final prefs = await SharedPreferences.getInstance();
+//     prefs.setBool(key, value);
+//   }
+// }
+
 class System {
+  static String key = 'first_usage';
   Offset shoppingCartOffset = Offset(0, 0);
   SetPositionAnimateCalback setPositionAnimateCalback;
   SetCartIncreaseCountCalback setCartIncreaseCountCalback;
@@ -37,6 +64,17 @@ class System {
 
   set countDown(SetCartDecreaseCountCalback function) {
     setCartDecreaseCountCalback = function;
+  }
+
+  static Future<bool> get firstUsage async {
+    final prefs = await SharedPreferences.getInstance();
+    bool value = prefs.getBool(key);
+    return value == null ? true : value;
+  }
+
+  static setFirstUsage(bool value) async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setBool(key, value);
   }
 }
 

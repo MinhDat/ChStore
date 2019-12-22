@@ -22,4 +22,4 @@ class AppColor {
   // final Color productName
 }
 
-var appColor = AppColor();
+final appColor = AppColor();

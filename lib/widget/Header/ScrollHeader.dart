@@ -7,7 +7,7 @@ class ScrollHeader extends StatelessWidget {
     this.title: "",
     this.isAutoScroll: false,
     this.scrollController,
-    @required this.childAppBar,
+    this.childAppBar,
     @required this.child,
   });
   final String title;
@@ -15,22 +15,6 @@ class ScrollHeader extends StatelessWidget {
   final Widget childAppBar;
   final Widget child;
   final ScrollController scrollController;
-  // PageController _pageController =
-  //     PageController(initialPage: 0, keepPage: true);
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _currentIndex = 0;
-  //   _pageController =
-  //       new PageController(initialPage: _currentIndex, keepPage: true);
-  // }
-
-  // @override
-  // void dispose() {
-  //   super.dispose();
-  //   _pageController.dispose();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -51,11 +35,13 @@ class ScrollHeader extends StatelessWidget {
             ),
             SliverAppBar(
               pinned: true,
-              expandedHeight: isAutoScroll ? 0.0 : 95.0,
+              expandedHeight:
+                  isAutoScroll ? 0.0 : (childAppBar != null ? 95 : 45),
               floating: !isAutoScroll,
               bottom: PreferredSize(
-                preferredSize:
-                    Size.fromHeight(isAutoScroll ? 0.0 : 95.0), // Add this code
+                preferredSize: Size.fromHeight(isAutoScroll
+                    ? 0.0
+                    : (childAppBar != null ? 95 : 45)), // Add this code
                 child: Container(alignment: Alignment.topLeft), // Add this code
               ),
               flexibleSpace: LayoutBuilder(

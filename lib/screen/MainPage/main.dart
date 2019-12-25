@@ -1,4 +1,5 @@
 import 'package:ChStore/screen/Home/main.dart';
+import 'package:ChStore/screen/Persional/main.dart';
 import 'package:ChStore/screen/ProductCategory/main.dart';
 import 'package:ChStore/screen/Profile/main.dart';
 import 'package:ChStore/screen/Search/main.dart';
@@ -75,7 +76,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
       case 3:
         return ShoppingCart();
       case 4:
-        return Profile();
+        return Persional();
       default:
         return HomePage();
     }

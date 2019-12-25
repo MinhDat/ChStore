@@ -38,6 +38,7 @@ class AnimationOffset {
 class System {
   static String key = 'first_usage';
   Offset shoppingCartOffset = Offset(0, 0);
+  Size screenSize;
   SetPositionAnimateCalback setPositionAnimateCalback;
   SetCartIncreaseCountCalback setCartIncreaseCountCalback;
   SetCartDecreaseCountCalback setCartDecreaseCountCalback;

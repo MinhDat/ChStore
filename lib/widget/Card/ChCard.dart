@@ -1,5 +1,6 @@
 import 'package:ChStore/utils/AppColor.dart';
 import 'package:ChStore/utils/AppTextStyle.dart';
+import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
 import 'package:ChStore/data/Product.dart';
 
@@ -17,8 +18,7 @@ class ChCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
-    double _itemWidth = itemWidth ?? screenSize.width - 40;
+    double _itemWidth = itemWidth ?? chSystem.screenSize.width - 40;
     double _itemHeight = itemHeight ?? _itemWidth * 1.2;
 
     List<Widget> widgetList = [

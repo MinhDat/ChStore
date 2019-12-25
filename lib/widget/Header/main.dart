@@ -1,4 +1,5 @@
 import 'package:ChStore/utils/AppTextStyle.dart';
+import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
 
 class Header extends StatelessWidget {
@@ -28,11 +29,9 @@ class Header extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
-
     return Container(
       height: 80,
-      width: screenSize.width - 40,
+      width: chSystem.screenSize.width - 40,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[

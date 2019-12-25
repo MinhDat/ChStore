@@ -1,3 +1,4 @@
+import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/screen/Profile/Wallpaper.dart';
@@ -9,12 +10,11 @@ import 'package:ChStore/utils/AppColor.dart';
 class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
-    double profileSize = screenSize.height / 3;
-    double avatarSize = screenSize.height / 16;
+    double profileSize = chSystem.screenSize.height / 3;
+    double avatarSize = chSystem.screenSize.height / 16;
     double panelSize = 4 * profileSize / 5;
     double analyticSize = profileSize / 4;
-    double activeSize = screenSize.height;
+    double activeSize = chSystem.screenSize.height;
 
     return Container(
       color: appColor.grey200,
@@ -24,15 +24,15 @@ class Profile extends StatelessWidget {
             top: 0,
             child: Wallpaper(
               height: profileSize - 5,
-              width: screenSize.width,
+              width: chSystem.screenSize.width,
             ),
           ),
           Positioned(
             top: profileSize / 3,
             right: 0,
             child: Container(
-              height: screenSize.height - (profileSize / 2),
-              width: screenSize.width,
+              height: chSystem.screenSize.height - (profileSize / 2),
+              width: chSystem.screenSize.width,
               child: ListView(
                 padding: EdgeInsets.only(top: 0),
                 children: <Widget>[
@@ -106,7 +106,8 @@ class Profile extends StatelessWidget {
                         ),
                         Positioned(
                           top: 0,
-                          right: ((screenSize.width - 60) / 2) - avatarSize,
+                          right: ((chSystem.screenSize.width - 60) / 2) -
+                              avatarSize,
                           child: CircleAvatar(
                             radius: avatarSize,
                             backgroundImage:

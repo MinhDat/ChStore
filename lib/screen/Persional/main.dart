@@ -1,4 +1,5 @@
 import 'package:ChStore/utils/AppColor.dart';
+import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
 
 class Persional extends StatefulWidget {
@@ -11,8 +12,7 @@ class Persional extends StatefulWidget {
 class PersionalState extends State<Persional> {
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
-    double avatarSize = screenSize.width / 10;
+    double avatarSize = chSystem.screenSize.width / 10;
 
     return ListView(
       children: <Widget>[
@@ -86,7 +86,7 @@ class PersionalState extends State<Persional> {
                 ),
               ),
               Container(
-                width: screenSize.width,
+                width: chSystem.screenSize.width,
                 padding: EdgeInsets.only(top: 10, bottom: 10),
                 decoration: new BoxDecoration(
                   border: Border(
@@ -99,7 +99,7 @@ class PersionalState extends State<Persional> {
                 child: Text("Setting"),
               ),
               Container(
-                width: screenSize.width,
+                width: chSystem.screenSize.width,
                 padding: EdgeInsets.only(top: 10, bottom: 10),
                 decoration: new BoxDecoration(
                   border: Border(

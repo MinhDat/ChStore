@@ -1,3 +1,4 @@
+import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/utils/AppColor.dart';
@@ -145,10 +146,9 @@ class SmallChCardListState extends State<SmallChCardList> {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
     final RouteSettings settings = ModalRoute.of(context).settings;
-    final double itemWidth = screenSize.width / 2.0;
-    double itemMediumHeight = screenSize.width / 2.0;
+    final double itemWidth = chSystem.screenSize.width / 2.0;
+    double itemMediumHeight = chSystem.screenSize.width / 2.0;
     double itemMaxHeight = itemMediumHeight * 1.3;
     List dataFilters = [];
 

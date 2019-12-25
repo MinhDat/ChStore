@@ -125,13 +125,12 @@ class ItemListState extends State<ItemList> {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
     List productList = [];
 
     switch (type) {
       case NORMAL_LIST_TYPE:
         productList = allProducts
-            .map((product) => _renderItem(product, screenSize))
+            .map((product) => _renderItem(product, chSystem.screenSize))
             .toList();
         break;
 
@@ -141,7 +140,7 @@ class ItemListState extends State<ItemList> {
               (item) => Dismissible(
                 background: stackBehindDismiss(),
                 key: ObjectKey(item),
-                child: _renderItem(item, screenSize),
+                child: _renderItem(item, chSystem.screenSize),
                 onDismissed: (direction) {
                   chSystem.countDown(item.count);
                   item.count = 1;

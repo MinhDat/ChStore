@@ -1,3 +1,4 @@
+import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/data/Product.dart';
@@ -37,8 +38,7 @@ class ChCardSliderState extends State<ChCardSlider> {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
-    double _screenWidth = screenSize.width - 40;
+    double _screenWidth = chSystem.screenSize.width - 40;
     double _screenHeight = _screenWidth / 1.2;
 
     return Container(

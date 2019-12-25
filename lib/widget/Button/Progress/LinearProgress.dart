@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
 import 'package:ChStore/widget/Button/Progress/LinearPainter.dart';
 import 'package:ChStore/utils/AppColor.dart';
@@ -53,7 +54,6 @@ class LinearProgressState extends State<LinearProgress> {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
     if (active) {
       _timer = Timer(Duration(milliseconds: 10), () {
         if (percentage <= 20) {
@@ -82,7 +82,7 @@ class LinearProgressState extends State<LinearProgress> {
     return Center(
       child: Container(
         height: 45,
-        width: (screenSize.width - 65 * 3 - 20) / 2.0,
+        width: (chSystem.screenSize.width - 65 * 3 - 20) / 2.0,
         margin: EdgeInsets.only(top: 35),
         child: CustomPaint(
           foregroundPainter: LinearPainter(

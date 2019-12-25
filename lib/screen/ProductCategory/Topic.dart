@@ -1,3 +1,4 @@
+import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/utils/AppTextStyle.dart';
@@ -13,8 +14,6 @@ class Topic extends StatelessWidget {
   final int type;
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
-
     List<GestureDetector> _categories = allTopics
         .asMap()
         .map((index, topic) {
@@ -38,7 +37,7 @@ class Topic extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(left: 20.0, right: 20.0, top: 10.0),
                     height: 130,
-                    width: screenSize.width,
+                    width: chSystem.screenSize.width,
                     decoration: new BoxDecoration(
                       borderRadius: new BorderRadius.circular(10.0),
                       boxShadow: <BoxShadow>[
@@ -67,7 +66,7 @@ class Topic extends StatelessWidget {
                     bottom: 0,
                     child: Container(
                       height: 130,
-                      width: screenSize.width,
+                      width: chSystem.screenSize.width,
                       alignment: _alignment,
                       padding: EdgeInsets.only(right: 20.0, left: 20.0),
                       decoration: new BoxDecoration(

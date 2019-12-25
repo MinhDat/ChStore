@@ -24,8 +24,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
-    double radiusLogo = screenSize.width / 9;
+    chSystem.screenSize = MediaQuery.of(context).size;
+    double radiusLogo = chSystem.screenSize.width / 9;
 
     return Scaffold(
       body: Stack(
@@ -35,9 +35,9 @@ class _SplashScreenState extends State<SplashScreen> {
             color: appColor.red400,
           ),
           Positioned(
-            top: screenSize.height / 4,
+            top: chSystem.screenSize.height / 4,
             child: Container(
-              width: screenSize.width,
+              width: chSystem.screenSize.width,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -66,9 +66,9 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
           ),
           Positioned(
-            top: 3 * screenSize.height / 4,
+            top: 3 * chSystem.screenSize.height / 4,
             child: Container(
-              width: screenSize.width,
+              width: chSystem.screenSize.width,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

@@ -11,59 +11,35 @@ class AnimationOffset {
   Offset end;
 }
 
-// class Preference {
-//   final key = 'first_usage';
-//   static bool _firstUsage;
-
-//   bool get firstUsage {
-//     bool data = await _read();
-//     return data;
-//   }
-
-//   set firstUsage(bool value) {
-//     _save(value);
-//   }
-
-//   Future<bool> _read() async {
-//     final prefs = await SharedPreferences.getInstance();
-//     return prefs.getBool(key);
-//   }
-
-//   _save(bool value) async {
-//     final prefs = await SharedPreferences.getInstance();
-//     prefs.setBool(key, value);
-//   }
-// }
-
 class System {
   static String key = 'first_usage';
-  Offset shoppingCartOffset = Offset(0, 0);
-  Size screenSize;
-  SetPositionAnimateCalback setPositionAnimateCalback;
-  SetCartIncreaseCountCalback setCartIncreaseCountCalback;
-  SetCartDecreaseCountCalback setCartDecreaseCountCalback;
+  static Offset shoppingCartOffset = Offset(0, 0);
+  static Size screenSize;
+  static SetPositionAnimateCalback setPositionAnimateCalback;
+  static SetCartIncreaseCountCalback setCartIncreaseCountCalback;
+  static SetCartDecreaseCountCalback setCartDecreaseCountCalback;
 
-  Function get move {
+  static Function get move {
     return setPositionAnimateCalback;
   }
 
-  Function get countUp {
+  static Function get countUp {
     return setCartIncreaseCountCalback;
   }
 
-  Function get countDown {
+  static Function get countDown {
     return setCartDecreaseCountCalback;
   }
 
-  set move(SetPositionAnimateCalback function) {
+  static set move(SetPositionAnimateCalback function) {
     setPositionAnimateCalback = function;
   }
 
-  set countUp(SetCartIncreaseCountCalback function) {
+  static set countUp(SetCartIncreaseCountCalback function) {
     setCartIncreaseCountCalback = function;
   }
 
-  set countDown(SetCartDecreaseCountCalback function) {
+  static set countDown(SetCartDecreaseCountCalback function) {
     setCartDecreaseCountCalback = function;
   }
 
@@ -78,8 +54,6 @@ class System {
     prefs.setBool(key, value);
   }
 }
-
-var chSystem = System();
 
 typedef SetPositionAnimateCalback = void Function(AnimationOffset state);
 typedef SetCartIncreaseCountCalback = void Function(int value);

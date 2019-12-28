@@ -1,8 +1,10 @@
+import 'package:ChStore/utils/AppColor.dart';
+import 'package:ChStore/utils/System.dart';
+import 'package:ChStore/widget/Button/CircleButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 import 'package:ChStore/utils/AppTextStyle.dart';
-import 'package:ChStore/utils/AppColor.dart';
 import 'package:ChStore/data/Product.dart';
 
 class ProductDetail extends StatefulWidget {
@@ -14,27 +16,15 @@ class ProductDetail extends StatefulWidget {
 
 class _WidgetList extends State<ProductDetail> {
   Product product;
-  Choice _selectedChoice;
 
   @override
   void initState() {
     super.initState();
-    _selectedChoice = choices[0];
   }
 
   @override
   void dispose() {
     super.dispose();
-  }
-
-  void _select(Choice choice) {
-    _selectedChoice = choice;
-  }
-
-  void _favoriteHandle() {
-    setState(() {
-      product.favorited = !product.favorited;
-    });
   }
 
   @override
@@ -45,96 +35,83 @@ class _WidgetList extends State<ProductDetail> {
     });
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Product Detail", style: appTextStyle.normal),
-        actions: <Widget>[
-          // action button
-          IconButton(
-            icon: Icon(Icons.add_shopping_cart),
-            onPressed: () {},
-          ),
-          // action button
-          IconButton(
-            icon: Icon(Icons.favorite),
-            color: product.favorited ? appColor.main : appColor.black,
-            onPressed: () {
-              _favoriteHandle();
-            },
-          ),
-          // overflow menu
-          PopupMenuButton<Choice>(
-            onSelected: _select,
-            itemBuilder: (BuildContext context) {
-              return choices.skip(2).map((Choice choice) {
-                return PopupMenuItem<Choice>(
-                  value: choice,
-                  child: Text(choice.title, style: appTextStyle.normal),
-                );
-              }).toList();
-            },
-          ),
-        ],
-      ),
-      body: ListView(
-        children: [
-          Column(
-            mainAxisSize: MainAxisSize.min,
+      backgroundColor: AppColor.white,
+      body: Stack(
+        children: <Widget>[
+          ListView(
+            padding: EdgeInsets.all(0),
             children: [
-              Container(
-                child: Image.asset(
-                  product.image,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Text(product.name, style: appTextStyle.header),
-              Text("\$${product.price}", style: appTextStyle.price),
-              Padding(
-                padding: EdgeInsets.only(left: 20.0, right: 20.0),
-                child: Text(product.description, style: appTextStyle.normal),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Stack(
+                    children: <Widget>[
+                      Container(
+                        height: System.screenSize.height,
+                        child: Image.asset(
+                          product.image,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Container(
+                        height: System.screenSize.height,
+                        width: System.screenSize.width,
+                        // Add box decoration
+                        decoration: BoxDecoration(
+                          // Box decoration takes a gradient
+                          gradient: LinearGradient(
+                            // Where the linear gradient begins and ends
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            // Add one stop for each color. Stops should increase from 0 to 1
+                            stops: [0.1, 0.5, 0.7, 0.9],
+                            colors: [
+                              // Colors are easy thanks to Flutter's Colors class.
+                              Colors.white10.withOpacity(0),
+                              Colors.white12,
+                              Colors.white24,
+                              Colors.white60,
+                            ],
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 20,
+                        left: 20,
+                        right: 20,
+                        child: Column(
+                          children: <Widget>[
+                            Text(product.name, style: AppTextStyle.cardName),
+                            Text("\$${product.price}",
+                                style: AppTextStyle.cardPrice),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 20.0, right: 20.0),
+                    child:
+                        Text(product.description, style: AppTextStyle.normal),
+                  ),
+                ],
               ),
             ],
           ),
+          Positioned(
+            top: System.screenSize.width / 10,
+            right: System.screenSize.width / 12,
+            child: CircleButton(
+              icon: Icon(
+                Icons.close,
+                color: AppColor.white,
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ),
         ],
-      ),
-    );
-  }
-}
-
-class Choice {
-  const Choice({this.title, this.icon});
-
-  final String title;
-  final IconData icon;
-}
-
-const List<Choice> choices = const <Choice>[
-  const Choice(title: 'Car', icon: Icons.directions_car),
-  const Choice(title: 'Bicycle', icon: Icons.directions_bike),
-  const Choice(title: 'Boat', icon: Icons.directions_boat),
-  const Choice(title: 'Bus', icon: Icons.directions_bus),
-  const Choice(title: 'Train', icon: Icons.directions_railway),
-  const Choice(title: 'Walk', icon: Icons.directions_walk),
-];
-
-class ChoiceCard extends StatelessWidget {
-  const ChoiceCard({Key key, this.choice}) : super(key: key);
-
-  final Choice choice;
-
-  @override
-  Widget build(BuildContext context) {
-    final TextStyle textStyle = Theme.of(context).textTheme.display1;
-    return Card(
-      color: appColor.white,
-      child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Icon(choice.icon, size: 128.0, color: textStyle.color),
-            Text(choice.title, style: textStyle),
-          ],
-        ),
       ),
     );
   }

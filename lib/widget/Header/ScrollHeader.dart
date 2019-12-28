@@ -19,7 +19,7 @@ class ScrollHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: appColor.white,
+      color: AppColor.white,
       child: SafeArea(
         child: NestedScrollView(
           controller: scrollController ?? ScrollController(),
@@ -52,7 +52,7 @@ class ScrollHeader extends StatelessWidget {
                           ? Container(
                               alignment: Alignment.topLeft,
                               padding: EdgeInsets.only(left: 20.0),
-                              child: Text(title, style: appTextStyle.header),
+                              child: Text(title, style: AppTextStyle.header),
                             )
                           : null,
                       Align(
@@ -84,7 +84,7 @@ class SliverHeader extends SliverPersistentHeaderDelegate {
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
-      color: appColor.white,
+      color: AppColor.white,
       child: Stack(
         fit: StackFit.expand,
         overflow: Overflow.visible,
@@ -92,7 +92,7 @@ class SliverHeader extends SliverPersistentHeaderDelegate {
           Center(
             child: Opacity(
               opacity: this.isAutoScroll ? 1 : (shrinkOffset / headerHeight),
-              child: Text(title, style: appTextStyle.scrollHeader),
+              child: Text(title, style: AppTextStyle.scrollHeader),
             ),
           ),
         ],

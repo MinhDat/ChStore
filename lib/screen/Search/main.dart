@@ -73,7 +73,7 @@ class _WidgetList extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: appColor.white,
+      color: AppColor.white,
       child: ScrollHeader(
         title: "Search",
         childAppBar: SearchBox(
@@ -96,8 +96,8 @@ class _WidgetList extends State<Search> {
                       left: 0,
                       child: Scaffold(
                         backgroundColor: _hasWords
-                            ? appColor.white
-                            : appColor.blackWithOpacity0_5,
+                            ? AppColor.white
+                            : AppColor.blackWithOpacity0_5,
                         body: _hasWords ? SearchResult() : null,
                       ),
                     )

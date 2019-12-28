@@ -46,7 +46,7 @@ class SmallChCardListState extends State<SmallChCardList> {
         child: Container(
           alignment: Alignment.bottomLeft,
           padding: EdgeInsets.only(left: 10.0, bottom: 10.0),
-          child: Text(data.name, style: appTextStyle.smallCardName),
+          child: Text(data.name, style: AppTextStyle.smallCardName),
         ),
       ),
     ];
@@ -67,12 +67,12 @@ class SmallChCardListState extends State<SmallChCardList> {
                 border: Border(
                   bottom: BorderSide(
                     width: 1.0,
-                    color: appColor.white,
+                    color: AppColor.white,
                   ),
                 ),
               ),
               child:
-                  Text("\$${data.price}", style: appTextStyle.smallCardPrice),
+                  Text("\$${data.price}", style: AppTextStyle.smallCardPrice),
             ),
           ),
         );
@@ -128,8 +128,8 @@ class SmallChCardListState extends State<SmallChCardList> {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      appColor.white,
-                      appColor.black,
+                      AppColor.white,
+                      AppColor.black,
                     ],
                   ),
                 ),
@@ -147,8 +147,8 @@ class SmallChCardListState extends State<SmallChCardList> {
   @override
   Widget build(BuildContext context) {
     final RouteSettings settings = ModalRoute.of(context).settings;
-    final double itemWidth = chSystem.screenSize.width / 2.0;
-    double itemMediumHeight = chSystem.screenSize.width / 2.0;
+    final double itemWidth = System.screenSize.width / 2.0;
+    double itemMediumHeight = System.screenSize.width / 2.0;
     double itemMaxHeight = itemMediumHeight * 1.3;
     List dataFilters = [];
 

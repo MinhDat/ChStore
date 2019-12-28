@@ -5,7 +5,7 @@ import 'package:ChStore/widget/Item/CircleItem.dart';
 class FourCircleItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    double _itemWidth = (chSystem.screenSize.width - 40) / 4;
+    double _itemWidth = (System.screenSize.width - 40) / 4;
 
     return Padding(
       padding: EdgeInsets.only(top: 20, left: 20, right: 20),

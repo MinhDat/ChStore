@@ -31,7 +31,7 @@ class ItemListState extends State<ItemList> {
     List<Widget> productLineSecond = [
       Expanded(
         flex: 4, // 20%
-        child: Text("\$${item.price}", style: appTextStyle.price),
+        child: Text("\$${item.price}", style: AppTextStyle.price),
       )
     ];
     switch (type) {
@@ -95,8 +95,8 @@ class ItemListState extends State<ItemList> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(allTopics[item.categoryId].name.toUpperCase(),
-                            style: appTextStyle.categoryLabel),
-                        Text(item.name, style: appTextStyle.itemName),
+                            style: AppTextStyle.categoryLabel),
+                        Text(item.name, style: AppTextStyle.itemName),
                       ],
                     ),
                   ),
@@ -106,7 +106,7 @@ class ItemListState extends State<ItemList> {
                     padding: EdgeInsets.only(bottom: 10),
                     decoration: new BoxDecoration(
                       border: Border(
-                        bottom: BorderSide(width: 0.5, color: appColor.grey500),
+                        bottom: BorderSide(width: 0.5, color: AppColor.grey500),
                       ),
                     ),
                     child: Row(
@@ -130,7 +130,7 @@ class ItemListState extends State<ItemList> {
     switch (type) {
       case NORMAL_LIST_TYPE:
         productList = allProducts
-            .map((product) => _renderItem(product, chSystem.screenSize))
+            .map((product) => _renderItem(product, System.screenSize))
             .toList();
         break;
 
@@ -140,9 +140,9 @@ class ItemListState extends State<ItemList> {
               (item) => Dismissible(
                 background: stackBehindDismiss(),
                 key: ObjectKey(item),
-                child: _renderItem(item, chSystem.screenSize),
+                child: _renderItem(item, System.screenSize),
                 onDismissed: (direction) {
-                  chSystem.countDown(item.count);
+                  System.countDown(item.count);
                   item.count = 1;
                   allShoppingCarts.removeWhere((p) => p.id == item.id);
                 },
@@ -162,7 +162,7 @@ class ItemListState extends State<ItemList> {
     return Container(
       alignment: Alignment.centerRight,
       padding: EdgeInsets.only(right: 20.0),
-      color: appColor.red300,
+      color: AppColor.red300,
       child: Icon(
         Icons.delete,
         color: Colors.white,

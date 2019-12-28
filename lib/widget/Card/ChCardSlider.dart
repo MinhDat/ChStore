@@ -26,6 +26,7 @@ class ChCardSliderState extends State<ChCardSlider> {
           padding: EdgeInsets.only(right: 10),
           child: ChCard(
             product,
+            itemWidth: System.screenSize.width / 1.4,
             type: FOR_SLIDER,
             // itemWidth: _screenWidth - 20,
           ),
@@ -38,12 +39,11 @@ class ChCardSliderState extends State<ChCardSlider> {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = chSystem.screenSize.width - 40;
-    double _screenHeight = _screenWidth / 1.2;
+    double _screenHeight = System.screenSize.width / 1.7;
 
     return Container(
       height: _screenHeight,
-      width: _screenWidth,
+      // width: _screenWidth,
       padding: const EdgeInsets.only(left: 20.0),
       child: ListView(
         shrinkWrap: true,

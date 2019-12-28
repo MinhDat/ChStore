@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: appColor.white,
+      color: AppColor.white,
       child: ListView(
         children: [
           Header(),
@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
               left: 20,
               bottom: 10,
             ),
-            child: Text("Today", style: appTextStyle.title),
+            child: Text("Today", style: AppTextStyle.title),
           ),
           ChCardPage(),
           FourCircleItem(),
@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
               left: 20,
               bottom: 10,
             ),
-            child: Text("News", style: appTextStyle.title),
+            child: Text("News", style: AppTextStyle.title),
           ),
           ChCardSlider(),
           Padding(
@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
               left: 20,
               bottom: 10,
             ),
-            child: Text("Top trends", style: appTextStyle.title),
+            child: Text("Top trends", style: AppTextStyle.title),
           ),
           ItemList(),
         ],

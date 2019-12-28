@@ -1,7 +1,7 @@
 import 'package:ChStore/screen/Home/main.dart';
 import 'package:ChStore/screen/Persional/main.dart';
 import 'package:ChStore/screen/ProductCategory/main.dart';
-import 'package:ChStore/screen/Profile/main.dart';
+// import 'package:ChStore/screen/Profile/main.dart';
 import 'package:ChStore/screen/Search/main.dart';
 import 'package:ChStore/screen/ShoppingCart/main.dart';
 import 'package:ChStore/utils/AppColor.dart';
@@ -50,9 +50,9 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
       });
 
     _offsetAnimation = _generateAnimationPosition();
-    chSystem.move = _handleAnimation;
-    chSystem.countUp = _handleCartIncreaseCount;
-    chSystem.countDown = _handleCartDecreaseCount;
+    System.move = _handleAnimation;
+    System.countUp = _handleCartIncreaseCount;
+    System.countDown = _handleCartDecreaseCount;
   }
 
   @override
@@ -101,7 +101,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
                   'icons/today-icon.png',
                   height: 22,
                   width: 22,
-                  color: index == 0 ? appColor.main : appColor.unfocused,
+                  color: index == 0 ? AppColor.main : AppColor.unfocused,
                 ),
                 title: SizedBox.shrink(),
               ),
@@ -110,7 +110,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
                   'icons/toggle-menu-icon.png',
                   height: 22,
                   width: 22,
-                  color: index == 1 ? appColor.main : appColor.unfocused,
+                  color: index == 1 ? AppColor.main : AppColor.unfocused,
                 ),
                 title: SizedBox.shrink(),
               ),
@@ -119,7 +119,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
                   'icons/search-icon.png',
                   height: 22,
                   width: 22,
-                  color: index == 2 ? appColor.main : appColor.unfocused,
+                  color: index == 2 ? AppColor.main : AppColor.unfocused,
                 ),
                 title: SizedBox.shrink(),
               ),
@@ -136,7 +136,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
                           Icons.shopping_cart,
                           key: _keyShoppingCart,
                           color:
-                              index == 3 ? appColor.main : appColor.unfocused,
+                              index == 3 ? AppColor.main : AppColor.unfocused,
                         ),
                       ),
                       Positioned(
@@ -144,7 +144,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
                         right: 0,
                         child: _count > 0
                             ? Text("$_count",
-                                style: appTextStyle.flexColor(appColor.main))
+                                style: AppTextStyle.flexColor(AppColor.main))
                             : SizedBox.shrink(),
                       )
                     ],
@@ -155,7 +155,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.person,
-                  color: index == 4 ? appColor.main : appColor.unfocused,
+                  color: index == 4 ? AppColor.main : AppColor.unfocused,
                 ),
                 title: SizedBox.shrink(),
               ),
@@ -167,7 +167,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
           child: Opacity(
             opacity: _visibleAnimate,
             child: Container(
-                width: 10.0, height: 10.0, color: appColor.redAccent100),
+                width: 10.0, height: 10.0, color: AppColor.redAccent100),
           ),
         ),
       ],
@@ -179,7 +179,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
         _keyShoppingCart.currentContext.findRenderObject();
     final positionShoppingCart = renderBoxRed.localToGlobal(Offset(0, 0));
 
-    chSystem.shoppingCartOffset = positionShoppingCart;
+    System.shoppingCartOffset = positionShoppingCart;
   }
 
   Animation _generateAnimationPosition() {
@@ -196,8 +196,8 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
     setState(() {
       _visibleAnimate = 1.0;
       _begin = Offset(state.begin.dx / 10, state.begin.dy / 10);
-      _end = Offset(chSystem.shoppingCartOffset.dx / 10,
-          chSystem.shoppingCartOffset.dy / 10);
+      _end = Offset(
+          System.shoppingCartOffset.dx / 10, System.shoppingCartOffset.dy / 10);
       _offsetAnimation = _generateAnimationPosition();
       _controller.forward();
     });

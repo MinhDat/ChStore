@@ -14,12 +14,12 @@ class ProductCategory extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.only(left: 20),
-            child: Text('Categories', style: appTextStyle.title),
+            child: Text('Categories', style: AppTextStyle.title),
           ),
           Category(),
           Padding(
             padding: EdgeInsets.only(left: 20, top: 20),
-            child: Text('Topics', style: appTextStyle.title),
+            child: Text('Topics', style: AppTextStyle.title),
           ),
           Topic(context),
         ],

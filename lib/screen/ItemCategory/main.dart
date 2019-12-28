@@ -10,7 +10,7 @@ class ItemCategory extends StatelessWidget {
     Topic topic = settings.arguments;
     return Scaffold(
       appBar: AppBar(
-        title: Text("${topic.name}", style: appTextStyle.normal),
+        title: Text("${topic.name}", style: AppTextStyle.normal),
       ),
       body: ListView(children: [
         SmallChCardList(context),

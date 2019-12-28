@@ -94,21 +94,21 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                     },
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: appColor.grey200,
+                      fillColor: AppColor.grey200,
                       prefixIcon: new Icon(
                         Icons.search,
-                        color: appColor.grey,
+                        color: AppColor.grey,
                       ),
                       // suffixIcon: new Icon(Icons.close),
                       border: InputBorder.none,
                       contentPadding:
                           const EdgeInsets.only(left: 14.0, top: 7.0),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: appColor.grey200),
+                        borderSide: BorderSide(color: AppColor.grey200),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       // enabledBorder: UnderlineInputBorder(
-                      //   borderSide: BorderSide(color: appColor.grey200),
+                      //   borderSide: BorderSide(color: AppColor.grey200),
                       //   borderRadius: BorderRadius.circular(10.0),
                       // ),
                       hintText: 'Enter a search term',
@@ -123,7 +123,7 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                       alignment: Alignment.centerLeft,
                       padding: const EdgeInsets.only(left: 11.0),
                       decoration: BoxDecoration(
-                          border: new Border.all(color: appColor.grey200),
+                          border: new Border.all(color: AppColor.grey200),
                           borderRadius: BorderRadius.circular(10.0)),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
@@ -131,7 +131,7 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                         children: <Widget>[
                           Icon(
                             Icons.search,
-                            color: appColor.grey500,
+                            color: AppColor.grey500,
                           ),
                           Padding(
                             padding: const EdgeInsets.only(
@@ -139,7 +139,7 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                               top: 2.0,
                             ),
                             child: Text('Enter a search term',
-                                style: appTextStyle.searchPlaceHolder),
+                                style: AppTextStyle.searchPlaceHolder),
                           )
                         ],
                       ),
@@ -158,7 +158,7 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                       child: AnimatedContainer(
                         duration: Duration(seconds: 1),
                         alignment: Alignment.center,
-                        child: Text("Cancel", style: appTextStyle.cancelButton),
+                        child: Text("Cancel", style: AppTextStyle.cancelButton),
                       ),
                     ),
                   ),

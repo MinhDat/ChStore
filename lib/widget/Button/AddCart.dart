@@ -31,7 +31,7 @@ class AddCartState extends State<AddCart> {
     final RenderBox renderBoxRed = _buttonKey.currentContext.findRenderObject();
     final currentOffset = renderBoxRed.localToGlobal(Offset.zero);
     AnimationOffset _next =
-        AnimationOffset(begin: currentOffset, end: chSystem.shoppingCartOffset);
+        AnimationOffset(begin: currentOffset, end: System.shoppingCartOffset);
     Product existed =
         allShoppingCarts.firstWhere((p) => p.id == data.id, orElse: () => null);
 
@@ -41,24 +41,24 @@ class AddCartState extends State<AddCart> {
       existed.count++;
     }
 
-    chSystem.move(_next);
-    chSystem.countUp(1);
+    System.move(_next);
+    System.countUp(1);
   }
 
   @override
   Widget build(BuildContext context) {
     return FlatButton(
       key: _buttonKey,
-      color: appColor.redAccent100,
-      textColor: appColor.white,
+      color: AppColor.redAccent100,
+      textColor: AppColor.white,
       shape: new RoundedRectangleBorder(
           borderRadius: new BorderRadius.circular(5.0),
-          side: BorderSide(color: appColor.redAccent100)),
+          side: BorderSide(color: AppColor.redAccent100)),
       child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           children: [
-            Text("Add Cart", style: appTextStyle.text16),
+            Text("Add Cart", style: AppTextStyle.button),
             Icon(Icons.add_shopping_cart),
           ]),
       onPressed: () => handleClick(context),

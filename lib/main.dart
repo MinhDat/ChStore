@@ -11,7 +11,7 @@ void main() {
   runApp(
     MaterialApp(
       title: 'Welcome to Flutter',
-      theme: ThemeData(primaryColor: appColor.white),
+      theme: ThemeData(primaryColor: AppColor.white),
       // Start the app with the "/" named route. In this case, the app starts
       // on the FirstScreen widget.
       initialRoute: '/',

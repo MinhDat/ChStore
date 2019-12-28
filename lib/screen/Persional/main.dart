@@ -12,7 +12,7 @@ class Persional extends StatefulWidget {
 class PersionalState extends State<Persional> {
   @override
   Widget build(BuildContext context) {
-    double avatarSize = chSystem.screenSize.width / 10;
+    double avatarSize = System.screenSize.width / 10;
 
     return ListView(
       children: <Widget>[
@@ -20,7 +20,7 @@ class PersionalState extends State<Persional> {
           decoration: new BoxDecoration(
               border: Border(
             bottom: BorderSide(
-              color: appColor.grey400,
+              color: AppColor.grey400,
               width: 5.0,
             ),
           )),
@@ -54,7 +54,7 @@ class PersionalState extends State<Persional> {
           decoration: new BoxDecoration(
             border: Border(
               bottom: BorderSide(
-                color: appColor.grey400,
+                color: AppColor.grey400,
                 width: 5.0,
               ),
             ),
@@ -73,7 +73,7 @@ class PersionalState extends State<Persional> {
                 decoration: new BoxDecoration(
                   border: Border(
                     bottom: BorderSide(
-                      color: appColor.grey400,
+                      color: AppColor.grey400,
                       width: 1.0,
                     ),
                   ),
@@ -86,12 +86,12 @@ class PersionalState extends State<Persional> {
                 ),
               ),
               Container(
-                width: chSystem.screenSize.width,
+                width: System.screenSize.width,
                 padding: EdgeInsets.only(top: 10, bottom: 10),
                 decoration: new BoxDecoration(
                   border: Border(
                     bottom: BorderSide(
-                      color: appColor.grey400,
+                      color: AppColor.grey400,
                       width: 1.0,
                     ),
                   ),
@@ -99,12 +99,12 @@ class PersionalState extends State<Persional> {
                 child: Text("Setting"),
               ),
               Container(
-                width: chSystem.screenSize.width,
+                width: System.screenSize.width,
                 padding: EdgeInsets.only(top: 10, bottom: 10),
                 decoration: new BoxDecoration(
                   border: Border(
                     bottom: BorderSide(
-                      color: appColor.grey400,
+                      color: AppColor.grey400,
                       width: 1.0,
                     ),
                   ),

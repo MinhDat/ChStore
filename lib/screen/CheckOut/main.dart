@@ -21,7 +21,7 @@ class CheckOutState extends State<CheckOut> {
             children: [
               ListTile(
                 leading: Icon(Icons.album),
-                title: Text("Recipient's address", style: appTextStyle.normal),
+                title: Text("Recipient's address", style: AppTextStyle.normal),
               ),
               Padding(
                 padding: EdgeInsets.only(left: 30, bottom: 20, right: 30),
@@ -29,17 +29,17 @@ class CheckOutState extends State<CheckOut> {
                   decoration: InputDecoration(
                     contentPadding: const EdgeInsets.all(14),
                     filled: true,
-                    fillColor: appColor.grey200,
+                    fillColor: AppColor.grey200,
                     border: OutlineInputBorder(
-                      borderSide: BorderSide(color: appColor.grey),
+                      borderSide: BorderSide(color: AppColor.grey),
                       // borderRadius: BorderRadius.circular(RADIUS),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: appColor.grey),
+                      borderSide: BorderSide(color: AppColor.grey),
                       // borderRadius: BorderRadius.circular(RADIUS),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: appColor.grey),
+                      borderSide: BorderSide(color: AppColor.grey),
                     ),
                     hintText: 'Enter your address',
                   ),
@@ -54,10 +54,10 @@ class CheckOutState extends State<CheckOut> {
               ListTile(
                 leading: Icon(Icons.album),
                 title:
-                    Text('Choose payment menthod', style: appTextStyle.normal),
+                    Text('Choose payment menthod', style: AppTextStyle.normal),
               ),
               RadioListTile<SingingCharacter>(
-                title: Text('Cash money', style: appTextStyle.normal),
+                title: Text('Cash money', style: AppTextStyle.normal),
                 value: SingingCharacter.CASH_MONEY,
                 groupValue: _character,
                 onChanged: (SingingCharacter value) {
@@ -67,7 +67,7 @@ class CheckOutState extends State<CheckOut> {
                 },
               ),
               RadioListTile<SingingCharacter>(
-                title: Text('VISA/Master card', style: appTextStyle.normal),
+                title: Text('VISA/Master card', style: AppTextStyle.normal),
                 value: SingingCharacter.VISA,
                 groupValue: _character,
                 onChanged: (SingingCharacter value) {
@@ -77,7 +77,7 @@ class CheckOutState extends State<CheckOut> {
                 },
               ),
               RadioListTile<SingingCharacter>(
-                title: Text('Internet banking', style: appTextStyle.normal),
+                title: Text('Internet banking', style: AppTextStyle.normal),
                 value: SingingCharacter.INTERNET_BANKING,
                 groupValue: _character,
                 onChanged: (SingingCharacter value) {

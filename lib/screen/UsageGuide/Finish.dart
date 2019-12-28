@@ -9,7 +9,7 @@ class Finish extends StatelessWidget {
       constraints: const BoxConstraints.expand(),
       child: Center(
         child: FlatButton(
-          color: appColor.red300,
+          color: AppColor.red300,
           child: Text('Get Started'),
           onPressed: () async {
             await System.setFirstUsage(false);

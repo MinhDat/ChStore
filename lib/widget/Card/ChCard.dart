@@ -18,7 +18,7 @@ class ChCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _itemWidth = itemWidth ?? chSystem.screenSize.width - 40;
+    double _itemWidth = itemWidth ?? System.screenSize.width - 40;
     double _itemHeight = itemHeight ?? _itemWidth * 1.2;
 
     List<Widget> widgetList = [
@@ -31,31 +31,16 @@ class ChCard extends StatelessWidget {
           fit: BoxFit.cover,
         ),
       ),
-      Container(
-        alignment: Alignment.bottomLeft,
-        padding: EdgeInsets.only(left: 10, bottom: 10),
-        height: _itemHeight,
-        width: _itemWidth,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(product.name, style: appTextStyle.cardName),
-            Text("\$${product.price}", style: appTextStyle.text18)
-          ],
-        ),
-      )
     ];
 
     switch (type) {
       case FOR_PAGE_VIEW:
-        widgetList.add(Positioned(
-          bottom: -1.0,
-          right: 0,
-          top: _itemHeight / 2.0,
-          left: 0,
-          child: Opacity(
-            opacity: 0.5,
+        widgetList.add(
+          Positioned(
+            bottom: 0,
+            right: 0,
+            top: 0,
+            left: 0,
             child: Container(
               decoration: new BoxDecoration(
                 borderRadius: new BorderRadius.only(
@@ -65,20 +50,41 @@ class ChCard extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
+                  // Add one stop for each color. Stops should increase from 0 to 1
+                  stops: [0.1, 0.5, 0.7, 0.9],
                   colors: [
-                    appColor.white,
-                    appColor.black,
+                    // Colors are easy thanks to Flutter's Colors class.
+                    Colors.white10.withOpacity(0),
+                    Colors.white12,
+                    Colors.white54,
+                    Colors.white70,
                   ],
                 ),
               ),
             ),
           ),
-        ));
+        );
         break;
       case FOR_SLIDER:
         break;
       default:
     }
+
+    widgetList.add(
+      Positioned(
+        bottom: 10,
+        left: 10,
+        right: 10,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(product.name, style: AppTextStyle.cardName),
+            Text("\$${product.price}", style: AppTextStyle.cardPrice)
+          ],
+        ),
+      ),
+    );
 
     return Container(
       child: Stack(

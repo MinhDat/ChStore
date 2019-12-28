@@ -13,7 +13,7 @@ class Wallpaper extends StatelessWidget {
       height: height,
       width: width,
       child: CustomPaint(
-        foregroundPainter: ProfilePainter(color: appColor.red400),
+        foregroundPainter: ProfilePainter(color: AppColor.red400),
       ),
     );
   }

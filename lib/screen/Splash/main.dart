@@ -24,25 +24,25 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    chSystem.screenSize = MediaQuery.of(context).size;
-    double radiusLogo = chSystem.screenSize.width / 9;
+    System.screenSize = MediaQuery.of(context).size;
+    double radiusLogo = System.screenSize.width / 9;
 
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
           Container(
-            color: appColor.red400,
+            color: AppColor.red400,
           ),
           Positioned(
-            top: chSystem.screenSize.height / 4,
+            top: System.screenSize.height / 4,
             child: Container(
-              width: chSystem.screenSize.width,
+              width: System.screenSize.width,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CircleAvatar(
-                    backgroundColor: appColor.white,
+                    backgroundColor: AppColor.white,
                     radius: radiusLogo,
                     child: Icon(
                       Icons.shopping_cart,
@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     child: Text(
                       "ChStore",
                       style: TextStyle(
-                        color: appColor.white,
+                        color: AppColor.white,
                         fontSize: radiusLogo / 2,
                         fontWeight: FontWeight.bold,
                       ),
@@ -66,9 +66,9 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
           ),
           Positioned(
-            top: 3 * chSystem.screenSize.height / 4,
+            top: 3 * System.screenSize.height / 4,
             child: Container(
-              width: chSystem.screenSize.width,
+              width: System.screenSize.width,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -78,7 +78,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     child: Text(
                       "Online Shopping",
                       style: TextStyle(
-                        color: appColor.white,
+                        color: AppColor.white,
                         fontSize: radiusLogo / 3,
                       ),
                     ),
@@ -86,7 +86,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   Text(
                     "For Everyone",
                     style: TextStyle(
-                      color: appColor.white,
+                      color: AppColor.white,
                       fontSize: radiusLogo / 3,
                     ),
                   ),

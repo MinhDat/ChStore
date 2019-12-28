@@ -49,8 +49,8 @@ class DotsIndicator extends AnimatedWidget {
         child: new Material(
           color: controller.page == index ||
                   (controller.page == null && index == 0)
-              ? appColor.red300
-              : appColor.grey,
+              ? AppColor.red300
+              : AppColor.grey,
           type: MaterialType.circle,
           child: new Container(
             width: _kDotSize * zoom,

@@ -18,7 +18,7 @@ class CircleItem extends StatelessWidget {
             backgroundImage: NetworkImage('https://via.placeholder.com/150'),
           ),
         ),
-        Text(title, style: appTextStyle.normal)
+        Text(title, style: AppTextStyle.normal)
       ],
     );
   }

@@ -85,8 +85,8 @@ class RadialProgressState extends State<RadialProgress> {
         margin: EdgeInsets.only(top: 35, left: 10, right: 10),
         child: CustomPaint(
           foregroundPainter: RadialPainter(
-              lineColor: appColor.grey,
-              completeColor: appColor.redAccent100,
+              lineColor: AppColor.grey,
+              completeColor: AppColor.redAccent100,
               completePercent: percentage,
               width: 2.0),
           child: Padding(
@@ -95,7 +95,7 @@ class RadialProgressState extends State<RadialProgress> {
               height: 45.0,
               width: 45.0,
               decoration: BoxDecoration(
-                color: appColor.white,
+                color: AppColor.white,
                 shape: BoxShape.circle,
               ),
               child: widget.child,

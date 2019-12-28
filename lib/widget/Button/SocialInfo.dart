@@ -19,7 +19,7 @@ class SocialInfo extends StatelessWidget {
           assetImage,
           Padding(
             padding: EdgeInsets.only(left: 10),
-            child: Text(content, style: appTextStyle.flexColor(textColor)),
+            child: Text(content, style: AppTextStyle.flexColor(textColor)),
           ),
         ],
       ),

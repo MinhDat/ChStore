@@ -37,12 +37,12 @@ class Topic extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(left: 20.0, right: 20.0, top: 10.0),
                     height: 130,
-                    width: chSystem.screenSize.width,
+                    width: System.screenSize.width,
                     decoration: new BoxDecoration(
                       borderRadius: new BorderRadius.circular(10.0),
                       boxShadow: <BoxShadow>[
                         BoxShadow(
-                          color: appColor.black38,
+                          color: AppColor.black38,
                           offset: Offset(0.0, 1.0),
                           blurRadius: 10.0,
                         ),
@@ -56,7 +56,7 @@ class Topic extends StatelessWidget {
                               fit: BoxFit.cover,
                             )
                           : Container(
-                              color: appColor.white,
+                              color: AppColor.white,
                             ),
                     ),
                   ),
@@ -66,7 +66,7 @@ class Topic extends StatelessWidget {
                     bottom: 0,
                     child: Container(
                       height: 130,
-                      width: chSystem.screenSize.width,
+                      width: System.screenSize.width,
                       alignment: _alignment,
                       padding: EdgeInsets.only(right: 20.0, left: 20.0),
                       decoration: new BoxDecoration(
@@ -74,7 +74,7 @@ class Topic extends StatelessWidget {
                       ),
                       child: Padding(
                         padding: EdgeInsets.only(right: 20.0, left: 20.0),
-                        child: Text(topic.name, style: appTextStyle.topic),
+                        child: Text(topic.name, style: AppTextStyle.topic),
                       ),
                     ),
                   ),

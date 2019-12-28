@@ -57,8 +57,8 @@ class ChCardPageState extends State<ChCardPage> {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = chSystem.screenSize.width - 40;
-    double _screenHeight = _screenWidth * 1.2;
+    double _screenWidth = System.screenSize.width - 40;
+    double _screenHeight = _screenWidth;
 
     _timer = new Timer(new Duration(seconds: 7), () {
       _changePage();
@@ -89,7 +89,7 @@ class ChCardPageState extends State<ChCardPage> {
       decoration: new BoxDecoration(
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: appColor.black38,
+            color: AppColor.black38,
             offset: Offset(0.0, 3.0),
             blurRadius: 20.0,
           ),

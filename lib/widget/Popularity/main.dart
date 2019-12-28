@@ -43,7 +43,7 @@ class PopularCategories extends StatelessWidget {
         ),
         child: Stack(
           children: <Widget>[
-            Text(data.name, style: appTextStyle.popularCategory),
+            Text(data.name, style: AppTextStyle.popularCategory),
             Align(
               alignment: Alignment.topRight,
               child: Icon(
@@ -63,7 +63,7 @@ class PopularCategories extends StatelessWidget {
     List<Widget> _popularCategories = [
       Padding(
         padding: EdgeInsets.only(left: 20, bottom: 10),
-        child: Text("Popular Categories", style: appTextStyle.title),
+        child: Text("Popular Categories", style: AppTextStyle.title),
       )
     ];
     int index = 0;
@@ -95,7 +95,7 @@ class PopularTags extends StatelessWidget {
     List<Widget> _popularTags = [
       Padding(
         padding: EdgeInsets.only(left: 20, top: 20),
-        child: Text("Popular Tags", style: appTextStyle.title),
+        child: Text("Popular Tags", style: AppTextStyle.title),
       )
     ];
 
@@ -105,12 +105,12 @@ class PopularTags extends StatelessWidget {
         alignment: Alignment.centerLeft,
         decoration: new BoxDecoration(
           border: Border(
-            bottom: BorderSide(width: 0.5, color: appColor.grey500),
+            bottom: BorderSide(width: 0.5, color: AppColor.grey500),
           ),
         ),
         child: Padding(
           padding: EdgeInsets.only(top: 10, bottom: 10),
-          child: Text(popularTags[i].name, style: appTextStyle.popularTag),
+          child: Text(popularTags[i].name, style: AppTextStyle.popularTag),
         ),
       ));
     }

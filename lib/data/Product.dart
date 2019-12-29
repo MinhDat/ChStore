@@ -43,7 +43,7 @@ List<Product> allProducts = [
     name: "Tiny girl and the beach (I miss u)",
     price: "65.00",
     description:
-        "A girl was wearing pink dress and being the side with the beach",
+        "A girl was wearing pink dress and being the side with the beach.\nI hate you. But I love you.\nI will wait you.\nYou can wait me.",
   ),
   Product(
     id: 3,

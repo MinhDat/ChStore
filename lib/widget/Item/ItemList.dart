@@ -2,7 +2,7 @@ import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/widget/Button/Counter.dart';
-import 'package:ChStore/widget/Button/AddCart.dart';
+import 'package:ChStore/widget/Button/AddToCart.dart';
 
 import 'package:ChStore/utils/AppColor.dart';
 import 'package:ChStore/utils/AppTextStyle.dart';
@@ -39,7 +39,11 @@ class ItemListState extends State<ItemList> {
         productLineSecond.add(
           Expanded(
             flex: 6, // 60%
-            child: AddCart(data: item),
+            child: AddToCart(
+              item,
+              size: AppTextSize.size24,
+              showIcon: false,
+            ),
           ),
         );
         break;

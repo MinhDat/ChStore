@@ -27,6 +27,11 @@ class AppTextStyle {
     fontWeight: FontWeight.bold,
   );
   static TextStyle description = TextStyle(color: AppColor.grey);
+  static TextStyle buttonCart(double textSize) => TextStyle(
+        fontSize: textSize,
+        color: AppColor.white,
+      );
+
   static TextStyle button = TextStyle(
     fontSize: AppTextSize.size24,
     color: AppColor.white,
@@ -37,7 +42,7 @@ class AppTextStyle {
     color: AppColor.main,
   );
   static TextStyle cardPrice = TextStyle(
-    fontSize: AppTextSize.size24,
+    fontSize: AppTextSize.size20,
     color: AppColor.main,
   );
   static TextStyle normal = TextStyle(color: AppColor.black);

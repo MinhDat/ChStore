@@ -4,17 +4,23 @@ import 'package:flutter/material.dart';
 import 'package:ChStore/utils/System.dart';
 import 'package:ChStore/utils/AppColor.dart';
 
-class AddCart extends StatefulWidget {
-  AddCart({this.data});
+class AddToCart extends StatefulWidget {
+  AddToCart(this.data, {this.size = 15, this.showIcon = true});
   Product data;
+  final double size;
+  final bool showIcon;
 
   @override
-  AddCartState createState() => new AddCartState(data: data);
+  AddToCartState createState() =>
+      new AddToCartState(data, size: size, showIcon: showIcon);
 }
 
-class AddCartState extends State<AddCart> {
-  AddCartState({this.data});
+class AddToCartState extends State<AddToCart> {
+  AddToCartState(this.data, {this.size, this.showIcon});
   Product data;
+  final double size;
+  final bool showIcon;
+
   GlobalKey _buttonKey = GlobalKey();
 
   @override
@@ -55,12 +61,21 @@ class AddCartState extends State<AddCart> {
           borderRadius: new BorderRadius.circular(5.0),
           side: BorderSide(color: AppColor.redAccent100)),
       child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Text("Add Cart", style: AppTextStyle.button),
-            Icon(Icons.add_shopping_cart),
-          ]),
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Text("ADD TO CART", style: AppTextStyle.buttonCart(size)),
+          this.showIcon
+              ? Padding(
+                  padding: EdgeInsets.only(left: 5),
+                  child: Icon(
+                    Icons.add_shopping_cart,
+                    size: size,
+                  ),
+                )
+              : null,
+        ].where((f) => f != null).toList(),
+      ),
       onPressed: () => handleClick(context),
     );
   }

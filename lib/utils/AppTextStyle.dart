@@ -19,6 +19,16 @@ class AppTextStyle {
     fontSize: AppTextSize.size14,
     fontWeight: FontWeight.bold,
   );
+  static TextStyle logo = TextStyle(
+    fontSize: AppTextSize.size14,
+    fontWeight: FontWeight.bold,
+    color: AppColor.main,
+  );
+  static TextStyle date = TextStyle(
+    color: AppColor.grey,
+    fontSize: AppTextSize.size30,
+  );
+
   static TextStyle price = TextStyle(
     fontSize: AppTextSize.size30,
   );
@@ -45,7 +55,17 @@ class AppTextStyle {
     fontSize: AppTextSize.size20,
     color: AppColor.main,
   );
-  static TextStyle normal = TextStyle(color: AppColor.black);
+
+  static TextStyle label = TextStyle(
+    color: AppColor.black,
+    fontWeight: FontWeight.bold,
+    fontSize: AppTextSize.size24,
+  );
+
+  static TextStyle normal = TextStyle(
+    color: AppColor.grey,
+    fontSize: AppTextSize.size24,
+  );
   static TextStyle smallCardName = TextStyle(
     fontSize: AppTextSize.size22,
     fontWeight: FontWeight.bold,
@@ -53,11 +73,7 @@ class AppTextStyle {
   );
   static TextStyle smallCardPrice =
       TextStyle(fontSize: AppTextSize.size33, color: AppColor.white);
-  static TextStyle logo = TextStyle(
-    fontSize: AppTextSize.size16,
-    fontWeight: FontWeight.bold,
-    color: AppColor.main,
-  );
+
   static TextStyle scrollHeader = TextStyle(
     color: AppColor.black,
     fontWeight: FontWeight.w600,

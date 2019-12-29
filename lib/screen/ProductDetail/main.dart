@@ -48,6 +48,7 @@ class _WidgetList extends State<ProductDetail> {
   @override
   void dispose() {
     super.dispose();
+    _scrollController.dispose();
   }
 
   void _favoriteHandle() {
@@ -137,7 +138,8 @@ class _WidgetList extends State<ProductDetail> {
                             ),
                             Container(
                               key: _keySCContainer,
-                              padding: EdgeInsets.all(20),
+                              padding: EdgeInsets.only(
+                                  left: 20, right: 20, top: 10, bottom: 10),
                               decoration: BoxDecoration(
                                 color:
                                     AppColor.white.withOpacity(percentGradient),
@@ -158,10 +160,80 @@ class _WidgetList extends State<ProductDetail> {
                       )
                     ],
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 20.0, right: 20.0),
-                    child:
-                        Text(product.description, style: AppTextStyle.normal),
+                  Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(
+                            left: 20, right: 20, top: 10, bottom: 10),
+                        decoration: BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(
+                              color: AppColor.grey200,
+                              width: 1.0,
+                            ),
+                          ),
+                        ),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: <Widget>[
+                                Expanded(
+                                  flex: 4,
+                                  child: Text(
+                                    "Producer:",
+                                    style: AppTextStyle.label,
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 6,
+                                  child: Text(product.producer,
+                                      style: AppTextStyle.normal),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: <Widget>[
+                                Expanded(
+                                  flex: 4,
+                                  child: Text(
+                                    "Origin:",
+                                    style: AppTextStyle.label,
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 6,
+                                  child: Text(product.origin,
+                                      style: AppTextStyle.normal),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: <Widget>[
+                                Expanded(
+                                  flex: 4,
+                                  child: Text(
+                                    "Production Date:",
+                                    style: AppTextStyle.label,
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 6,
+                                  child: Text(
+                                      "${product.productionDate.year}-${product.productionDate.month}-${product.productionDate.day}",
+                                      style: AppTextStyle.normal),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(
+                            top: 10, bottom: 10, right: 20, left: 20),
+                        child: Text(product.description,
+                            style: AppTextStyle.normal),
+                      ),
+                    ],
                   ),
                 ],
               ),

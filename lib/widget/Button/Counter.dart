@@ -11,26 +11,22 @@ const INCREMENT = 1;
 
 class Counter extends StatefulWidget {
   Counter({this.count: 0, this.id});
-  final int count;
-  final int id;
-
-  @override
-  CounterState createState() =>
-      new CounterState(count: this.count, id: this.id);
-}
-
-class CounterState extends State<Counter> {
-  CounterState({this.count, this.id});
   int count;
   final int id;
 
+  @override
+  CounterState createState() => new CounterState();
+}
+
+class CounterState extends State<Counter> {
   TextField countNumber;
   TextEditingController _textEditingController;
 
   @override
   void initState() {
     super.initState();
-    _textEditingController = TextEditingController(text: count.toString());
+    _textEditingController =
+        TextEditingController(text: widget.count.toString());
     countNumber = TextField(
       controller: _textEditingController,
       textAlign: TextAlign.center,
@@ -58,18 +54,18 @@ class CounterState extends State<Counter> {
   }
 
   void handleChange(type) {
-    if (type == DECREMENT && count > 1) {
+    if (type == DECREMENT && widget.count > 1) {
       System.countDown(1);
-      count--;
+      widget.count--;
     }
     if (type == INCREMENT) {
       System.countUp(1);
-      count++;
+      widget.count++;
     }
-    if (id != null) {
-      allProducts[id].count = count;
+    if (widget.id != null) {
+      allProducts[widget.id].count = widget.count;
     }
-    _textEditingController.text = count.toString();
+    _textEditingController.text = widget.count.toString();
   }
 
   @override

@@ -11,16 +11,10 @@ class AddToCart extends StatefulWidget {
   final bool showIcon;
 
   @override
-  AddToCartState createState() =>
-      new AddToCartState(data, size: size, showIcon: showIcon);
+  AddToCartState createState() => new AddToCartState();
 }
 
 class AddToCartState extends State<AddToCart> {
-  AddToCartState(this.data, {this.size, this.showIcon});
-  Product data;
-  final double size;
-  final bool showIcon;
-
   GlobalKey _buttonKey = GlobalKey();
 
   @override
@@ -38,11 +32,11 @@ class AddToCartState extends State<AddToCart> {
     final currentOffset = renderBoxRed.localToGlobal(Offset.zero);
     AnimationOffset _next =
         AnimationOffset(begin: currentOffset, end: System.shoppingCartOffset);
-    Product existed =
-        allShoppingCarts.firstWhere((p) => p.id == data.id, orElse: () => null);
+    Product existed = allShoppingCarts.firstWhere((p) => p.id == widget.data.id,
+        orElse: () => null);
 
     if (existed == null) {
-      allShoppingCarts.add(data);
+      allShoppingCarts.add(widget.data);
     } else {
       existed.count++;
     }
@@ -64,13 +58,13 @@ class AddToCartState extends State<AddToCart> {
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         children: [
-          Text("ADD TO CART", style: AppTextStyle.buttonCart(size)),
-          this.showIcon
+          Text("ADD TO CART", style: AppTextStyle.buttonCart(widget.size)),
+          widget.showIcon
               ? Padding(
                   padding: EdgeInsets.only(left: 5),
                   child: Icon(
                     Icons.add_shopping_cart,
-                    size: size,
+                    size: widget.size,
                   ),
                 )
               : null,

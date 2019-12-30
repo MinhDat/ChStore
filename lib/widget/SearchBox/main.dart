@@ -24,23 +24,11 @@ class SearchBox extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return SearchBoxState(
-      isFocused: isFocused,
-      onFocused: onFocused,
-      onUnfocused: onUnfocused,
-      onChangeWords: onChangeWords,
-    );
+    return SearchBoxState();
   }
 }
 
 class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
-  SearchBoxState(
-      {this.isFocused, this.onFocused, this.onUnfocused, this.onChangeWords});
-  bool isFocused;
-  FocusedCalback onFocused;
-  UnfocusedCalback onUnfocused;
-  ChangeWordsCalback onChangeWords;
-
   AnimationController _animationController;
   CurvedAnimation _sideFinalTextAnimation;
 
@@ -63,15 +51,15 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
   }
 
   void _handleCancel() {
-    onUnfocused();
+    widget.onUnfocused();
   }
 
   void _handleTap() {
-    onFocused();
+    widget.onFocused();
   }
 
   void _handleChange(data) {
-    onChangeWords(data.toString());
+    widget.onChangeWords(data.toString());
   }
 
   @override
@@ -85,8 +73,8 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
-            flex: isFocused ? 8 : 10,
-            child: isFocused
+            flex: widget.isFocused ? 8 : 10,
+            child: widget.isFocused
                 ? TextField(
                     autofocus: true,
                     onChanged: (data) {
@@ -146,7 +134,7 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                     ),
                   ),
           ),
-          (isFocused
+          (widget.isFocused
               ? Expanded(
                   flex: 2,
                   child: SizeTransition(
@@ -158,7 +146,7 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                       child: AnimatedContainer(
                         duration: Duration(seconds: 1),
                         alignment: Alignment.center,
-                        child: Text("Cancel", style: AppTextStyle.cancelButton),
+                        child: Text("Cancel", style: AppTextStyle.buttonLink),
                       ),
                     ),
                   ),

@@ -28,20 +28,14 @@ class AppTextStyle {
     color: AppColor.grey,
     fontSize: AppTextSize.size30,
   );
-
   static TextStyle price = TextStyle(
     fontSize: AppTextSize.size30,
   );
   static TextStyle title = TextStyle(
-    fontSize: AppTextSize.size22,
+    fontSize: AppTextSize.size14,
     fontWeight: FontWeight.bold,
   );
   static TextStyle description = TextStyle(color: AppColor.grey);
-  static TextStyle buttonCart(double textSize) => TextStyle(
-        fontSize: textSize,
-        color: AppColor.white,
-      );
-
   static TextStyle button = TextStyle(
     fontSize: AppTextSize.size24,
     color: AppColor.white,
@@ -55,13 +49,11 @@ class AppTextStyle {
     fontSize: AppTextSize.size20,
     color: AppColor.main,
   );
-
   static TextStyle label = TextStyle(
     color: AppColor.black,
     fontWeight: FontWeight.bold,
     fontSize: AppTextSize.size24,
   );
-
   static TextStyle normal = TextStyle(
     color: AppColor.grey,
     fontSize: AppTextSize.size24,
@@ -71,9 +63,10 @@ class AppTextStyle {
     fontWeight: FontWeight.bold,
     color: AppColor.white,
   );
-  static TextStyle smallCardPrice =
-      TextStyle(fontSize: AppTextSize.size33, color: AppColor.white);
-
+  static TextStyle smallCardPrice = TextStyle(
+    fontSize: AppTextSize.size33,
+    color: AppColor.white,
+  );
   static TextStyle scrollHeader = TextStyle(
     color: AppColor.black,
     fontWeight: FontWeight.w600,
@@ -101,14 +94,24 @@ class AppTextStyle {
     fontSize: AppTextSize.size22,
     fontWeight: FontWeight.bold,
   );
-  static TextStyle cancelButton = TextStyle(
-    fontSize: AppTextSize.size26,
+  static TextStyle buttonLink = TextStyle(
+    fontSize: AppTextSize.size22,
     color: AppColor.blue,
   );
   static TextStyle searchPlaceHolder = TextStyle(
     color: AppColor.grey500,
     fontSize: AppTextSize.size30,
   );
+  static TextStyle noItem = TextStyle(
+    color: AppColor.grey400,
+    fontStyle: FontStyle.italic,
+    fontSize: AppTextSize.size20,
+  );
+
+  static TextStyle buttonCart(double textSize) => TextStyle(
+        fontSize: textSize,
+        color: AppColor.white,
+      );
   static TextStyle flexColor(color) => TextStyle(
         color: color,
         fontSize: AppTextSize.size33,

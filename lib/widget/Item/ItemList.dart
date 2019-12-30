@@ -14,34 +14,81 @@ const RADIUS = 10.0;
 // Template Type
 const NORMAL_LIST_TYPE = 0;
 const SHOPPING_CART_LIST_TYPE = 1;
+// Maximum Item
+const MAXIMUM_ITEM = 5;
 
 class ItemList extends StatefulWidget {
-  ItemList({this.type: NORMAL_LIST_TYPE});
+  ItemList({this.type: NORMAL_LIST_TYPE, this.maxItem: MAXIMUM_ITEM});
   final int type;
+  final int maxItem;
 
   @override
-  ItemListState createState() => new ItemListState(type: this.type);
+  ItemListState createState() => new ItemListState();
 }
 
 class ItemListState extends State<ItemList> {
-  ItemListState({this.type});
-  final int type;
+  void checkEmptyCart() {}
 
-  GestureDetector _renderItem(Product item, Size size) {
+  @override
+  Widget build(BuildContext context) {
+    List<Widget> productList = [];
+
+    switch (widget.type) {
+      case NORMAL_LIST_TYPE:
+        if (widget.maxItem > 0) {
+          for (int i = 0; i < widget.maxItem; i++) {
+            productList.add(_renderItem(allProducts[i], System.screenSize));
+          }
+        } else {
+          productList = allProducts
+              .map((product) => _renderItem(product, System.screenSize))
+              .toList();
+        }
+        break;
+
+      case SHOPPING_CART_LIST_TYPE:
+        if (allShoppingCarts.length > 0) {
+          productList = allShoppingCarts
+              .map(
+                (item) => Dismissible(
+                  background: stackBehindDismiss(),
+                  key: ObjectKey(item),
+                  child: _renderItem(item, System.screenSize),
+                  onDismissed: (direction) {
+                    System.countDown(item.count);
+                    item.count = 1;
+                    allShoppingCarts.removeWhere((p) => p.id == item.id);
+                  },
+                ),
+              )
+              .toList();
+        }
+        break;
+    }
+
+    return productList.length > 0
+        ? widget.type == NORMAL_LIST_TYPE
+            ? Column(children: productList)
+            : ListView(children: productList)
+        : Center(child: Text("No items", style: AppTextStyle.noItem));
+  }
+
+  /// Render an items
+  Widget _renderItem(Product item, Size size) {
     List<Widget> productLineSecond = [
       Expanded(
         flex: 4, // 20%
         child: Text("\$${item.price}", style: AppTextStyle.price),
       )
     ];
-    switch (type) {
+    switch (widget.type) {
       case NORMAL_LIST_TYPE:
         productLineSecond.add(
           Expanded(
             flex: 6, // 60%
             child: AddToCart(
               item,
-              size: AppTextSize.size24,
+              size: AppTextSize.size30,
               showIcon: false,
             ),
           ),
@@ -63,11 +110,7 @@ class ItemListState extends State<ItemList> {
 
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(
-          context,
-          '/product-detail',
-          arguments: item,
-        );
+        Navigator.pushNamed(context, '/product-detail', arguments: item);
       },
       child: Container(
         height: 130.0,
@@ -124,41 +167,6 @@ class ItemListState extends State<ItemList> {
           ],
         ),
       ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    List productList = [];
-
-    switch (type) {
-      case NORMAL_LIST_TYPE:
-        productList = allProducts
-            .map((product) => _renderItem(product, System.screenSize))
-            .toList();
-        break;
-
-      case SHOPPING_CART_LIST_TYPE:
-        productList = allShoppingCarts
-            .map(
-              (item) => Dismissible(
-                background: stackBehindDismiss(),
-                key: ObjectKey(item),
-                child: _renderItem(item, System.screenSize),
-                onDismissed: (direction) {
-                  System.countDown(item.count);
-                  item.count = 1;
-                  allShoppingCarts.removeWhere((p) => p.id == item.id);
-                },
-              ),
-            )
-            .toList();
-        break;
-    }
-
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: productList,
     );
   }
 

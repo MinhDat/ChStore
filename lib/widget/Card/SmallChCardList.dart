@@ -18,15 +18,10 @@ class SmallChCardList extends StatefulWidget {
   final int type;
 
   @override
-  SmallChCardListState createState() =>
-      new SmallChCardListState(_parentContext, type: this.type);
+  SmallChCardListState createState() => new SmallChCardListState();
 }
 
 class SmallChCardListState extends State<SmallChCardList> {
-  SmallChCardListState(this._parentContext, {this.type});
-
-  final BuildContext _parentContext;
-  final int type;
   final int firstItem = 0;
   int lastItem = allProducts.length - 1;
 
@@ -51,7 +46,7 @@ class SmallChCardListState extends State<SmallChCardList> {
       ),
     ];
 
-    switch (type) {
+    switch (widget.type) {
       case CATEGORIES_TYPE:
         lastItem = allCategories.length - 1;
 
@@ -83,8 +78,8 @@ class SmallChCardListState extends State<SmallChCardList> {
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(
-          _parentContext,
-          type == CATEGORIES_TYPE
+          widget._parentContext,
+          widget.type == CATEGORIES_TYPE
               ? '/${data.name.toLowerCase()}-category'
               : '/product-detail',
           arguments: data,
@@ -155,7 +150,7 @@ class SmallChCardListState extends State<SmallChCardList> {
     final List<GestureDetector> leftItems = <GestureDetector>[];
     final List<GestureDetector> rightItems = <GestureDetector>[];
 
-    switch (type) {
+    switch (widget.type) {
       case CATEGORIES_TYPE:
         itemMediumHeight = (itemMediumHeight - 30) / 1.2;
         itemMaxHeight = itemMediumHeight;

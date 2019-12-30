@@ -120,7 +120,7 @@ class ShoppingCartState extends State<ShoppingCart> {
           physics: NeverScrollableScrollPhysics(),
           controller: _pageController,
           children: [
-            ListView(children: [ItemList(type: SHOPPING_CART_LIST_TYPE)]),
+            ItemList(type: SHOPPING_CART_LIST_TYPE),
             CheckOut(),
             Text("Completed payment", style: AppTextStyle.normal)
           ],

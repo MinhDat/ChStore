@@ -10,10 +10,10 @@ class Persional extends StatefulWidget {
 }
 
 class PersionalState extends State<Persional> {
+  double avatarSize = System.screenSize.width / 10;
+
   @override
   Widget build(BuildContext context) {
-    double avatarSize = System.screenSize.width / 10;
-
     return ListView(
       children: <Widget>[
         Container(

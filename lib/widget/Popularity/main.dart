@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:ChStore/utils/AppColor.dart';
 
-import 'package:ChStore/data/Popularity.dart';
+import 'package:ChStore/model/Popularity.dart';
 
 const RIGHT = true;
 const LEFT = false;

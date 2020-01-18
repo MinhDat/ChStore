@@ -3,11 +3,16 @@ import 'package:ChStore/screen/UsageGuide/main.dart';
 import 'package:ChStore/screen/ProductDetail/main.dart';
 import 'package:ChStore/screen/MainPage/main.dart';
 import 'package:ChStore/screen/ItemCategory/main.dart';
+import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:ChStore/utils/AppColor.dart';
 
 import 'package:flutter/material.dart';
+import 'package:ChStore/bloc/Bloc.dart';
 
 void main() {
+  BlocSupervisor.delegate = SimpleBlocDelegate();
   runApp(
     MaterialApp(
       title: 'Welcome to Flutter',

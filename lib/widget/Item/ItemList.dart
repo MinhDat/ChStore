@@ -6,8 +6,8 @@ import 'package:ChStore/widget/Button/AddToCart.dart';
 
 import 'package:ChStore/utils/AppColor.dart';
 import 'package:ChStore/utils/AppTextStyle.dart';
-import 'package:ChStore/data/Product.dart';
-import 'package:ChStore/data/Topic.dart';
+import 'package:ChStore/model/Product.dart';
+import 'package:ChStore/model/Topic.dart';
 
 // Constants
 const RADIUS = 10.0;

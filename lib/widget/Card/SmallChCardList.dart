@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:ChStore/utils/AppColor.dart';
 import 'package:ChStore/utils/AppTextStyle.dart';
 
-import 'package:ChStore/data/Product.dart';
-import 'package:ChStore/data/Category.dart';
-import 'package:ChStore/data/Topic.dart';
+import 'package:ChStore/model/Product.dart';
+import 'package:ChStore/model/Category.dart';
+import 'package:ChStore/model/Topic.dart';
 
 //Template Type
 const PRODUCTS_TYPE = 0;

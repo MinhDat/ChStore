@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:ChStore/utils/AppColor.dart';
-import 'package:ChStore/data/Topic.dart';
+import 'package:ChStore/model/Topic.dart';
 
 //Template Type
 const NORMAL_LIST_TYPE = 1;

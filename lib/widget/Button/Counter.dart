@@ -1,7 +1,7 @@
 import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
 import 'package:ChStore/utils/AppColor.dart';
-import 'package:ChStore/data/Product.dart';
+import 'package:ChStore/model/Product.dart';
 
 // Constants
 const RADIUS = 10.0;

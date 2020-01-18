@@ -1,4 +1,8 @@
-class Product {
+import 'dart:ffi';
+
+import 'package:equatable/equatable.dart';
+
+class Product extends Equatable {
   Product({
     this.id,
     this.image,
@@ -16,7 +20,7 @@ class Product {
   final int id;
   final String image;
   final String name;
-  final String price;
+  final double price;
   final String description;
   final String origin;
   final String producer;
@@ -25,6 +29,21 @@ class Product {
   int count;
   final int categoryId;
   final DateTime productionDate;
+
+  @override
+  List<Object> get props => [
+        id,
+        image,
+        name,
+        price,
+        description,
+        origin,
+        producer,
+        favorited,
+        count,
+        categoryId,
+        productionDate
+      ];
 }
 
 List<Product> allProducts = [
@@ -36,7 +55,7 @@ List<Product> allProducts = [
     origin: "Viet Nam",
     productionDate: DateTime(2019, 12, 29),
     image: "lib/picture/men/man_and_the_streets.jpeg",
-    price: "65.00",
+    price: 65.00,
     description:
         "A man always smiles in front of someone but he always hides his sad in behind (man and the streets)",
   ),
@@ -48,7 +67,7 @@ List<Product> allProducts = [
     origin: "Viet Nam",
     productionDate: DateTime(2019, 12, 29),
     image: "lib/picture/women/woman_and_sunset.jpeg",
-    price: "65.00",
+    price: 65.00,
     description: "A woman was wearing black hat and staring at the sunset",
   ),
   Product(
@@ -59,7 +78,7 @@ List<Product> allProducts = [
     origin: "Viet Nam",
     productionDate: DateTime(2019, 12, 29),
     image: "lib/picture/travels/girl_and_beaches.jpg",
-    price: "65.00",
+    price: 65.00,
     description:
         "A girl was wearing pink dress and being the side with the beach.\nI hate you. But I love you.\nI will wait you.\nYou can wait me.",
   ),
@@ -71,7 +90,7 @@ List<Product> allProducts = [
     origin: "Viet Nam",
     productionDate: DateTime(2019, 12, 29),
     image: "lib/picture/children/boy_and_teddy.jpeg",
-    price: "65.00",
+    price: 65.00,
     description: "When I was a child, I dreamed to become a hero",
   ),
   Product(
@@ -82,7 +101,7 @@ List<Product> allProducts = [
     origin: "Viet Nam",
     productionDate: DateTime(2019, 12, 29),
     image: "lib/picture/animals/girl_and_dog.jpeg",
-    price: "65.00",
+    price: 65.00,
     description: "I'm looking a dog",
   ),
   Product(
@@ -93,7 +112,7 @@ List<Product> allProducts = [
     origin: "Viet Nam",
     productionDate: DateTime(2019, 12, 29),
     image: "lib/picture/lifes/bad_boy.jpeg",
-    price: "65.00",
+    price: 65.00,
     description:
         "I before might be a bad person, but I now  still always try to become perfect",
   ),
@@ -105,7 +124,7 @@ List<Product> allProducts = [
     origin: "Viet Nam",
     productionDate: DateTime(2019, 12, 29),
     image: "lib/picture/women/alone_girl.jpeg",
-    price: "65.00",
+    price: 65.00,
     description: "Alone make me stronger, but it makes me a crazy -_-",
   ),
   Product(
@@ -116,7 +135,7 @@ List<Product> allProducts = [
     productionDate: DateTime(2019, 12, 29),
     image: "lib/picture/lifes/man_is_walking_in_desert.png",
     name: "And sometimes I forget that I'm still a human being",
-    price: "65.00",
+    price: 65.00,
     description: "Maybe I'm too greedy",
   ),
   Product(
@@ -127,7 +146,7 @@ List<Product> allProducts = [
     productionDate: DateTime(2019, 12, 29),
     image: "lib/picture/books/diary.jpg",
     name: "The pieces of stories are separate",
-    price: "65.00",
+    price: 65.00,
     description:
         "Because it is my diary which is my feelings are implemented on the lines of code.",
   )

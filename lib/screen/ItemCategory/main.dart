@@ -1,7 +1,7 @@
 import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:flutter/material.dart';
 import 'package:ChStore/widget/Card/SmallChCardList.dart';
-import 'package:ChStore/data/Topic.dart';
+import 'package:ChStore/model/Topic.dart';
 
 class ItemCategory extends StatelessWidget {
   @override

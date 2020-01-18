@@ -3,7 +3,7 @@ import 'package:ChStore/utils/AppColor.dart';
 import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/data/Product.dart';
+import 'package:ChStore/model/Product.dart';
 import 'package:ChStore/widget/Card/ChCard.dart';
 
 class ChCardPage extends StatefulWidget {

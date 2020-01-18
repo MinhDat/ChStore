@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 import 'package:ChStore/utils/AppTextStyle.dart';
-import 'package:ChStore/data/Product.dart';
+import 'package:ChStore/model/Product.dart';
 
 class ProductDetail extends StatefulWidget {
   @override

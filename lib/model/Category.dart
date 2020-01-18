@@ -1,4 +1,4 @@
-import 'package:ChStore/data/Topic.dart';
+import 'package:ChStore/model/Topic.dart';
 
 class Category extends Topic {
   Category({

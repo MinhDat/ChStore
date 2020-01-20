@@ -15,12 +15,12 @@ class ProductCategory extends StatelessWidget {
             padding: EdgeInsets.only(left: 20),
             child: Text('Categories', style: AppTextStyle.title),
           ),
-          Category(),
+          CategoryView(),
           Padding(
             padding: EdgeInsets.only(left: 20, top: 20),
             child: Text('Topics', style: AppTextStyle.title),
           ),
-          Topic(context),
+          TopicView(context),
         ],
       ),
     );

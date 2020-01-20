@@ -6,8 +6,8 @@ import 'package:ChStore/model/main.dart';
 //Template Type
 const NORMAL_LIST_TYPE = 1;
 
-class Topic extends StatelessWidget {
-  Topic(this._parentContext, {this.type: NORMAL_LIST_TYPE});
+class TopicView extends StatelessWidget {
+  TopicView(this._parentContext, {this.type: NORMAL_LIST_TYPE});
   final BuildContext _parentContext;
   final int type;
   @override

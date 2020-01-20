@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:ChStore/api/Product.dart';
+import 'package:ChStore/api/main.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -53,7 +53,7 @@ abstract class ProductEvent extends Equatable {
 
 class Fetch extends ProductEvent {}
 
-class FetchNews extends ProductEvent {}
+class Reset extends ProductEvent {}
 
 // Bloc Instance
 class ProductBloc extends Bloc<ProductEvent, ProductState> {
@@ -76,12 +76,14 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
   @override
   Stream<ProductState> mapEventToState(ProductEvent event) async* {
     final currentState = state;
+
     if (event is Fetch && !_hasReachedMax(currentState)) {
       if (currentState is ProductUninitialized) {
         final products = await _fetchProducts(0, 20);
         yield ProductLoaded(products: products, hasReachedMax: false);
         return;
       }
+
       if (currentState is ProductLoaded) {
         final products = await _fetchProducts(currentState.products.length, 20);
         yield products.isEmpty
@@ -92,6 +94,14 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
               );
       }
     }
+
+    if (event is Reset) {
+      if (currentState is ProductLoaded) {
+        currentState.products.removeRange(20, currentState.products.length);
+        yield ProductLoaded(
+            products: currentState.products, hasReachedMax: false);
+      }
+    }
   }
 
   bool _hasReachedMax(ProductState state) =>
@@ -99,9 +109,5 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
 
   Future<List<Product>> _fetchProducts(int startIndex, int limit) async {
     return await api.getProducts(startIndex, limit, 0);
-    // if () {
-    // } else {
-    //   throw Exception('error fetching posts');
-    // }
   }
 }

@@ -18,6 +18,7 @@ export 'package:ChStore/widget/Header/ScrollHeader.dart';
 export 'package:ChStore/widget/Item/CircleItem.dart';
 export 'package:ChStore/widget/Item/FourCircleItem.dart';
 export 'package:ChStore/widget/Item/ItemList.dart';
+export 'package:ChStore/widget/Item/ProductItem.dart';
 
 export 'package:ChStore/widget/Popularity/main.dart';
 export 'package:ChStore/widget/Profile/ProfilePainter.dart';

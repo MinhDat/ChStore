@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ChStore/widget/main.dart';
 
-class Category extends StatelessWidget {
+class CategoryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SmallChCardList(

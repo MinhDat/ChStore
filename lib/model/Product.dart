@@ -1,11 +1,10 @@
-import 'dart:ffi';
-
 import 'package:equatable/equatable.dart';
 
 class Product extends Equatable {
   Product({
     this.id,
     this.image,
+    this.thumbnail,
     this.name,
     this.price,
     this.description,
@@ -19,6 +18,7 @@ class Product extends Equatable {
   });
   final int id;
   final String image;
+  final String thumbnail;
   final String name;
   final double price;
   final String description;
@@ -34,6 +34,7 @@ class Product extends Equatable {
   List<Object> get props => [
         id,
         image,
+        thumbnail,
         name,
         price,
         description,

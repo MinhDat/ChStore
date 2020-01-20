@@ -1,3 +1,4 @@
+import 'package:ChStore/bloc/Bloc.dart';
 import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +8,7 @@ import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:ChStore/model/Product.dart';
 import 'package:ChStore/model/Category.dart';
 import 'package:ChStore/model/Topic.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 //Template Type
 const PRODUCTS_TYPE = 0;
@@ -25,6 +27,81 @@ class SmallChCardListState extends State<SmallChCardList> {
   final int firstItem = 0;
   int lastItem = allProducts.length - 1;
 
+  @override
+  Widget build(BuildContext context) {
+    final RouteSettings settings = ModalRoute.of(context).settings;
+    final double itemWidth = System.screenSize.width / 2.0;
+    double itemMediumHeight = System.screenSize.width / 2.0;
+    double itemMaxHeight = itemMediumHeight * 1.3;
+    List dataFilters = [];
+
+    switch (widget.type) {
+      case CATEGORIES_TYPE:
+        itemMediumHeight = (itemMediumHeight - 30) / 1.2;
+        itemMaxHeight = itemMediumHeight;
+        dataFilters = allCategories;
+        return _renderList(
+            dataFilters, itemWidth, itemMediumHeight, itemMaxHeight);
+      case PRODUCTS_TYPE:
+        return BlocBuilder<ProductBloc, ProductState>(
+            builder: (context, state) {
+          if (state is ProductError) {
+            return Center(
+              child: Text('failed to fetch products'),
+            );
+          }
+          if (state is ProductLoaded) {
+            if (state.products.isEmpty) {
+              return Center(
+                child: Text("No items", style: AppTextStyle.noItem),
+              );
+            }
+
+            Topic _topic = settings.arguments as Topic;
+            dataFilters = state.products
+                .where((item) => (item.categoryId == _topic.id))
+                .toList();
+            return _renderList(
+                dataFilters, itemWidth, itemMediumHeight, itemMaxHeight);
+          }
+        });
+    }
+  }
+
+  Widget _renderList(var dataFilters, double itemWidth, double itemMediumHeight,
+      double itemMaxHeight) {
+    final List<GestureDetector> leftItems = <GestureDetector>[];
+    final List<GestureDetector> rightItems = <GestureDetector>[];
+
+    for (int index = 0; index < dataFilters.length; index++) {
+      var data = dataFilters[index];
+      // print(data.image)
+      if (index % 2 == 0) {
+        leftItems.add(_renderItem(
+            data, itemWidth, itemMediumHeight, itemMaxHeight, true, index));
+      } else {
+        rightItems.add(_renderItem(
+            data, itemWidth, itemMediumHeight, itemMaxHeight, false, index));
+      }
+    }
+
+    return Column(children: [
+      Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Expanded(
+            flex: 5,
+            child: Column(children: leftItems),
+          ),
+          Expanded(
+            flex: 5,
+            child: Column(children: rightItems),
+          ),
+        ],
+      )
+    ]);
+  }
+
   GestureDetector _renderItem(
       var data,
       double itemWidth,
@@ -34,6 +111,7 @@ class SmallChCardListState extends State<SmallChCardList> {
       int index) {
     final double leftOffset = isLeftColumn ? 20.0 : 10.0;
     final double rightOffset = isLeftColumn ? 10.0 : 20.0;
+    Widget bgImage;
 
     List<Widget> nameDes = [
       Expanded(
@@ -49,9 +127,16 @@ class SmallChCardListState extends State<SmallChCardList> {
     switch (widget.type) {
       case CATEGORIES_TYPE:
         lastItem = allCategories.length - 1;
-
+        bgImage = Image.asset(
+          data.image,
+          fit: BoxFit.cover,
+        );
         break;
       case PRODUCTS_TYPE:
+        bgImage = Image.network(
+          data.thumbnail,
+          fit: BoxFit.cover,
+        );
         nameDes.add(
           Expanded(
             flex: 2,
@@ -100,10 +185,7 @@ class SmallChCardListState extends State<SmallChCardList> {
             ),
             child: ClipRRect(
               borderRadius: new BorderRadius.circular(10.0),
-              child: Image.asset(
-                data.image,
-                fit: BoxFit.cover,
-              ),
+              child: bgImage,
             ),
           ),
           Positioned(
@@ -137,60 +219,5 @@ class SmallChCardListState extends State<SmallChCardList> {
         ],
       ),
     );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final RouteSettings settings = ModalRoute.of(context).settings;
-    final double itemWidth = System.screenSize.width / 2.0;
-    double itemMediumHeight = System.screenSize.width / 2.0;
-    double itemMaxHeight = itemMediumHeight * 1.3;
-    List dataFilters = [];
-
-    final List<GestureDetector> leftItems = <GestureDetector>[];
-    final List<GestureDetector> rightItems = <GestureDetector>[];
-
-    switch (widget.type) {
-      case CATEGORIES_TYPE:
-        itemMediumHeight = (itemMediumHeight - 30) / 1.2;
-        itemMaxHeight = itemMediumHeight;
-        dataFilters = allCategories;
-        break;
-      case PRODUCTS_TYPE:
-        Topic _topic = settings.arguments as Topic;
-        dataFilters = allProducts
-            .where((item) => (item.categoryId == _topic.id))
-            .toList();
-        break;
-      default:
-    }
-
-    for (int index = 0; index < dataFilters.length; index++) {
-      var data = dataFilters[index];
-      // print(data.image)
-      if (index % 2 == 0) {
-        leftItems.add(_renderItem(
-            data, itemWidth, itemMediumHeight, itemMaxHeight, true, index));
-      } else {
-        rightItems.add(_renderItem(
-            data, itemWidth, itemMediumHeight, itemMaxHeight, false, index));
-      }
-    }
-
-    return Column(children: [
-      Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Expanded(
-            flex: 5,
-            child: Column(children: leftItems),
-          ),
-          Expanded(
-            flex: 5,
-            child: Column(children: rightItems),
-          ),
-        ],
-      )
-    ]);
   }
 }

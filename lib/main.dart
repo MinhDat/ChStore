@@ -1,16 +1,16 @@
-import 'package:ChStore/provider/Product.dart';
 import 'package:flutter/material.dart';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ChStore/bloc/Bloc.dart';
 
+import 'package:ChStore/provider/Provider.dart';
 import 'package:ChStore/screen/main.dart';
 import 'package:ChStore/utils/main.dart';
 
 void main() {
   BlocSupervisor.delegate = SimpleBlocDelegate();
-  runApp(FetchProductProvider(
+  runApp(DataProvider(
     MaterialApp(
       title: 'Welcome to Flutter',
       theme: ThemeData(primaryColor: AppColor.white),
@@ -26,21 +26,23 @@ void main() {
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/product-detail': (context) => ProductDetail(),
         // Topic routes
-        '/woman-topic': (context) => ItemCategory(),
-        '/man-topic': (context) => ItemCategory(),
-        '/sport-topic': (context) => ItemCategory(),
-        '/animal-topic': (context) => ItemCategory(),
-        '/life-topic': (context) => ItemCategory(),
-        '/book-topic': (context) => ItemCategory(),
-        '/travel-topic': (context) => ItemCategory(),
-        '/child-topic': (context) => ItemCategory(),
+        '/woman-topic': (context) => Category(),
+        '/man-topic': (context) => Category(),
+        '/sport-topic': (context) => Category(),
+        '/animal-topic': (context) => Category(),
+        '/life-topic': (context) => Category(),
+        '/book-topic': (context) => Category(),
+        '/travel-topic': (context) => Category(),
+        '/child-topic': (context) => Category(),
         // Category routes
-        '/sport-category': (context) => ItemCategory(),
-        '/travel-category': (context) => ItemCategory(),
-        '/music-category': (context) => ItemCategory(),
-        '/gaming-category': (context) => ItemCategory(),
-        '/photo-category': (context) => ItemCategory(),
-        '/food-category': (context) => ItemCategory(),
+        '/sport-category': (context) => Category(),
+        '/travel-category': (context) => Category(),
+        '/music-category': (context) => Category(),
+        '/gaming-category': (context) => Category(),
+        '/photo-category': (context) => Category(),
+        '/food-category': (context) => Category(),
+        // Products route
+        '/product-list': (context) => ProductList(),
       },
     ),
   ));

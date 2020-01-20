@@ -1,8 +1,11 @@
 import 'dart:async';
 
+import 'package:ChStore/bloc/Bloc.dart';
 import 'package:ChStore/provider/Provider.dart';
+import 'package:ChStore/utils/main.dart';
 import 'package:flutter/material.dart';
 import 'package:ChStore/widget/Item/ItemList.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchResult extends StatefulWidget {
   @override
@@ -33,7 +36,25 @@ class SearchResultState extends State<SearchResult> {
   Widget build(BuildContext context) {
     return Center(
       child: showResult
-          ? ListView(children: [ItemList()])
+          ? ListView(children: [
+              BlocBuilder<ProductBloc, ProductState>(builder: (context, state) {
+                if (state is ProductError) {
+                  return Center(
+                    child: Text('failed to fetch products'),
+                  );
+                }
+                if (state is ProductLoaded) {
+                  if (state.products.isEmpty) {
+                    return Center(
+                      child: Text("No items", style: AppTextStyle.noItem),
+                    );
+                  }
+                  return ItemList(
+                    products: state.products,
+                  );
+                }
+              })
+            ])
           : Align(
               alignment: Alignment.topCenter,
               child: LinearProgressIndicator(),

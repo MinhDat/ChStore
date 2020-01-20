@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/utils/AppColor.dart';
-import 'package:ChStore/widget/Profile/ProfilePainter.dart';
+import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/widget/main.dart';
 
 class Wallpaper extends StatelessWidget {
   Wallpaper({this.height, this.width});

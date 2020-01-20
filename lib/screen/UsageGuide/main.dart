@@ -1,6 +1,7 @@
-import 'package:ChStore/screen/UsageGuide/Finish.dart';
 import 'package:flutter/material.dart';
-import 'package:ChStore/widget/DotsIndicator/main.dart';
+
+import 'package:ChStore/screen/main.dart';
+import 'package:ChStore/widget/main.dart';
 
 class UsageGuide extends StatefulWidget {
   @override

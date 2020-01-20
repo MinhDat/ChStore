@@ -11,42 +11,42 @@ class Topic {
 
 List<Topic> allTopics = [
   Topic(
-    id: 0,
+    id: 6,
     image: "lib/picture/topics/woman-category.jpg",
     name: "Woman",
   ),
   Topic(
-    id: 1,
+    id: 7,
     image: "lib/picture/topics/man-category.jpg",
     name: "Man",
   ),
   Topic(
-    id: 2,
+    id: 0,
     image: "lib/picture/topics/sport-category.png",
     name: "Sport",
   ),
   Topic(
-    id: 3,
+    id: 8,
     // image: "lib/picture/topics/sport-category.png",
     name: "Child",
   ),
   Topic(
-    id: 4,
+    id: 9,
     // image: "lib/picture/topics/sport-category.png",
     name: "Animal",
   ),
   Topic(
-    id: 5,
+    id: 10,
     // image: "lib/picture/topics/sport-category.png",
     name: "Life",
   ),
   Topic(
-    id: 6,
+    id: 1,
     // image: "lib/picture/topics/sport-category.png",
     name: "Travel",
   ),
   Topic(
-    id: 7,
+    id: 11,
     // image: "lib/picture/topics/sport-category.png",
     name: "Book",
   ),

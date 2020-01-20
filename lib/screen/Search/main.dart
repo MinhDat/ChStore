@@ -1,10 +1,7 @@
-import 'package:ChStore/utils/AppColor.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/widget/SearchBox/main.dart';
-import 'package:ChStore/widget/SearchBox/SearchResult.dart';
-import 'package:ChStore/widget/Popularity/main.dart';
-import 'package:ChStore/widget/Header/ScrollHeader.dart';
+import 'package:ChStore/utils/AppColor.dart';
+import 'package:ChStore/widget/main.dart';
 
 class Search extends StatefulWidget {
   @override

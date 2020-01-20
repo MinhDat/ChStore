@@ -1,6 +1,6 @@
-import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:flutter/material.dart';
-import 'package:ChStore/utils/AppColor.dart';
+
+import 'package:ChStore/utils/main.dart';
 
 enum SingingCharacter { CASH_MONEY, VISA, INTERNET_BANKING }
 

@@ -53,6 +53,8 @@ abstract class ProductEvent extends Equatable {
 
 class Fetch extends ProductEvent {}
 
+class FetchNews extends ProductEvent {}
+
 // Bloc Instance
 class ProductBloc extends Bloc<ProductEvent, ProductState> {
   @override

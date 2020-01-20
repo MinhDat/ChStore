@@ -1,9 +1,8 @@
-import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/widget/Header/ScrollHeader.dart';
-import 'package:ChStore/screen/ProductCategory/Topic.dart';
-import 'package:ChStore/screen/ProductCategory/Category.dart';
+import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/widget/main.dart';
+import 'package:ChStore/screen/main.dart';
 
 class ProductCategory extends StatelessWidget {
   @override

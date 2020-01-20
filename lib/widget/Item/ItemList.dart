@@ -1,16 +1,10 @@
-import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ChStore/bloc/Bloc.dart';
+import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/widget/main.dart';
+import 'package:ChStore/model/main.dart';
 
-import 'package:ChStore/widget/Button/Counter.dart';
-import 'package:ChStore/widget/Button/AddToCart.dart';
-
-import 'package:ChStore/utils/AppColor.dart';
-import 'package:ChStore/utils/AppTextStyle.dart';
-import 'package:ChStore/model/Product.dart';
-import 'package:ChStore/model/Topic.dart';
-
-// Constants
-const RADIUS = 10.0;
 // Template Type
 const NORMAL_LIST_TYPE = 0;
 const SHOPPING_CART_LIST_TYPE = 1;
@@ -27,7 +21,14 @@ class ItemList extends StatefulWidget {
 }
 
 class ItemListState extends State<ItemList> {
-  void checkEmptyCart() {}
+  ProductBloc _productBloc;
+  List<Product> products = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _productBloc = BlocProvider.of<ProductBloc>(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,150 +36,165 @@ class ItemListState extends State<ItemList> {
 
     switch (widget.type) {
       case NORMAL_LIST_TYPE:
-        if (widget.maxItem > 0) {
-          for (int i = 0; i < widget.maxItem; i++) {
-            productList.add(_renderItem(allProducts[i], System.screenSize));
+        return BlocBuilder<ProductBloc, ProductState>(
+            builder: (context, state) {
+          if (state is ProductError) {
+            return Center(
+              child: Text('failed to fetch products'),
+            );
           }
-        } else {
-          productList = allProducts
-              .map((product) => _renderItem(product, System.screenSize))
-              .toList();
-        }
-        break;
+          if (state is ProductLoaded) {
+            if (state.products.isEmpty) {
+              return Center(
+                child: Text("No items", style: AppTextStyle.noItem),
+              );
+            }
+            products = state.products;
+          }
+
+          if (widget.maxItem > 0) {
+            for (int i = 0; i < widget.maxItem; i++) {
+              productList.add(_renderItem(
+                  context, widget.type, products[i], System.screenSize));
+            }
+          } else {
+            productList = products
+                .map((product) => _renderItem(
+                    context, widget.type, product, System.screenSize))
+                .toList();
+          }
+
+          return Column(children: productList);
+        });
 
       case SHOPPING_CART_LIST_TYPE:
-        if (allShoppingCarts.length > 0) {
-          productList = allShoppingCarts
-              .map(
-                (item) => Dismissible(
-                  background: stackBehindDismiss(),
-                  key: ObjectKey(item),
-                  child: _renderItem(item, System.screenSize),
-                  onDismissed: (direction) {
-                    System.countDown(item.count);
-                    item.count = 1;
-                    allShoppingCarts.removeWhere((p) => p.id == item.id);
-                  },
-                ),
-              )
-              .toList();
+        if (allShoppingCarts.isEmpty) {
+          return Center(
+            child: Text("No items", style: AppTextStyle.noItem),
+          );
         }
-        break;
+        productList = allShoppingCarts
+            .map(
+              (item) => Dismissible(
+                background: stackBehindDismiss(),
+                key: ObjectKey(item),
+                child:
+                    _renderItem(context, widget.type, item, System.screenSize),
+                onDismissed: (direction) {
+                  System.countDown(item.count);
+                  item.count = 1;
+                  allShoppingCarts.removeWhere((p) => p.id == item.id);
+                },
+              ),
+            )
+            .toList();
+        return ListView(children: productList);
     }
-
-    return productList.length > 0
-        ? widget.type == NORMAL_LIST_TYPE
-            ? Column(children: productList)
-            : ListView(children: productList)
-        : Center(child: Text("No items", style: AppTextStyle.noItem));
   }
+}
 
-  /// Render an items
-  Widget _renderItem(Product item, Size size) {
-    List<Widget> productLineSecond = [
-      Expanded(
-        flex: 4, // 20%
-        child: Text("\$${item.price}", style: AppTextStyle.price),
-      )
-    ];
-    switch (widget.type) {
-      case NORMAL_LIST_TYPE:
-        productLineSecond.add(
-          Expanded(
-            flex: 6, // 60%
-            child: AddToCart(
-              item,
-              size: AppTextSize.size30,
-              showIcon: false,
-            ),
+/// Render an items
+Widget _renderItem(BuildContext context, int type, Product item, Size size) {
+  List<Widget> productLineSecond = [
+    Expanded(
+      flex: 4, // 20%
+      child: Text("\$${item.price}", style: AppTextStyle.price),
+    )
+  ];
+  switch (type) {
+    case NORMAL_LIST_TYPE:
+      productLineSecond.add(
+        Expanded(
+          flex: 6, // 60%
+          child: AddToCart(
+            item,
+            size: AppTextSize.size30,
+            showIcon: false,
           ),
-        );
-        break;
-
-      case SHOPPING_CART_LIST_TYPE:
-        productLineSecond.add(
-          Expanded(
-            flex: 6, // 60%
-            child: Counter(
-              count: item.count,
-              id: item.id,
-            ),
-          ),
-        );
-        break;
-    }
-
-    return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, '/product-detail', arguments: item);
-      },
-      child: Container(
-        height: 130.0,
-        width: size.width - 40,
-        margin: const EdgeInsets.only(top: 5.0, left: 20.0, right: 20.0),
-        child: Row(
-          children: [
-            Expanded(
-              flex: 3,
-              child: Container(
-                margin: const EdgeInsets.only(top: 10.0, bottom: 10.0),
-                child: ClipRRect(
-                  borderRadius: new BorderRadius.circular(5.0),
-                  child: Image.asset(
-                    item.image,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 7,
-              child: Stack(
-                children: [
-                  Container(
-                    alignment: Alignment.topLeft,
-                    margin: EdgeInsets.only(top: 5.0, left: 10.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(allTopics[item.categoryId].name.toUpperCase(),
-                            style: AppTextStyle.categoryLabel),
-                        Text(item.name, style: AppTextStyle.itemName),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    alignment: Alignment.bottomLeft,
-                    margin: EdgeInsets.only(left: 10.0),
-                    padding: EdgeInsets.only(bottom: 10),
-                    decoration: new BoxDecoration(
-                      border: Border(
-                        bottom: BorderSide(width: 0.5, color: AppColor.grey500),
-                      ),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: productLineSecond,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
         ),
-      ),
-    );
+      );
+      break;
+
+    case SHOPPING_CART_LIST_TYPE:
+      productLineSecond.add(
+        Expanded(
+          flex: 6, // 60%
+          child: Counter(item.id),
+        ),
+      );
+      break;
   }
 
-  Widget stackBehindDismiss() {
-    return Container(
-      alignment: Alignment.centerRight,
-      padding: EdgeInsets.only(right: 20.0),
-      color: AppColor.red300,
-      child: Icon(
-        Icons.delete,
-        color: Colors.white,
+  return GestureDetector(
+    onTap: () {
+      Navigator.pushNamed(context, '/product-detail', arguments: item);
+    },
+    child: Container(
+      height: 130.0,
+      width: size.width - 40,
+      margin: const EdgeInsets.only(top: 5.0, left: 20.0, right: 20.0),
+      child: Row(
+        children: [
+          Expanded(
+            flex: 3,
+            child: Container(
+              margin: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+              child: ClipRRect(
+                borderRadius: new BorderRadius.circular(5.0),
+                child: Image.network(
+                  item.image,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 7,
+            child: Stack(
+              children: [
+                Container(
+                  alignment: Alignment.topLeft,
+                  margin: EdgeInsets.only(top: 5.0, left: 10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(allTopics[item.categoryId].name.toUpperCase(),
+                          style: AppTextStyle.categoryLabel),
+                      Text(item.name, style: AppTextStyle.itemName),
+                    ],
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.bottomLeft,
+                  margin: EdgeInsets.only(left: 10.0),
+                  padding: EdgeInsets.only(bottom: 10),
+                  decoration: new BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(width: 0.5, color: AppColor.grey500),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: productLineSecond,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
-    );
-  }
+    ),
+  );
+}
+
+Widget stackBehindDismiss() {
+  return Container(
+    alignment: Alignment.centerRight,
+    padding: EdgeInsets.only(right: 20.0),
+    color: AppColor.red300,
+    child: Icon(
+      Icons.delete,
+      color: Colors.white,
+    ),
+  );
 }

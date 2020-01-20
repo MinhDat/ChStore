@@ -19,13 +19,16 @@ class DataGenerator {
 
   Product product(_id, _categoryId) => Product(
         id: _id,
-        categoryId: _categoryId,
-        name: _factory.faker.lorem.sentence(),
-        producer: _factory.faker.lorem.sentence(),
-        origin: _factory.faker.lorem.sentence(),
+        categoryId: _factory.faker.randomGenerator.integer(11),
+        name: _factory.faker.conference.name(),
+        producer: _factory.faker.company.name(),
+        origin: _factory.faker.company.suffix(),
         productionDate: DateTime.now(),
-        image: "https://picsum.photos/384",
-        price: _factory.faker.randomGenerator.decimal(scale: 2, min: 1),
-        description: _factory.faker.lorem.word(),
+        image:
+            "https://picsum.photos/id/${_factory.faker.randomGenerator.integer(1000)}/384",
+        price: num.parse(_factory.faker.randomGenerator
+            .decimal(scale: 100, min: 1)
+            .toStringAsFixed(2)),
+        description: _factory.faker.lorem.words(100).join(" "),
       );
 }

@@ -1,15 +1,15 @@
-import 'package:ChStore/utils/AppColor.dart';
-import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
 
-class Persional extends StatefulWidget {
+import 'package:ChStore/utils/main.dart';
+
+class Personal extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return PersionalState();
+    return PersonalState();
   }
 }
 
-class PersionalState extends State<Persional> {
+class PersonalState extends State<Personal> {
   double avatarSize = System.screenSize.width / 10;
 
   @override

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ChStore/widget/Card/SmallChCardList.dart';
+import 'package:ChStore/widget/main.dart';
 
 class Category extends StatelessWidget {
   @override

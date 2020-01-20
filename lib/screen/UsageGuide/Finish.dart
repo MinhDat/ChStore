@@ -1,6 +1,5 @@
-import 'package:ChStore/utils/AppColor.dart';
-import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
+import 'package:ChStore/utils/main.dart';
 
 class Finish extends StatelessWidget {
   @override

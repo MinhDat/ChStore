@@ -1,5 +1,4 @@
-import 'package:ChStore/utils/AppColor.dart';
-import 'package:ChStore/utils/System.dart';
+import 'package:ChStore/utils/main.dart';
 import 'package:flutter/material.dart';
 
 class AppTextSize {

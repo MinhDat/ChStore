@@ -1,12 +1,8 @@
-import 'package:ChStore/utils/AppColor.dart';
-import 'package:ChStore/utils/System.dart';
-import 'package:ChStore/widget/Button/AddToCart.dart';
-import 'package:ChStore/widget/Button/CircleButton.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
-import 'package:ChStore/utils/AppTextStyle.dart';
-import 'package:ChStore/model/Product.dart';
+import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/widget/main.dart';
+import 'package:ChStore/model/main.dart';
 
 class ProductDetail extends StatefulWidget {
   @override
@@ -91,7 +87,7 @@ class _WidgetList extends State<ProductDetail> {
                     children: <Widget>[
                       Container(
                         height: System.screenSize.height,
-                        child: Image.asset(
+                        child: Image.network(
                           product.image,
                           fit: BoxFit.cover,
                         ),

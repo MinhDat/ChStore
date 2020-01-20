@@ -1,11 +1,8 @@
-import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/screen/Profile/Wallpaper.dart';
-import 'package:ChStore/widget/Button/SocialInfo.dart';
-
-import 'package:ChStore/utils/AppTextStyle.dart';
-import 'package:ChStore/utils/AppColor.dart';
+import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/screen/main.dart';
+import 'package:ChStore/widget/main.dart';
 
 class Profile extends StatelessWidget {
   @override

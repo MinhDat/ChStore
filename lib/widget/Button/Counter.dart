@@ -4,14 +4,13 @@ import 'package:ChStore/utils/AppColor.dart';
 import 'package:ChStore/model/Product.dart';
 
 // Constants
-const RADIUS = 10.0;
+const COUNTER_RADIUS = 10.0;
 
 const DECREMENT = 0;
 const INCREMENT = 1;
 
 class Counter extends StatefulWidget {
-  Counter({this.count: 0, this.id});
-  int count;
+  Counter(this.id);
   final int id;
 
   @override
@@ -25,8 +24,8 @@ class CounterState extends State<Counter> {
   @override
   void initState() {
     super.initState();
-    _textEditingController =
-        TextEditingController(text: widget.count.toString());
+    _textEditingController = TextEditingController(
+        text: allShoppingCarts[widget.id].count.toString());
     countNumber = TextField(
       controller: _textEditingController,
       textAlign: TextAlign.center,
@@ -37,11 +36,11 @@ class CounterState extends State<Counter> {
         contentPadding: const EdgeInsets.all(5),
         border: OutlineInputBorder(
           borderSide: BorderSide(color: AppColor.white),
-          borderRadius: BorderRadius.circular(RADIUS),
+          borderRadius: BorderRadius.circular(COUNTER_RADIUS),
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: AppColor.white),
-          borderRadius: BorderRadius.circular(RADIUS),
+          borderRadius: BorderRadius.circular(COUNTER_RADIUS),
         ),
       ),
     );
@@ -54,18 +53,17 @@ class CounterState extends State<Counter> {
   }
 
   void handleChange(type) {
-    if (type == DECREMENT && widget.count > 1) {
+    if (type == DECREMENT && allShoppingCarts[widget.id].count > 1) {
       System.countDown(1);
-      widget.count--;
+      allShoppingCarts[widget.id].count--;
+      // widget.count--;
     }
     if (type == INCREMENT) {
       System.countUp(1);
-      widget.count++;
+      allShoppingCarts[widget.id].count++;
+      // widget.count++;
     }
-    if (widget.id != null) {
-      allProducts[widget.id].count = widget.count;
-    }
-    _textEditingController.text = widget.count.toString();
+    _textEditingController.text = allShoppingCarts[widget.id].count.toString();
   }
 
   @override
@@ -84,8 +82,8 @@ class CounterState extends State<Counter> {
             decoration: BoxDecoration(
               color: AppColor.redAccent100,
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(RADIUS),
-                bottomLeft: Radius.circular(RADIUS),
+                topLeft: Radius.circular(COUNTER_RADIUS),
+                bottomLeft: Radius.circular(COUNTER_RADIUS),
               ),
             ),
             child: Icon(
@@ -117,8 +115,8 @@ class CounterState extends State<Counter> {
             decoration: BoxDecoration(
               color: AppColor.redAccent100,
               borderRadius: BorderRadius.only(
-                topRight: Radius.circular(RADIUS),
-                bottomRight: Radius.circular(RADIUS),
+                topRight: Radius.circular(COUNTER_RADIUS),
+                bottomRight: Radius.circular(COUNTER_RADIUS),
               ),
             ),
             child: Icon(

@@ -1,12 +1,8 @@
-import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/widget/Header/ScrollHeader.dart';
-import 'package:ChStore/widget/Item/ItemList.dart';
-import 'package:ChStore/widget/Button/Progress/RadialProgress.dart';
-import 'package:ChStore/widget/Button/Progress/LinearProgress.dart';
-import 'package:ChStore/utils/AppColor.dart';
-import 'package:ChStore/screen/CheckOut/main.dart';
+import 'package:ChStore/widget/main.dart';
+import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/screen/main.dart';
 
 const BACK_ACTION = false;
 const NEXT_ACTION = true;

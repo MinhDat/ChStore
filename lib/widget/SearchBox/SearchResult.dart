@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:ChStore/provider/Provider.dart';
 import 'package:flutter/material.dart';
 import 'package:ChStore/widget/Item/ItemList.dart';
 

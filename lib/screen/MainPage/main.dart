@@ -1,13 +1,7 @@
-import 'package:ChStore/screen/Home/main.dart';
-import 'package:ChStore/screen/Persional/main.dart';
-import 'package:ChStore/screen/ProductCategory/main.dart';
-// import 'package:ChStore/screen/Profile/main.dart';
-import 'package:ChStore/screen/Search/main.dart';
-import 'package:ChStore/screen/ShoppingCart/main.dart';
-import 'package:ChStore/utils/AppColor.dart';
-import 'package:ChStore/utils/AppTextStyle.dart';
-import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
+
+import 'package:ChStore/screen/main.dart';
+import 'package:ChStore/utils/main.dart';
 
 class Mainpage extends StatefulWidget {
   @override
@@ -76,7 +70,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
       case 3:
         return ShoppingCart();
       case 4:
-        return Persional();
+        return Personal();
       default:
         return HomePage();
     }

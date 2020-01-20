@@ -1,14 +1,8 @@
-import 'package:ChStore/utils/AppTextStyle.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:ChStore/provider/Provider.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/widget/Item/ItemList.dart';
-import 'package:ChStore/widget/Header/main.dart';
-import 'package:ChStore/widget/Card/ChCardPage.dart';
-import 'package:ChStore/widget/Card/ChCardSlider.dart';
-import 'package:ChStore/widget/Item/FourCircleItem.dart';
-
-import 'package:ChStore/utils/AppColor.dart';
+import 'package:ChStore/widget/main.dart';
+import 'package:ChStore/utils/main.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -45,7 +39,7 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
-          ItemList(),
+          ItemList()
         ],
       ),
     );

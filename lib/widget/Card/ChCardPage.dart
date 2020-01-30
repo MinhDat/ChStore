@@ -7,6 +7,8 @@ import 'package:ChStore/model/Product.dart';
 import 'package:ChStore/widget/Card/ChCard.dart';
 
 class ChCardPage extends StatefulWidget {
+  ChCardPage(this._products);
+  final List<Product> _products;
   @override
   State<StatefulWidget> createState() {
     return ChCardPageState();
@@ -38,7 +40,7 @@ class ChCardPageState extends State<ChCardPage> {
   void _changePage() {
     if (_pageController.hasClients) {
       int delta =
-          _currentIndex == allProducts.length - 1 ? 0 : _currentIndex + 1;
+          _currentIndex == widget._products.length - 1 ? 0 : _currentIndex + 1;
 
       _pageController.animateToPage(
         delta,
@@ -57,14 +59,11 @@ class ChCardPageState extends State<ChCardPage> {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = System.screenSize.width - 40;
-    double _screenHeight = _screenWidth;
-
     _timer = new Timer(new Duration(seconds: 7), () {
       _changePage();
     });
 
-    List<GestureDetector> productList = allProducts.map((product) {
+    List<GestureDetector> productList = widget._products.map((product) {
       return GestureDetector(
         onTap: () {
           Navigator.pushNamed(
@@ -76,15 +75,15 @@ class ChCardPageState extends State<ChCardPage> {
         child: ChCard(
           product,
           type: FOR_PAGE_VIEW,
-          itemWidth: _screenWidth,
-          itemHeight: _screenHeight,
+          itemWidth: System.screenSize.width,
+          itemHeight: System.screenSize.width,
         ),
       );
     }).toList();
 
     return Container(
-      height: _screenHeight,
-      width: _screenWidth,
+      height: System.screenSize.width,
+      width: System.screenSize.width,
       padding: const EdgeInsets.only(left: 20.0, right: 20.0),
       decoration: new BoxDecoration(
         boxShadow: <BoxShadow>[

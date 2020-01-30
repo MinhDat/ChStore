@@ -1,8 +1,7 @@
-import 'package:ChStore/utils/AppColor.dart';
 import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
-import 'package:ChStore/model/Product.dart';
+import 'package:ChStore/model/main.dart';
 
 const RADIUS_CIRCULAR = 20.0;
 // Templates
@@ -24,7 +23,7 @@ class ChCard extends StatelessWidget {
     List<Widget> widgetList = [
       ClipRRect(
         borderRadius: new BorderRadius.circular(RADIUS_CIRCULAR),
-        child: Image.asset(
+        child: Image.network(
           product.image,
           height: _itemHeight,
           width: _itemWidth,
@@ -79,7 +78,7 @@ class ChCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(product.name, style: AppTextStyle.cardName),
+            Text(product.name, style: AppTextStyle.cardName, maxLines: 2),
             Text("\$${product.price}", style: AppTextStyle.cardPrice)
           ],
         ),

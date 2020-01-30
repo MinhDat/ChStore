@@ -25,7 +25,7 @@ class AppTextStyle {
   );
   static TextStyle date = TextStyle(
     color: AppColor.grey,
-    fontSize: AppTextSize.size30,
+    fontSize: AppTextSize.size26,
   );
   static TextStyle price = TextStyle(
     fontSize: AppTextSize.size30,

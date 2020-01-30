@@ -1,5 +1,4 @@
 import 'package:ChStore/bloc/Bloc.dart';
-import 'package:ChStore/model/main.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/widget/main.dart';
@@ -10,62 +9,70 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: [
-        Header(),
-        Padding(
-          padding: EdgeInsets.only(left: 20, bottom: 10),
-          child: Text("Today", style: AppTextStyle.title),
-        ),
-        ChCardPage(),
-        FourCircleItem(),
-        Padding(
-          padding: EdgeInsets.only(top: 20, left: 20, bottom: 10),
-          child: Text("News", style: AppTextStyle.title),
-        ),
-        ChCardSlider(),
-        Padding(
-          padding: EdgeInsets.only(top: 20, left: 20, bottom: 10),
-          child: Stack(
-            children: [
-              Text("Top trends", style: AppTextStyle.title),
-              Positioned(
-                right: 20,
-                bottom: 0,
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/product-list');
-                  },
-                  child: Text("See All", style: AppTextStyle.buttonLink),
-                ),
-              )
-            ],
-          ),
-        ),
-        ItemListBloc()
-      ],
+      children: [Header(), RenderBlocBuilder()],
     );
   }
 }
 
-class ItemListBloc extends StatelessWidget {
+class RenderBlocBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProductBloc, ProductState>(
+    return BlocBuilder<DataBloc, DataState>(
       builder: (context, state) {
-        if (state is ProductError) {
+        if (state is DataError) {
           return Center(
-            child: Text('failed to fetch products'),
+            child: Text('failed to fetch data'),
           );
         }
-        if (state is ProductLoaded) {
-          if (state.products.isEmpty) {
+        if (state is DataUninitialized) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+        if (state is DataLoaded) {
+          if (state.products.isEmpty ||
+              state.categories.isEmpty ||
+              state.topics.isEmpty) {
             return Center(
-              child: Text("No items", style: AppTextStyle.noItem),
+              child: CircularProgressIndicator(),
             );
           }
-          return ItemList(
-            products: state.products,
-            maxItem: MAXIMUM_ITEM,
+
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(left: 20, bottom: 10),
+                child: Text("Today", style: AppTextStyle.title),
+              ),
+              ChCardPage(state.products.getRange(12, 19).toList()),
+              FourCircleItem(),
+              Padding(
+                padding: EdgeInsets.only(top: 20, left: 20, bottom: 10),
+                child: Text("News", style: AppTextStyle.title),
+              ),
+              ChCardSlider(state.products.getRange(6, 12).toList()),
+              Container(
+                padding: EdgeInsets.only(top: 20, left: 20, bottom: 10),
+                width: System.screenSize.width,
+                child: Stack(
+                  children: [
+                    Text("Top trends", style: AppTextStyle.title),
+                    Positioned(
+                      right: 20,
+                      bottom: 0,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/product-list');
+                        },
+                        child: Text("See All", style: AppTextStyle.buttonLink),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              ItemList(products: state.products.getRange(0, 6).toList())
+            ],
           );
         }
       },

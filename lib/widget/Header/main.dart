@@ -41,16 +41,14 @@ class Header extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 10.0),
-                  child: Image.asset(
-                    'icons/ChStore.png',
-                    height: 60,
-                    width: 60,
-                    fit: BoxFit.cover,
-                  ),
+                  child: Image.asset('icons/ChStore.png',
+                      height: System.screenSize.width * 0.15,
+                      width: System.screenSize.width * 0.15,
+                      fit: BoxFit.cover),
                 ),
                 Positioned(
-                  top: 15,
-                  left: 60,
+                  top: System.screenSize.width * 0.04,
+                  left: System.screenSize.width * 0.15,
                   child: Text("ChStore", style: AppTextStyle.logo),
                 )
               ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ChStore/bloc/Bloc.dart';
 
@@ -9,6 +10,14 @@ import 'package:ChStore/screen/main.dart';
 import 'package:ChStore/utils/main.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle.dark.copyWith(
+        statusBarColor: Colors.black, // Color for Android
+        statusBarBrightness:
+            Brightness.light // Dark == white status bar -- for IOS.
+        ),
+  );
+
   BlocSupervisor.delegate = SimpleBlocDelegate();
   runApp(DataProvider(
     MaterialApp(

@@ -37,13 +37,13 @@ class SearchResultState extends State<SearchResult> {
     return Center(
       child: showResult
           ? ListView(children: [
-              BlocBuilder<ProductBloc, ProductState>(builder: (context, state) {
-                if (state is ProductError) {
+              BlocBuilder<DataBloc, DataState>(builder: (context, state) {
+                if (state is DataError) {
                   return Center(
-                    child: Text('failed to fetch products'),
+                    child: Text('failed to fetch data'),
                   );
                 }
-                if (state is ProductLoaded) {
+                if (state is DataLoaded) {
                   if (state.products.isEmpty) {
                     return Center(
                       child: Text("No items", style: AppTextStyle.noItem),

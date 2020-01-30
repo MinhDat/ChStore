@@ -1,14 +1,9 @@
-import 'package:ChStore/bloc/Bloc.dart';
-import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
-
-import 'package:ChStore/utils/AppColor.dart';
-import 'package:ChStore/utils/AppTextStyle.dart';
-
-import 'package:ChStore/model/Product.dart';
-import 'package:ChStore/model/Category.dart';
-import 'package:ChStore/model/Topic.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:ChStore/bloc/Bloc.dart';
+import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/model/main.dart';
 
 //Template Type
 const PRODUCTS_TYPE = 0;
@@ -25,7 +20,6 @@ class SmallChCardList extends StatefulWidget {
 
 class SmallChCardListState extends State<SmallChCardList> {
   final int firstItem = 0;
-  int lastItem = allProducts.length - 1;
 
   @override
   Widget build(BuildContext context) {
@@ -39,18 +33,31 @@ class SmallChCardListState extends State<SmallChCardList> {
       case CATEGORIES_TYPE:
         itemMediumHeight = (itemMediumHeight - 30) / 1.2;
         itemMaxHeight = itemMediumHeight;
-        dataFilters = allCategories;
-        return _renderList(
-            dataFilters, itemWidth, itemMediumHeight, itemMaxHeight);
-      case PRODUCTS_TYPE:
-        return BlocBuilder<ProductBloc, ProductState>(
-            builder: (context, state) {
-          if (state is ProductError) {
+        // dataFilters = allCategories;
+        return BlocBuilder<DataBloc, DataState>(builder: (context, state) {
+          if (state is DataError) {
             return Center(
-              child: Text('failed to fetch products'),
+              child: Text('failed to fetch data'),
             );
           }
-          if (state is ProductLoaded) {
+          if (state is DataLoaded) {
+            if (state.categories.isEmpty) {
+              return Center(
+                child: Text("No items", style: AppTextStyle.noItem),
+              );
+            }
+            return _renderList(state.categories, itemWidth, itemMediumHeight,
+                itemMaxHeight, dataFilters.length);
+          }
+        });
+      case PRODUCTS_TYPE:
+        return BlocBuilder<DataBloc, DataState>(builder: (context, state) {
+          if (state is DataError) {
+            return Center(
+              child: Text('failed to fetch data'),
+            );
+          }
+          if (state is DataLoaded) {
             if (state.products.isEmpty) {
               return Center(
                 child: Text("No items", style: AppTextStyle.noItem),
@@ -61,27 +68,27 @@ class SmallChCardListState extends State<SmallChCardList> {
             dataFilters = state.products
                 .where((item) => (item.categoryId == _topic.id))
                 .toList();
-            return _renderList(
-                dataFilters, itemWidth, itemMediumHeight, itemMaxHeight);
+
+            return _renderList(dataFilters, itemWidth, itemMediumHeight,
+                itemMaxHeight, dataFilters.length);
           }
         });
     }
   }
 
   Widget _renderList(var dataFilters, double itemWidth, double itemMediumHeight,
-      double itemMaxHeight) {
+      double itemMaxHeight, int lastItem) {
     final List<GestureDetector> leftItems = <GestureDetector>[];
     final List<GestureDetector> rightItems = <GestureDetector>[];
 
     for (int index = 0; index < dataFilters.length; index++) {
       var data = dataFilters[index];
-      // print(data.image)
       if (index % 2 == 0) {
-        leftItems.add(_renderItem(
-            data, itemWidth, itemMediumHeight, itemMaxHeight, true, index));
+        leftItems.add(_renderItem(data, itemWidth, itemMediumHeight,
+            itemMaxHeight, true, index, lastItem));
       } else {
-        rightItems.add(_renderItem(
-            data, itemWidth, itemMediumHeight, itemMaxHeight, false, index));
+        rightItems.add(_renderItem(data, itemWidth, itemMediumHeight,
+            itemMaxHeight, false, index, lastItem));
       }
     }
 
@@ -108,7 +115,8 @@ class SmallChCardListState extends State<SmallChCardList> {
       double itemMediumHeight,
       double itemMaxHeight,
       bool isLeftColumn,
-      int index) {
+      int index,
+      int lastItem) {
     final double leftOffset = isLeftColumn ? 20.0 : 10.0;
     final double rightOffset = isLeftColumn ? 10.0 : 20.0;
     Widget bgImage;
@@ -126,7 +134,6 @@ class SmallChCardListState extends State<SmallChCardList> {
 
     switch (widget.type) {
       case CATEGORIES_TYPE:
-        lastItem = allCategories.length - 1;
         bgImage = Image.asset(
           data.image,
           fit: BoxFit.cover,

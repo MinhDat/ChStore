@@ -6,14 +6,11 @@ import 'package:ChStore/model/main.dart';
 // Template Type
 const NORMAL_LIST_TYPE = 0;
 const SHOPPING_CART_LIST_TYPE = 1;
-// Maximum Item
-const MAXIMUM_ITEM = 5;
 
 class ItemList extends StatefulWidget {
-  ItemList({this.type: NORMAL_LIST_TYPE, this.maxItem: 0, this.products});
+  ItemList({this.products, this.type: NORMAL_LIST_TYPE});
   final int type;
-  final int maxItem;
-  List<Product> products;
+  final List<Product> products;
 
   @override
   ItemListState createState() => new ItemListState();
@@ -28,7 +25,7 @@ class ItemListState extends State<ItemList> {
   }
 
   @override
-  void despose() {
+  void dispose() {
     super.dispose();
   }
 
@@ -36,13 +33,7 @@ class ItemListState extends State<ItemList> {
   Widget build(BuildContext context) {
     switch (widget.type) {
       case NORMAL_LIST_TYPE:
-        if (widget.maxItem > 0 && productList.length == 0) {
-          for (int i = 0; i < widget.maxItem; i++) {
-            productList
-                .add(ProductItem(type: widget.type, item: widget.products[i]));
-          }
-        }
-        if (widget.maxItem == 0 && productList.length == 0) {
+        if (productList.length == 0) {
           productList = widget.products
               .map((product) => ProductItem(item: product))
               .toList();

@@ -5,6 +5,9 @@ import 'package:ChStore/model/Product.dart';
 import 'package:ChStore/widget/Card/ChCard.dart';
 
 class ChCardSlider extends StatefulWidget {
+  ChCardSlider(this._products);
+  final List<Product> _products;
+
   @override
   State<StatefulWidget> createState() {
     return ChCardSliderState();
@@ -13,7 +16,7 @@ class ChCardSlider extends StatefulWidget {
 
 class ChCardSliderState extends State<ChCardSlider> {
   List<GestureDetector> _renderList() {
-    List<GestureDetector> productList = allProducts.map((product) {
+    List<GestureDetector> productList = widget._products.map((product) {
       return GestureDetector(
         onTap: () {
           Navigator.pushNamed(

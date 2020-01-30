@@ -72,29 +72,28 @@ flutter:
     # Travel categories
     - lib/picture/travels/girl_and_flowers.jpg
     - lib/picture/travels/girl_and_beaches.jpg
-
     # Woman categories
-    - lib/picture/women/picture_one.webp
-    - lib/picture/women/picture_five.webp
-    - lib/picture/women/picture_six.jpg
-    - lib/picture/women/picture_seven.webp
-    - lib/picture/women/picture_eight.webp
-    - lib/picture/women/picture_nine.webp
-    - lib/picture/women/picture_ten.jpg
-    - lib/picture/women/woman_and_sunset.jpeg
-    - lib/picture/women/alone_girl.jpeg
-    # Man categories
-    - lib/picture/men/man_and_the_streets.jpeg
-    # Animal categories
-    - lib/picture/animals/girl_and_dog.jpeg
-    # Children categories
-    - lib/picture/children/boy_and_teddy.jpeg
-    - lib/picture/children/child_and_forest.jpeg
-    # life categories
-    - lib/picture/lifes/bad_boy.jpeg
-    - lib/picture/lifes/man_is_walking_in_desert.png
-    # books categories
-    - lib/picture/books/diary.jpg
+    # - lib/picture/women/picture_one.webp
+    # - lib/picture/women/picture_five.webp
+    # - lib/picture/women/picture_six.jpg
+    # - lib/picture/women/picture_seven.webp
+    # - lib/picture/women/picture_eight.webp
+    # - lib/picture/women/picture_nine.webp
+    # - lib/picture/women/picture_ten.jpg
+    # - lib/picture/women/woman_and_sunset.jpeg
+    # - lib/picture/women/alone_girl.jpeg
+    # # Man categories
+    # - lib/picture/men/man_and_the_streets.jpeg
+    # # Animal categories
+    # - lib/picture/animals/girl_and_dog.jpeg
+    # # Children categories
+    # - lib/picture/children/boy_and_teddy.jpeg
+    # - lib/picture/children/child_and_forest.jpeg
+    # # life categories
+    # - lib/picture/lifes/bad_boy.jpeg
+    # - lib/picture/lifes/man_is_walking_in_desert.png
+    # # books categories
+    # - lib/picture/books/diary.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

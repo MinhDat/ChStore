@@ -14,7 +14,7 @@ class ChApi {
     return _products;
   }
 
-  Future<List<Category>> getCategories() async {
+  List<Category> getCategories() {
     return [
       Category(
           id: 0, name: "Sport", image: "lib/picture/categories/sports.jpg"),
@@ -31,7 +31,7 @@ class ChApi {
     ];
   }
 
-  Future<List<Topic>> getTopics() async {
+  List<Topic> getTopics() {
     return [
       Topic(
           id: 6, name: "Woman", image: "lib/picture/topics/woman-category.jpg"),

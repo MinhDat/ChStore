@@ -13,13 +13,13 @@ class ProductList extends StatefulWidget {
 class ProductListState extends State<ProductList> {
   final _scrollController = ScrollController();
   final _scrollThreshold = 200.0;
-  ProductBloc _productBloc;
+  DataBloc _productBloc;
 
   @override
   void initState() {
     super.initState();
     _scrollController.addListener(_onScroll);
-    _productBloc = BlocProvider.of<ProductBloc>(context);
+    _productBloc = BlocProvider.of<DataBloc>(context);
   }
 
   @override
@@ -35,14 +35,14 @@ class ProductListState extends State<ProductList> {
       appBar: AppBar(
         title: Text("Product List", style: AppTextStyle.normal),
       ),
-      body: BlocBuilder<ProductBloc, ProductState>(
+      body: BlocBuilder<DataBloc, DataState>(
         builder: (context, state) {
-          if (state is ProductError) {
+          if (state is DataError) {
             return Center(
-              child: Text('failed to fetch products'),
+              child: Text('failed to fetch data'),
             );
           }
-          if (state is ProductLoaded) {
+          if (state is DataLoaded) {
             if (state.products.isEmpty) {
               return Center(
                 child: Text('no products'),

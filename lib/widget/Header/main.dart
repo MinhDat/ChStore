@@ -1,5 +1,4 @@
-import 'package:ChStore/utils/AppTextStyle.dart';
-import 'package:ChStore/utils/System.dart';
+import 'package:ChStore/utils/main.dart';
 import 'package:flutter/material.dart';
 
 class Header extends StatelessWidget {
@@ -35,10 +34,26 @@ class Header extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Container(
-              alignment: Alignment.topLeft,
-              padding: EdgeInsets.only(left: 20.0, top: 20.0),
-              child: Text("ChStore", style: AppTextStyle.logo),
+            Stack(
+              children: [
+                Container(
+                  width: System.screenSize.width * 0.75,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 10.0),
+                  child: Image.asset(
+                    'icons/ChStore.png',
+                    height: 60,
+                    width: 60,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Positioned(
+                  top: 15,
+                  left: 60,
+                  child: Text("ChStore", style: AppTextStyle.logo),
+                )
+              ],
             ),
             Container(
               alignment: Alignment.topLeft,

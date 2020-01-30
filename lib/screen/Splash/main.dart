@@ -44,10 +44,10 @@ class _SplashScreenState extends State<SplashScreen> {
                   CircleAvatar(
                     backgroundColor: AppColor.white,
                     radius: radiusLogo,
-                    child: Icon(
-                      Icons.shopping_cart,
-                      color: Colors.greenAccent,
-                      size: radiusLogo,
+                    child: Image.asset(
+                      'icons/ChStore.png',
+                      height: 120,
+                      width: 120,
                     ),
                   ),
                   Padding(

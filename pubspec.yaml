@@ -48,6 +48,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     # Icons
+    - icons/ChStore.png
     - icons/today-icon.png
     - icons/toggle-menu-icon.png
     - icons/search-icon.png

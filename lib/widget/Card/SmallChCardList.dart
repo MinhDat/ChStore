@@ -33,7 +33,6 @@ class SmallChCardListState extends State<SmallChCardList> {
       case CATEGORIES_TYPE:
         itemMediumHeight = (itemMediumHeight - 30) / 1.2;
         itemMaxHeight = itemMediumHeight;
-        // dataFilters = allCategories;
         return BlocBuilder<DataBloc, DataState>(builder: (context, state) {
           if (state is DataError) {
             return Center(
@@ -46,8 +45,8 @@ class SmallChCardListState extends State<SmallChCardList> {
                 child: Text("No items", style: AppTextStyle.noItem),
               );
             }
-            return _renderList(state.categories, itemWidth, itemMediumHeight,
-                itemMaxHeight, dataFilters.length);
+            return _renderList(
+                state.categories, itemWidth, itemMediumHeight, itemMaxHeight);
           }
         });
       case PRODUCTS_TYPE:
@@ -69,18 +68,19 @@ class SmallChCardListState extends State<SmallChCardList> {
                 .where((item) => (item.categoryId == _topic.id))
                 .toList();
 
-            return _renderList(dataFilters, itemWidth, itemMediumHeight,
-                itemMaxHeight, dataFilters.length);
+            return _renderList(
+                dataFilters, itemWidth, itemMediumHeight, itemMaxHeight);
           }
         });
     }
   }
 
   Widget _renderList(var dataFilters, double itemWidth, double itemMediumHeight,
-      double itemMaxHeight, int lastItem) {
+      double itemMaxHeight) {
     final List<GestureDetector> leftItems = <GestureDetector>[];
     final List<GestureDetector> rightItems = <GestureDetector>[];
 
+    int lastItem = dataFilters.length - 1;
     for (int index = 0; index < dataFilters.length; index++) {
       var data = dataFilters[index];
       if (index % 2 == 0) {
@@ -127,7 +127,8 @@ class SmallChCardListState extends State<SmallChCardList> {
         child: Container(
           alignment: Alignment.bottomLeft,
           padding: EdgeInsets.only(left: 10.0, bottom: 10.0),
-          child: Text(data.name, style: AppTextStyle.smallCardName),
+          child:
+              Text(data.name, style: AppTextStyle.smallCardName, maxLines: 3),
         ),
       ),
     ];

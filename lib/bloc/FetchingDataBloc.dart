@@ -22,12 +22,14 @@ class DataLoaded extends DataState {
   final List<Product> products;
   final List<Category> categories;
   final List<Topic> topics;
+  final List<ProductType> types;
   final bool hasReachedMax;
 
   const DataLoaded({
     this.products,
     this.categories,
     this.topics,
+    this.types,
     this.hasReachedMax,
   });
 
@@ -35,22 +37,25 @@ class DataLoaded extends DataState {
     List<Product> products,
     List<Category> categories,
     List<Topic> topics,
+    List<Type> types,
     bool hasReachedMax,
   }) {
     return DataLoaded(
       products: products ?? this.products,
       categories: categories ?? this.categories,
       topics: topics ?? this.topics,
+      types: types ?? this.types,
       hasReachedMax: hasReachedMax ?? this.hasReachedMax,
     );
   }
 
   @override
-  List<Object> get props => [products, categories, topics, hasReachedMax];
+  List<Object> get props =>
+      [products, categories, topics, types, hasReachedMax];
 
   @override
   String toString() =>
-      'DataLoaded { products: ${products.length}, categories: ${categories.length}, topics: ${topics.length}, hasReachedMax: $hasReachedMax }';
+      'DataLoaded { products: ${products.length}, categories: ${categories.length}, topics: ${topics.length}, types: ${types.length}, hasReachedMax: $hasReachedMax }';
 }
 
 // Events
@@ -89,12 +94,14 @@ class DataBloc extends Bloc<DataEvent, DataState> {
       if (currentState is DataUninitialized) {
         final categories = api.getCategories();
         final topics = api.getTopics();
+        final types = api.getProductTypes();
         final products = await _fetchProducts(0, 20);
 
         yield DataLoaded(
             products: products,
             categories: categories,
             topics: topics,
+            types: types,
             hasReachedMax: false);
         return;
       }

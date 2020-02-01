@@ -25,73 +25,31 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     System.screenSize = MediaQuery.of(context).size;
-    double radiusLogo = System.screenSize.width / 9;
-
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
           Container(
-            color: AppColor.red400,
+            // color: AppColor.red400,
+            child: Image.asset('lib/picture/backgrounds/version_1.png',
+                fit: BoxFit.cover),
           ),
           Positioned(
-            top: System.screenSize.height / 4,
-            child: Container(
-              width: System.screenSize.width,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircleAvatar(
-                    backgroundColor: AppColor.white,
-                    radius: radiusLogo,
-                    child: Image.asset(
-                      'icons/ChStore.png',
-                      height: 120,
-                      width: 120,
-                    ),
+            top: 2 * System.screenSize.height / 3,
+            left: 0,
+            right: 0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Image.asset('icons/ChStore_white.png', height: 50, width: 50),
+                Text(
+                  "ChStore",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 40,
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 10),
-                    child: Text(
-                      "ChStore",
-                      style: TextStyle(
-                        color: AppColor.white,
-                        fontSize: radiusLogo / 2,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Positioned(
-            top: 3 * System.screenSize.height / 4,
-            child: Container(
-              width: System.screenSize.width,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircularProgressIndicator(),
-                  Padding(
-                    padding: EdgeInsets.only(top: 10),
-                    child: Text(
-                      "Online Shopping",
-                      style: TextStyle(
-                        color: AppColor.white,
-                        fontSize: radiusLogo / 3,
-                      ),
-                    ),
-                  ),
-                  Text(
-                    "For Everyone",
-                    style: TextStyle(
-                      color: AppColor.white,
-                      fontSize: radiusLogo / 3,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],

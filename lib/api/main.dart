@@ -63,6 +63,19 @@ class ChApi {
       ),
     ];
   }
+
+  List<ProductType> getProductTypes() {
+    return [
+      ProductType(id: 0, name: "Pants", image: "icons/pant.png"),
+      ProductType(id: 1, name: "Hats", image: "icons/hat.png"),
+      ProductType(id: 2, name: "Bikinies", image: "icons/bikini.png"),
+      ProductType(id: 3, name: "Ties", image: "icons/tie.png"),
+      ProductType(id: 4, name: "Sweaters", image: "icons/sweater.png"),
+      ProductType(id: 5, name: "T-shirts", image: "icons/t-shirt.png"),
+      ProductType(id: 6, name: "Gloves", image: "icons/glove.png"),
+      ProductType(id: 7, name: "Shoes", image: "icons/shoe.png"),
+    ];
+  }
 }
 
 ChApi api = ChApi();

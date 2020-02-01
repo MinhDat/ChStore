@@ -45,13 +45,14 @@ class RenderBlocBuilder extends StatelessWidget {
                 padding: EdgeInsets.only(left: 20, bottom: 10),
                 child: Text("Today", style: AppTextStyle.title),
               ),
-              ChCardPage(state.products.getRange(12, 19).toList()),
-              FourCircleItem(),
+              ChCardPage(state.products.getRange(14, 20).toList()),
+              FourCircleItem(state.types.getRange(0, 4).toList()),
+              FourCircleItem(state.types.getRange(4, 8).toList()),
               Padding(
                 padding: EdgeInsets.only(top: 20, left: 20, bottom: 10),
                 child: Text("News", style: AppTextStyle.title),
               ),
-              ChCardSlider(state.products.getRange(6, 12).toList()),
+              ChCardSlider(state.products.getRange(7, 14).toList()),
               Container(
                 padding: EdgeInsets.only(top: 20, left: 20, bottom: 10),
                 width: System.screenSize.width,
@@ -71,7 +72,7 @@ class RenderBlocBuilder extends StatelessWidget {
                   ],
                 ),
               ),
-              ItemList(products: state.products.getRange(0, 6).toList())
+              ItemList(products: state.products.getRange(0, 7).toList())
             ],
           );
         }

@@ -34,23 +34,16 @@ class Header extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Stack(
+            Row(
               children: [
-                Container(
-                  width: System.screenSize.width * 0.75,
-                ),
                 Padding(
-                  padding: EdgeInsets.only(left: 10.0),
-                  child: Image.asset('icons/ChStore.png',
-                      height: System.screenSize.width * 0.15,
-                      width: System.screenSize.width * 0.15,
+                  padding: EdgeInsets.only(left: 20, right: 5),
+                  child: Image.asset('icons/ChStore_red.png',
+                      height: System.screenSize.width * 0.08,
+                      width: System.screenSize.width * 0.08,
                       fit: BoxFit.cover),
                 ),
-                Positioned(
-                  top: System.screenSize.width * 0.04,
-                  left: System.screenSize.width * 0.15,
-                  child: Text("ChStore", style: AppTextStyle.logo),
-                )
+                Text("ChStore", style: AppTextStyle.logo),
               ],
             ),
             Container(

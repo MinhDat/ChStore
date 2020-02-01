@@ -48,13 +48,23 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     # Icons
-    - icons/ChStore.png
+    - icons/ChStore_red.png
+    - icons/ChStore_white.png
     - icons/today-icon.png
     - icons/toggle-menu-icon.png
     - icons/search-icon.png
     - icons/facebook.png
     - icons/facebook_white.png
     - icons/zalo.png
+    # Item
+    - icons/pant.png
+    - icons/hat.png
+    - icons/bikini.png
+    - icons/tie.png
+    - icons/sweater.png
+    - icons/t-shirt.png
+    - icons/glove.png
+    - icons/shoe.png
 
     # Topic
     - lib/picture/topics/man-category.jpg
@@ -69,10 +79,12 @@ flutter:
     - lib/picture/categories/photography.jpg
     - lib/picture/categories/food.jpg
 
-    # Travel categories
-    - lib/picture/travels/girl_and_flowers.jpg
-    - lib/picture/travels/girl_and_beaches.jpg
-    # Woman categories
+    # Background
+    - lib/picture/backgrounds/version_1.png
+    # # Travel categories
+    # - lib/picture/travels/girl_and_flowers.jpg
+    # - lib/picture/travels/girl_and_beaches.jpg
+    # # Woman categories
     # - lib/picture/women/picture_one.webp
     # - lib/picture/women/picture_five.webp
     # - lib/picture/women/picture_six.jpg

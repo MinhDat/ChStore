@@ -58,7 +58,7 @@ class AppTextStyle {
     fontSize: AppTextSize.size24,
   );
   static TextStyle smallCardName = TextStyle(
-    fontSize: AppTextSize.size22,
+    fontSize: AppTextSize.size26,
     fontWeight: FontWeight.bold,
     color: AppColor.white,
   );

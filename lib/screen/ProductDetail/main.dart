@@ -87,6 +87,7 @@ class _WidgetList extends State<ProductDetail> {
                     children: <Widget>[
                       Container(
                         height: System.screenSize.height,
+                        width: System.screenSize.width,
                         child: Image.network(
                           product.image,
                           fit: BoxFit.cover,

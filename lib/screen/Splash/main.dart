@@ -30,7 +30,6 @@ class _SplashScreenState extends State<SplashScreen> {
         fit: StackFit.expand,
         children: <Widget>[
           Container(
-            // color: AppColor.red400,
             child: Image.asset('lib/picture/backgrounds/version_1.png',
                 fit: BoxFit.cover),
           ),

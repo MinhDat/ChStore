@@ -1,10 +1,10 @@
 import 'package:ChStore/utils/System.dart';
+import 'package:ChStore/utils/main.dart';
 import 'package:flutter/material.dart';
 import 'package:ChStore/utils/AppColor.dart';
 import 'package:ChStore/model/Product.dart';
 
 // Constants
-const COUNTER_RADIUS = 10.0;
 
 const DECREMENT = 0;
 const INCREMENT = 1;
@@ -20,6 +20,10 @@ class Counter extends StatefulWidget {
 class CounterState extends State<Counter> {
   TextField countNumber;
   TextEditingController _textEditingController;
+  double counterRadius = System.screenSize.width / 50;
+  double counterRadiusInner = System.screenSize.width / 100;
+  double counterSize = System.screenSize.width / 10;
+  double counterSizeInner = System.screenSize.width / 12;
 
   @override
   void initState() {
@@ -29,18 +33,18 @@ class CounterState extends State<Counter> {
     countNumber = TextField(
       controller: _textEditingController,
       textAlign: TextAlign.center,
-      style: TextStyle(color: AppColor.redAccent100),
+      style: AppTextStyle.cardCounter,
       decoration: InputDecoration(
         filled: true,
         fillColor: AppColor.white,
         contentPadding: const EdgeInsets.all(5),
         border: OutlineInputBorder(
           borderSide: BorderSide(color: AppColor.white),
-          borderRadius: BorderRadius.circular(COUNTER_RADIUS),
+          borderRadius: BorderRadius.circular(counterRadius),
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: AppColor.white),
-          borderRadius: BorderRadius.circular(COUNTER_RADIUS),
+          borderRadius: BorderRadius.circular(counterRadius),
         ),
       ),
     );
@@ -77,29 +81,31 @@ class CounterState extends State<Counter> {
             handleChange(DECREMENT);
           },
           child: Container(
-            height: 40,
-            width: 40,
+            height: counterSize,
+            width: counterSize,
             decoration: BoxDecoration(
               color: AppColor.redAccent100,
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(COUNTER_RADIUS),
-                bottomLeft: Radius.circular(COUNTER_RADIUS),
+                topLeft: Radius.circular(counterRadius),
+                bottomLeft: Radius.circular(counterRadius),
               ),
             ),
             child: Icon(
               Icons.remove,
-              size: 25.0,
+              size: 20.0,
               color: AppColor.white,
             ),
           ),
         ),
         Container(
-          height: 40,
-          width: 35,
+          height: counterSize,
+          width: counterSizeInner,
           decoration: BoxDecoration(
             border: Border(
-              top: BorderSide(color: AppColor.redAccent100, width: 5.0),
-              bottom: BorderSide(color: AppColor.redAccent100, width: 5.0),
+              top: BorderSide(
+                  color: AppColor.redAccent100, width: counterRadiusInner),
+              bottom: BorderSide(
+                  color: AppColor.redAccent100, width: counterRadiusInner),
             ),
             color: AppColor.redAccent100,
           ),
@@ -110,18 +116,18 @@ class CounterState extends State<Counter> {
             handleChange(INCREMENT);
           },
           child: Container(
-            height: 40,
-            width: 40,
+            height: counterSize,
+            width: counterSize,
             decoration: BoxDecoration(
               color: AppColor.redAccent100,
               borderRadius: BorderRadius.only(
-                topRight: Radius.circular(COUNTER_RADIUS),
-                bottomRight: Radius.circular(COUNTER_RADIUS),
+                topRight: Radius.circular(counterRadius),
+                bottomRight: Radius.circular(counterRadius),
               ),
             ),
             child: Icon(
               Icons.add,
-              size: 25.0,
+              size: 20.0,
               color: AppColor.white,
             ),
           ),

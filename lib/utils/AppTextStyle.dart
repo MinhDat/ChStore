@@ -48,6 +48,10 @@ class AppTextStyle {
     fontSize: AppTextSize.size20,
     color: AppColor.main,
   );
+  static TextStyle cardCounter = TextStyle(
+    fontSize: AppTextSize.size30,
+    color: AppColor.redAccent100,
+  );
   static TextStyle label = TextStyle(
     color: AppColor.black,
     fontWeight: FontWeight.bold,

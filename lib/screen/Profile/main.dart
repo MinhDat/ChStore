@@ -13,7 +13,6 @@ class Profile extends StatelessWidget {
     double avatarSize = System.screenSize.height / 16;
     double panelSize = 4 * profileSize / 5;
     double analyticSize = profileSize / 4;
-    double activeSize = System.screenSize.height;
 
     return Scaffold(
       backgroundColor: AppColor.grey200,
@@ -167,8 +166,34 @@ class Profile extends StatelessWidget {
                           );
                         }
                         if (state is DataLoaded) {
-                          return ItemList(
-                              products: state.products.getRange(0, 7).toList());
+                          return Column(children: [
+                            Container(
+                              padding: EdgeInsets.only(
+                                  top: 20, left: 20, bottom: 10),
+                              width: System.screenSize.width,
+                              child: Stack(
+                                children: [
+                                  Text("All products",
+                                      style: AppTextStyle.title),
+                                  Positioned(
+                                    right: 20,
+                                    bottom: 0,
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.pushNamed(
+                                            context, '/product-list');
+                                      },
+                                      child: Text("See All",
+                                          style: AppTextStyle.buttonLink),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            ItemList(
+                                products:
+                                    state.products.getRange(0, 7).toList())
+                          ]);
                         }
                       }),
                     ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ChStore/utils/main.dart';
 import 'package:ChStore/widget/main.dart';
 import 'package:ChStore/model/main.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class ProductDetail extends StatefulWidget {
   @override
@@ -230,6 +231,267 @@ class _WidgetList extends State<ProductDetail> {
                         child: Text(product.description,
                             style: AppTextStyle.normal),
                       ),
+                      Container(
+                        padding: EdgeInsets.only(
+                            top: 10, bottom: 10, right: 20, left: 20),
+                        decoration: BoxDecoration(
+                          border: Border(
+                            top: BorderSide(
+                              color: AppColor.grey200,
+                              width: 1.0,
+                            ),
+                            bottom: BorderSide(
+                              color: AppColor.grey200,
+                              width: 1.0,
+                            ),
+                          ),
+                        ),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: <Widget>[
+                                Expanded(
+                                  flex: 2,
+                                  child: Text(
+                                    "Rating",
+                                    style: TextStyle(
+                                      fontSize: System.screenSize.width / 20,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 8,
+                                  child: RatingBar(
+                                    initialRating: 0,
+                                    itemSize: System.screenSize.width / 10,
+                                    minRating: 1,
+                                    direction: Axis.horizontal,
+                                    allowHalfRating: true,
+                                    itemCount: 5,
+                                    itemPadding: EdgeInsets.symmetric(
+                                        horizontal:
+                                            System.screenSize.width / 100),
+                                    itemBuilder: (context, _) => Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                    ),
+                                    onRatingUpdate: (rating) {
+                                      print(rating);
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(top: 5),
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  filled: true,
+                                  fillColor: AppColor.grey200,
+                                  contentPadding: const EdgeInsets.only(
+                                      left: 14.0,
+                                      right: 14.0,
+                                      bottom: 5.0,
+                                      top: 5.0),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: AppColor.grey200),
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: AppColor.grey200),
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                  hintText: 'Name',
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(top: 5),
+                              child: TextFormField(
+                                maxLines: 2,
+                                decoration: InputDecoration(
+                                  filled: true,
+                                  fillColor: AppColor.grey200,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: AppColor.grey200),
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: AppColor.grey200),
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                  hintText: 'Write something...',
+                                ),
+                              ),
+                            ),
+                            FlatButton(
+                              color: Colors.blue,
+                              onPressed: () {},
+                              child: Container(
+                                width: System.screenSize.width,
+                                child: Text(
+                                  "Send",
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ),
+                            Row(
+                              children: <Widget>[
+                                Expanded(
+                                  flex: 2,
+                                  child: Text(
+                                    "3.0",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: System.screenSize.width / 9),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 8,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      RatingBar(
+                                        initialRating: 1,
+                                        itemSize: System.screenSize.width / 10,
+                                        minRating: 1,
+                                        direction: Axis.horizontal,
+                                        allowHalfRating: true,
+                                        itemCount: 5,
+                                        itemPadding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                System.screenSize.width / 100),
+                                        itemBuilder: (context, _) => Icon(
+                                          Icons.star,
+                                          color: Colors.amber,
+                                        ),
+                                        ignoreGestures: true,
+                                        onRatingUpdate: (double value) {},
+                                      ),
+                                      RatingBar(
+                                        initialRating: 2,
+                                        itemSize: System.screenSize.width / 10,
+                                        minRating: 1,
+                                        direction: Axis.horizontal,
+                                        allowHalfRating: true,
+                                        itemCount: 5,
+                                        itemPadding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                System.screenSize.width / 100),
+                                        itemBuilder: (context, _) => Icon(
+                                          Icons.star,
+                                          color: Colors.amber,
+                                        ),
+                                        ignoreGestures: true,
+                                        onRatingUpdate: (double value) {},
+                                      ),
+                                      RatingBar(
+                                        initialRating: 3,
+                                        itemSize: System.screenSize.width / 10,
+                                        minRating: 1,
+                                        direction: Axis.horizontal,
+                                        allowHalfRating: true,
+                                        itemCount: 5,
+                                        itemPadding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                System.screenSize.width / 100),
+                                        itemBuilder: (context, _) => Icon(
+                                          Icons.star,
+                                          color: Colors.amber,
+                                        ),
+                                        ignoreGestures: true,
+                                        onRatingUpdate: (double value) {},
+                                      ),
+                                      RatingBar(
+                                        initialRating: 4,
+                                        itemSize: System.screenSize.width / 10,
+                                        minRating: 1,
+                                        direction: Axis.horizontal,
+                                        allowHalfRating: true,
+                                        itemCount: 5,
+                                        itemPadding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                System.screenSize.width / 100),
+                                        itemBuilder: (context, _) => Icon(
+                                          Icons.star,
+                                          color: Colors.amber,
+                                        ),
+                                        ignoreGestures: true,
+                                        onRatingUpdate: (double value) {},
+                                      ),
+                                      RatingBar(
+                                        initialRating: 5,
+                                        itemSize: System.screenSize.width / 10,
+                                        minRating: 1,
+                                        direction: Axis.horizontal,
+                                        allowHalfRating: true,
+                                        itemCount: 5,
+                                        itemPadding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                System.screenSize.width / 100),
+                                        itemBuilder: (context, _) => Icon(
+                                          Icons.star,
+                                          color: Colors.amber,
+                                        ),
+                                        ignoreGestures: true,
+                                        onRatingUpdate: (double value) {},
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(
+                            left: 20, right: 20, top: 10, bottom: 10),
+                        decoration: BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(
+                              color: AppColor.grey200,
+                              width: 1.0,
+                            ),
+                          ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text('Name'),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                RatingBar(
+                                  initialRating: 4,
+                                  itemSize: System.screenSize.width / 30,
+                                  minRating: 1,
+                                  direction: Axis.horizontal,
+                                  allowHalfRating: true,
+                                  itemCount: 5,
+                                  itemPadding: EdgeInsets.symmetric(
+                                      horizontal:
+                                          System.screenSize.width / 300),
+                                  itemBuilder: (context, _) => Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                  ),
+                                  ignoreGestures: true,
+                                  onRatingUpdate: (double value) {},
+                                ),
+                                Text("05/02/2020"),
+                              ],
+                            ),
+                            Text("very good")
+                          ],
+                        ),
+                      )
                     ],
                   ),
                 ],

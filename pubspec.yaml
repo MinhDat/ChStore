@@ -28,6 +28,7 @@ dependencies:
   flutter_bloc: 3.1.0
   equatable: 1.0.2
   faker: 1.1.1
+  flutter_rating_bar: 3.0.1+1
 
 dev_dependencies:
   flutter_test:

@@ -24,29 +24,36 @@ class PersonalState extends State<Personal> {
               width: 5.0,
             ),
           )),
-          child: Row(
-            children: [
-              Expanded(
-                flex: 3,
-                child: Container(
-                  margin: EdgeInsets.all(20),
-                  child: CircleAvatar(
-                    radius: avatarSize,
-                    backgroundImage:
-                        NetworkImage('https://via.placeholder.com/150'),
+          child: GestureDetector(
+            onTap: () => Navigator.pushNamed(context, '/profile'),
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: Container(
+                    margin: EdgeInsets.all(20),
+                    child: CircleAvatar(
+                      radius: avatarSize,
+                      backgroundImage:
+                          NetworkImage('https://picsum.photos/200'),
+                    ),
                   ),
                 ),
-              ),
-              Expanded(
-                flex: 7,
-                child: Column(
-                  children: [
-                    Text('Charlie'),
-                    Text('Software Developer'),
-                  ],
+                Expanded(
+                  flex: 7,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Charlie',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Text('Software Developer'),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         Container(

@@ -52,6 +52,7 @@ class MyApp extends StatelessWidget {
           '/food-category': (context) => Category(),
           // Products route
           '/product-list': (context) => ProductList(),
+          '/profile': (context) => Profile(),
         },
       ),
     );

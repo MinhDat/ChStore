@@ -1,8 +1,10 @@
+import 'package:ChStore/bloc/Bloc.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/utils/main.dart';
 import 'package:ChStore/screen/main.dart';
 import 'package:ChStore/widget/main.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Profile extends StatelessWidget {
   @override
@@ -13,9 +15,9 @@ class Profile extends StatelessWidget {
     double analyticSize = profileSize / 4;
     double activeSize = System.screenSize.height;
 
-    return Container(
-      color: AppColor.grey200,
-      child: Stack(
+    return Scaffold(
+      backgroundColor: AppColor.grey200,
+      body: Stack(
         children: <Widget>[
           Positioned(
             top: 0,
@@ -34,7 +36,7 @@ class Profile extends StatelessWidget {
                 padding: EdgeInsets.only(top: 0),
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsets.only(left: 30, right: 30, bottom: 20),
+                    padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
                     child: Stack(
                       children: [
                         Container(
@@ -57,46 +59,46 @@ class Profile extends StatelessWidget {
                                 Text("Charlie", style: AppTextStyle.title),
                                 Text("Software Developer",
                                     style: AppTextStyle.description),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: <Widget>[
-                                    Expanded(
-                                      flex: 5,
-                                      child: Padding(
-                                        padding: EdgeInsets.only(
-                                            left: 20, right: 10),
-                                        child: SocialInfo(
-                                          "Facebook",
-                                          bgColor: AppColor.facebook,
-                                          textColor: AppColor.white,
-                                          assetImage: Image.asset(
-                                            'icons/facebook_white.png',
-                                            height: 22,
-                                            width: 22,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 5,
-                                      child: Padding(
-                                        padding: EdgeInsets.only(
-                                            left: 10, right: 20),
-                                        child: SocialInfo(
-                                          "Zalo",
-                                          bgColor: AppColor.zalo,
-                                          textColor: AppColor.white,
-                                          assetImage: Image.asset(
-                                            'icons/zalo.png',
-                                            height: 27,
-                                            width: 27,
-                                            color: AppColor.white,
-                                          ),
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
+                                // Row(
+                                //   mainAxisAlignment: MainAxisAlignment.end,
+                                //   children: <Widget>[
+                                //     Expanded(
+                                //       flex: 5,
+                                //       child: Padding(
+                                //         padding: EdgeInsets.only(
+                                //             left: 20, right: 10),
+                                //         child: SocialInfo(
+                                //           "Facebook",
+                                //           bgColor: AppColor.facebook,
+                                //           textColor: AppColor.white,
+                                //           assetImage: Image.asset(
+                                //             'icons/facebook_white.png',
+                                //             height: 22,
+                                //             width: 22,
+                                //           ),
+                                //         ),
+                                //       ),
+                                //     ),
+                                //     Expanded(
+                                //       flex: 5,
+                                //       child: Padding(
+                                //         padding: EdgeInsets.only(
+                                //             left: 10, right: 20),
+                                //         child: SocialInfo(
+                                //           "Zalo",
+                                //           bgColor: AppColor.zalo,
+                                //           textColor: AppColor.white,
+                                //           assetImage: Image.asset(
+                                //             'icons/zalo.png',
+                                //             height: 27,
+                                //             width: 27,
+                                //             color: AppColor.white,
+                                //           ),
+                                //         ),
+                                //       ),
+                                //     )
+                                //   ],
+                                // ),
                               ],
                             ),
                           ),
@@ -104,18 +106,18 @@ class Profile extends StatelessWidget {
                         Positioned(
                           top: 0,
                           right:
-                              ((System.screenSize.width - 60) / 2) - avatarSize,
+                              ((System.screenSize.width - 40) / 2) - avatarSize,
                           child: CircleAvatar(
                             radius: avatarSize,
                             backgroundImage:
-                                NetworkImage('https://via.placeholder.com/150'),
+                                NetworkImage('https://picsum.photos/200'),
                           ),
                         ),
                       ],
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 30, right: 30, bottom: 20),
+                    padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
                     child: Container(
                       height: analyticSize,
                       decoration: new BoxDecoration(
@@ -145,18 +147,47 @@ class Profile extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 30, right: 30, bottom: 20),
+                    padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
                     child: Container(
-                      height: activeSize,
+                      // height: activeSize,
                       decoration: new BoxDecoration(
                         color: AppColor.white,
                         borderRadius: new BorderRadius.all(Radius.circular(20)),
                       ),
-                      // child: ,
+                      child: BlocBuilder<DataBloc, DataState>(
+                          builder: (context, state) {
+                        if (state is DataError) {
+                          return Center(
+                            child: Text('failed to fetch data'),
+                          );
+                        }
+                        if (state is DataUninitialized) {
+                          return Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }
+                        if (state is DataLoaded) {
+                          return ItemList(
+                              products: state.products.getRange(0, 7).toList());
+                        }
+                      }),
                     ),
                   )
                 ],
               ),
+            ),
+          ),
+          Positioned(
+            top: System.screenSize.width / 9,
+            right: System.screenSize.width / 12,
+            child: CircleButton(
+              icon: Icon(
+                Icons.close,
+                color: AppColor.white,
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              },
             ),
           ),
         ],

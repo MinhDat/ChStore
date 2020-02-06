@@ -101,10 +101,7 @@ class AppTextStyle {
     fontSize: AppTextSize.size22,
     color: AppColor.blue,
   );
-  static TextStyle searchPlaceHolder = TextStyle(
-    color: AppColor.grey500,
-    fontSize: AppTextSize.size26,
-  );
+  static TextStyle searchPlaceHolder = TextStyle(color: AppColor.grey500);
   static TextStyle noItem = TextStyle(
     color: AppColor.grey400,
     fontStyle: FontStyle.italic,

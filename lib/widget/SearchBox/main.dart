@@ -87,18 +87,16 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                         Icons.search,
                         color: AppColor.grey,
                       ),
-                      // suffixIcon: new Icon(Icons.close),
-                      border: InputBorder.none,
                       contentPadding:
-                          const EdgeInsets.only(left: 14.0, top: 7.0),
+                          const EdgeInsets.only(left: 14, right: 14),
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: AppColor.grey200),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: AppColor.grey200),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
-                      // enabledBorder: UnderlineInputBorder(
-                      //   borderSide: BorderSide(color: AppColor.grey200),
-                      //   borderRadius: BorderRadius.circular(10.0),
-                      // ),
                       hintText: 'Enter a search term',
                     ),
                   )

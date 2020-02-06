@@ -71,7 +71,7 @@ class ChCard extends StatelessWidget {
 
     widgetList.add(
       Positioned(
-        bottom: 10,
+        bottom: type == FOR_SLIDER ? 10 : 30,
         left: 10,
         right: 10,
         child: Column(

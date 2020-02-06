@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:ChStore/utils/AppColor.dart';
 import 'package:ChStore/utils/System.dart';
+import 'package:ChStore/widget/Button/Progress/LinearPageProgress.dart';
+import 'package:ChStore/widget/ProgressList/main.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/model/Product.dart';
@@ -16,16 +18,18 @@ class ChCardPage extends StatefulWidget {
 }
 
 class ChCardPageState extends State<ChCardPage> {
+  List<GlobalKey<LinearPageProgressState>> activations;
   PageController _pageController;
   int _currentIndex = 0;
   Timer _timer;
 
   @override
   void initState() {
-    super.initState();
+    activations = List.generate(widget._products.length, (i) => GlobalKey());
     _currentIndex = 0;
     _pageController =
-        new PageController(initialPage: _currentIndex, keepPage: true);
+        PageController(initialPage: _currentIndex, keepPage: true);
+    super.initState();
   }
 
   @override
@@ -42,6 +46,12 @@ class ChCardPageState extends State<ChCardPage> {
       int delta =
           _currentIndex == widget._products.length - 1 ? 0 : _currentIndex + 1;
 
+      if (delta == 0) {
+        for (int i = 1; i < activations.length; i++) {
+          activations[i].currentState.setProgress(1);
+        }
+      }
+
       _pageController.animateToPage(
         delta,
         duration: const Duration(milliseconds: 800),
@@ -52,6 +62,15 @@ class ChCardPageState extends State<ChCardPage> {
 
   void _handlePageChanged(int page) {
     _timer.cancel();
+    for (int i = 0; i < page; i++) {
+      activations[i].currentState.setProgress(2);
+    }
+    for (int i = page + 1; i < activations.length; i++) {
+      activations[i].currentState.setProgress(1);
+    }
+
+    activations[page].currentState.setProgress(0);
+
     setState(() {
       _currentIndex = page;
     });
@@ -94,11 +113,25 @@ class ChCardPageState extends State<ChCardPage> {
           ),
         ],
       ),
-      child: PageView(
-        controller: _pageController,
-        scrollDirection: Axis.horizontal,
-        onPageChanged: _handlePageChanged,
-        children: productList,
+      child: Stack(
+        children: [
+          PageView(
+            controller: _pageController,
+            scrollDirection: Axis.horizontal,
+            onPageChanged: _handlePageChanged,
+            children: productList,
+          ),
+          Positioned(
+            bottom: 10,
+            child: Container(
+              width: System.screenSize.width - 40,
+              child: ProgressList(
+                activations: activations,
+                seconds: 7,
+              ),
+            ),
+          )
+        ],
       ),
     );
   }

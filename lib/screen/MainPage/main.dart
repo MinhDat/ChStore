@@ -1,7 +1,9 @@
+import 'package:ChStore/bloc/Bloc.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/screen/main.dart';
 import 'package:ChStore/utils/main.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Mainpage extends StatefulWidget {
   @override
@@ -19,7 +21,6 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
   Offset _end;
   Animation _offsetAnimation;
   double _visibleAnimate;
-  int _count;
 
   @override
   void initState() {
@@ -29,7 +30,6 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
     _begin = Offset.zero;
     _end = Offset.zero;
     _visibleAnimate = 0.0;
-    _count = 0;
 
     _controller = AnimationController(
       duration: const Duration(milliseconds: 500),
@@ -45,8 +45,6 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
 
     _offsetAnimation = _generateAnimationPosition();
     System.move = _handleAnimation;
-    System.countUp = _handleCartIncreaseCount;
-    System.countDown = _handleCartDecreaseCount;
   }
 
   @override
@@ -136,10 +134,13 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
                       Positioned(
                         top: 0,
                         right: 0,
-                        child: _count > 0
-                            ? Text("$_count",
-                                style: AppTextStyle.flexColor(AppColor.main))
-                            : SizedBox.shrink(),
+                        child: BlocBuilder<CounterBloc, int>(
+                            builder: (context, count) {
+                          return count > 0
+                              ? Text("$count",
+                                  style: AppTextStyle.flexColor(AppColor.main))
+                              : SizedBox.shrink();
+                        }),
                       )
                     ],
                   ),
@@ -194,18 +195,6 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
           System.shoppingCartOffset.dx / 10, System.shoppingCartOffset.dy / 10);
       _offsetAnimation = _generateAnimationPosition();
       _controller.forward();
-    });
-  }
-
-  _handleCartIncreaseCount(int value) {
-    setState(() {
-      _count += value;
-    });
-  }
-
-  _handleCartDecreaseCount(int value) {
-    setState(() {
-      _count -= value;
     });
   }
 }

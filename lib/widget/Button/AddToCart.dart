@@ -1,8 +1,10 @@
+import 'package:ChStore/bloc/Bloc.dart';
 import 'package:ChStore/model/Product.dart';
 import 'package:ChStore/utils/AppTextStyle.dart';
 import 'package:flutter/material.dart';
 import 'package:ChStore/utils/System.dart';
 import 'package:ChStore/utils/AppColor.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddToCart extends StatefulWidget {
   AddToCart(this.data, {this.size = 15, this.showIcon = true});
@@ -28,6 +30,7 @@ class AddToCartState extends State<AddToCart> {
   }
 
   handleClick(BuildContext context) {
+    final CounterBloc counterBloc = BlocProvider.of<CounterBloc>(context);
     final RenderBox renderBoxRed = _buttonKey.currentContext.findRenderObject();
     final currentOffset = renderBoxRed.localToGlobal(Offset.zero);
     AnimationOffset _next =
@@ -40,9 +43,10 @@ class AddToCartState extends State<AddToCart> {
     } else {
       existed.count++;
     }
-
-    System.move(_next);
-    System.countUp(1);
+    if (!widget.showIcon) {
+      System.move(_next);
+    }
+    counterBloc.add(IncrementEvent(1));
   }
 
   @override

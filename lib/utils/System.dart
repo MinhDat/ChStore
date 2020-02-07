@@ -16,31 +16,13 @@ class System {
   static Offset shoppingCartOffset = Offset(0, 0);
   static Size screenSize;
   static SetPositionAnimateCalback setPositionAnimateCalback;
-  static SetCartIncreaseCountCalback setCartIncreaseCountCalback;
-  static SetCartDecreaseCountCalback setCartDecreaseCountCalback;
 
   static Function get move {
     return setPositionAnimateCalback;
   }
 
-  static Function get countUp {
-    return setCartIncreaseCountCalback;
-  }
-
-  static Function get countDown {
-    return setCartDecreaseCountCalback;
-  }
-
   static set move(SetPositionAnimateCalback function) {
     setPositionAnimateCalback = function;
-  }
-
-  static set countUp(SetCartIncreaseCountCalback function) {
-    setCartIncreaseCountCalback = function;
-  }
-
-  static set countDown(SetCartDecreaseCountCalback function) {
-    setCartDecreaseCountCalback = function;
   }
 
   static Future<bool> get firstUsage async {
@@ -56,5 +38,3 @@ class System {
 }
 
 typedef SetPositionAnimateCalback = void Function(AnimationOffset state);
-typedef SetCartIncreaseCountCalback = void Function(int value);
-typedef SetCartDecreaseCountCalback = void Function(int value);

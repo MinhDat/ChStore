@@ -58,6 +58,29 @@ class BLoCRenderItem extends StatelessWidget {
               ),
               Container(
                 padding:
+                    EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 10),
+                width: System.screenSize.width,
+                color: AppColor.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("All products", style: AppTextStyle.title),
+                    GestureDetector(
+                      onTap: () =>
+                          Navigator.pushNamed(context, '/product-list'),
+                      child: Text("See All", style: AppTextStyle.buttonLink),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 10),
+                color: AppColor.white,
+                child:
+                    ItemList(products: state.products.getRange(0, 7).toList()),
+              ),
+              Container(
+                padding:
                     EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 10),
                 width: System.screenSize.width,
                 color: AppColor.white,
@@ -92,29 +115,6 @@ class BLoCRenderItem extends StatelessWidget {
                   context,
                   dataList: state.products.getRange(14, 20).toList(),
                 ),
-              ),
-              Container(
-                padding:
-                    EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 10),
-                width: System.screenSize.width,
-                color: AppColor.white,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("All products", style: AppTextStyle.title),
-                    GestureDetector(
-                      onTap: () =>
-                          Navigator.pushNamed(context, '/product-list'),
-                      child: Text("See All", style: AppTextStyle.buttonLink),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(bottom: 10),
-                color: AppColor.white,
-                child:
-                    ItemList(products: state.products.getRange(0, 7).toList()),
               ),
               Container(
                 padding:

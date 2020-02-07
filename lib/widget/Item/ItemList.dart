@@ -1,7 +1,9 @@
+import 'package:ChStore/bloc/Bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:ChStore/utils/main.dart';
 import 'package:ChStore/widget/main.dart';
 import 'package:ChStore/model/main.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Template Type
 const NORMAL_LIST_TYPE = 0;
@@ -31,6 +33,7 @@ class ItemListState extends State<ItemList> {
 
   @override
   Widget build(BuildContext context) {
+    final CounterBloc counterBloc = BlocProvider.of<CounterBloc>(context);
     switch (widget.type) {
       case NORMAL_LIST_TYPE:
         if (productList.length == 0) {
@@ -50,7 +53,7 @@ class ItemListState extends State<ItemList> {
                   key: ObjectKey(item),
                   child: ProductItem(type: widget.type, item: item),
                   onDismissed: (direction) {
-                    System.countDown(item.count);
+                    counterBloc.add(DecrementEvent(item.count));
                     item.count = 1;
                     allShoppingCarts.removeWhere((p) => p.id == item.id);
                   },

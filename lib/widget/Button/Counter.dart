@@ -1,8 +1,10 @@
+import 'package:ChStore/bloc/Bloc.dart';
 import 'package:ChStore/utils/System.dart';
 import 'package:ChStore/utils/main.dart';
 import 'package:flutter/material.dart';
 import 'package:ChStore/utils/AppColor.dart';
 import 'package:ChStore/model/Product.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Constants
 
@@ -56,29 +58,28 @@ class CounterState extends State<Counter> {
     super.dispose();
   }
 
-  void handleChange(type) {
+  void handleChange(type, CounterBloc counterBloc) {
     if (type == DECREMENT && allShoppingCarts[widget.id].count > 1) {
-      System.countDown(1);
+      counterBloc.add(DecrementEvent(1));
       allShoppingCarts[widget.id].count--;
-      // widget.count--;
     }
     if (type == INCREMENT) {
-      System.countUp(1);
+      counterBloc.add(IncrementEvent(1));
       allShoppingCarts[widget.id].count++;
-      // widget.count++;
     }
     _textEditingController.text = allShoppingCarts[widget.id].count.toString();
   }
 
   @override
   Widget build(BuildContext context) {
+    final CounterBloc counterBloc = BlocProvider.of<CounterBloc>(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       mainAxisSize: MainAxisSize.min,
       children: [
         InkWell(
           onTap: () {
-            handleChange(DECREMENT);
+            handleChange(DECREMENT, counterBloc);
           },
           child: Container(
             height: counterSize,
@@ -113,7 +114,7 @@ class CounterState extends State<Counter> {
         ),
         InkWell(
           onTap: () {
-            handleChange(INCREMENT);
+            handleChange(INCREMENT, counterBloc);
           },
           child: Container(
             height: counterSize,

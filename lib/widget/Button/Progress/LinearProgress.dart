@@ -83,7 +83,6 @@ class LinearProgressState extends State<LinearProgress> {
       child: Container(
         height: 45,
         width: (System.screenSize.width - 65 * 3 - 20) / 2.0,
-        margin: EdgeInsets.only(top: 35),
         child: CustomPaint(
           foregroundPainter: LinearPainter(
             lineColor: AppColor.grey,

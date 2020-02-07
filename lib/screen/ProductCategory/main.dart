@@ -7,8 +7,13 @@ import 'package:ChStore/screen/main.dart';
 class ProductCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScrollHeader(
+    return ScrollableHeader(
       title: "Discovery",
+      headerAppBar: Container(
+        alignment: Alignment.topLeft,
+        padding: EdgeInsets.only(left: 20.0),
+        child: Text("Discovery", style: AppTextStyle.logo),
+      ),
       child: ListView(
         children: <Widget>[
           Padding(

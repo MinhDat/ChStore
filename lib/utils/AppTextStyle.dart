@@ -71,7 +71,7 @@ class AppTextStyle {
     color: AppColor.white,
   );
   static TextStyle scrollHeader = TextStyle(
-    color: AppColor.black,
+    color: AppColor.white,
     fontWeight: FontWeight.w600,
     fontSize: AppTextSize.size30,
   );

@@ -1,20 +1,25 @@
 import 'package:ChStore/utils/AppColor.dart';
 import 'package:ChStore/utils/AppTextStyle.dart';
+import 'package:ChStore/utils/main.dart';
 import 'package:flutter/material.dart';
 
-class ScrollHeader extends StatelessWidget {
-  ScrollHeader({
+class ScrollableHeader extends StatelessWidget {
+  ScrollableHeader({
     this.title: "",
     this.isAutoScroll: false,
     this.scrollController,
+    this.headerAppBar,
     this.childAppBar,
     @required this.child,
+    this.enableIcon: false,
   });
   final String title;
   final bool isAutoScroll;
+  final Widget headerAppBar;
   final Widget childAppBar;
   final Widget child;
   final ScrollController scrollController;
+  final bool enableIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -30,35 +35,28 @@ class ScrollHeader extends StatelessWidget {
                 headerHeight: 40,
                 isAutoScroll: isAutoScroll,
                 title: title,
+                enableIcon: enableIcon,
               ),
               pinned: true,
             ),
             SliverAppBar(
+              backgroundColor: AppColor.red400,
               pinned: true,
               expandedHeight:
-                  isAutoScroll ? 0.0 : (childAppBar != null ? 95 : 45),
+                  isAutoScroll ? 0.0 : (childAppBar != null ? 100 : 45),
               floating: !isAutoScroll,
               bottom: PreferredSize(
                 preferredSize: Size.fromHeight(isAutoScroll
                     ? 0.0
-                    : (childAppBar != null ? 95 : 45)), // Add this code
+                    : (childAppBar != null ? 100 : 45)), // Add this code
                 child: Container(alignment: Alignment.topLeft), // Add this code
               ),
               flexibleSpace: LayoutBuilder(
                 builder: (BuildContext context, BoxConstraints constraints) {
-                  return Stack(
+                  return Column(
                     children: <Widget>[
-                      !isAutoScroll
-                          ? Container(
-                              alignment: Alignment.topLeft,
-                              padding: EdgeInsets.only(left: 20.0),
-                              child: Text(title, style: AppTextStyle.header),
-                            )
-                          : null,
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: childAppBar,
-                      ),
+                      !isAutoScroll ? headerAppBar : null,
+                      childAppBar,
                     ].where((f) => f != null).toList(),
                   );
                 },
@@ -75,16 +73,20 @@ class ScrollHeader extends StatelessWidget {
 class SliverHeader extends SliverPersistentHeaderDelegate {
   final double headerHeight;
   final String title;
+  final bool enableIcon;
   bool isAutoScroll;
 
   SliverHeader(
-      {@required this.headerHeight, this.isAutoScroll: false, this.title: ""});
+      {@required this.headerHeight,
+      this.isAutoScroll: false,
+      this.title: "",
+      this.enableIcon: false});
 
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
-      color: AppColor.white,
+      color: AppColor.red400,
       child: Stack(
         fit: StackFit.expand,
         overflow: Overflow.visible,
@@ -92,7 +94,21 @@ class SliverHeader extends SliverPersistentHeaderDelegate {
           Center(
             child: Opacity(
               opacity: this.isAutoScroll ? 1 : (shrinkOffset / headerHeight),
-              child: Text(title, style: AppTextStyle.scrollHeader),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  enableIcon
+                      ? Padding(
+                          padding: EdgeInsets.only(left: 20, right: 5),
+                          child: Image.asset('icons/ChStore_white.png',
+                              height: System.screenSize.width * 0.08,
+                              width: System.screenSize.width * 0.08,
+                              fit: BoxFit.cover),
+                        )
+                      : SizedBox.shrink(),
+                  Text(this.title, style: AppTextStyle.scrollHeader),
+                ],
+              ),
             ),
           ),
         ],

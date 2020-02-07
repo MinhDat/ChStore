@@ -2,7 +2,6 @@ import 'package:ChStore/bloc/Bloc.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/utils/main.dart';
-import 'package:ChStore/model/main.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 //Template Type

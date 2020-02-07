@@ -29,10 +29,10 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Row(
               children: [
@@ -57,9 +57,9 @@ class Header extends StatelessWidget {
           ],
         ),
         Padding(
-          padding: EdgeInsets.only(right: 20.0, top: 20.0),
-          child: Icon(Icons.person, size: 50.0),
-        )
+          padding: EdgeInsets.only(right: 20),
+          child: Icon(Icons.person, size: 40.0),
+        ),
       ],
     );
   }

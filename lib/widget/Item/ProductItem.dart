@@ -59,8 +59,8 @@ class ProductItem extends StatelessWidget {
           },
           child: Container(
             height: 130.0,
-            width: System.screenSize.width - 40,
-            margin: const EdgeInsets.only(top: 5.0, left: 20.0, right: 20.0),
+            padding: const EdgeInsets.only(top: 5.0, left: 20.0, right: 20.0),
+            color: AppColor.white,
             child: Row(
               children: [
                 Expanded(
@@ -88,11 +88,8 @@ class ProductItem extends StatelessWidget {
                           children: [
                             Text(category.name.toUpperCase(),
                                 style: AppTextStyle.categoryLabel),
-                            Text(
-                              item.name,
-                              style: AppTextStyle.itemName,
-                              maxLines: 2,
-                            ),
+                            Text(item.name,
+                                style: AppTextStyle.itemName, maxLines: 2),
                           ],
                         ),
                       ),

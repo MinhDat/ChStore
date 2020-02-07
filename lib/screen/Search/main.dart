@@ -1,3 +1,4 @@
+import 'package:ChStore/utils/main.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/utils/AppColor.dart';
@@ -71,8 +72,13 @@ class _WidgetList extends State<Search> {
   Widget build(BuildContext context) {
     return Container(
       color: AppColor.white,
-      child: ScrollHeader(
+      child: ScrollableHeader(
         title: "Search",
+        headerAppBar: Container(
+          alignment: Alignment.topLeft,
+          padding: EdgeInsets.only(left: 20.0, bottom: 20),
+          child: Text("Search", style: AppTextStyle.logo),
+        ),
         childAppBar: SearchBox(
           isFocused: _isFocused,
           onFocused: _onFocused,

@@ -78,13 +78,17 @@ class ShoppingCartState extends State<ShoppingCart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ScrollHeader(
+      body: ScrollableHeader(
         title: "Shopping Cart",
+        headerAppBar: Container(
+          alignment: Alignment.topLeft,
+          padding: EdgeInsets.only(left: 20.0, bottom: 20),
+          child: Text("Shopping Cart", style: AppTextStyle.logo),
+        ),
         scrollController: _scrollController,
         childAppBar: Padding(
           padding: EdgeInsets.only(left: 10, right: 10),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               RadialProgress(
                 active: RADIAL_ACTIVE,

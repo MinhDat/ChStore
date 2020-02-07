@@ -68,7 +68,7 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
       duration: Duration(seconds: 1),
       height: 35.0,
       margin: const EdgeInsets.only(
-          top: 0.0, left: 20.0, right: 20.0, bottom: 20.0),
+          top: 0.0, left: 20.0, right: 20.0, bottom: 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -109,8 +109,10 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                       alignment: Alignment.centerLeft,
                       padding: const EdgeInsets.only(left: 11.0),
                       decoration: BoxDecoration(
-                          border: new Border.all(color: AppColor.grey200),
-                          borderRadius: BorderRadius.circular(10.0)),
+                        color: AppColor.white,
+                        border: new Border.all(color: AppColor.grey200),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,

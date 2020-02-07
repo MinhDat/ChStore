@@ -21,10 +21,10 @@ class AppTextStyle {
   static TextStyle logo = TextStyle(
     fontSize: AppTextSize.size14,
     fontWeight: FontWeight.bold,
-    color: AppColor.main,
+    color: AppColor.white,
   );
   static TextStyle date = TextStyle(
-    color: AppColor.grey,
+    color: AppColor.black,
     fontSize: AppTextSize.size26,
   );
   static TextStyle price = TextStyle(

@@ -348,7 +348,7 @@ class _WidgetList extends State<ProductDetail> {
                                     "3.0",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: System.screenSize.width / 9),
+                                        fontSize: System.screenSize.width / 10),
                                   ),
                                 ),
                                 Expanded(

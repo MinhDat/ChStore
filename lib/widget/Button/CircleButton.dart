@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 class CircleButton extends StatelessWidget {
   final GestureTapCallback onTap;
   final Widget icon;
+  final Color bgColor;
 
-  const CircleButton({Key key, this.onTap, this.icon}) : super(key: key);
+  const CircleButton({Key key, this.onTap, this.icon, this.bgColor})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class CircleButton extends StatelessWidget {
         width: size,
         height: size,
         decoration: new BoxDecoration(
-          color: AppColor.main.withOpacity(0.6),
+          color: this.bgColor ?? AppColor.main.withOpacity(0.6),
           shape: BoxShape.circle,
         ),
         child: icon,

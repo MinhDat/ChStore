@@ -55,6 +55,7 @@ flutter:
     - icons/facebook.png
     - icons/facebook_white.png
     - icons/zalo.png
+    - icons/like.png
     # Item
     - icons/pant.png
     - icons/hat.png

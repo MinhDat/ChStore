@@ -11,7 +11,7 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     double profileSize = System.screenSize.height / 3;
     double avatarSize = System.screenSize.height / 16;
-    double panelSize = 4 * profileSize / 5;
+    double panelSize = System.screenSize.height / 3;
     double analyticSize = profileSize / 4;
 
     return Scaffold(
@@ -51,53 +51,53 @@ class Profile extends StatelessWidget {
                             decoration: new BoxDecoration(
                               color: AppColor.white,
                               borderRadius:
-                                  new BorderRadius.all(Radius.circular(20)),
+                                  new BorderRadius.all(Radius.circular(5)),
                             ),
                             child: Column(
                               children: [
                                 Text("Charlie", style: AppTextStyle.title),
                                 Text("Software Developer",
                                     style: AppTextStyle.description),
-                                // Row(
-                                //   mainAxisAlignment: MainAxisAlignment.end,
-                                //   children: <Widget>[
-                                //     Expanded(
-                                //       flex: 5,
-                                //       child: Padding(
-                                //         padding: EdgeInsets.only(
-                                //             left: 20, right: 10),
-                                //         child: SocialInfo(
-                                //           "Facebook",
-                                //           bgColor: AppColor.facebook,
-                                //           textColor: AppColor.white,
-                                //           assetImage: Image.asset(
-                                //             'icons/facebook_white.png',
-                                //             height: 22,
-                                //             width: 22,
-                                //           ),
-                                //         ),
-                                //       ),
-                                //     ),
-                                //     Expanded(
-                                //       flex: 5,
-                                //       child: Padding(
-                                //         padding: EdgeInsets.only(
-                                //             left: 10, right: 20),
-                                //         child: SocialInfo(
-                                //           "Zalo",
-                                //           bgColor: AppColor.zalo,
-                                //           textColor: AppColor.white,
-                                //           assetImage: Image.asset(
-                                //             'icons/zalo.png',
-                                //             height: 27,
-                                //             width: 27,
-                                //             color: AppColor.white,
-                                //           ),
-                                //         ),
-                                //       ),
-                                //     )
-                                //   ],
-                                // ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: <Widget>[
+                                    Expanded(
+                                      flex: 5,
+                                      child: Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 20, right: 10),
+                                        child: SocialInfo(
+                                          "Facebook",
+                                          bgColor: AppColor.facebook,
+                                          textColor: AppColor.white,
+                                          assetImage: Image.asset(
+                                            'icons/facebook_white.png',
+                                            height: 15,
+                                            width: 15,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 5,
+                                      child: Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 10, right: 20),
+                                        child: SocialInfo(
+                                          "Zalo",
+                                          bgColor: AppColor.zalo,
+                                          textColor: AppColor.white,
+                                          assetImage: Image.asset(
+                                            'icons/zalo.png',
+                                            height: 20,
+                                            width: 20,
+                                            color: AppColor.white,
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ],
                             ),
                           ),
@@ -121,26 +121,27 @@ class Profile extends StatelessWidget {
                       height: analyticSize,
                       decoration: new BoxDecoration(
                         color: AppColor.white,
-                        borderRadius: new BorderRadius.all(Radius.circular(20)),
+                        borderRadius: new BorderRadius.all(Radius.circular(5)),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Padding(
                             padding: EdgeInsets.only(left: 10, right: 10),
-                            child: Icon(Icons.share),
+                            child: Icon(Icons.shopping_basket),
+                          ),
+                          Text("| 56", style: AppTextStyle.normal),
+                          Padding(
+                            padding: EdgeInsets.only(left: 10, right: 10),
+                            child: Image.asset('icons/like.png',
+                                height: 25, width: 25),
                           ),
                           Text("| 200", style: AppTextStyle.normal),
                           Padding(
                             padding: EdgeInsets.only(left: 10, right: 10),
                             child: Icon(Icons.share),
                           ),
-                          Text("| 200", style: AppTextStyle.normal),
-                          Padding(
-                            padding: EdgeInsets.only(left: 10, right: 10),
-                            child: Icon(Icons.share),
-                          ),
-                          Text("| 200", style: AppTextStyle.normal),
+                          Text("| 496", style: AppTextStyle.normal),
                         ],
                       ),
                     ),
@@ -151,7 +152,7 @@ class Profile extends StatelessWidget {
                       // height: activeSize,
                       decoration: new BoxDecoration(
                         color: AppColor.white,
-                        borderRadius: new BorderRadius.all(Radius.circular(20)),
+                        borderRadius: new BorderRadius.all(Radius.circular(5)),
                       ),
                       child: BlocBuilder<DataBloc, DataState>(
                           builder: (context, state) {
@@ -208,8 +209,9 @@ class Profile extends StatelessWidget {
             child: CircleButton(
               icon: Icon(
                 Icons.close,
-                color: AppColor.white,
+                color: AppColor.main,
               ),
+              bgColor: Colors.white.withOpacity(0.6),
               onTap: () {
                 Navigator.pop(context);
               },

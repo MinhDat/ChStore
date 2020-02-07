@@ -2,25 +2,6 @@ import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-// // States
-// abstract class CounterState extends Equatable {
-//   const CounterState();
-
-//   @override
-//   List<Object> get props => [];
-// }
-
-// class CounterInitialized extends CounterState {
-//   final int state;
-//   CounterInitialized(this.state);
-
-//   @override
-//   List<Object> get props => [state];
-
-//   @override
-//   String toString() => 'CounterInitialized { state: $state }';
-// }
-
 // Events
 abstract class CounterEvent extends Equatable {
   const CounterEvent();

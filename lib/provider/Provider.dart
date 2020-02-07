@@ -10,6 +10,6 @@ class DataProvider extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(statusBarColor: Colors.white));
-    return FetchProduct(Counter(_child));
+    return Counter(FetchProduct(_child));
   }
 }

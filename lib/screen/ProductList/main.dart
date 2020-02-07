@@ -60,9 +60,7 @@ class ProductListState extends State<ProductList> {
               controller: _scrollController,
             );
           }
-          return Center(
-            child: CircularProgressIndicator(),
-          );
+          return Center(child: CircularProgressIndicator());
         },
       ),
     );

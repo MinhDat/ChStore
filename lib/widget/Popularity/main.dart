@@ -75,8 +75,8 @@ class PopularCategories extends StatelessWidget {
             _renderRow(popularCategories[index], LEFT),
             (index++ < popularCategories.length
                 ? _renderRow(popularCategories[index], RIGHT)
-                : null),
-          ].where((f) => (f != null)).toList(),
+                : SizedBox.shrink()),
+          ],
         ),
       );
       index++;

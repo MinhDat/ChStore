@@ -58,17 +58,15 @@ class AddToCartState extends State<AddToCart> {
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         children: [
-          Text("ADD", style: AppTextStyle.buttonCart(widget.size)),
+          Text(widget.showIcon ? "ADD TO CART" : "ADD",
+              style: AppTextStyle.buttonCart(widget.size)),
           widget.showIcon
               ? Padding(
                   padding: EdgeInsets.only(left: 5),
-                  child: Icon(
-                    Icons.add_shopping_cart,
-                    size: widget.size,
-                  ),
+                  child: Icon(Icons.add_shopping_cart, size: widget.size),
                 )
-              : null,
-        ].where((f) => f != null).toList(),
+              : SizedBox.shrink()
+        ],
       ),
       onPressed: () => handleClick(context),
     );

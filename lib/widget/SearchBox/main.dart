@@ -151,8 +151,8 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                     ),
                   ),
                 )
-              : null),
-        ].where((f) => f != null).toList(),
+              : SizedBox.shrink()),
+        ],
       ),
     );
   }

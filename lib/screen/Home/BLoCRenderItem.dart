@@ -53,22 +53,20 @@ class BLoCRenderItem extends StatelessWidget {
               ),
               ChCardSlider(state.products.getRange(7, 14).toList()),
               Container(
-                padding: EdgeInsets.only(top: 20, left: 20, bottom: 10),
+                padding:
+                    EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 10),
                 width: System.screenSize.width,
                 color: AppColor.white,
-                child: Stack(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text("Top trends", style: AppTextStyle.title),
-                    Positioned(
-                      right: 20,
-                      bottom: 0,
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/product-list');
-                        },
-                        child: Text("See All", style: AppTextStyle.buttonLink),
-                      ),
-                    )
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/product-list');
+                      },
+                      child: Text("See All", style: AppTextStyle.buttonLink),
+                    ),
                   ],
                 ),
               ),

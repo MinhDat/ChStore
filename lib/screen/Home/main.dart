@@ -117,8 +117,8 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           ListView(children: [BLoCRenderItem()]),
-          _isFocused ? SearchList(hasWords: _hasWords) : null,
-        ].where((f) => (f != null)).toList(),
+          _isFocused ? SearchList(hasWords: _hasWords) : SizedBox.shrink(),
+        ],
       ),
     );
   }

@@ -15,10 +15,9 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     System.firstUsage.then((first) {
       Timer(
-        Duration(seconds: 5),
-        () =>
-            Navigator.pushReplacementNamed(context, first ? '/guide' : '/main'),
-      );
+          Duration(seconds: 5),
+          () => Navigator.pushReplacementNamed(
+              context, first ? '/guide' : '/main'));
     });
   }
 

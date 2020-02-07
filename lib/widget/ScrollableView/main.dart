@@ -55,9 +55,9 @@ class ScrollableHeader extends StatelessWidget {
                 builder: (BuildContext context, BoxConstraints constraints) {
                   return Column(
                     children: <Widget>[
-                      !isAutoScroll ? headerAppBar : null,
-                      childAppBar,
-                    ].where((f) => f != null).toList(),
+                      !isAutoScroll ? headerAppBar : SizedBox.shrink(),
+                      childAppBar != null ? childAppBar : SizedBox.shrink(),
+                    ],
                   );
                 },
               ),

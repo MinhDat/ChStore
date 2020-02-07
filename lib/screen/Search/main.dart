@@ -101,11 +101,11 @@ class _WidgetList extends State<Search> {
                         backgroundColor: _hasWords
                             ? AppColor.white
                             : AppColor.blackWithOpacity0_5,
-                        body: _hasWords ? SearchResult() : null,
+                        body: _hasWords ? SearchResult() : SizedBox.shrink(),
                       ),
                     )
-                  : null,
-            ].where((f) => (f != null)).toList(),
+                  : SizedBox.shrink(),
+            ],
           ),
         ),
       ),

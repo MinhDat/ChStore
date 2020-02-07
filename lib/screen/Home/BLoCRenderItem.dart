@@ -1,4 +1,5 @@
 import 'package:ChStore/bloc/Bloc.dart';
+import 'package:ChStore/model/main.dart';
 import 'package:ChStore/utils/main.dart';
 import 'package:ChStore/widget/main.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +52,22 @@ class BLoCRenderItem extends StatelessWidget {
                 padding: EdgeInsets.only(top: 20, left: 20, bottom: 10),
                 child: Text("News", style: AppTextStyle.title),
               ),
-              ChCardSlider(state.products.getRange(7, 14).toList()),
+              Padding(
+                padding: EdgeInsets.only(bottom: 10),
+                child: ChCardSlider(state.products.getRange(7, 14).toList()),
+              ),
+              Container(
+                padding:
+                    EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 10),
+                width: System.screenSize.width,
+                color: AppColor.white,
+                child: Text("Hashtags", style: AppTextStyle.title),
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 10),
+                color: AppColor.white,
+                child: PopularCategories(),
+              ),
               Container(
                 padding:
                     EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 10),
@@ -62,15 +78,56 @@ class BLoCRenderItem extends StatelessWidget {
                   children: [
                     Text("Top trends", style: AppTextStyle.title),
                     GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/product-list');
-                      },
+                      onTap: () =>
+                          Navigator.pushNamed(context, '/product-list'),
                       child: Text("See All", style: AppTextStyle.buttonLink),
                     ),
                   ],
                 ),
               ),
-              ItemList(products: state.products.getRange(0, 7).toList())
+              Container(
+                margin: EdgeInsets.only(bottom: 10),
+                color: AppColor.white,
+                child: SmallChCardList(
+                  context,
+                  dataList: state.products.getRange(14, 20).toList(),
+                ),
+              ),
+              Container(
+                padding:
+                    EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 10),
+                width: System.screenSize.width,
+                color: AppColor.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("All products", style: AppTextStyle.title),
+                    GestureDetector(
+                      onTap: () =>
+                          Navigator.pushNamed(context, '/product-list'),
+                      child: Text("See All", style: AppTextStyle.buttonLink),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 10),
+                color: AppColor.white,
+                child:
+                    ItemList(products: state.products.getRange(0, 7).toList()),
+              ),
+              Container(
+                padding:
+                    EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 10),
+                width: System.screenSize.width,
+                color: AppColor.white,
+                child: Text("Populations", style: AppTextStyle.title),
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 10),
+                color: AppColor.white,
+                child: PopularTags(),
+              ),
             ],
           );
         }

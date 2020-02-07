@@ -16,7 +16,15 @@ class PopularityView extends StatelessWidget {
       // mainAxisSize: MainAxisSize.max,
       // crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Padding(
+          padding: EdgeInsets.only(left: 20, bottom: 10),
+          child: Text("Popular Categories", style: AppTextStyle.title),
+        ),
         PopularCategories(),
+        Padding(
+          padding: EdgeInsets.only(left: 20, top: 20),
+          child: Text("Popular Tags", style: AppTextStyle.title),
+        ),
         PopularTags(),
       ],
     );
@@ -60,12 +68,7 @@ class PopularCategories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> _popularCategories = [
-      Padding(
-        padding: EdgeInsets.only(left: 20, bottom: 10),
-        child: Text("Popular Categories", style: AppTextStyle.title),
-      )
-    ];
+    List<Widget> _popularCategories = [];
     int index = 0;
 
     while (index < popularCategories.length) {
@@ -92,12 +95,7 @@ class PopularCategories extends StatelessWidget {
 class PopularTags extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<Widget> _popularTags = [
-      Padding(
-        padding: EdgeInsets.only(left: 20, top: 20),
-        child: Text("Popular Tags", style: AppTextStyle.title),
-      )
-    ];
+    List<Widget> _popularTags = [];
 
     for (int i = 0; i < popularTags.length; i++) {
       _popularTags.add(Container(

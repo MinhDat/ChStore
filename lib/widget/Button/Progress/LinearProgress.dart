@@ -85,8 +85,8 @@ class LinearProgressState extends State<LinearProgress> {
         width: (System.screenSize.width - 65 * 3 - 20) / 2.0,
         child: CustomPaint(
           foregroundPainter: LinearPainter(
-            lineColor: AppColor.grey,
-            completeColor: AppColor.redAccent100,
+            lineColor: AppColor.white,
+            completeColor: AppColor.green,
             completePercent: percentage,
             width: 2,
           ),

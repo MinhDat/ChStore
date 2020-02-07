@@ -94,7 +94,7 @@ class ShoppingCartState extends State<ShoppingCart> {
                 active: RADIAL_ACTIVE,
                 child: Icon(
                   Icons.shopping_basket,
-                  color: AppColor.red300,
+                  color: AppColor.green,
                 ),
               ),
               LinearProgress(key: globalLinearCheckOutKey),
@@ -102,7 +102,7 @@ class ShoppingCartState extends State<ShoppingCart> {
                 key: globalRadialCheckOutKey,
                 child: Icon(
                   Icons.attach_money,
-                  color: _currentIndex > 0 ? AppColor.red300 : AppColor.grey,
+                  color: _currentIndex > 0 ? AppColor.green : AppColor.grey,
                 ),
               ),
               LinearProgress(key: globalLinearDoneKey),
@@ -110,7 +110,7 @@ class ShoppingCartState extends State<ShoppingCart> {
                 key: globalRadialDoneKey,
                 child: Icon(
                   Icons.done,
-                  color: _currentIndex > 1 ? AppColor.red300 : AppColor.grey,
+                  color: _currentIndex > 1 ? AppColor.green : AppColor.grey,
                 ),
               ),
             ],

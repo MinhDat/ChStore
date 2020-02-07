@@ -7,7 +7,8 @@ class AppColor {
   static Color black38 = Colors.black38;
   static Color blackWithOpacity0_5 = Colors.black.withOpacity(0.5);
   static Color blue = Colors.blue;
-  static Color blueAccent = Colors.blueAccent[1000];
+  static Color blueAccent = Colors.blueAccent;
+  static Color green = Colors.green;
   static Color grey = Colors.grey;
   static Color grey200 = Colors.grey[200];
   static Color grey400 = Colors.grey[400];

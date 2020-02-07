@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:ChStore/bloc/Bloc.dart';
 import 'package:ChStore/utils/main.dart';
 import 'package:ChStore/model/main.dart';
 
@@ -10,15 +8,17 @@ const PRODUCTS_TYPE = 0;
 const CATEGORIES_TYPE = 1;
 
 class SmallChCardList extends StatefulWidget {
-  SmallChCardList(this._parentContext, {this.type: PRODUCTS_TYPE});
+  SmallChCardList(this._parentContext,
+      {this.type: PRODUCTS_TYPE, this.dataList});
   final BuildContext _parentContext;
   final int type;
+  List dataList = [];
 
   @override
-  SmallChCardListState createState() => new SmallChCardListState();
+  _SmallChCardListState createState() => new _SmallChCardListState();
 }
 
-class SmallChCardListState extends State<SmallChCardList> {
+class _SmallChCardListState extends State<SmallChCardList> {
   final int firstItem = 0;
 
   @override
@@ -27,51 +27,17 @@ class SmallChCardListState extends State<SmallChCardList> {
     final double itemWidth = System.screenSize.width / 2.0;
     double itemMediumHeight = System.screenSize.width / 2.0;
     double itemMaxHeight = itemMediumHeight * 1.3;
-    List dataFilters = [];
 
     switch (widget.type) {
       case CATEGORIES_TYPE:
         itemMediumHeight = (itemMediumHeight - 30) / 1.2;
         itemMaxHeight = itemMediumHeight;
-        return BlocBuilder<DataBloc, DataState>(builder: (context, state) {
-          if (state is DataError) {
-            return Center(
-              child: Text('failed to fetch data'),
-            );
-          }
-          if (state is DataLoaded) {
-            if (state.categories.isEmpty) {
-              return Center(
-                child: Text("No items", style: AppTextStyle.noItem),
-              );
-            }
-            return _renderList(
-                state.categories, itemWidth, itemMediumHeight, itemMaxHeight);
-          }
-        });
+        return _renderList(
+            widget.dataList, itemWidth, itemMediumHeight, itemMaxHeight);
+
       case PRODUCTS_TYPE:
-        return BlocBuilder<DataBloc, DataState>(builder: (context, state) {
-          if (state is DataError) {
-            return Center(
-              child: Text('failed to fetch data'),
-            );
-          }
-          if (state is DataLoaded) {
-            if (state.products.isEmpty) {
-              return Center(
-                child: Text("No items", style: AppTextStyle.noItem),
-              );
-            }
-
-            Topic _topic = settings.arguments as Topic;
-            dataFilters = state.products
-                .where((item) => (item.categoryId == _topic.id))
-                .toList();
-
-            return _renderList(
-                dataFilters, itemWidth, itemMediumHeight, itemMaxHeight);
-          }
-        });
+        return _renderList(
+            widget.dataList, itemWidth, itemMediumHeight, itemMaxHeight);
     }
   }
 

@@ -4,27 +4,27 @@ import 'package:flutter/material.dart';
 class Header extends StatelessWidget {
   DateTime _now = new DateTime.now();
   List<String> _month = [
-    "JANUARY",
-    "FEBRUARY",
-    "MARCH",
-    "APRIL",
-    "MAY",
-    "JUNE",
-    "JULY",
-    "AUGUST",
-    "SEPTEMBER",
-    "OCTOBER",
-    "NOVEMBER",
-    "DECEMBER"
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
   ];
   List<String> _week = [
-    "MONDAY",
-    "TUESDAY",
-    "WEDNESDAY",
-    "THURSDAY",
-    "FRIDAY",
-    "SATURDAY",
-    "SUNDAY"
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday"
   ];
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class Header extends StatelessWidget {
                       width: System.screenSize.width * 0.08,
                       fit: BoxFit.cover),
                 ),
-                Text("ChStore", style: AppTextStyle.logo),
+                Text("ChStore", style: ChTextStyle.logo),
               ],
             ),
             Container(
@@ -51,7 +51,7 @@ class Header extends StatelessWidget {
               padding: EdgeInsets.only(left: 20.0, bottom: 10.0),
               child: Text(
                 "${_week[_now.weekday - 1]} ${_now.day} ${_month[_now.month - 1]}",
-                style: AppTextStyle.date,
+                style: ChTextStyle.date,
               ),
             ),
           ],

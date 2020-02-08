@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:ChStore/utils/AppColor.dart';
+import 'package:ChStore/utils/ChColor.dart';
 import 'package:flutter/material.dart';
 
 /// An indicator showing the currently selected page of a PageController
@@ -49,8 +49,8 @@ class DotsIndicator extends AnimatedWidget {
         child: new Material(
           color: controller.page == index ||
                   (controller.page == null && index == 0)
-              ? AppColor.red300
-              : AppColor.grey,
+              ? ChColor.primaryLight
+              : ChColor.initialization,
           type: MaterialType.circle,
           child: new Container(
             width: _kDotSize * zoom,

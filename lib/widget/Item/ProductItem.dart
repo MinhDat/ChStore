@@ -14,7 +14,7 @@ class ProductItem extends StatelessWidget {
     List<Widget> productLineSecond = [
       Expanded(
         flex: 4, // 20%
-        child: Text("\$${item.price}", style: AppTextStyle.price),
+        child: Text("\$${item.price}", style: ChTextStyle.price),
       )
     ];
 
@@ -25,7 +25,7 @@ class ProductItem extends StatelessWidget {
             flex: 6, // 60%
             child: AddToCart(
               item,
-              size: AppTextSize.size30,
+              size: ChTextSize.size30,
               showIcon: false,
             ),
           ),
@@ -60,7 +60,7 @@ class ProductItem extends StatelessWidget {
           child: Container(
             height: 130.0,
             padding: const EdgeInsets.only(top: 5.0, left: 20.0, right: 20.0),
-            color: AppColor.white,
+            color: ChColor.main,
             child: Row(
               children: [
                 Expanded(
@@ -87,9 +87,9 @@ class ProductItem extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(category.name.toUpperCase(),
-                                style: AppTextStyle.categoryLabel),
+                                style: ChTextStyle.categoryLabel),
                             Text(item.name,
-                                style: AppTextStyle.itemName, maxLines: 2),
+                                style: ChTextStyle.itemName, maxLines: 2),
                           ],
                         ),
                       ),
@@ -99,8 +99,8 @@ class ProductItem extends StatelessWidget {
                         padding: EdgeInsets.only(bottom: 10),
                         decoration: new BoxDecoration(
                           border: Border(
-                            bottom:
-                                BorderSide(width: 0.5, color: AppColor.grey500),
+                            bottom: BorderSide(
+                                width: 0.5, color: ChColor.initialization),
                           ),
                         ),
                         child: Row(

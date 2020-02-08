@@ -12,18 +12,18 @@ class ProductCategory extends StatelessWidget {
       headerAppBar: Container(
         alignment: Alignment.topLeft,
         padding: EdgeInsets.only(left: 20.0),
-        child: Text("Discovery", style: AppTextStyle.logo),
+        child: Text("Discovery", style: ChTextStyle.logo),
       ),
       child: ListView(
         children: <Widget>[
           Padding(
             padding: EdgeInsets.only(left: 20),
-            child: Text('Categories', style: AppTextStyle.title),
+            child: Text('Categories', style: ChTextStyle.title),
           ),
           CategoryView(),
           Padding(
             padding: EdgeInsets.only(left: 20, top: 20),
-            child: Text('Topics', style: AppTextStyle.title),
+            child: Text('Topics', style: ChTextStyle.title),
           ),
           TopicView(context),
         ],

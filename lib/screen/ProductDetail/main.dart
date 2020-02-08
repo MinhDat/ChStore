@@ -74,7 +74,7 @@ class _WidgetList extends State<ProductDetail> {
     });
 
     return Scaffold(
-      backgroundColor: AppColor.white,
+      backgroundColor: ChColor.main,
       body: Stack(
         children: <Widget>[
           ListView(
@@ -126,13 +126,13 @@ class _WidgetList extends State<ProductDetail> {
                             Padding(
                               padding: EdgeInsets.only(right: 20, left: 20),
                               child: Text(product.name,
-                                  style: AppTextStyle.cardName),
+                                  style: ChTextStyle.cardName),
                             ),
                             Padding(
                               padding: EdgeInsets.only(
                                   right: 20, left: 20, bottom: 10),
                               child: Text("\$${product.price}",
-                                  style: AppTextStyle.cardPrice),
+                                  style: ChTextStyle.cardPrice),
                             ),
                             Container(
                               key: _keySCContainer,
@@ -140,17 +140,17 @@ class _WidgetList extends State<ProductDetail> {
                                   left: 20, right: 20, top: 10, bottom: 10),
                               decoration: BoxDecoration(
                                 color:
-                                    AppColor.white.withOpacity(percentGradient),
+                                    ChColor.main.withOpacity(percentGradient),
                                 border: Border(
                                   bottom: BorderSide(
-                                    color: AppColor.grey200,
+                                    color: ChColor.initializationLight,
                                     width: 2.0,
                                   ),
                                 ),
                               ),
                               child: AddToCart(
                                 product,
-                                size: AppTextSize.size20,
+                                size: ChTextSize.size20,
                               ),
                             ),
                           ],
@@ -166,7 +166,7 @@ class _WidgetList extends State<ProductDetail> {
                         decoration: BoxDecoration(
                           border: Border(
                             bottom: BorderSide(
-                              color: AppColor.grey200,
+                              color: ChColor.initializationLight,
                               width: 1.0,
                             ),
                           ),
@@ -179,13 +179,13 @@ class _WidgetList extends State<ProductDetail> {
                                   flex: 4,
                                   child: Text(
                                     "Producer:",
-                                    style: AppTextStyle.label,
+                                    style: ChTextStyle.label,
                                   ),
                                 ),
                                 Expanded(
                                   flex: 6,
                                   child: Text(product.producer,
-                                      style: AppTextStyle.normal),
+                                      style: ChTextStyle.normal),
                                 ),
                               ],
                             ),
@@ -195,13 +195,13 @@ class _WidgetList extends State<ProductDetail> {
                                   flex: 4,
                                   child: Text(
                                     "Origin:",
-                                    style: AppTextStyle.label,
+                                    style: ChTextStyle.label,
                                   ),
                                 ),
                                 Expanded(
                                   flex: 6,
                                   child: Text(product.origin,
-                                      style: AppTextStyle.normal),
+                                      style: ChTextStyle.normal),
                                 ),
                               ],
                             ),
@@ -211,14 +211,14 @@ class _WidgetList extends State<ProductDetail> {
                                   flex: 4,
                                   child: Text(
                                     "Production Date:",
-                                    style: AppTextStyle.label,
+                                    style: ChTextStyle.label,
                                   ),
                                 ),
                                 Expanded(
                                   flex: 6,
                                   child: Text(
                                       "${product.productionDate.year}-${product.productionDate.month}-${product.productionDate.day}",
-                                      style: AppTextStyle.normal),
+                                      style: ChTextStyle.normal),
                                 ),
                               ],
                             )
@@ -229,7 +229,7 @@ class _WidgetList extends State<ProductDetail> {
                         padding: EdgeInsets.only(
                             top: 10, bottom: 10, right: 20, left: 20),
                         child: Text(product.description,
-                            style: AppTextStyle.normal),
+                            style: ChTextStyle.normal),
                       ),
                       Container(
                         padding: EdgeInsets.only(
@@ -237,11 +237,11 @@ class _WidgetList extends State<ProductDetail> {
                         decoration: BoxDecoration(
                           border: Border(
                             top: BorderSide(
-                              color: AppColor.grey200,
+                              color: ChColor.initializationLight,
                               width: 1.0,
                             ),
                             bottom: BorderSide(
-                              color: AppColor.grey200,
+                              color: ChColor.initializationLight,
                               width: 1.0,
                             ),
                           ),
@@ -288,20 +288,20 @@ class _WidgetList extends State<ProductDetail> {
                               child: TextField(
                                 decoration: InputDecoration(
                                   filled: true,
-                                  fillColor: AppColor.grey200,
+                                  fillColor: ChColor.initializationLight,
                                   contentPadding: const EdgeInsets.only(
                                       left: 14.0,
                                       right: 14.0,
                                       bottom: 5.0,
                                       top: 5.0),
                                   enabledBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: AppColor.grey200),
+                                    borderSide: BorderSide(
+                                        color: ChColor.initializationLight),
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: AppColor.grey200),
+                                    borderSide: BorderSide(
+                                        color: ChColor.initializationLight),
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
                                   hintText: 'Name',
@@ -314,15 +314,15 @@ class _WidgetList extends State<ProductDetail> {
                                 maxLines: 2,
                                 decoration: InputDecoration(
                                   filled: true,
-                                  fillColor: AppColor.grey200,
+                                  fillColor: ChColor.initializationLight,
                                   enabledBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: AppColor.grey200),
+                                    borderSide: BorderSide(
+                                        color: ChColor.initializationLight),
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: AppColor.grey200),
+                                    borderSide: BorderSide(
+                                        color: ChColor.initializationLight),
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
                                   hintText: 'Write something...',
@@ -456,7 +456,7 @@ class _WidgetList extends State<ProductDetail> {
                         decoration: BoxDecoration(
                           border: Border(
                             bottom: BorderSide(
-                              color: AppColor.grey200,
+                              color: ChColor.initializationLight,
                               width: 1.0,
                             ),
                           ),
@@ -504,7 +504,7 @@ class _WidgetList extends State<ProductDetail> {
             child: CircleButton(
               icon: Icon(
                 Icons.close,
-                color: AppColor.white,
+                color: ChColor.main,
               ),
               onTap: () {
                 Navigator.pop(context);
@@ -517,7 +517,7 @@ class _WidgetList extends State<ProductDetail> {
             child: IconButton(
               icon: Icon(Icons.favorite),
               iconSize: 35,
-              color: product.favorited ? AppColor.main : Colors.white,
+              color: product.favorited ? ChColor.primary : Colors.white,
               onPressed: () {
                 _favoriteHandle();
               },

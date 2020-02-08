@@ -1,7 +1,7 @@
 import 'package:ChStore/utils/main.dart';
 import 'package:flutter/material.dart';
 
-class AppTextSize {
+class ChTextSize {
   static double size14 = System.screenSize.width / 14;
   static double size15 = System.screenSize.width / 15;
   static double size16 = System.screenSize.width / 16;
@@ -13,107 +13,107 @@ class AppTextSize {
   static double size33 = System.screenSize.width / 33;
 }
 
-class AppTextStyle {
+class ChTextStyle {
   static TextStyle header = TextStyle(
-    fontSize: AppTextSize.size14,
+    fontSize: ChTextSize.size14,
     fontWeight: FontWeight.bold,
   );
   static TextStyle logo = TextStyle(
-    fontSize: AppTextSize.size14,
+    fontSize: ChTextSize.size14,
     fontWeight: FontWeight.bold,
-    color: AppColor.white,
+    color: ChColor.main,
   );
   static TextStyle date = TextStyle(
-    color: AppColor.black,
-    fontSize: AppTextSize.size26,
+    color: ChColor.label,
+    fontSize: ChTextSize.size26,
   );
   static TextStyle price = TextStyle(
-    fontSize: AppTextSize.size30,
+    fontSize: ChTextSize.size30,
   );
   static TextStyle title = TextStyle(
-    fontSize: AppTextSize.size14,
+    fontSize: ChTextSize.size14,
     fontWeight: FontWeight.bold,
   );
-  static TextStyle description = TextStyle(color: AppColor.grey);
+  static TextStyle description = TextStyle(color: ChColor.initialization);
   static TextStyle button = TextStyle(
-    fontSize: AppTextSize.size24,
-    color: AppColor.white,
+    fontSize: ChTextSize.size24,
+    color: ChColor.main,
   );
   static TextStyle cardName = TextStyle(
-    fontSize: AppTextSize.size15,
+    fontSize: ChTextSize.size15,
     fontWeight: FontWeight.bold,
-    color: AppColor.main,
+    color: ChColor.primary,
   );
   static TextStyle cardPrice = TextStyle(
-    fontSize: AppTextSize.size20,
-    color: AppColor.main,
+    fontSize: ChTextSize.size20,
+    color: ChColor.primary,
   );
   static TextStyle cardCounter = TextStyle(
-    fontSize: AppTextSize.size30,
-    color: AppColor.redAccent100,
+    fontSize: ChTextSize.size30,
+    color: ChColor.primaryLight,
   );
   static TextStyle label = TextStyle(
-    color: AppColor.black,
+    color: ChColor.label,
     fontWeight: FontWeight.bold,
-    fontSize: AppTextSize.size24,
+    fontSize: ChTextSize.size24,
   );
   static TextStyle normal = TextStyle(
-    color: AppColor.grey,
-    fontSize: AppTextSize.size24,
+    color: ChColor.initialization,
+    fontSize: ChTextSize.size24,
   );
   static TextStyle smallCardName = TextStyle(
-    fontSize: AppTextSize.size26,
+    fontSize: ChTextSize.size26,
     fontWeight: FontWeight.bold,
-    color: AppColor.white,
+    color: ChColor.main,
   );
   static TextStyle smallCardPrice = TextStyle(
-    fontSize: AppTextSize.size33,
-    color: AppColor.white,
+    fontSize: ChTextSize.size33,
+    color: ChColor.main,
   );
   static TextStyle scrollHeader = TextStyle(
-    color: AppColor.white,
+    color: ChColor.main,
     fontWeight: FontWeight.w600,
-    fontSize: AppTextSize.size30,
+    fontSize: ChTextSize.size26,
   );
   static TextStyle topic = TextStyle(
-    fontSize: AppTextSize.size14,
+    fontSize: ChTextSize.size14,
     fontWeight: FontWeight.bold,
-    color: AppColor.main,
+    color: ChColor.primary,
   );
   static TextStyle popularCategory = TextStyle(
-    color: AppColor.main,
-    fontSize: AppTextSize.size22,
+    color: ChColor.primary,
+    fontSize: ChTextSize.size22,
   );
   static TextStyle popularTag = TextStyle(
-    color: AppColor.main,
-    fontSize: AppTextSize.size20,
+    color: ChColor.primary,
+    fontSize: ChTextSize.size20,
   );
   static TextStyle categoryLabel = TextStyle(
-    fontSize: AppTextSize.size30,
+    fontSize: ChTextSize.size30,
     fontWeight: FontWeight.bold,
-    color: AppColor.grey400,
+    color: ChColor.background,
   );
   static TextStyle itemName = TextStyle(
-    fontSize: AppTextSize.size22,
+    fontSize: ChTextSize.size22,
     fontWeight: FontWeight.bold,
   );
-  static TextStyle buttonLink = TextStyle(
-    fontSize: AppTextSize.size22,
-    color: AppColor.blue,
+  static TextStyle link = TextStyle(
+    fontSize: ChTextSize.size22,
+    color: ChColor.link,
   );
-  static TextStyle searchPlaceHolder = TextStyle(color: AppColor.grey500);
+  static TextStyle searchPlaceHolder = TextStyle(color: ChColor.initialization);
   static TextStyle noItem = TextStyle(
-    color: AppColor.grey400,
+    color: ChColor.background,
     fontStyle: FontStyle.italic,
-    fontSize: AppTextSize.size20,
+    fontSize: ChTextSize.size20,
   );
 
   static TextStyle buttonCart(double textSize) => TextStyle(
         fontSize: textSize,
-        color: AppColor.white,
+        color: ChColor.main,
       );
   static TextStyle flexColor(color) => TextStyle(
         color: color,
-        fontSize: AppTextSize.size33,
+        fontSize: ChTextSize.size33,
       );
 }

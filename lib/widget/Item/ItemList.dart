@@ -64,7 +64,7 @@ class ItemListState extends State<ItemList> {
         }
     }
     return Center(
-      child: Text("No items", style: AppTextStyle.noItem),
+      child: Text("No items", style: ChTextStyle.noItem),
     );
   }
 }
@@ -73,7 +73,7 @@ Widget stackBehindDismiss() {
   return Container(
     alignment: Alignment.centerRight,
     padding: EdgeInsets.only(right: 20.0),
-    color: AppColor.red300,
+    color: ChColor.primaryLight,
     child: Icon(
       Icons.delete,
       color: Colors.white,

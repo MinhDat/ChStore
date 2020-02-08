@@ -20,7 +20,7 @@ class PersonalState extends State<Personal> {
           decoration: new BoxDecoration(
               border: Border(
             bottom: BorderSide(
-              color: AppColor.grey400,
+              color: ChColor.background,
               width: 5.0,
             ),
           )),
@@ -61,7 +61,7 @@ class PersonalState extends State<Personal> {
           decoration: new BoxDecoration(
             border: Border(
               bottom: BorderSide(
-                color: AppColor.grey400,
+                color: ChColor.background,
                 width: 5.0,
               ),
             ),
@@ -80,7 +80,7 @@ class PersonalState extends State<Personal> {
                 decoration: new BoxDecoration(
                   border: Border(
                     bottom: BorderSide(
-                      color: AppColor.grey400,
+                      color: ChColor.background,
                       width: 1.0,
                     ),
                   ),
@@ -98,7 +98,7 @@ class PersonalState extends State<Personal> {
                 decoration: new BoxDecoration(
                   border: Border(
                     bottom: BorderSide(
-                      color: AppColor.grey400,
+                      color: ChColor.background,
                       width: 1.0,
                     ),
                   ),
@@ -111,7 +111,7 @@ class PersonalState extends State<Personal> {
                 decoration: new BoxDecoration(
                   border: Border(
                     bottom: BorderSide(
-                      color: AppColor.grey400,
+                      color: ChColor.background,
                       width: 1.0,
                     ),
                   ),

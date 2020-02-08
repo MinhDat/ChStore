@@ -1,5 +1,5 @@
-import 'package:ChStore/utils/AppColor.dart';
-import 'package:ChStore/utils/AppTextStyle.dart';
+import 'package:ChStore/utils/ChColor.dart';
+import 'package:ChStore/utils/ChTextStyle.dart';
 import 'package:ChStore/utils/main.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +24,7 @@ class ScrollableHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColor.white,
+      color: ChColor.background,
       child: SafeArea(
         child: NestedScrollView(
           controller: scrollController ?? ScrollController(),
@@ -32,7 +32,7 @@ class ScrollableHeader extends StatelessWidget {
               <Widget>[
             SliverPersistentHeader(
               delegate: SliverHeader(
-                headerHeight: 40,
+                headerHeight: 45,
                 isAutoScroll: isAutoScroll,
                 title: title,
                 enableIcon: enableIcon,
@@ -40,7 +40,7 @@ class ScrollableHeader extends StatelessWidget {
               pinned: true,
             ),
             SliverAppBar(
-              backgroundColor: AppColor.red400,
+              backgroundColor: ChColor.primary,
               pinned: true,
               expandedHeight:
                   isAutoScroll ? 0.0 : (childAppBar != null ? 100 : 45),
@@ -86,7 +86,7 @@ class SliverHeader extends SliverPersistentHeaderDelegate {
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
-      color: AppColor.red400,
+      color: ChColor.primary,
       child: Stack(
         fit: StackFit.expand,
         overflow: Overflow.visible,
@@ -98,15 +98,12 @@ class SliverHeader extends SliverPersistentHeaderDelegate {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   enableIcon
-                      ? Padding(
-                          padding: EdgeInsets.only(left: 20, right: 5),
-                          child: Image.asset('icons/ChStore_white.png',
-                              height: System.screenSize.width * 0.08,
-                              width: System.screenSize.width * 0.08,
-                              fit: BoxFit.cover),
-                        )
+                      ? Image.asset('icons/ChStore_white.png',
+                          height: System.screenSize.width * 0.05,
+                          width: System.screenSize.width * 0.05,
+                          fit: BoxFit.cover)
                       : SizedBox.shrink(),
-                  Text(this.title, style: AppTextStyle.scrollHeader),
+                  Text(this.title, style: ChTextStyle.scrollHeader),
                 ],
               ),
             ),

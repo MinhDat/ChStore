@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ChStore/utils/AppTextStyle.dart';
+import 'package:ChStore/utils/ChTextStyle.dart';
 
 class SocialInfo extends StatelessWidget {
   SocialInfo(this.content, {this.bgColor, this.textColor, this.assetImage});
@@ -19,7 +19,7 @@ class SocialInfo extends StatelessWidget {
           assetImage,
           Padding(
             padding: EdgeInsets.only(left: 10),
-            child: Text(content, style: AppTextStyle.flexColor(textColor)),
+            child: Text(content, style: ChTextStyle.flexColor(textColor)),
           ),
         ],
       ),

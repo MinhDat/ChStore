@@ -1,7 +1,7 @@
 import 'package:ChStore/utils/main.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/utils/AppColor.dart';
+import 'package:ChStore/utils/ChColor.dart';
 
 //Focus Type
 const UNFOCUSED_TEXT = false;
@@ -82,19 +82,21 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                     },
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: AppColor.grey200,
+                      fillColor: ChColor.initializationLight,
                       prefixIcon: new Icon(
                         Icons.search,
-                        color: AppColor.grey,
+                        color: ChColor.initialization,
                       ),
                       contentPadding:
                           const EdgeInsets.only(left: 14, right: 14),
                       enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: AppColor.grey200),
+                        borderSide:
+                            BorderSide(color: ChColor.initializationLight),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: AppColor.grey200),
+                        borderSide:
+                            BorderSide(color: ChColor.initializationLight),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       hintText: 'Enter a search term',
@@ -109,8 +111,9 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                       alignment: Alignment.centerLeft,
                       padding: const EdgeInsets.only(left: 11.0),
                       decoration: BoxDecoration(
-                        color: AppColor.white,
-                        border: new Border.all(color: AppColor.grey200),
+                        color: ChColor.main,
+                        border:
+                            new Border.all(color: ChColor.initializationLight),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       child: Row(
@@ -119,7 +122,7 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                         children: <Widget>[
                           Icon(
                             Icons.search,
-                            color: AppColor.grey500,
+                            color: ChColor.initialization,
                           ),
                           Padding(
                             padding: const EdgeInsets.only(
@@ -127,7 +130,7 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                               top: 2.0,
                             ),
                             child: Text('Enter a search term',
-                                style: AppTextStyle.searchPlaceHolder),
+                                style: ChTextStyle.searchPlaceHolder),
                           )
                         ],
                       ),
@@ -146,7 +149,7 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                       child: AnimatedContainer(
                         duration: Duration(seconds: 1),
                         alignment: Alignment.center,
-                        child: Text("Cancel", style: AppTextStyle.buttonLink),
+                        child: Text("Cancel", style: ChTextStyle.link),
                       ),
                     ),
                   ),

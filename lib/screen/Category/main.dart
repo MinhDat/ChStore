@@ -14,7 +14,7 @@ class Category extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("${_topic.name}", style: AppTextStyle.normal),
+        title: Text("${_topic.name}", style: ChTextStyle.normal),
       ),
       body: BlocBuilder<DataBloc, DataState>(builder: (context, state) {
         if (state is DataError) {
@@ -25,7 +25,7 @@ class Category extends StatelessWidget {
         if (state is DataLoaded) {
           if (state.products.isEmpty) {
             return Center(
-              child: Text("No items", style: AppTextStyle.noItem),
+              child: Text("No items", style: ChTextStyle.noItem),
             );
           }
           List dataList = state.products

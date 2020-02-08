@@ -93,7 +93,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
                   'icons/today-icon.png',
                   height: 22,
                   width: 22,
-                  color: index == 0 ? AppColor.main : AppColor.unfocused,
+                  color: index == 0 ? ChColor.primary : ChColor.unfocused,
                 ),
                 title: SizedBox.shrink(),
               ),
@@ -102,7 +102,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
                   'icons/toggle-menu-icon.png',
                   height: 22,
                   width: 22,
-                  color: index == 1 ? AppColor.main : AppColor.unfocused,
+                  color: index == 1 ? ChColor.primary : ChColor.unfocused,
                 ),
                 title: SizedBox.shrink(),
               ),
@@ -111,7 +111,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
                   'icons/search-icon.png',
                   height: 22,
                   width: 22,
-                  color: index == 2 ? AppColor.main : AppColor.unfocused,
+                  color: index == 2 ? ChColor.primary : ChColor.unfocused,
                 ),
                 title: SizedBox.shrink(),
               ),
@@ -128,7 +128,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
                           Icons.shopping_cart,
                           key: _keyShoppingCart,
                           color:
-                              index == 3 ? AppColor.main : AppColor.unfocused,
+                              index == 3 ? ChColor.primary : ChColor.unfocused,
                         ),
                       ),
                       Positioned(
@@ -138,7 +138,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
                             builder: (context, count) {
                           return count > 0
                               ? Text("$count",
-                                  style: AppTextStyle.flexColor(AppColor.main))
+                                  style: ChTextStyle.flexColor(ChColor.primary))
                               : SizedBox.shrink();
                         }),
                       )
@@ -150,7 +150,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.person,
-                  color: index == 4 ? AppColor.main : AppColor.unfocused,
+                  color: index == 4 ? ChColor.primary : ChColor.unfocused,
                 ),
                 title: SizedBox.shrink(),
               ),
@@ -162,7 +162,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
           child: Opacity(
             opacity: _visibleAnimate,
             child: Container(
-                width: 10.0, height: 10.0, color: AppColor.redAccent100),
+                width: 10.0, height: 10.0, color: ChColor.primaryLight),
           ),
         ),
       ],

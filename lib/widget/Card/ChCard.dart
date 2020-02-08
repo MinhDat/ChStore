@@ -1,4 +1,4 @@
-import 'package:ChStore/utils/AppTextStyle.dart';
+import 'package:ChStore/utils/ChTextStyle.dart';
 import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
 import 'package:ChStore/model/main.dart';
@@ -29,7 +29,7 @@ class ChCard extends StatelessWidget {
           width: _itemWidth,
           fit: BoxFit.cover,
         ),
-      ),
+      )
     ];
 
     switch (type) {
@@ -78,8 +78,8 @@ class ChCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(product.name, style: AppTextStyle.cardName, maxLines: 2),
-            Text("\$${product.price}", style: AppTextStyle.cardPrice)
+            Text(product.name, style: ChTextStyle.cardName, maxLines: 2),
+            Text("\$${product.price}", style: ChTextStyle.cardPrice)
           ],
         ),
       ),

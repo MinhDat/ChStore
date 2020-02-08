@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:ChStore/widget/Button/Progress/RadialPainter.dart';
-import 'package:ChStore/utils/AppColor.dart';
+import 'package:ChStore/utils/ChColor.dart';
 
 const RADIAL_ACTIVE = true;
 const RADIAL_DEACTIVE = false;
@@ -85,8 +85,8 @@ class RadialProgressState extends State<RadialProgress> {
         margin: EdgeInsets.only(left: 10, right: 10),
         child: CustomPaint(
           foregroundPainter: RadialPainter(
-              lineColor: AppColor.white,
-              completeColor: AppColor.green,
+              lineColor: ChColor.main,
+              completeColor: ChColor.complete,
               completePercent: percentage,
               width: 2.0),
           child: Padding(
@@ -95,7 +95,7 @@ class RadialProgressState extends State<RadialProgress> {
               height: 45.0,
               width: 45.0,
               decoration: BoxDecoration(
-                color: AppColor.white,
+                color: ChColor.main,
                 shape: BoxShape.circle,
               ),
               child: widget.child,

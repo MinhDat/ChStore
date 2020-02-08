@@ -15,7 +15,7 @@ class Profile extends StatelessWidget {
     double analyticSize = profileSize / 4;
 
     return Scaffold(
-      backgroundColor: AppColor.grey200,
+      backgroundColor: ChColor.initializationLight,
       body: Stack(
         children: <Widget>[
           Positioned(
@@ -49,15 +49,15 @@ class Profile extends StatelessWidget {
                           child: Container(
                             padding: EdgeInsets.only(top: avatarSize),
                             decoration: new BoxDecoration(
-                              color: AppColor.white,
+                              color: ChColor.main,
                               borderRadius:
                                   new BorderRadius.all(Radius.circular(5)),
                             ),
                             child: Column(
                               children: [
-                                Text("Charlie", style: AppTextStyle.title),
+                                Text("Charlie", style: ChTextStyle.title),
                                 Text("Software Developer",
-                                    style: AppTextStyle.description),
+                                    style: ChTextStyle.description),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: <Widget>[
@@ -68,8 +68,8 @@ class Profile extends StatelessWidget {
                                             left: 20, right: 10),
                                         child: SocialInfo(
                                           "Facebook",
-                                          bgColor: AppColor.facebook,
-                                          textColor: AppColor.white,
+                                          bgColor: ChColor.facebook,
+                                          textColor: ChColor.main,
                                           assetImage: Image.asset(
                                             'icons/facebook_white.png',
                                             height: 15,
@@ -85,13 +85,13 @@ class Profile extends StatelessWidget {
                                             left: 10, right: 20),
                                         child: SocialInfo(
                                           "Zalo",
-                                          bgColor: AppColor.zalo,
-                                          textColor: AppColor.white,
+                                          bgColor: ChColor.zalo,
+                                          textColor: ChColor.main,
                                           assetImage: Image.asset(
                                             'icons/zalo.png',
                                             height: 20,
                                             width: 20,
-                                            color: AppColor.white,
+                                            color: ChColor.main,
                                           ),
                                         ),
                                       ),
@@ -120,7 +120,7 @@ class Profile extends StatelessWidget {
                     child: Container(
                       height: analyticSize,
                       decoration: new BoxDecoration(
-                        color: AppColor.white,
+                        color: ChColor.main,
                         borderRadius: new BorderRadius.all(Radius.circular(5)),
                       ),
                       child: Row(
@@ -130,18 +130,18 @@ class Profile extends StatelessWidget {
                             padding: EdgeInsets.only(left: 10, right: 10),
                             child: Icon(Icons.shopping_basket),
                           ),
-                          Text("| 56", style: AppTextStyle.normal),
+                          Text("| 56", style: ChTextStyle.normal),
                           Padding(
                             padding: EdgeInsets.only(left: 10, right: 10),
                             child: Image.asset('icons/like.png',
                                 height: 25, width: 25),
                           ),
-                          Text("| 200", style: AppTextStyle.normal),
+                          Text("| 200", style: ChTextStyle.normal),
                           Padding(
                             padding: EdgeInsets.only(left: 10, right: 10),
                             child: Icon(Icons.share),
                           ),
-                          Text("| 496", style: AppTextStyle.normal),
+                          Text("| 496", style: ChTextStyle.normal),
                         ],
                       ),
                     ),
@@ -151,7 +151,7 @@ class Profile extends StatelessWidget {
                     child: Container(
                       // height: activeSize,
                       decoration: new BoxDecoration(
-                        color: AppColor.white,
+                        color: ChColor.main,
                         borderRadius: new BorderRadius.all(Radius.circular(5)),
                       ),
                       child: BlocBuilder<DataBloc, DataState>(
@@ -175,7 +175,7 @@ class Profile extends StatelessWidget {
                               child: Stack(
                                 children: [
                                   Text("All products",
-                                      style: AppTextStyle.title),
+                                      style: ChTextStyle.title),
                                   Positioned(
                                     right: 20,
                                     bottom: 0,
@@ -185,7 +185,7 @@ class Profile extends StatelessWidget {
                                             context, '/product-list');
                                       },
                                       child: Text("See All",
-                                          style: AppTextStyle.buttonLink),
+                                          style: ChTextStyle.link),
                                     ),
                                   )
                                 ],
@@ -209,7 +209,7 @@ class Profile extends StatelessWidget {
             child: CircleButton(
               icon: Icon(
                 Icons.close,
-                color: AppColor.main,
+                color: ChColor.primary,
               ),
               bgColor: Colors.white.withOpacity(0.6),
               onTap: () {

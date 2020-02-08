@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:ChStore/widget/Button/Progress/LinearPagePainter.dart';
-import 'package:ChStore/utils/AppColor.dart';
+import 'package:ChStore/utils/ChColor.dart';
 
 class LinearPageProgress extends StatefulWidget {
   bool active;
@@ -79,8 +79,8 @@ class LinearPageProgressState extends State<LinearPageProgress> {
         margin: EdgeInsets.only(top: 35),
         child: CustomPaint(
           foregroundPainter: LinearPagePainter(
-            lineColor: AppColor.grey,
-            completeColor: AppColor.white,
+            lineColor: ChColor.initialization,
+            completeColor: ChColor.main,
             completePercent: percentage,
             width: 5,
           ),

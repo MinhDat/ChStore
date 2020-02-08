@@ -93,8 +93,7 @@ class _SmallChCardListState extends State<SmallChCardList> {
         child: Container(
           alignment: Alignment.bottomLeft,
           padding: EdgeInsets.only(left: 10.0, bottom: 10.0),
-          child:
-              Text(data.name, style: AppTextStyle.smallCardName, maxLines: 3),
+          child: Text(data.name, style: ChTextStyle.smallCardName, maxLines: 3),
         ),
       ),
     ];
@@ -121,12 +120,11 @@ class _SmallChCardListState extends State<SmallChCardList> {
                 border: Border(
                   bottom: BorderSide(
                     width: 1.0,
-                    color: AppColor.white,
+                    color: ChColor.main,
                   ),
                 ),
               ),
-              child:
-                  Text("\$${data.price}", style: AppTextStyle.smallCardPrice),
+              child: Text("\$${data.price}", style: ChTextStyle.smallCardPrice),
             ),
           ),
         );
@@ -167,27 +165,23 @@ class _SmallChCardListState extends State<SmallChCardList> {
             right: rightOffset,
             top: 10.0,
             left: leftOffset,
-            child: Opacity(
-              opacity: 0.3,
-              child: Container(
-                decoration: new BoxDecoration(
-                  borderRadius: new BorderRadius.only(
-                    bottomLeft: Radius.circular(10.0),
-                    bottomRight: Radius.circular(10.0),
-                  ),
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      AppColor.white,
-                      AppColor.black,
-                    ],
-                  ),
+            child: Container(
+              decoration: new BoxDecoration(
+                borderRadius: new BorderRadius.only(
+                  bottomLeft: Radius.circular(10.0),
+                  bottomRight: Radius.circular(10.0),
                 ),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: nameDes),
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    ChColor.main.withOpacity(0.3),
+                    ChColor.shadow.withOpacity(0.3),
+                  ],
+                ),
               ),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end, children: nameDes),
             ),
           ),
         ],

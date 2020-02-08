@@ -1,7 +1,7 @@
 import 'package:ChStore/utils/main.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/utils/AppColor.dart';
+import 'package:ChStore/utils/ChColor.dart';
 import 'package:ChStore/widget/main.dart';
 
 class Search extends StatefulWidget {
@@ -71,13 +71,13 @@ class _WidgetList extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColor.white,
+      color: ChColor.main,
       child: ScrollableHeader(
         title: "Search",
         headerAppBar: Container(
           alignment: Alignment.topLeft,
           padding: EdgeInsets.only(left: 20.0, bottom: 20),
-          child: Text("Search", style: AppTextStyle.logo),
+          child: Text("Search", style: ChTextStyle.logo),
         ),
         childAppBar: SearchBox(
           isFocused: _isFocused,
@@ -98,9 +98,8 @@ class _WidgetList extends State<Search> {
                       top: 0,
                       left: 0,
                       child: Scaffold(
-                        backgroundColor: _hasWords
-                            ? AppColor.white
-                            : AppColor.blackWithOpacity0_5,
+                        backgroundColor:
+                            _hasWords ? ChColor.main : ChColor.foreground,
                         body: _hasWords ? SearchResult() : SizedBox.shrink(),
                       ),
                     )

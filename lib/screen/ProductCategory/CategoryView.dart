@@ -16,7 +16,7 @@ class CategoryView extends StatelessWidget {
       if (state is DataLoaded) {
         if (state.categories.isEmpty) {
           return Center(
-            child: Text("No items", style: AppTextStyle.noItem),
+            child: Text("No items", style: ChTextStyle.noItem),
           );
         }
         return SmallChCardList(context,

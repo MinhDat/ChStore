@@ -46,7 +46,7 @@ class SearchResultState extends State<SearchResult> {
                 if (state is DataLoaded) {
                   if (state.products.isEmpty) {
                     return Center(
-                      child: Text("No items", style: AppTextStyle.noItem),
+                      child: Text("No items", style: ChTextStyle.noItem),
                     );
                   }
                   return ItemList(

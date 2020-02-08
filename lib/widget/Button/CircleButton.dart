@@ -1,4 +1,4 @@
-import 'package:ChStore/utils/AppColor.dart';
+import 'package:ChStore/utils/ChColor.dart';
 import 'package:flutter/material.dart';
 
 class CircleButton extends StatelessWidget {
@@ -19,7 +19,7 @@ class CircleButton extends StatelessWidget {
         width: size,
         height: size,
         decoration: new BoxDecoration(
-          color: this.bgColor ?? AppColor.main.withOpacity(0.6),
+          color: this.bgColor ?? ChColor.primary.withOpacity(0.6),
           shape: BoxShape.circle,
         ),
         child: icon,

@@ -83,7 +83,7 @@ class ShoppingCartState extends State<ShoppingCart> {
         headerAppBar: Container(
           alignment: Alignment.topLeft,
           padding: EdgeInsets.only(left: 20.0, bottom: 20),
-          child: Text("Shopping Cart", style: AppTextStyle.logo),
+          child: Text("Shopping Cart", style: ChTextStyle.logo),
         ),
         scrollController: _scrollController,
         childAppBar: Padding(
@@ -94,7 +94,7 @@ class ShoppingCartState extends State<ShoppingCart> {
                 active: RADIAL_ACTIVE,
                 child: Icon(
                   Icons.shopping_basket,
-                  color: AppColor.green,
+                  color: ChColor.complete,
                 ),
               ),
               LinearProgress(key: globalLinearCheckOutKey),
@@ -102,7 +102,9 @@ class ShoppingCartState extends State<ShoppingCart> {
                 key: globalRadialCheckOutKey,
                 child: Icon(
                   Icons.attach_money,
-                  color: _currentIndex > 0 ? AppColor.green : AppColor.grey,
+                  color: _currentIndex > 0
+                      ? ChColor.complete
+                      : ChColor.initialization,
                 ),
               ),
               LinearProgress(key: globalLinearDoneKey),
@@ -110,7 +112,9 @@ class ShoppingCartState extends State<ShoppingCart> {
                 key: globalRadialDoneKey,
                 child: Icon(
                   Icons.done,
-                  color: _currentIndex > 1 ? AppColor.green : AppColor.grey,
+                  color: _currentIndex > 1
+                      ? ChColor.complete
+                      : ChColor.initialization,
                 ),
               ),
             ],
@@ -122,7 +126,7 @@ class ShoppingCartState extends State<ShoppingCart> {
           children: [
             ItemList(type: SHOPPING_CART_LIST_TYPE),
             CheckOut(),
-            Text("Completed payment", style: AppTextStyle.normal)
+            Text("Completed payment", style: ChTextStyle.normal)
           ],
         ),
       ),
@@ -133,18 +137,18 @@ class ShoppingCartState extends State<ShoppingCart> {
           Expanded(
             flex: 5,
             child: FlatButton(
-              color: AppColor.grey400,
+              color: ChColor.background,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Icon(
                     Icons.arrow_back,
-                    color: AppColor.white,
+                    color: ChColor.main,
                   ),
                   Padding(
                     padding: EdgeInsets.all(20),
-                    child: Text("Back", style: AppTextStyle.button),
+                    child: Text("Back", style: ChTextStyle.button),
                   ),
                 ],
               ),
@@ -156,18 +160,18 @@ class ShoppingCartState extends State<ShoppingCart> {
           Expanded(
             flex: 5,
             child: FlatButton(
-              color: AppColor.redAccent100,
+              color: ChColor.primaryLight,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
                     padding: EdgeInsets.all(20),
-                    child: Text("Next", style: AppTextStyle.button),
+                    child: Text("Next", style: ChTextStyle.button),
                   ),
                   Icon(
                     Icons.arrow_forward,
-                    color: AppColor.white,
+                    color: ChColor.main,
                   ),
                 ],
               ),

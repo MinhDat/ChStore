@@ -33,9 +33,10 @@ class BLoCRenderItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
-                margin: EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                margin: EdgeInsets.all(20),
+                padding: EdgeInsets.only(top: 10, bottom: 10),
                 decoration: new BoxDecoration(
-                  color: AppColor.white,
+                  color: ChColor.main,
                   borderRadius: new BorderRadius.all(Radius.circular(10)),
                 ),
                 child: Column(children: [
@@ -45,12 +46,12 @@ class BLoCRenderItem extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.only(left: 20, bottom: 10),
-                child: Text("Today", style: AppTextStyle.title),
+                child: Text("Today", style: ChTextStyle.title),
               ),
               ChCardPage(state.products.getRange(14, 20).toList()),
               Padding(
                 padding: EdgeInsets.only(top: 20, left: 20, bottom: 10),
-                child: Text("News", style: AppTextStyle.title),
+                child: Text("News", style: ChTextStyle.title),
               ),
               Padding(
                 padding: EdgeInsets.only(bottom: 10),
@@ -60,22 +61,23 @@ class BLoCRenderItem extends StatelessWidget {
                 padding:
                     EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 10),
                 width: System.screenSize.width,
-                color: AppColor.white,
+                color: ChColor.main,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("All products", style: AppTextStyle.title),
+                    Text("All products", style: ChTextStyle.title),
                     GestureDetector(
                       onTap: () =>
                           Navigator.pushNamed(context, '/product-list'),
-                      child: Text("See All", style: AppTextStyle.buttonLink),
+                      child: Text("See All", style: ChTextStyle.link),
                     ),
                   ],
                 ),
               ),
               Container(
                 margin: EdgeInsets.only(bottom: 10),
-                color: AppColor.white,
+                padding: EdgeInsets.only(bottom: 10),
+                color: ChColor.main,
                 child:
                     ItemList(products: state.products.getRange(0, 7).toList()),
               ),
@@ -83,34 +85,36 @@ class BLoCRenderItem extends StatelessWidget {
                 padding:
                     EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 10),
                 width: System.screenSize.width,
-                color: AppColor.white,
-                child: Text("Hashtags", style: AppTextStyle.title),
+                color: ChColor.main,
+                child: Text("Hashtags", style: ChTextStyle.title),
               ),
               Container(
                 margin: EdgeInsets.only(bottom: 10),
-                color: AppColor.white,
+                padding: EdgeInsets.only(bottom: 10),
+                color: ChColor.main,
                 child: PopularCategories(),
               ),
               Container(
                 padding:
                     EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 10),
                 width: System.screenSize.width,
-                color: AppColor.white,
+                color: ChColor.main,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Top trends", style: AppTextStyle.title),
+                    Text("Top trends", style: ChTextStyle.title),
                     GestureDetector(
                       onTap: () =>
                           Navigator.pushNamed(context, '/product-list'),
-                      child: Text("See All", style: AppTextStyle.buttonLink),
+                      child: Text("See All", style: ChTextStyle.link),
                     ),
                   ],
                 ),
               ),
               Container(
                 margin: EdgeInsets.only(bottom: 10),
-                color: AppColor.white,
+                padding: EdgeInsets.only(bottom: 10),
+                color: ChColor.main,
                 child: SmallChCardList(
                   context,
                   dataList: state.products.getRange(14, 20).toList(),
@@ -120,12 +124,12 @@ class BLoCRenderItem extends StatelessWidget {
                 padding:
                     EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 10),
                 width: System.screenSize.width,
-                color: AppColor.white,
-                child: Text("Populations", style: AppTextStyle.title),
+                color: ChColor.main,
+                child: Text("Populations", style: ChTextStyle.title),
               ),
               Container(
-                margin: EdgeInsets.only(bottom: 10),
-                color: AppColor.white,
+                padding: EdgeInsets.only(bottom: 10),
+                color: ChColor.main,
                 child: PopularTags(),
               ),
             ],

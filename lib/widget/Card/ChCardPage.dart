@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:ChStore/utils/AppColor.dart';
+import 'package:ChStore/utils/ChColor.dart';
 import 'package:ChStore/utils/System.dart';
 import 'package:ChStore/widget/Button/Progress/LinearPageProgress.dart';
 import 'package:ChStore/widget/ProgressList/main.dart';
@@ -107,7 +107,7 @@ class ChCardPageState extends State<ChCardPage> {
       decoration: new BoxDecoration(
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: AppColor.black38,
+            color: ChColor.shadow,
             offset: Offset(0.0, 3.0),
             blurRadius: 20.0,
           ),

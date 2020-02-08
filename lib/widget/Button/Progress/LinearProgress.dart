@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
 import 'package:ChStore/widget/Button/Progress/LinearPainter.dart';
-import 'package:ChStore/utils/AppColor.dart';
+import 'package:ChStore/utils/ChColor.dart';
 
 const LINEAR_ACTIVE = true;
 const LINEAR_DEACTIVE = false;
@@ -85,8 +85,8 @@ class LinearProgressState extends State<LinearProgress> {
         width: (System.screenSize.width - 65 * 3 - 20) / 2.0,
         child: CustomPaint(
           foregroundPainter: LinearPainter(
-            lineColor: AppColor.white,
-            completeColor: AppColor.green,
+            lineColor: ChColor.main,
+            completeColor: ChColor.complete,
             completePercent: percentage,
             width: 2,
           ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/utils/main.dart';
-import 'package:ChStore/model/main.dart';
 
 //Template Type
 const PRODUCTS_TYPE = 0;
@@ -15,7 +14,7 @@ class SmallChCardList extends StatefulWidget {
   List dataList = [];
 
   @override
-  _SmallChCardListState createState() => new _SmallChCardListState();
+  _SmallChCardListState createState() => _SmallChCardListState();
 }
 
 class _SmallChCardListState extends State<SmallChCardList> {
@@ -100,30 +99,19 @@ class _SmallChCardListState extends State<SmallChCardList> {
 
     switch (widget.type) {
       case CATEGORIES_TYPE:
-        bgImage = Image.asset(
-          data.image,
-          fit: BoxFit.cover,
-        );
+        bgImage = Image.asset(data.image, fit: BoxFit.cover);
         break;
       case PRODUCTS_TYPE:
-        bgImage = Image.network(
-          data.thumbnail,
-          fit: BoxFit.cover,
-        );
+        bgImage = Image.network(data.thumbnail, fit: BoxFit.cover);
         nameDes.add(
           Expanded(
             flex: 2,
             child: Container(
               alignment: Alignment.centerLeft,
               padding: EdgeInsets.only(left: 10.0),
-              decoration: new BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(
-                    width: 1.0,
-                    color: ChColor.main,
-                  ),
-                ),
-              ),
+              decoration: BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(width: 1.0, color: ChColor.main))),
               child: Text("\$${data.price}", style: ChTextStyle.smallCardPrice),
             ),
           ),
@@ -156,21 +144,16 @@ class _SmallChCardListState extends State<SmallChCardList> {
               right: rightOffset,
             ),
             child: ClipRRect(
-              borderRadius: new BorderRadius.circular(10.0),
-              child: bgImage,
-            ),
+                borderRadius: BorderRadius.circular(10.0), child: bgImage),
           ),
           Positioned(
             bottom: 0,
             right: rightOffset,
-            top: 10.0,
+            top: 20.0,
             left: leftOffset,
             child: Container(
-              decoration: new BoxDecoration(
-                borderRadius: new BorderRadius.only(
-                  bottomLeft: Radius.circular(10.0),
-                  bottomRight: Radius.circular(10.0),
-                ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,

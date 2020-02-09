@@ -23,7 +23,7 @@ class _WidgetList extends State<Search> {
     _hasWords = NO_WORDS;
     _scrollController = ScrollController()
       ..addListener(() {
-        if (_scrollController.offset == 40.0) {
+        if (_scrollController.offset == HEADER_HEIGHT) {
           setState(() {
             _isFocused = FOCUSED_TEXT;
             _scrollController.jumpTo(0.0);
@@ -41,7 +41,7 @@ class _WidgetList extends State<Search> {
   void _onFocused() {
     if (_isFocused == UNFOCUSED_TEXT) {
       _scrollController.animateTo(
-        40.0,
+        HEADER_HEIGHT,
         duration: Duration(milliseconds: 500),
         curve: Curves.ease,
       );
@@ -85,7 +85,7 @@ class _WidgetList extends State<Search> {
           onUnfocused: _onUnfocused,
           onChangeWords: _onChangeWords,
         ),
-        isAutoScroll: _isFocused,
+        isFocused: _isFocused,
         scrollController: _scrollController,
         child: Container(
           child: Stack(

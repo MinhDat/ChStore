@@ -40,20 +40,25 @@ class _HomePageState extends State<HomePage> {
   ScrollController _scrollController;
   bool _isFocused;
   bool _hasWords;
+  bool _isShowHeader;
 
   @override
   void initState() {
     super.initState();
     _isFocused = UNFOCUSED_TEXT;
     _hasWords = NO_WORDS;
+    _isShowHeader = true;
     _scrollController = ScrollController()
       ..addListener(() {
-        if (_scrollController.offset == 40.0) {
+        if (_scrollController.offset == HEADER_HEIGHT) {
           setState(() {
             _isFocused = FOCUSED_TEXT;
             _scrollController.jumpTo(0.0);
           });
         }
+        setState(() {
+          _isShowHeader = _scrollController.offset < HEADER_HEIGHT;
+        });
       });
   }
 
@@ -99,13 +104,14 @@ class _HomePageState extends State<HomePage> {
       title: "ChStore",
       enableIcon: true,
       headerAppBar: Header(),
+      isShowHeader: _isShowHeader,
       childAppBar: SearchBox(
         isFocused: _isFocused,
         onFocused: _onFocused,
         onUnfocused: _onUnfocused,
         onChangeWords: _onChangeWords,
       ),
-      isAutoScroll: _isFocused,
+      isFocused: _isFocused,
       scrollController: _scrollController,
       child: Stack(
         children: [

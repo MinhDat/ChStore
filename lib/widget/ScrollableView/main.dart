@@ -3,10 +3,14 @@ import 'package:ChStore/utils/ChTextStyle.dart';
 import 'package:ChStore/utils/main.dart';
 import 'package:flutter/material.dart';
 
+const HEADER_HEIGHT = 40.0;
+const APP_BAR_HEIGHT = 95.0;
+
 class ScrollableHeader extends StatelessWidget {
   ScrollableHeader({
     this.title: "",
-    this.isAutoScroll: false,
+    this.isFocused: false,
+    this.isShowHeader: true,
     this.scrollController,
     this.headerAppBar,
     this.childAppBar,
@@ -14,7 +18,8 @@ class ScrollableHeader extends StatelessWidget {
     this.enableIcon: false,
   });
   final String title;
-  final bool isAutoScroll;
+  final bool isFocused;
+  final bool isShowHeader;
   final Widget headerAppBar;
   final Widget childAppBar;
   final Widget child;
@@ -32,8 +37,8 @@ class ScrollableHeader extends StatelessWidget {
               <Widget>[
             SliverPersistentHeader(
               delegate: SliverHeader(
-                headerHeight: 45,
-                isAutoScroll: isAutoScroll,
+                headerHeight: HEADER_HEIGHT,
+                isFocused: isFocused,
                 title: title,
                 enableIcon: enableIcon,
               ),
@@ -42,20 +47,34 @@ class ScrollableHeader extends StatelessWidget {
             SliverAppBar(
               backgroundColor: ChColor.primary,
               pinned: true,
-              expandedHeight:
-                  isAutoScroll ? 0.0 : (childAppBar != null ? 100 : 45),
-              floating: !isAutoScroll,
+              expandedHeight: isFocused
+                  ? 0
+                  : (childAppBar != null
+                      ? isShowHeader
+                          ? System.screenSize.width / 3
+                          : APP_BAR_HEIGHT
+                      : System.screenSize.width / 7.5),
+              floating: !isFocused,
               bottom: PreferredSize(
-                preferredSize: Size.fromHeight(isAutoScroll
-                    ? 0.0
-                    : (childAppBar != null ? 100 : 45)), // Add this code
+                preferredSize: Size.fromHeight(isFocused
+                    ? 0
+                    : (childAppBar != null
+                        ? isShowHeader
+                            ? System.screenSize.width / 3
+                            : APP_BAR_HEIGHT
+                        : System.screenSize.width / 7.5)), // Add this code
                 child: Container(alignment: Alignment.topLeft), // Add this code
               ),
               flexibleSpace: LayoutBuilder(
                 builder: (BuildContext context, BoxConstraints constraints) {
                   return Column(
                     children: <Widget>[
-                      !isAutoScroll ? headerAppBar : SizedBox.shrink(),
+                      !isShowHeader
+                          ? Container(height: HEADER_HEIGHT)
+                          : SizedBox.shrink(),
+                      isShowHeader && !isFocused
+                          ? headerAppBar
+                          : SizedBox.shrink(),
                       childAppBar != null ? childAppBar : SizedBox.shrink(),
                     ],
                   );
@@ -74,11 +93,11 @@ class SliverHeader extends SliverPersistentHeaderDelegate {
   final double headerHeight;
   final String title;
   final bool enableIcon;
-  bool isAutoScroll;
+  bool isFocused;
 
   SliverHeader(
       {@required this.headerHeight,
-      this.isAutoScroll: false,
+      this.isFocused: false,
       this.title: "",
       this.enableIcon: false});
 
@@ -93,7 +112,7 @@ class SliverHeader extends SliverPersistentHeaderDelegate {
         children: [
           Center(
             child: Opacity(
-              opacity: this.isAutoScroll ? 1 : (shrinkOffset / headerHeight),
+              opacity: this.isFocused ? 1 : (shrinkOffset / headerHeight),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

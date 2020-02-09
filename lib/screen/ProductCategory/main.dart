@@ -17,7 +17,7 @@ class ProductCategory extends StatelessWidget {
       child: ListView(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.only(left: 20),
+            padding: EdgeInsets.only(top: 20, left: 20),
             child: Text('Categories', style: ChTextStyle.title),
           ),
           CategoryView(),

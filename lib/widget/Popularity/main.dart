@@ -13,8 +13,6 @@ class PopularityView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      // mainAxisSize: MainAxisSize.max,
-      // crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: EdgeInsets.only(left: 20, bottom: 10),
@@ -46,7 +44,7 @@ class PopularCategories extends StatelessWidget {
             left: marginLeft, right: marginRight, top: 5, bottom: 5),
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: Color(0xFFF2F2F4),
+          color: ChColor.popularityBg,
           borderRadius: new BorderRadius.all(Radius.circular(10.0)),
         ),
         child: Stack(
@@ -57,7 +55,7 @@ class PopularCategories extends StatelessWidget {
               child: Icon(
                 Icons.arrow_forward_ios,
                 size: 20,
-                color: Color(0xFFCCCCCC),
+                color: ChColor.popularityIcon,
               ),
             )
           ],

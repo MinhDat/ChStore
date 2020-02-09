@@ -103,7 +103,7 @@ class ChTextStyle {
   );
   static TextStyle searchPlaceHolder = TextStyle(color: ChColor.initialization);
   static TextStyle noItem = TextStyle(
-    color: ChColor.background,
+    color: ChColor.cancel,
     fontStyle: FontStyle.italic,
     fontSize: ChTextSize.size20,
   );

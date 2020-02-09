@@ -29,7 +29,7 @@ class CheckOutState extends State<CheckOut> {
                   decoration: InputDecoration(
                     contentPadding: const EdgeInsets.all(14),
                     filled: true,
-                    fillColor: ChColor.initializationLight,
+                    fillColor: ChColor.border,
                     border: OutlineInputBorder(
                       borderSide: BorderSide(color: ChColor.initialization),
                       // borderRadius: BorderRadius.circular(RADIUS),

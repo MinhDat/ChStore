@@ -1,9 +1,11 @@
 import 'package:ChStore/provider/Provider.dart';
 import 'package:ChStore/screen/main.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ChStore/bloc/Bloc.dart';
+
 import 'package:ChStore/utils/main.dart';
 
 void main() => runApp(MyApp());
@@ -12,21 +14,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // SystemChrome.setSystemUIOverlayStyle(
-    //   SystemUiOverlayStyle.dark.copyWith(
-    //       statusBarColor: Colors.black, // Color for Android
-    //       statusBarBrightness:
-    //           Brightness.light // Dark == white status bar -- for IOS.
-    //       ),
-    // );
-    BlocSupervisor.delegate = SimpleBlocDelegate();
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle.dark.copyWith(
+          statusBarColor: ChColor.primary, // Color for Android
+          statusBarBrightness:
+              Brightness.light // Dark == white status bar -- for IOS.
+          ),
+    );
 
     return DataProvider(
       MaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         initialRoute: '/',
-        theme: ThemeData(primaryColor: Colors.grey),
+        theme: ThemeData(primarySwatch: Colors.red),
         routes: {
           // When navigating to the "/" route, build the FirstScreen widget.
           '/': (context) => SplashScreen(),

@@ -88,6 +88,7 @@ class _WidgetList extends State<Search> {
         isFocused: _isFocused,
         scrollController: _scrollController,
         child: Container(
+          padding: EdgeInsets.only(top: 20),
           child: Stack(
             children: [
               PopularityView(),

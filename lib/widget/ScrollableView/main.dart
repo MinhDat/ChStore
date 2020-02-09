@@ -29,7 +29,7 @@ class ScrollableHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: ChColor.background,
+      color: ChColor.primary,
       child: SafeArea(
         child: NestedScrollView(
           controller: scrollController ?? ScrollController(),
@@ -82,7 +82,7 @@ class ScrollableHeader extends StatelessWidget {
               ),
             ),
           ],
-          body: child,
+          body: Container(color: ChColor.background, child: child),
         ),
       ),
     );

@@ -82,7 +82,7 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                     },
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: ChColor.initializationLight,
+                      fillColor: ChColor.border,
                       prefixIcon: new Icon(
                         Icons.search,
                         color: ChColor.initialization,
@@ -90,13 +90,11 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                       contentPadding:
                           const EdgeInsets.only(left: 14, right: 14),
                       enabledBorder: UnderlineInputBorder(
-                        borderSide:
-                            BorderSide(color: ChColor.initializationLight),
+                        borderSide: BorderSide(color: ChColor.border),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: ChColor.initializationLight),
+                        borderSide: BorderSide(color: ChColor.border),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       hintText: 'Enter a search term',
@@ -112,8 +110,7 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                       padding: const EdgeInsets.only(left: 11.0),
                       decoration: BoxDecoration(
                         color: ChColor.main,
-                        border:
-                            new Border.all(color: ChColor.initializationLight),
+                        border: new Border.all(color: ChColor.border),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       child: Row(

@@ -93,7 +93,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
                   'icons/today-icon.png',
                   height: 22,
                   width: 22,
-                  color: index == 0 ? ChColor.primary : ChColor.unfocused,
+                  color: index == 0 ? ChColor.primary : ChColor.unfocus,
                 ),
                 title: SizedBox.shrink(),
               ),
@@ -102,7 +102,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
                   'icons/toggle-menu-icon.png',
                   height: 22,
                   width: 22,
-                  color: index == 1 ? ChColor.primary : ChColor.unfocused,
+                  color: index == 1 ? ChColor.primary : ChColor.unfocus,
                 ),
                 title: SizedBox.shrink(),
               ),
@@ -111,7 +111,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
                   'icons/search-icon.png',
                   height: 22,
                   width: 22,
-                  color: index == 2 ? ChColor.primary : ChColor.unfocused,
+                  color: index == 2 ? ChColor.primary : ChColor.unfocus,
                 ),
                 title: SizedBox.shrink(),
               ),
@@ -127,8 +127,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
                         child: Icon(
                           Icons.shopping_cart,
                           key: _keyShoppingCart,
-                          color:
-                              index == 3 ? ChColor.primary : ChColor.unfocused,
+                          color: index == 3 ? ChColor.primary : ChColor.unfocus,
                         ),
                       ),
                       Positioned(
@@ -150,7 +149,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.person,
-                  color: index == 4 ? ChColor.primary : ChColor.unfocused,
+                  color: index == 4 ? ChColor.primary : ChColor.unfocus,
                 ),
                 title: SizedBox.shrink(),
               ),

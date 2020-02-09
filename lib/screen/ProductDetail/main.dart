@@ -143,7 +143,7 @@ class _WidgetList extends State<ProductDetail> {
                                     ChColor.main.withOpacity(percentGradient),
                                 border: Border(
                                   bottom: BorderSide(
-                                    color: ChColor.initializationLight,
+                                    color: ChColor.border,
                                     width: 2.0,
                                   ),
                                 ),
@@ -166,7 +166,7 @@ class _WidgetList extends State<ProductDetail> {
                         decoration: BoxDecoration(
                           border: Border(
                             bottom: BorderSide(
-                              color: ChColor.initializationLight,
+                              color: ChColor.border,
                               width: 1.0,
                             ),
                           ),
@@ -237,11 +237,11 @@ class _WidgetList extends State<ProductDetail> {
                         decoration: BoxDecoration(
                           border: Border(
                             top: BorderSide(
-                              color: ChColor.initializationLight,
+                              color: ChColor.border,
                               width: 1.0,
                             ),
                             bottom: BorderSide(
-                              color: ChColor.initializationLight,
+                              color: ChColor.border,
                               width: 1.0,
                             ),
                           ),
@@ -288,20 +288,20 @@ class _WidgetList extends State<ProductDetail> {
                               child: TextField(
                                 decoration: InputDecoration(
                                   filled: true,
-                                  fillColor: ChColor.initializationLight,
+                                  fillColor: ChColor.border,
                                   contentPadding: const EdgeInsets.only(
                                       left: 14.0,
                                       right: 14.0,
                                       bottom: 5.0,
                                       top: 5.0),
                                   enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: ChColor.initializationLight),
+                                    borderSide:
+                                        BorderSide(color: ChColor.border),
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: ChColor.initializationLight),
+                                    borderSide:
+                                        BorderSide(color: ChColor.border),
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
                                   hintText: 'Name',
@@ -314,15 +314,15 @@ class _WidgetList extends State<ProductDetail> {
                                 maxLines: 2,
                                 decoration: InputDecoration(
                                   filled: true,
-                                  fillColor: ChColor.initializationLight,
+                                  fillColor: ChColor.border,
                                   enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: ChColor.initializationLight),
+                                    borderSide:
+                                        BorderSide(color: ChColor.border),
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: ChColor.initializationLight),
+                                    borderSide:
+                                        BorderSide(color: ChColor.border),
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
                                   hintText: 'Write something...',
@@ -456,7 +456,7 @@ class _WidgetList extends State<ProductDetail> {
                         decoration: BoxDecoration(
                           border: Border(
                             bottom: BorderSide(
-                              color: ChColor.initializationLight,
+                              color: ChColor.border,
                               width: 1.0,
                             ),
                           ),

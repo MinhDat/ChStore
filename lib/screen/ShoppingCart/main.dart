@@ -41,10 +41,10 @@ class ShoppingCartState extends State<ShoppingCart> {
         (_currentIndex > 0 || action) &&
         (_currentIndex < 2 || !action)) {
       int delta = action == NEXT_ACTION ? _currentIndex + 1 : _currentIndex - 1;
-
       setState(() {
         _currentIndex = delta;
       });
+
       switch (delta) {
         case 1:
           if (action == NEXT_ACTION) {
@@ -92,10 +92,7 @@ class ShoppingCartState extends State<ShoppingCart> {
             children: <Widget>[
               RadialProgress(
                 active: RADIAL_ACTIVE,
-                child: Icon(
-                  Icons.shopping_basket,
-                  color: ChColor.complete,
-                ),
+                child: Icon(Icons.shopping_basket, color: ChColor.complete),
               ),
               LinearProgress(key: globalLinearCheckOutKey),
               RadialProgress(
@@ -130,57 +127,66 @@ class ShoppingCartState extends State<ShoppingCart> {
           ],
         ),
       ),
-      bottomNavigationBar: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.max,
-        children: <Widget>[
-          Expanded(
-            flex: 5,
-            child: FlatButton(
-              color: ChColor.background,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Icon(
-                    Icons.arrow_back,
-                    color: ChColor.main,
+      bottomNavigationBar: Container(
+        color: ChColor.main,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            Expanded(
+              flex: 5,
+              child: Padding(
+                padding: EdgeInsets.all(20),
+                child: FlatButton(
+                  color: ChColor.cancel,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(30.0),
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(20),
-                    child: Text("Back", style: ChTextStyle.button),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Icon(Icons.arrow_back, color: ChColor.main),
+                      Padding(
+                        padding: EdgeInsets.all(15),
+                        child: Text("Back", style: ChTextStyle.button),
+                      ),
+                    ],
                   ),
-                ],
+                  onPressed: () {
+                    _changePage(BACK_ACTION);
+                  },
+                ),
               ),
-              onPressed: () {
-                _changePage(BACK_ACTION);
-              },
             ),
-          ),
-          Expanded(
-            flex: 5,
-            child: FlatButton(
-              color: ChColor.primaryLight,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.all(20),
-                    child: Text("Next", style: ChTextStyle.button),
+            Expanded(
+              flex: 5,
+              child: Padding(
+                padding: EdgeInsets.all(20),
+                child: FlatButton(
+                  color: ChColor.complete,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(30.0),
                   ),
-                  Icon(
-                    Icons.arrow_forward,
-                    color: ChColor.main,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(15),
+                        child: Text("Next", style: ChTextStyle.button),
+                      ),
+                      Icon(Icons.arrow_forward, color: ChColor.main),
+                    ],
                   ),
-                ],
+                  onPressed: () {
+                    _changePage(NEXT_ACTION);
+                  },
+                ),
               ),
-              onPressed: () {
-                _changePage(NEXT_ACTION);
-              },
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

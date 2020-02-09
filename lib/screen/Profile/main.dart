@@ -15,7 +15,7 @@ class Profile extends StatelessWidget {
     double analyticSize = profileSize / 4;
 
     return Scaffold(
-      backgroundColor: ChColor.initializationLight,
+      backgroundColor: ChColor.border,
       body: Stack(
         children: <Widget>[
           Positioned(

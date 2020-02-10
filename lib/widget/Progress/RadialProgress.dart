@@ -1,7 +1,9 @@
 import 'dart:async';
-import 'package:flutter/material.dart';
+
 import 'package:ChStore/widget/Progress/RadialPainter.dart';
 import 'package:ChStore/utils/main.dart';
+
+import 'package:flutter/material.dart';
 
 const RADIAL_ACTIVE = true;
 const RADIAL_DEACTIVE = false;
@@ -29,14 +31,13 @@ class RadialProgressState extends State<RadialProgress> {
       step = 1.0;
       active = widget.active != null;
     });
+    _percentProgress();
   }
 
   @override
   void dispose() {
     super.dispose();
-    if (_timer != null) {
-      _timer.cancel();
-    }
+    if (_timer != null && _timer.isActive) _timer.cancel();
   }
 
   void reset(bool enable) {
@@ -48,36 +49,12 @@ class RadialProgressState extends State<RadialProgress> {
       } else {
         active = RADIAL_DEACTIVE;
       }
+      _percentProgress();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    if (active) {
-      _timer = Timer(Duration(milliseconds: 10), () {
-        if (percentage <= 20) {
-          setState(() {
-            step++;
-          });
-        }
-        if (percentage < 100 && percentage >= 80 && step > 0) {
-          setState(() {
-            step--;
-          });
-        }
-        if (percentage >= 100.0) {
-          _timer.cancel();
-          setState(() {
-            active = RADIAL_DEACTIVE;
-          });
-        } else {
-          setState(() {
-            percentage += step;
-          });
-        }
-      });
-    }
-
     return Center(
       child: Container(
         height: 45.0,
@@ -104,5 +81,34 @@ class RadialProgressState extends State<RadialProgress> {
         ),
       ),
     );
+  }
+
+  void _percentProgress() {
+    if (_timer != null && _timer.isActive) _timer.cancel();
+    if (active) {
+      _timer = Timer(Duration(milliseconds: 10), () {
+        if (percentage <= 20) {
+          setState(() {
+            step++;
+          });
+        }
+        if (percentage < 100 && percentage >= 80 && step > 0) {
+          setState(() {
+            step--;
+          });
+        }
+        if (percentage >= 100.0) {
+          if (_timer != null && _timer.isActive) _timer.cancel();
+          setState(() {
+            active = RADIAL_DEACTIVE;
+          });
+        } else {
+          setState(() {
+            percentage += step;
+          });
+        }
+        _percentProgress();
+      });
+    }
   }
 }

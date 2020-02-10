@@ -1,9 +1,10 @@
 import 'dart:async';
-import 'package:flutter/material.dart';
 
 import 'package:ChStore/utils/main.dart';
 import 'package:ChStore/model/main.dart';
 import 'package:ChStore/widget/main.dart';
+
+import 'package:flutter/material.dart';
 
 class ChCardPage extends StatefulWidget {
   ChCardPage(this._products);
@@ -22,18 +23,19 @@ class ChCardPageState extends State<ChCardPage> {
 
   @override
   void initState() {
+    super.initState();
     activations = List.generate(widget._products.length, (i) => GlobalKey());
     _currentIndex = 0;
     _pageController =
         PageController(initialPage: _currentIndex, keepPage: true);
-    super.initState();
+    _nextPage();
   }
 
   @override
   void dispose() {
-    super.dispose();
-    if (_timer.isActive) _timer.cancel();
+    if (_timer != null && _timer.isActive) _timer.cancel();
     _pageController.dispose();
+    super.dispose();
   }
 
   void _changePage() {
@@ -47,36 +49,26 @@ class ChCardPageState extends State<ChCardPage> {
   }
 
   void _handlePageChanged(int page) {
-    if (_timer.isActive) _timer.cancel();
     for (int i = 0; i < page; i++) {
       activations[i].currentState.setProgress(2);
     }
     for (int i = page + 1; i < activations.length; i++) {
       activations[i].currentState.setProgress(1);
     }
-
     activations[page].currentState.setProgress(0);
 
     setState(() {
       _currentIndex = page;
+      _nextPage();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    _timer = new Timer(new Duration(seconds: 7), () {
-      _changePage();
-    });
-
     List<GestureDetector> productList = widget._products.map((product) {
       return GestureDetector(
-        onTap: () {
-          Navigator.pushNamed(
-            context,
-            '/product-detail',
-            arguments: product,
-          );
-        },
+        onTap: () =>
+            Navigator.pushNamed(context, '/product-detail', arguments: product),
         child: ChCard(
           product,
           type: FOR_PAGE_VIEW,
@@ -111,14 +103,19 @@ class ChCardPageState extends State<ChCardPage> {
             bottom: 10,
             child: Container(
               width: System.screenSize.width - 40,
-              child: ProgressList(
-                activations: activations,
-                seconds: 7,
-              ),
+              child: ProgressList(activations: activations, seconds: 7),
             ),
           )
         ],
       ),
     );
+  }
+
+  void _nextPage() {
+    if (_timer != null && _timer.isActive) _timer.cancel();
+
+    _timer = new Timer(new Duration(seconds: 7), () {
+      _changePage();
+    });
   }
 }

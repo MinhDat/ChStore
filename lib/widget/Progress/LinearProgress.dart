@@ -1,8 +1,9 @@
 import 'dart:async';
-import 'package:ChStore/utils/System.dart';
-import 'package:flutter/material.dart';
+
 import 'package:ChStore/widget/Progress/LinearPainter.dart';
 import 'package:ChStore/utils/main.dart';
+
+import 'package:flutter/material.dart';
 
 const LINEAR_ACTIVE = true;
 const LINEAR_DEACTIVE = false;
@@ -30,14 +31,13 @@ class LinearProgressState extends State<LinearProgress> {
       step = 1.0;
       active = widget.active != null;
     });
+    _percentProgress();
   }
 
   @override
   void dispose() {
+    if (_timer != null && _timer.isActive) _timer.cancel();
     super.dispose();
-    if (_timer != null) {
-      _timer.cancel();
-    }
   }
 
   void reset(bool enable) {
@@ -49,36 +49,12 @@ class LinearProgressState extends State<LinearProgress> {
       } else {
         active = LINEAR_DEACTIVE;
       }
+      _percentProgress();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    if (active) {
-      _timer = Timer(Duration(milliseconds: 10), () {
-        if (percentage <= 20) {
-          setState(() {
-            step++;
-          });
-        }
-        if (percentage < 100 && percentage >= 80 && step > 0) {
-          setState(() {
-            step--;
-          });
-        }
-        if (percentage >= 100.0) {
-          _timer.cancel();
-          setState(() {
-            active = LINEAR_DEACTIVE;
-          });
-        } else {
-          setState(() {
-            percentage += step;
-          });
-        }
-      });
-    }
-
     return Center(
       child: Container(
         height: 45,
@@ -93,5 +69,34 @@ class LinearProgressState extends State<LinearProgress> {
         ),
       ),
     );
+  }
+
+  void _percentProgress() {
+    if (_timer != null && _timer.isActive) _timer.cancel();
+    if (active) {
+      _timer = Timer(Duration(milliseconds: 10), () {
+        if (percentage <= 20) {
+          setState(() {
+            step++;
+          });
+        }
+        if (percentage < 100 && percentage >= 80 && step > 0) {
+          setState(() {
+            step--;
+          });
+        }
+        if (percentage >= 100.0) {
+          if (_timer != null && _timer.isActive) _timer.cancel();
+          setState(() {
+            active = LINEAR_DEACTIVE;
+          });
+        } else {
+          setState(() {
+            percentage += step;
+          });
+        }
+        _percentProgress();
+      });
+    }
   }
 }

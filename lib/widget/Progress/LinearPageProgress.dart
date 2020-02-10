@@ -23,14 +23,13 @@ class LinearPageProgressState extends State<LinearPageProgress> {
   void initState() {
     super.initState();
     step = 10.0 / widget.seconds;
+    _percentProgress();
   }
 
   @override
   void dispose() {
     super.dispose();
-    if (_timer != null) {
-      _timer.cancel();
-    }
+    if (_timer != null && _timer.isActive) _timer.cancel();
   }
 
   void setProgress(int state) {
@@ -58,21 +57,6 @@ class LinearPageProgressState extends State<LinearPageProgress> {
 
   @override
   Widget build(BuildContext context) {
-    _timer = Timer(Duration(milliseconds: 90), () {
-      if (widget.active) {
-        if (percentage >= 100.0) {
-          if (_timer.isActive) _timer.cancel();
-          setState(() {
-            percentage = percentage;
-          });
-        } else {
-          setState(() {
-            percentage += step;
-          });
-        }
-      }
-    });
-
     return Center(
       child: Container(
         height: 5,
@@ -88,6 +72,24 @@ class LinearPageProgressState extends State<LinearPageProgress> {
         ),
       ),
     );
+  }
+
+  void _percentProgress() {
+    if (_timer != null && _timer.isActive) _timer.cancel();
+    _timer = Timer(Duration(milliseconds: 90), () {
+      if (widget.active) {
+        if (percentage >= 100.0) {
+          setState(() {
+            percentage = percentage;
+          });
+        } else {
+          setState(() {
+            percentage += step;
+          });
+        }
+      }
+      _percentProgress();
+    });
   }
 }
 

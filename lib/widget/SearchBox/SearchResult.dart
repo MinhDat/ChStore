@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:ChStore/bloc/Bloc.dart';
-import 'package:ChStore/provider/Provider.dart';
 import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/widget/main.dart';
+
 import 'package:flutter/material.dart';
-import 'package:ChStore/widget/Item/ItemList.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchResult extends StatefulWidget {
@@ -29,7 +29,7 @@ class SearchResultState extends State<SearchResult> {
   @override
   void dispose() {
     super.dispose();
-    _timer.cancel();
+    if (_timer != null && _timer.isActive) _timer.cancel();
   }
 
   @override
@@ -39,26 +39,19 @@ class SearchResultState extends State<SearchResult> {
           ? ListView(children: [
               BlocBuilder<DataBloc, DataState>(builder: (context, state) {
                 if (state is DataError) {
-                  return Center(
-                    child: Text('failed to fetch data'),
-                  );
+                  return Center(child: Text('failed to fetch data'));
                 }
                 if (state is DataLoaded) {
                   if (state.products.isEmpty) {
                     return Center(
-                      child: Text("No items", style: ChTextStyle.noItem),
-                    );
+                        child: Text("No items", style: ChTextStyle.noItem));
                   }
-                  return ItemList(
-                    products: state.products,
-                  );
+                  return ItemList(products: state.products);
                 }
               })
             ])
           : Align(
-              alignment: Alignment.topCenter,
-              child: LinearProgressIndicator(),
-            ),
+              alignment: Alignment.topCenter, child: LinearProgressIndicator()),
     );
   }
 }

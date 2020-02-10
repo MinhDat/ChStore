@@ -15,7 +15,7 @@ class PopularityView extends StatelessWidget {
     return ListView(
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 20, bottom: 10),
+          padding: EdgeInsets.only(left: 20, bottom: 10, top: 20),
           child: Text("Popular Categories", style: ChTextStyle.title),
         ),
         PopularCategories(),

@@ -95,7 +95,11 @@ class CheckOutState extends State<CheckOut> {
                               EdgeInsets.only(left: 20, right: 20, top: 10),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[Square(), Square(), Square()],
+                            children: <Widget>[
+                              Column(children: [Square(), Text('Bank')]),
+                              Column(children: [Square(), Text('Bank')]),
+                              Column(children: [Square(), Text('Bank')]),
+                            ],
                           ),
                         ),
                         Padding(
@@ -103,7 +107,11 @@ class CheckOutState extends State<CheckOut> {
                               EdgeInsets.only(left: 20, right: 20, top: 10),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[Square(), Square(), Square()],
+                            children: <Widget>[
+                              Column(children: [Square(), Text('Bank')]),
+                              Column(children: [Square(), Text('Bank')]),
+                              Column(children: [Square(), Text('Bank')]),
+                            ],
                           ),
                         ),
                       ],

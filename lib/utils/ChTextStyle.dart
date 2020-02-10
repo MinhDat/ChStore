@@ -15,7 +15,8 @@ class ChTextSize {
 
 class ChTextStyle {
   static TextStyle header = TextStyle(
-    fontSize: ChTextSize.size14,
+    color: ChColor.main,
+    fontSize: ChTextSize.size24,
     fontWeight: FontWeight.bold,
   );
   static TextStyle logo = TextStyle(

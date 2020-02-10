@@ -136,7 +136,8 @@ class ShoppingCartState extends State<ShoppingCart> {
             Expanded(
               flex: 5,
               child: Padding(
-                padding: EdgeInsets.all(20),
+                padding:
+                    EdgeInsets.only(left: 20, top: 10, right: 5, bottom: 10),
                 child: FlatButton(
                   color: ChColor.cancel,
                   shape: RoundedRectangleBorder(
@@ -162,7 +163,8 @@ class ShoppingCartState extends State<ShoppingCart> {
             Expanded(
               flex: 5,
               child: Padding(
-                padding: EdgeInsets.all(20),
+                padding:
+                    EdgeInsets.only(left: 5, top: 10, right: 20, bottom: 10),
                 child: FlatButton(
                   color: ChColor.complete,
                   shape: RoundedRectangleBorder(

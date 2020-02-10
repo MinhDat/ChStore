@@ -33,7 +33,8 @@ class ProductListState extends State<ProductList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Product List", style: ChTextStyle.normal),
+        backgroundColor: ChColor.primary,
+        title: Text("Product List", style: ChTextStyle.header),
       ),
       body: BlocBuilder<DataBloc, DataState>(
         builder: (context, state) {

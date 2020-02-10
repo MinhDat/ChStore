@@ -35,9 +35,7 @@ class ChCardPageState extends State<ChCardPage> {
   @override
   void dispose() {
     super.dispose();
-    if (_timer != null) {
-      _timer.cancel();
-    }
+    if (_timer.isActive) _timer.cancel();
     _pageController.dispose();
   }
 
@@ -46,22 +44,13 @@ class ChCardPageState extends State<ChCardPage> {
       int delta =
           _currentIndex == widget._products.length - 1 ? 0 : _currentIndex + 1;
 
-      if (delta == 0) {
-        for (int i = 1; i < activations.length; i++) {
-          activations[i].currentState.setProgress(1);
-        }
-      }
-
-      _pageController.animateToPage(
-        delta,
-        duration: const Duration(milliseconds: 800),
-        curve: Curves.ease,
-      );
+      _pageController.animateToPage(delta,
+          duration: const Duration(milliseconds: 800), curve: Curves.ease);
     }
   }
 
   void _handlePageChanged(int page) {
-    _timer.cancel();
+    if (_timer.isActive) _timer.cancel();
     for (int i = 0; i < page; i++) {
       activations[i].currentState.setProgress(2);
     }

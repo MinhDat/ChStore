@@ -61,6 +61,7 @@ class LinearPageProgressState extends State<LinearPageProgress> {
     _timer = Timer(Duration(milliseconds: 90), () {
       if (widget.active) {
         if (percentage >= 100.0) {
+          if (_timer.isActive) _timer.cancel();
           setState(() {
             percentage = percentage;
           });

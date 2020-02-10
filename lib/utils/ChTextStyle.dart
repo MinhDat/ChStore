@@ -58,6 +58,12 @@ class ChTextStyle {
     fontWeight: FontWeight.bold,
     fontSize: ChTextSize.size24,
   );
+
+  static TextStyle bank = TextStyle(
+    color: ChColor.label,
+    fontSize: ChTextSize.size26,
+  );
+
   static TextStyle normal = TextStyle(
     color: ChColor.initialization,
     fontSize: ChTextSize.size24,

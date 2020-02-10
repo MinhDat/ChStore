@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
         fit: StackFit.expand,
         children: <Widget>[
           Container(
-            child: Image.asset('lib/picture/backgrounds/version_1.png',
+            child: Image.asset('lib/picture/background/version_1.png',
                 fit: BoxFit.cover),
           ),
           Positioned(

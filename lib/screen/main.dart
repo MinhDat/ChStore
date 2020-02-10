@@ -12,7 +12,6 @@ export 'package:ChStore/screen/ProductDetail/main.dart';
 export 'package:ChStore/screen/ProductList/main.dart';
 
 export 'package:ChStore/screen/Profile/main.dart';
-export 'package:ChStore/screen/Profile/Wallpaper.dart';
 
 export 'package:ChStore/screen/Search/main.dart';
 export 'package:ChStore/screen/ShoppingCart/main.dart';

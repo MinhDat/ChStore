@@ -501,7 +501,7 @@ class _WidgetList extends State<ProductDetail> {
           Positioned(
             top: System.screenSize.width / 9,
             right: System.screenSize.width / 12,
-            child: CircleButton(
+            child: Circle(
               icon: Icon(
                 Icons.close,
                 color: ChColor.main,

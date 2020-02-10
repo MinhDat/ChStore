@@ -2,7 +2,6 @@ import 'package:ChStore/bloc/Bloc.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/utils/main.dart';
-import 'package:ChStore/screen/main.dart';
 import 'package:ChStore/widget/main.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -206,7 +205,7 @@ class Profile extends StatelessWidget {
           Positioned(
             top: System.screenSize.width / 9,
             right: System.screenSize.width / 12,
-            child: CircleButton(
+            child: Circle(
               icon: Icon(
                 Icons.close,
                 color: ChColor.primary,

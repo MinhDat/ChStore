@@ -1,12 +1,12 @@
 import 'package:ChStore/utils/ChColor.dart';
 import 'package:flutter/material.dart';
 
-class CircleButton extends StatelessWidget {
+class Circle extends StatelessWidget {
   final GestureTapCallback onTap;
   final Widget icon;
   final Color bgColor;
 
-  const CircleButton({Key key, this.onTap, this.icon, this.bgColor})
+  const Circle({Key key, this.onTap, this.icon, this.bgColor})
       : super(key: key);
 
   @override

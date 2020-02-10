@@ -1,3 +1,4 @@
+import 'package:ChStore/widget/Button/Square.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/utils/main.dart';
@@ -86,6 +87,28 @@ class CheckOutState extends State<CheckOut> {
                   });
                 },
               ),
+              _character == SingingCharacter.INTERNET_BANKING
+                  ? Column(
+                      children: <Widget>[
+                        Padding(
+                          padding:
+                              EdgeInsets.only(left: 20, right: 20, top: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[Square(), Square(), Square()],
+                          ),
+                        ),
+                        Padding(
+                          padding:
+                              EdgeInsets.only(left: 20, right: 20, top: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[Square(), Square(), Square()],
+                          ),
+                        ),
+                      ],
+                    )
+                  : SizedBox.shrink()
             ],
           ),
         )

@@ -1,25 +1,26 @@
 import 'dart:async';
+import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
-import 'package:ChStore/widget/Button/Progress/RadialPainter.dart';
-import 'package:ChStore/utils/ChColor.dart';
+import 'package:ChStore/widget/Progress/LinearPainter.dart';
+import 'package:ChStore/utils/main.dart';
 
-const RADIAL_ACTIVE = true;
-const RADIAL_DEACTIVE = false;
+const LINEAR_ACTIVE = true;
+const LINEAR_DEACTIVE = false;
 
-class RadialProgress extends StatefulWidget {
-  final Widget child;
+class LinearProgress extends StatefulWidget {
   final bool active;
-  RadialProgress({Key key, this.child, this.active}) : super(key: key);
-
+  LinearProgress({Key key, this.active}) : super(key: key);
   @override
-  State<StatefulWidget> createState() => RadialProgressState();
+  State<StatefulWidget> createState() {
+    return LinearProgressState();
+  }
 }
 
-class RadialProgressState extends State<RadialProgress> {
+class LinearProgressState extends State<LinearProgress> {
+  bool active;
   double percentage;
   Timer _timer;
   double step;
-  bool active;
 
   @override
   void initState() {
@@ -44,9 +45,9 @@ class RadialProgressState extends State<RadialProgress> {
       percentage = 0.0;
       step = 1.0;
       if (enable) {
-        active = RADIAL_ACTIVE;
+        active = LINEAR_ACTIVE;
       } else {
-        active = RADIAL_DEACTIVE;
+        active = LINEAR_DEACTIVE;
       }
     });
   }
@@ -68,7 +69,7 @@ class RadialProgressState extends State<RadialProgress> {
         if (percentage >= 100.0) {
           _timer.cancel();
           setState(() {
-            active = RADIAL_DEACTIVE;
+            active = LINEAR_DEACTIVE;
           });
         } else {
           setState(() {
@@ -80,26 +81,14 @@ class RadialProgressState extends State<RadialProgress> {
 
     return Center(
       child: Container(
-        height: 45.0,
-        width: 45.0,
-        margin: EdgeInsets.only(left: 10, right: 10),
+        height: 45,
+        width: (System.screenSize.width - 65 * 3 - 20) / 2.0,
         child: CustomPaint(
-          foregroundPainter: RadialPainter(
-              lineColor: ChColor.main,
-              completeColor: ChColor.complete,
-              completePercent: percentage,
-              width: 2.0),
-          child: Padding(
-            padding: const EdgeInsets.all(2.0),
-            child: Container(
-              height: 45.0,
-              width: 45.0,
-              decoration: BoxDecoration(
-                color: ChColor.main,
-                shape: BoxShape.circle,
-              ),
-              child: widget.child,
-            ),
+          foregroundPainter: LinearPainter(
+            lineColor: ChColor.main,
+            completeColor: ChColor.complete,
+            completePercent: percentage,
+            width: 2,
           ),
         ),
       ),

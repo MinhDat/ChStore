@@ -1,12 +1,9 @@
 import 'dart:async';
-import 'package:ChStore/utils/ChColor.dart';
-import 'package:ChStore/utils/System.dart';
-import 'package:ChStore/widget/Button/Progress/LinearPageProgress.dart';
-import 'package:ChStore/widget/ProgressList/main.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/model/Product.dart';
-import 'package:ChStore/widget/Card/ChCard.dart';
+import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/model/main.dart';
+import 'package:ChStore/widget/main.dart';
 
 class ChCardPage extends StatefulWidget {
   ChCardPage(this._products);

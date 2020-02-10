@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:ChStore/widget/Button/Progress/LinearPagePainter.dart';
-import 'package:ChStore/utils/ChColor.dart';
+import 'package:ChStore/widget/Progress/LinearPagePainter.dart';
+import 'package:ChStore/utils/main.dart';
 
 class LinearPageProgress extends StatefulWidget {
   bool active;

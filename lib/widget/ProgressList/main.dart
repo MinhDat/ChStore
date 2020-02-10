@@ -1,5 +1,5 @@
-import 'package:ChStore/widget/Button/Progress/LinearPageProgress.dart';
 import 'package:flutter/material.dart';
+import 'package:ChStore/widget/Progress/LinearPageProgress.dart';
 
 class ProgressList extends StatefulWidget {
   final List<GlobalKey<LinearPageProgressState>> activations;

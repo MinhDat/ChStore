@@ -1,26 +1,25 @@
 import 'dart:async';
-import 'package:ChStore/utils/System.dart';
 import 'package:flutter/material.dart';
-import 'package:ChStore/widget/Button/Progress/LinearPainter.dart';
-import 'package:ChStore/utils/ChColor.dart';
+import 'package:ChStore/widget/Progress/RadialPainter.dart';
+import 'package:ChStore/utils/main.dart';
 
-const LINEAR_ACTIVE = true;
-const LINEAR_DEACTIVE = false;
+const RADIAL_ACTIVE = true;
+const RADIAL_DEACTIVE = false;
 
-class LinearProgress extends StatefulWidget {
+class RadialProgress extends StatefulWidget {
+  final Widget child;
   final bool active;
-  LinearProgress({Key key, this.active}) : super(key: key);
+  RadialProgress({Key key, this.child, this.active}) : super(key: key);
+
   @override
-  State<StatefulWidget> createState() {
-    return LinearProgressState();
-  }
+  State<StatefulWidget> createState() => RadialProgressState();
 }
 
-class LinearProgressState extends State<LinearProgress> {
-  bool active;
+class RadialProgressState extends State<RadialProgress> {
   double percentage;
   Timer _timer;
   double step;
+  bool active;
 
   @override
   void initState() {
@@ -45,9 +44,9 @@ class LinearProgressState extends State<LinearProgress> {
       percentage = 0.0;
       step = 1.0;
       if (enable) {
-        active = LINEAR_ACTIVE;
+        active = RADIAL_ACTIVE;
       } else {
-        active = LINEAR_DEACTIVE;
+        active = RADIAL_DEACTIVE;
       }
     });
   }
@@ -69,7 +68,7 @@ class LinearProgressState extends State<LinearProgress> {
         if (percentage >= 100.0) {
           _timer.cancel();
           setState(() {
-            active = LINEAR_DEACTIVE;
+            active = RADIAL_DEACTIVE;
           });
         } else {
           setState(() {
@@ -81,14 +80,26 @@ class LinearProgressState extends State<LinearProgress> {
 
     return Center(
       child: Container(
-        height: 45,
-        width: (System.screenSize.width - 65 * 3 - 20) / 2.0,
+        height: 45.0,
+        width: 45.0,
+        margin: EdgeInsets.only(left: 10, right: 10),
         child: CustomPaint(
-          foregroundPainter: LinearPainter(
-            lineColor: ChColor.main,
-            completeColor: ChColor.complete,
-            completePercent: percentage,
-            width: 2,
+          foregroundPainter: RadialPainter(
+              lineColor: ChColor.main,
+              completeColor: ChColor.complete,
+              completePercent: percentage,
+              width: 2.0),
+          child: Padding(
+            padding: const EdgeInsets.all(2.0),
+            child: Container(
+              height: 45.0,
+              width: 45.0,
+              decoration: BoxDecoration(
+                color: ChColor.main,
+                shape: BoxShape.circle,
+              ),
+              child: widget.child,
+            ),
           ),
         ),
       ),

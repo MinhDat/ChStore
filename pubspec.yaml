@@ -47,40 +47,50 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     # Icons
-    - icons/ChStore_red.png
-    - icons/ChStore_white.png
-    - icons/today-icon.png
-    - icons/toggle-menu-icon.png
-    - icons/search-icon.png
-    - icons/facebook.png
-    - icons/facebook_white.png
-    - icons/zalo.png
-    - icons/like.png
+    - icon/ChStore_red.png
+    - icon/ChStore_white.png
+    - icon/today-icon.png
+    - icon/toggle-menu-icon.png
+    - icon/search-icon.png
+    - icon/facebook.png
+    - icon/facebook_white.png
+    - icon/zalo.png
+    - icon/like.png
     # Item
-    - icons/pant.png
-    - icons/hat.png
-    - icons/bikini.png
-    - icons/tie.png
-    - icons/sweater.png
-    - icons/t-shirt.png
-    - icons/glove.png
-    - icons/shoe.png
+    - icon/pant.png
+    - icon/hat.png
+    - icon/bikini.png
+    - icon/tie.png
+    - icon/sweater.png
+    - icon/t-shirt.png
+    - icon/glove.png
+    - icon/shoe.png
+
+    # Bank
+    - lib/picture/banking/acb.png
+    - lib/picture/banking/agribank.png
+    - lib/picture/banking/sacombank.png
+    - lib/picture/banking/techcombank.png
+    - lib/picture/banking/tpbank.jpg
+    - lib/picture/banking/vietcombank.png
+    - lib/picture/banking/vietinbank.png
+    - lib/picture/banking/vpbank.jpg
 
     # Topic
-    - lib/picture/topics/man-category.jpg
-    - lib/picture/topics/woman-category.jpg
-    - lib/picture/topics/sport-category.png
+    - lib/picture/topic//man-category.jpg
+    - lib/picture/topic//woman-category.jpg
+    - lib/picture/topic//sport-category.png
 
     # Category
-    - lib/picture/categories/sports.jpg
-    - lib/picture/categories/travel.jpg
-    - lib/picture/categories/music.jpg
-    - lib/picture/categories/gaming.jpg
-    - lib/picture/categories/photography.jpg
-    - lib/picture/categories/food.jpg
+    - lib/picture/category/sports.jpg
+    - lib/picture/category/travel.jpg
+    - lib/picture/category/music.jpg
+    - lib/picture/category/gaming.jpg
+    - lib/picture/category/photography.jpg
+    - lib/picture/category/food.jpg
 
     # Background
-    - lib/picture/backgrounds/version_1.png
+    - lib/picture/background/version_1.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

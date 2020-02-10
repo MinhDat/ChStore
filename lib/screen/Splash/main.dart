@@ -39,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Image.asset('icons/ChStore_white.png', height: 50, width: 50),
+                Image.asset('icon/ChStore_white.png', height: 50, width: 50),
                 Text(
                   "ChStore",
                   style: TextStyle(

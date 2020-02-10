@@ -117,7 +117,7 @@ class SliverHeader extends SliverPersistentHeaderDelegate {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   enableIcon
-                      ? Image.asset('icons/ChStore_white.png',
+                      ? Image.asset('icon/ChStore_white.png',
                           height: System.screenSize.width * 0.05,
                           width: System.screenSize.width * 0.05,
                           fit: BoxFit.cover)

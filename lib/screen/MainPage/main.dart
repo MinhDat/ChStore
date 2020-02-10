@@ -90,7 +90,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
             items: [
               BottomNavigationBarItem(
                 icon: new Image.asset(
-                  'icons/today-icon.png',
+                  'icon/today-icon.png',
                   height: 22,
                   width: 22,
                   color: index == 0 ? ChColor.primary : ChColor.unfocus,
@@ -99,7 +99,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
               ),
               BottomNavigationBarItem(
                 icon: new Image.asset(
-                  'icons/toggle-menu-icon.png',
+                  'icon/toggle-menu-icon.png',
                   height: 22,
                   width: 22,
                   color: index == 1 ? ChColor.primary : ChColor.unfocus,
@@ -108,7 +108,7 @@ class _WidgetList extends State<Mainpage> with SingleTickerProviderStateMixin {
               ),
               BottomNavigationBarItem(
                 icon: new Image.asset(
-                  'icons/search-icon.png',
+                  'icon/search-icon.png',
                   height: 22,
                   width: 22,
                   color: index == 2 ? ChColor.primary : ChColor.unfocus,

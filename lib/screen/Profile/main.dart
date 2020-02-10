@@ -70,7 +70,7 @@ class Profile extends StatelessWidget {
                                           bgColor: ChColor.facebook,
                                           textColor: ChColor.main,
                                           assetImage: Image.asset(
-                                            'icons/facebook_white.png',
+                                            'icon/facebook_white.png',
                                             height: 15,
                                             width: 15,
                                           ),
@@ -87,7 +87,7 @@ class Profile extends StatelessWidget {
                                           bgColor: ChColor.zalo,
                                           textColor: ChColor.main,
                                           assetImage: Image.asset(
-                                            'icons/zalo.png',
+                                            'icon/zalo.png',
                                             height: 20,
                                             width: 20,
                                             color: ChColor.main,
@@ -132,7 +132,7 @@ class Profile extends StatelessWidget {
                           Text("| 56", style: ChTextStyle.normal),
                           Padding(
                             padding: EdgeInsets.only(left: 10, right: 10),
-                            child: Image.asset('icons/like.png',
+                            child: Image.asset('icon/like.png',
                                 height: 25, width: 25),
                           ),
                           Text("| 200", style: ChTextStyle.normal),

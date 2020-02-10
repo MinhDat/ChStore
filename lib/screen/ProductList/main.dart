@@ -39,15 +39,11 @@ class ProductListState extends State<ProductList> {
       body: BlocBuilder<DataBloc, DataState>(
         builder: (context, state) {
           if (state is DataError) {
-            return Center(
-              child: Text('failed to fetch data'),
-            );
+            return Center(child: Text('failed to fetch data'));
           }
           if (state is DataLoaded) {
             if (state.products.isEmpty) {
-              return Center(
-                child: Text('no products'),
-              );
+              return Center(child: Text('no products'));
             }
             return ListView.builder(
               itemBuilder: (BuildContext context, int index) {
@@ -61,7 +57,12 @@ class ProductListState extends State<ProductList> {
               controller: _scrollController,
             );
           }
-          return Center(child: CircularProgressIndicator());
+          return Center(
+            child: Padding(
+              padding: EdgeInsets.only(top: 10, bottom: 10),
+              child: CircularProgressIndicator(),
+            ),
+          );
         },
       ),
     );
@@ -82,12 +83,9 @@ class BottomLoader extends StatelessWidget {
     return Container(
       alignment: Alignment.center,
       child: Center(
-        child: SizedBox(
-          width: 33,
-          height: 33,
-          child: CircularProgressIndicator(
-            strokeWidth: 1.5,
-          ),
+        child: Padding(
+          padding: EdgeInsets.only(top: 10, bottom: 10),
+          child: CircularProgressIndicator(),
         ),
       ),
     );

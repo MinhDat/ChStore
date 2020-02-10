@@ -12,10 +12,10 @@ class ChColor {
   static Color initialization = Colors.grey;
   static Color border = Colors.grey[200];
   static Color background = Colors.grey[200];
-  static Color popularityBg = Colors.grey[300];
-  static Color cancel = Colors.grey[400];
-  static Color popularityIcon = Color(0xFFCCCCCC);
+  static Color backgroundDark = Colors.grey[300];
+  static Color negative = Colors.grey[400];
   static Color main = Colors.white;
+  static Color popularityIcon = Color(0xFFCCCCCC);
   static Color facebook = Color(0xff3b5998);
   static Color zalo = Color(0xff0180c7);
 }

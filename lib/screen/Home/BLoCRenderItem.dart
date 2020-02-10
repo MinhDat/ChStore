@@ -11,13 +11,14 @@ class BLoCRenderItem extends StatelessWidget {
     return BlocBuilder<DataBloc, DataState>(
       builder: (context, state) {
         if (state is DataError) {
-          return Center(
-            child: Text('failed to fetch data'),
-          );
+          return Center(child: Text('failed to fetch data'));
         }
         if (state is DataUninitialized) {
           return Center(
-            child: CircularProgressIndicator(),
+            child: Padding(
+              padding: EdgeInsets.only(top: 10, bottom: 10),
+              child: CircularProgressIndicator(),
+            ),
           );
         }
         if (state is DataLoaded) {
@@ -25,7 +26,10 @@ class BLoCRenderItem extends StatelessWidget {
               state.categories.isEmpty ||
               state.topics.isEmpty) {
             return Center(
-              child: CircularProgressIndicator(),
+              child: Padding(
+                padding: EdgeInsets.only(top: 10, bottom: 10),
+                child: CircularProgressIndicator(),
+              ),
             );
           }
 
@@ -57,11 +61,7 @@ class BLoCRenderItem extends StatelessWidget {
                 padding: EdgeInsets.only(bottom: 10),
                 child: ChCardSlider(state.products.getRange(7, 14).toList()),
               ),
-              Container(
-                padding:
-                    EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 10),
-                width: System.screenSize.width,
-                color: ChColor.main,
+              LabelContainer(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -74,31 +74,13 @@ class BLoCRenderItem extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(bottom: 10),
-                padding: EdgeInsets.only(bottom: 10),
-                color: ChColor.main,
+              ContentContainer(
                 child:
                     ItemList(products: state.products.getRange(0, 7).toList()),
               ),
-              Container(
-                padding:
-                    EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 10),
-                width: System.screenSize.width,
-                color: ChColor.main,
-                child: Text("Hashtags", style: ChTextStyle.title),
-              ),
-              Container(
-                margin: EdgeInsets.only(bottom: 10),
-                padding: EdgeInsets.only(bottom: 10),
-                color: ChColor.main,
-                child: PopularCategories(),
-              ),
-              Container(
-                padding:
-                    EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 10),
-                width: System.screenSize.width,
-                color: ChColor.main,
+              LabelContainer(child: Text("Hashtags", style: ChTextStyle.title)),
+              ContentContainer(child: PopularCategories()),
+              LabelContainer(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -111,22 +93,14 @@ class BLoCRenderItem extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(bottom: 10),
-                padding: EdgeInsets.only(bottom: 10),
-                color: ChColor.main,
+              ContentContainer(
                 child: SmallChCardList(
                   context,
                   dataList: state.products.getRange(14, 20).toList(),
                 ),
               ),
-              Container(
-                padding:
-                    EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 10),
-                width: System.screenSize.width,
-                color: ChColor.main,
-                child: Text("Populations", style: ChTextStyle.title),
-              ),
+              LabelContainer(
+                  child: Text("Populations", style: ChTextStyle.title)),
               Container(
                 padding: EdgeInsets.only(bottom: 10),
                 color: ChColor.main,
@@ -136,6 +110,36 @@ class BLoCRenderItem extends StatelessWidget {
           );
         }
       },
+    );
+  }
+}
+
+class LabelContainer extends StatelessWidget {
+  final Widget child;
+  LabelContainer({@required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(top: 10),
+      padding: EdgeInsets.all(20),
+      width: System.screenSize.width,
+      color: ChColor.main,
+      child: child,
+    );
+  }
+}
+
+class ContentContainer extends StatelessWidget {
+  final Widget child;
+  ContentContainer({@required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(bottom: 20),
+      color: ChColor.main,
+      child: child,
     );
   }
 }

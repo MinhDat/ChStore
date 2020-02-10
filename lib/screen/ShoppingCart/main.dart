@@ -139,7 +139,7 @@ class ShoppingCartState extends State<ShoppingCart> {
                 padding:
                     EdgeInsets.only(left: 20, top: 10, right: 5, bottom: 10),
                 child: FlatButton(
-                  color: ChColor.cancel,
+                  color: ChColor.negative,
                   shape: RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(30.0),
                   ),

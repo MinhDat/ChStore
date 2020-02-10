@@ -44,7 +44,7 @@ class PopularCategories extends StatelessWidget {
             left: marginLeft, right: marginRight, top: 5, bottom: 5),
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: ChColor.popularityBg,
+          color: ChColor.backgroundDark,
           borderRadius: new BorderRadius.all(Radius.circular(10.0)),
         ),
         child: Stack(

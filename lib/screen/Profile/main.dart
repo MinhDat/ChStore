@@ -156,13 +156,14 @@ class Profile extends StatelessWidget {
                       child: BlocBuilder<DataBloc, DataState>(
                           builder: (context, state) {
                         if (state is DataError) {
-                          return Center(
-                            child: Text('failed to fetch data'),
-                          );
+                          return Center(child: Text('failed to fetch data'));
                         }
                         if (state is DataUninitialized) {
                           return Center(
-                            child: CircularProgressIndicator(),
+                            child: Padding(
+                              padding: EdgeInsets.only(top: 10, bottom: 10),
+                              child: CircularProgressIndicator(),
+                            ),
                           );
                         }
                         if (state is DataLoaded) {

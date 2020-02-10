@@ -13,9 +13,7 @@ class ProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> productLineSecond = [
       Expanded(
-        flex: 4, // 20%
-        child: Text("\$${item.price}", style: ChTextStyle.price),
-      )
+          flex: 4, child: Text("\$${item.price}", style: ChTextStyle.price))
     ];
 
     switch (type) {
@@ -23,30 +21,21 @@ class ProductItem extends StatelessWidget {
         productLineSecond.add(
           Expanded(
             flex: 6, // 60%
-            child: AddToCart(
-              item,
-              size: ChTextSize.size30,
-              showIcon: false,
-            ),
+            child: AddToCart(item, size: ChTextSize.size30, showIcon: false),
           ),
         );
         break;
 
       case SHOPPING_CART_LIST_TYPE:
         productLineSecond.add(
-          Expanded(
-            flex: 6, // 60%
-            child: Counter(item.id),
-          ),
+          Expanded(flex: 6, child: Counter(item.id)),
         );
         break;
     }
 
     return BlocBuilder<DataBloc, DataState>(builder: (context, state) {
       if (state is DataError) {
-        return Center(
-          child: Text('failed to fetch data'),
-        );
+        return Center(child: Text('failed to fetch data'));
       }
       if (state is DataLoaded) {
         var category = state.topics.firstWhere((t) => t.id == item.categoryId,
@@ -69,10 +58,7 @@ class ProductItem extends StatelessWidget {
                     margin: const EdgeInsets.only(top: 10.0, bottom: 10.0),
                     child: ClipRRect(
                       borderRadius: new BorderRadius.circular(5.0),
-                      child: Image.network(
-                        item.thumbnail,
-                        fit: BoxFit.cover,
-                      ),
+                      child: Image.network(item.thumbnail, fit: BoxFit.cover),
                     ),
                   ),
                 ),

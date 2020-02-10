@@ -92,7 +92,7 @@ class ChTextStyle {
   static TextStyle categoryLabel = TextStyle(
     fontSize: ChTextSize.size30,
     fontWeight: FontWeight.bold,
-    color: ChColor.background,
+    color: ChColor.negative,
   );
   static TextStyle itemName = TextStyle(
     fontSize: ChTextSize.size22,
@@ -104,7 +104,7 @@ class ChTextStyle {
   );
   static TextStyle searchPlaceHolder = TextStyle(color: ChColor.initialization);
   static TextStyle noItem = TextStyle(
-    color: ChColor.cancel,
+    color: ChColor.negative,
     fontStyle: FontStyle.italic,
     fontSize: ChTextSize.size20,
   );

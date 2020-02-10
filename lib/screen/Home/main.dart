@@ -1,10 +1,8 @@
 import 'package:ChStore/screen/Home/BLoCRenderItem.dart';
-import 'package:ChStore/screen/main.dart';
-import 'package:ChStore/widget/Header/main.dart';
-import 'package:flutter/material.dart';
-
 import 'package:ChStore/widget/main.dart';
 import 'package:ChStore/utils/main.dart';
+
+import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
   @override

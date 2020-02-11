@@ -59,7 +59,18 @@ class ChTextStyle {
     fontSize: ChTextSize.size24,
   );
 
-  static TextStyle bank = TextStyle(
+  static TextStyle payment = TextStyle(
+    color: ChColor.label,
+    fontWeight: FontWeight.bold,
+    fontSize: ChTextSize.size20,
+  );
+
+  static TextStyle method = TextStyle(
+    color: ChColor.label,
+    fontSize: ChTextSize.size22,
+  );
+
+  static TextStyle bankname = TextStyle(
     color: ChColor.label,
     fontSize: ChTextSize.size26,
   );
@@ -113,6 +124,12 @@ class ChTextStyle {
     color: ChColor.negative,
     fontStyle: FontStyle.italic,
     fontSize: ChTextSize.size20,
+  );
+
+  static TextStyle cancel = TextStyle(
+    fontSize: ChTextSize.size20,
+    fontWeight: FontWeight.bold,
+    color: Colors.blueAccent,
   );
 
   static TextStyle buttonCart(double textSize) => TextStyle(

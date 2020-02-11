@@ -72,7 +72,7 @@ class _WidgetList extends State<Search> {
   Widget build(BuildContext context) {
     return Container(
       color: ChColor.main,
-      child: ScrollHeader(
+      child: ScrollPage(
         title: "Search",
         headerAppBar: Container(
           alignment: Alignment.topLeft,

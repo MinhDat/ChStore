@@ -1,13 +1,15 @@
-import 'package:flutter/material.dart';
+import 'CategoryView.dart';
+import 'TopicView.dart';
 
 import 'package:ChStore/utility/main.dart';
 import 'package:ChStore/widget/main.dart';
-import 'package:ChStore/screen/main.dart';
+
+import 'package:flutter/material.dart';
 
 class ProductCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScrollHeader(
+    return ScrollPage(
       title: "Discovery",
       headerAppBar: Container(
         alignment: Alignment.topLeft,

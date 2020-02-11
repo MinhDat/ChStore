@@ -1,22 +1,10 @@
-import 'package:ChStore/utility/ChColor.dart';
-import 'package:ChStore/utility/ChTextStyle.dart';
 import 'package:ChStore/utility/main.dart';
 import 'package:flutter/material.dart';
 
 const HEADER_HEIGHT = 40.0;
 const APP_BAR_HEIGHT = 95.0;
 
-class ScrollHeader extends StatelessWidget {
-  ScrollHeader({
-    this.title: "",
-    this.isFocused: false,
-    this.isShowHeader: true,
-    this.scrollController,
-    this.headerAppBar,
-    this.childAppBar,
-    @required this.child,
-    this.enableIcon: false,
-  });
+class ScrollPage extends StatelessWidget {
   final String title;
   final bool isFocused;
   final bool isShowHeader;
@@ -25,6 +13,19 @@ class ScrollHeader extends StatelessWidget {
   final Widget child;
   final ScrollController scrollController;
   final bool enableIcon;
+
+  ScrollPage(
+      {this.title: "",
+      this.isFocused: false,
+      this.isShowHeader: true,
+      this.scrollController,
+      this.headerAppBar,
+      this.childAppBar,
+      @required this.child,
+      this.enableIcon: false});
+
+  final double _appBarMaxHeght = System.screenSize.width / 3;
+  final double _appBarMinHeght = System.screenSize.width / 7.5;
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +38,10 @@ class ScrollHeader extends StatelessWidget {
               <Widget>[
             SliverPersistentHeader(
               delegate: SliverHeader(
-                headerHeight: HEADER_HEIGHT,
-                isFocused: isFocused,
-                title: title,
-                enableIcon: enableIcon,
-              ),
+                  headerHeight: HEADER_HEIGHT,
+                  isFocused: isFocused,
+                  title: title,
+                  enableIcon: enableIcon),
               pinned: true,
             ),
             SliverAppBar(
@@ -50,19 +50,15 @@ class ScrollHeader extends StatelessWidget {
               expandedHeight: isFocused
                   ? 0
                   : (childAppBar != null
-                      ? isShowHeader
-                          ? System.screenSize.width / 3
-                          : APP_BAR_HEIGHT
-                      : System.screenSize.width / 7.5),
+                      ? isShowHeader ? _appBarMaxHeght : APP_BAR_HEIGHT
+                      : _appBarMinHeght),
               floating: !isFocused,
               bottom: PreferredSize(
                 preferredSize: Size.fromHeight(isFocused
                     ? 0
                     : (childAppBar != null
-                        ? isShowHeader
-                            ? System.screenSize.width / 3
-                            : APP_BAR_HEIGHT
-                        : System.screenSize.width / 7.5)), // Add this code
+                        ? isShowHeader ? _appBarMaxHeght : APP_BAR_HEIGHT
+                        : _appBarMinHeght)), // Add this code
                 child: Container(alignment: Alignment.topLeft), // Add this code
               ),
               flexibleSpace: LayoutBuilder(
@@ -101,6 +97,8 @@ class SliverHeader extends SliverPersistentHeaderDelegate {
       this.title: "",
       this.enableIcon: false});
 
+  final _iconSize = System.screenSize.width * 0.05;
+
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
@@ -118,8 +116,8 @@ class SliverHeader extends SliverPersistentHeaderDelegate {
                 children: [
                   enableIcon
                       ? Image.asset('icon/ChStore_white.png',
-                          height: System.screenSize.width * 0.05,
-                          width: System.screenSize.width * 0.05,
+                          height: _iconSize,
+                          width: _iconSize,
                           fit: BoxFit.cover)
                       : SizedBox.shrink(),
                   Text(this.title, style: ChTextStyle.scrollHeader),

@@ -145,8 +145,8 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                       onTap: () => _handleCancel(),
                       child: AnimatedContainer(
                         duration: Duration(seconds: 1),
-                        alignment: Alignment.center,
-                        child: Text("Cancel", style: ChTextStyle.link),
+                        alignment: Alignment.centerRight,
+                        child: Text("Cancel", style: ChTextStyle.cancel),
                       ),
                     ),
                   ),

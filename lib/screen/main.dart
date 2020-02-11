@@ -1,12 +1,9 @@
-export 'package:ChStore/screen/CheckOut/main.dart';
 export 'package:ChStore/screen/HomePage/main.dart';
 export 'package:ChStore/screen/Category/main.dart';
 export 'package:ChStore/screen/MainPage/main.dart';
 export 'package:ChStore/screen/Personality/main.dart';
 
 export 'package:ChStore/screen/ProductCategory/main.dart';
-export 'package:ChStore/screen/ProductCategory/TopicView.dart';
-export 'package:ChStore/screen/ProductCategory/CategoryView.dart';
 
 export 'package:ChStore/screen/ProductDetail/main.dart';
 export 'package:ChStore/screen/ProductList/main.dart';

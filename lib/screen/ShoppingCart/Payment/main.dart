@@ -1,7 +1,7 @@
-import 'package:ChStore/screen/CheckOut/BankingView.dart';
-import 'package:flutter/material.dart';
-
+import 'Banking.dart';
 import 'package:ChStore/utility/main.dart';
+
+import 'package:flutter/material.dart';
 
 enum SingingCharacter { CASH_MONEY, VISA, INTERNET_BANKING }
 
@@ -18,46 +18,44 @@ class CheckOutState extends State<CheckOut> {
     return ListView(
       children: <Widget>[
         Card(
-          child: Column(
-            children: [
-              ListTile(
-                leading: Icon(Icons.album),
-                title: Text("Recipient's address", style: ChTextStyle.label),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 30, bottom: 20, right: 30),
-                child: TextField(
+          child: Padding(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                    padding: EdgeInsets.only(bottom: 10),
+                    child: Text("Recipient's address",
+                        style: ChTextStyle.payment)),
+                TextField(
                   decoration: InputDecoration(
                     contentPadding: const EdgeInsets.all(14),
                     filled: true,
                     fillColor: ChColor.main,
                     border: OutlineInputBorder(
-                      borderSide: BorderSide(color: ChColor.border),
-                      // borderRadius: BorderRadius.circular(RADIUS),
-                    ),
+                        borderSide: BorderSide(color: ChColor.border)),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: ChColor.border),
-                      // borderRadius: BorderRadius.circular(RADIUS),
-                    ),
+                        borderSide: BorderSide(color: ChColor.border)),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: ChColor.border),
-                    ),
+                        borderSide: BorderSide(color: ChColor.border)),
                     hintText: 'Enter your address',
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         Card(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              ListTile(
-                leading: Icon(Icons.album),
-                title: Text('Choose payment menthod', style: ChTextStyle.label),
-              ),
+              Padding(
+                  padding:
+                      EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 10),
+                  child: Text('Choose payment menthod',
+                      style: ChTextStyle.payment)),
               RadioListTile<SingingCharacter>(
-                title: Text('Cash money', style: ChTextStyle.label),
+                title: Text('Cash money', style: ChTextStyle.method),
                 value: SingingCharacter.CASH_MONEY,
                 groupValue: _character,
                 onChanged: (SingingCharacter value) {
@@ -67,7 +65,7 @@ class CheckOutState extends State<CheckOut> {
                 },
               ),
               RadioListTile<SingingCharacter>(
-                title: Text('VISA/Master card', style: ChTextStyle.label),
+                title: Text('VISA/Master card', style: ChTextStyle.method),
                 value: SingingCharacter.VISA,
                 groupValue: _character,
                 onChanged: (SingingCharacter value) {
@@ -76,8 +74,11 @@ class CheckOutState extends State<CheckOut> {
                   });
                 },
               ),
+              _character == SingingCharacter.VISA
+                  ? Banking()
+                  : SizedBox.shrink(),
               RadioListTile<SingingCharacter>(
-                title: Text('Internet banking', style: ChTextStyle.label),
+                title: Text('Internet banking', style: ChTextStyle.method),
                 value: SingingCharacter.INTERNET_BANKING,
                 groupValue: _character,
                 onChanged: (SingingCharacter value) {
@@ -87,7 +88,7 @@ class CheckOutState extends State<CheckOut> {
                 },
               ),
               _character == SingingCharacter.INTERNET_BANKING
-                  ? BankingView()
+                  ? Banking()
                   : SizedBox.shrink()
             ],
           ),

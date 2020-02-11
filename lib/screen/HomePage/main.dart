@@ -39,6 +39,7 @@ class _HomePageState extends State<HomePage> {
   bool _isFocused;
   bool _existedWord;
   bool _isShowHeader;
+  bool _hasFocused;
 
   @override
   void initState() {
@@ -46,19 +47,24 @@ class _HomePageState extends State<HomePage> {
     _isFocused = UNFOCUSED_TEXT;
     _existedWord = NOT_EXIST_WORD;
     _isShowHeader = true;
+    _hasFocused = false;
     _scrollController = ScrollController()
       ..addListener(() {
         // Focused in search box
-        if (_scrollController.offset == HEADER_HEIGHT) {
+        if (_hasFocused && _scrollController.offset == HEADER_HEIGHT) {
           setState(() {
             _isFocused = FOCUSED_TEXT;
             _scrollController.jumpTo(0.0);
+            _isShowHeader = true;
           });
         }
+
         // Checking show header
-        setState(() {
-          _isShowHeader = _scrollController.offset < HEADER_HEIGHT;
-        });
+        if (!_hasFocused) {
+          setState(() {
+            _isShowHeader = _scrollController.offset < HEADER_HEIGHT;
+          });
+        }
       });
   }
 
@@ -70,6 +76,9 @@ class _HomePageState extends State<HomePage> {
 
   void _onFocus() {
     if (_isFocused == UNFOCUSED_TEXT) {
+      setState(() {
+        _hasFocused = true;
+      });
       _scrollController.animateTo(
         HEADER_HEIGHT,
         duration: Duration(milliseconds: 500),
@@ -81,6 +90,8 @@ class _HomePageState extends State<HomePage> {
   void _onUnfocused() {
     setState(() {
       _isFocused = UNFOCUSED_TEXT;
+      _hasFocused = false;
+      // _isShowHeader = true;
       _existedWord = NOT_EXIST_WORD;
     });
   }
@@ -100,7 +111,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return ScrollHeader(
+    return ScrollPage(
       title: "ChStore",
       enableIcon: true,
       headerAppBar: Header(),

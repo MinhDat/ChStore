@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
+import 'Payment/main.dart';
 
 import 'package:ChStore/widget/main.dart';
 import 'package:ChStore/utility/main.dart';
-import 'package:ChStore/screen/main.dart';
+
+import 'package:flutter/material.dart';
 
 const BACK_ACTION = false;
 const NEXT_ACTION = true;
@@ -16,10 +17,10 @@ class ShoppingCartState extends State<ShoppingCart> {
   int _currentIndex;
   PageController _pageController;
   ScrollController _scrollController;
-  GlobalKey<LinearProgressState> globalLinearCheckOutKey = GlobalKey();
-  GlobalKey<LinearProgressState> globalLinearDoneKey = GlobalKey();
-  GlobalKey<RadialProgressState> globalRadialCheckOutKey = GlobalKey();
-  GlobalKey<RadialProgressState> globalRadialDoneKey = GlobalKey();
+  GlobalKey<LinearProgressState> _globalLinearCheckOutKey = GlobalKey();
+  GlobalKey<LinearProgressState> _globalLinearDoneKey = GlobalKey();
+  GlobalKey<RadialProgressState> _globalRadialCheckOutKey = GlobalKey();
+  GlobalKey<RadialProgressState> _globalRadialDoneKey = GlobalKey();
 
   @override
   void initState() {
@@ -48,37 +49,34 @@ class ShoppingCartState extends State<ShoppingCart> {
       switch (delta) {
         case 1:
           if (action == NEXT_ACTION) {
-            globalLinearCheckOutKey.currentState.reset(LINEAR_ACTIVE);
-            globalRadialCheckOutKey.currentState.reset(RADIAL_ACTIVE);
+            _globalLinearCheckOutKey.currentState.reset(LINEAR_ACTIVE);
+            _globalRadialCheckOutKey.currentState.reset(RADIAL_ACTIVE);
           } else {
-            globalLinearDoneKey.currentState.reset(LINEAR_DEACTIVE);
-            globalRadialDoneKey.currentState.reset(RADIAL_DEACTIVE);
+            _globalLinearDoneKey.currentState.reset(LINEAR_DEACTIVE);
+            _globalRadialDoneKey.currentState.reset(RADIAL_DEACTIVE);
           }
           break;
         case 2:
-          globalLinearDoneKey.currentState.reset(LINEAR_ACTIVE);
-          globalRadialDoneKey.currentState.reset(RADIAL_ACTIVE);
+          _globalLinearDoneKey.currentState.reset(LINEAR_ACTIVE);
+          _globalRadialDoneKey.currentState.reset(RADIAL_ACTIVE);
           break;
         default:
-          globalLinearCheckOutKey.currentState.reset(LINEAR_DEACTIVE);
-          globalRadialCheckOutKey.currentState.reset(RADIAL_DEACTIVE);
-          globalLinearDoneKey.currentState.reset(LINEAR_DEACTIVE);
-          globalRadialDoneKey.currentState.reset(RADIAL_DEACTIVE);
+          _globalLinearCheckOutKey.currentState.reset(LINEAR_DEACTIVE);
+          _globalRadialCheckOutKey.currentState.reset(RADIAL_DEACTIVE);
+          _globalLinearDoneKey.currentState.reset(LINEAR_DEACTIVE);
+          _globalRadialDoneKey.currentState.reset(RADIAL_DEACTIVE);
       }
 
       _scrollController.jumpTo(0.0);
-      _pageController.animateToPage(
-        delta,
-        duration: const Duration(milliseconds: 200),
-        curve: Curves.ease,
-      );
+      _pageController.animateToPage(delta,
+          duration: const Duration(milliseconds: 200), curve: Curves.ease);
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ScrollHeader(
+      body: ScrollPage(
         title: "Shopping Cart",
         headerAppBar: Container(
           alignment: Alignment.topLeft,
@@ -94,9 +92,9 @@ class ShoppingCartState extends State<ShoppingCart> {
                 active: RADIAL_ACTIVE,
                 child: Icon(Icons.shopping_basket, color: ChColor.complete),
               ),
-              LinearProgress(key: globalLinearCheckOutKey),
+              LinearProgress(key: _globalLinearCheckOutKey),
               RadialProgress(
-                key: globalRadialCheckOutKey,
+                key: _globalRadialCheckOutKey,
                 child: Icon(
                   Icons.attach_money,
                   color: _currentIndex > 0
@@ -104,9 +102,9 @@ class ShoppingCartState extends State<ShoppingCart> {
                       : ChColor.initialization,
                 ),
               ),
-              LinearProgress(key: globalLinearDoneKey),
+              LinearProgress(key: _globalLinearDoneKey),
               RadialProgress(
-                key: globalRadialDoneKey,
+                key: _globalRadialDoneKey,
                 child: Icon(
                   Icons.done,
                   color: _currentIndex > 1
@@ -141,8 +139,7 @@ class ShoppingCartState extends State<ShoppingCart> {
                 child: FlatButton(
                   color: ChColor.negative,
                   shape: RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(30.0),
-                  ),
+                      borderRadius: BorderRadius.circular(30.0)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.max,
@@ -168,7 +165,7 @@ class ShoppingCartState extends State<ShoppingCart> {
                 child: FlatButton(
                   color: ChColor.complete,
                   shape: RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(30.0),
+                    borderRadius: BorderRadius.circular(30.0),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

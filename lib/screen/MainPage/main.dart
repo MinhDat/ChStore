@@ -25,7 +25,7 @@ class _MainpageState extends State<Mainpage>
   @override
   void initState() {
     super.initState();
-    // Listen comleted render event
+    // Listen completed render event
     WidgetsBinding.instance.addPostFrameCallback(_onBuildCompleted);
 
     _index = 0;

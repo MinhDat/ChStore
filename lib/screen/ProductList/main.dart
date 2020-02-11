@@ -1,16 +1,16 @@
 import 'package:ChStore/utility/main.dart';
 import 'package:ChStore/widget/main.dart';
+import 'package:ChStore/bloc/main.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:ChStore/bloc/main.dart';
-
 class ProductList extends StatefulWidget {
   @override
-  ProductListState createState() => ProductListState();
+  _ProductListState createState() => _ProductListState();
 }
 
-class ProductListState extends State<ProductList> {
+class _ProductListState extends State<ProductList> {
   final _scrollController = ScrollController();
   final _scrollThreshold = 200.0;
   DataBloc _productBloc;

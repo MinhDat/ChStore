@@ -9,16 +9,24 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  Timer _timer;
+
   @override
   void initState() {
     // TODO: implement initState
-    super.initState();
     System.firstUsage.then((first) {
-      Timer(
-          Duration(seconds: 5),
+      _timer = Timer(
+          Duration(seconds: 3),
           () => Navigator.pushReplacementNamed(
               context, first ? '/guide' : '/main'));
     });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    if (_timer != null && _timer.isActive) _timer.cancel();
   }
 
   @override

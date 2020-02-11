@@ -18,19 +18,17 @@ class RadialProgress extends StatefulWidget {
 }
 
 class RadialProgressState extends State<RadialProgress> {
-  double percentage;
+  double _percentage;
   Timer _timer;
-  double step;
-  bool active;
+  double _step;
+  bool _active;
 
   @override
   void initState() {
     super.initState();
-    setState(() {
-      percentage = 0.0;
-      step = 1.0;
-      active = widget.active != null;
-    });
+    _percentage = 0.0;
+    _step = 1.0;
+    _active = widget.active != null;
     _percentProgress();
   }
 
@@ -42,12 +40,12 @@ class RadialProgressState extends State<RadialProgress> {
 
   void reset(bool enable) {
     setState(() {
-      percentage = 0.0;
-      step = 1.0;
+      _percentage = 0.0;
+      _step = 1.0;
       if (enable) {
-        active = RADIAL_ACTIVE;
+        _active = RADIAL_ACTIVE;
       } else {
-        active = RADIAL_DEACTIVE;
+        _active = RADIAL_DEACTIVE;
       }
       _percentProgress();
     });
@@ -64,7 +62,7 @@ class RadialProgressState extends State<RadialProgress> {
           foregroundPainter: RadialPainter(
               lineColor: ChColor.main,
               completeColor: ChColor.complete,
-              completePercent: percentage,
+              completePercent: _percentage,
               width: 2.0),
           child: Padding(
             padding: const EdgeInsets.all(2.0),
@@ -85,26 +83,26 @@ class RadialProgressState extends State<RadialProgress> {
 
   void _percentProgress() {
     if (_timer != null && _timer.isActive) _timer.cancel();
-    if (active) {
+    if (_active) {
       _timer = Timer(Duration(milliseconds: 10), () {
-        if (percentage <= 20) {
+        if (_percentage <= 20) {
           setState(() {
-            step++;
+            _step++;
           });
         }
-        if (percentage < 100 && percentage >= 80 && step > 0) {
+        if (_percentage < 100 && _percentage >= 80 && _step > 0) {
           setState(() {
-            step--;
+            _step--;
           });
         }
-        if (percentage >= 100.0) {
+        if (_percentage >= 100.0) {
           if (_timer != null && _timer.isActive) _timer.cancel();
           setState(() {
-            active = RADIAL_DEACTIVE;
+            _active = RADIAL_DEACTIVE;
           });
         } else {
           setState(() {
-            percentage += step;
+            _percentage += _step;
           });
         }
         _percentProgress();

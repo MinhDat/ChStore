@@ -18,19 +18,17 @@ class LinearProgress extends StatefulWidget {
 }
 
 class LinearProgressState extends State<LinearProgress> {
-  bool active;
-  double percentage;
+  bool _active;
+  double _percentage;
   Timer _timer;
-  double step;
+  double _step;
 
   @override
   void initState() {
     super.initState();
-    setState(() {
-      percentage = 0.0;
-      step = 1.0;
-      active = widget.active != null;
-    });
+    _percentage = 0.0;
+    _step = 1.0;
+    _active = widget.active != null;
     _percentProgress();
   }
 
@@ -42,12 +40,12 @@ class LinearProgressState extends State<LinearProgress> {
 
   void reset(bool enable) {
     setState(() {
-      percentage = 0.0;
-      step = 1.0;
+      _percentage = 0.0;
+      _step = 1.0;
       if (enable) {
-        active = LINEAR_ACTIVE;
+        _active = LINEAR_ACTIVE;
       } else {
-        active = LINEAR_DEACTIVE;
+        _active = LINEAR_DEACTIVE;
       }
       _percentProgress();
     });
@@ -63,7 +61,7 @@ class LinearProgressState extends State<LinearProgress> {
           foregroundPainter: LinearPainter(
             lineColor: ChColor.main,
             completeColor: ChColor.complete,
-            completePercent: percentage,
+            completePercent: _percentage,
             width: 2,
           ),
         ),
@@ -73,26 +71,26 @@ class LinearProgressState extends State<LinearProgress> {
 
   void _percentProgress() {
     if (_timer != null && _timer.isActive) _timer.cancel();
-    if (active) {
+    if (_active) {
       _timer = Timer(Duration(milliseconds: 10), () {
-        if (percentage <= 20) {
+        if (_percentage <= 20) {
           setState(() {
-            step++;
+            _step++;
           });
         }
-        if (percentage < 100 && percentage >= 80 && step > 0) {
+        if (_percentage < 100 && _percentage >= 80 && _step > 0) {
           setState(() {
-            step--;
+            _step--;
           });
         }
-        if (percentage >= 100.0) {
+        if (_percentage >= 100.0) {
           if (_timer != null && _timer.isActive) _timer.cancel();
           setState(() {
-            active = LINEAR_DEACTIVE;
+            _active = LINEAR_DEACTIVE;
           });
         } else {
           setState(() {
-            percentage += step;
+            _percentage += _step;
           });
         }
         _percentProgress();

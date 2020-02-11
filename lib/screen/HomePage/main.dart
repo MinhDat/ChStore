@@ -4,14 +4,17 @@ import 'package:ChStore/utility/main.dart';
 
 import 'package:flutter/material.dart';
 
+const HAS_FOCUSED = true;
+const HAS_NOT_FOCUSED = false;
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  DateTime _now = new DateTime.now();
-  List<String> _month = [
+  final DateTime _now = new DateTime.now();
+  final List<String> _month = [
     "JANUARY",
     "FEBRUARY",
     "MARCH",
@@ -25,7 +28,7 @@ class _HomePageState extends State<HomePage> {
     "NOVEMBER",
     "DECEMBER"
   ];
-  List<String> _week = [
+  final List<String> _week = [
     "MONDAY",
     "TUESDAY",
     "WEDNESDAY",
@@ -35,37 +38,31 @@ class _HomePageState extends State<HomePage> {
     "SUNDAY"
   ];
 
-  ScrollController _scrollController;
-  bool _isFocused;
-  bool _existedWord;
-  bool _isShowHeader;
-  bool _hasFocused;
+  final ScrollController _scrollController = ScrollController();
+  bool _isFocused = UNFOCUSED_TEXT;
+  bool _existedWord = NOT_EXIST_WORD;
+  bool _isShowHeader = SHOW_HEADER;
+  bool _hasFocused = HAS_NOT_FOCUSED;
 
   @override
   void initState() {
     super.initState();
-    _isFocused = UNFOCUSED_TEXT;
-    _existedWord = NOT_EXIST_WORD;
-    _isShowHeader = true;
-    _hasFocused = false;
-    _scrollController = ScrollController()
-      ..addListener(() {
-        // Focused in search box
-        if (_hasFocused && _scrollController.offset == HEADER_HEIGHT) {
-          setState(() {
-            _isFocused = FOCUSED_TEXT;
-            _scrollController.jumpTo(0.0);
-            _isShowHeader = true;
-          });
-        }
+    _scrollController.addListener(() {
+      // Focused in search box
+      if (_hasFocused && _scrollController.offset == HEADER_HEIGHT) {
+        setState(() {
+          _isFocused = FOCUSED_TEXT;
+          _scrollController.jumpTo(0.0);
+        });
+      }
 
-        // Checking show header
-        if (!_hasFocused) {
-          setState(() {
-            _isShowHeader = _scrollController.offset < HEADER_HEIGHT;
-          });
-        }
-      });
+      // Checking show header
+      if (!_hasFocused) {
+        setState(() {
+          _isShowHeader = _scrollController.offset < HEADER_HEIGHT;
+        });
+      }
+    });
   }
 
   @override
@@ -76,9 +73,9 @@ class _HomePageState extends State<HomePage> {
 
   void _onFocus() {
     if (_isFocused == UNFOCUSED_TEXT) {
-      setState(() {
-        _hasFocused = true;
-      });
+      _hasFocused = HAS_FOCUSED;
+      _isShowHeader = NOT_SHOW_HEADER;
+
       _scrollController.animateTo(
         HEADER_HEIGHT,
         duration: Duration(milliseconds: 500),
@@ -90,9 +87,9 @@ class _HomePageState extends State<HomePage> {
   void _onUnfocused() {
     setState(() {
       _isFocused = UNFOCUSED_TEXT;
-      _hasFocused = false;
-      // _isShowHeader = true;
+      _hasFocused = HAS_NOT_FOCUSED;
       _existedWord = NOT_EXIST_WORD;
+      _isShowHeader = SHOW_HEADER;
     });
   }
 

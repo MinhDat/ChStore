@@ -15,14 +15,14 @@ class LinearPageProgress extends StatefulWidget {
 }
 
 class LinearPageProgressState extends State<LinearPageProgress> {
-  double percentage = 0.0;
+  double _percentage = 0.0;
   Timer _timer;
-  double step;
+  double _step;
 
   @override
   void initState() {
     super.initState();
-    step = 10.0 / widget.seconds;
+    _step = 10.0 / widget.seconds;
     _percentProgress();
   }
 
@@ -36,19 +36,19 @@ class LinearPageProgressState extends State<LinearPageProgress> {
     switch (state) {
       case 0:
         setState(() {
-          percentage = 0.0;
+          _percentage = 0.0;
           widget.active = true;
         });
         break;
       case 1:
         setState(() {
-          percentage = 0.0;
+          _percentage = 0.0;
           widget.active = false;
         });
         break;
       case 2:
         setState(() {
-          percentage = 100.0;
+          _percentage = 100.0;
           widget.active = false;
         });
         break;
@@ -66,7 +66,7 @@ class LinearPageProgressState extends State<LinearPageProgress> {
           foregroundPainter: LinearPagePainter(
             lineColor: ChColor.initialization,
             completeColor: ChColor.main,
-            completePercent: percentage,
+            completePercent: _percentage,
             width: 5,
           ),
         ),
@@ -78,13 +78,13 @@ class LinearPageProgressState extends State<LinearPageProgress> {
     if (_timer != null && _timer.isActive) _timer.cancel();
     _timer = Timer(Duration(milliseconds: 90), () {
       if (widget.active) {
-        if (percentage >= 100.0) {
+        if (_percentage >= 100.0) {
           setState(() {
-            percentage = percentage;
+            _percentage = _percentage;
           });
         } else {
           setState(() {
-            percentage += step;
+            _percentage += _step;
           });
         }
       }

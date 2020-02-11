@@ -1,6 +1,10 @@
 import 'package:ChStore/utility/main.dart';
 import 'package:flutter/material.dart';
 
+// Show header type
+const SHOW_HEADER = true;
+const NOT_SHOW_HEADER = true;
+
 const HEADER_HEIGHT = 40.0;
 const APP_BAR_HEIGHT = 95.0;
 

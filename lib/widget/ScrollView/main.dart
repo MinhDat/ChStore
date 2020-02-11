@@ -1,13 +1,13 @@
-import 'package:ChStore/utils/ChColor.dart';
-import 'package:ChStore/utils/ChTextStyle.dart';
-import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/utility/ChColor.dart';
+import 'package:ChStore/utility/ChTextStyle.dart';
+import 'package:ChStore/utility/main.dart';
 import 'package:flutter/material.dart';
 
 const HEADER_HEIGHT = 40.0;
 const APP_BAR_HEIGHT = 95.0;
 
-class ScrollableHeader extends StatelessWidget {
-  ScrollableHeader({
+class ScrollHeader extends StatelessWidget {
+  ScrollHeader({
     this.title: "",
     this.isFocused: false,
     this.isShowHeader: true,

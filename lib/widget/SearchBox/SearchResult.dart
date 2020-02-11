@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:ChStore/bloc/Bloc.dart';
-import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/bloc/main.dart';
+import 'package:ChStore/utility/main.dart';
 import 'package:ChStore/widget/main.dart';
 
 import 'package:flutter/material.dart';

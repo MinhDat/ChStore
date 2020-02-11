@@ -1,4 +1,4 @@
-import 'package:ChStore/provider/Provider.dart';
+import 'package:ChStore/provider/main.dart';
 import 'package:ChStore/screen/main.dart';
 
 import 'package:flutter/material.dart';
@@ -16,11 +16,11 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         theme: ThemeData(primarySwatch: Colors.red),
         routes: {
-          // When navigating to the "/" route, build the FirstScreen widget.
+          // When navigating to the "/" route, build the SplashScreen widget.
           '/': (context) => SplashScreen(),
           '/guide': (context) => UsageGuide(),
           '/main': (context) => Mainpage(),
-          // When navigating to the "/second" route, build the SecondScreen widget.
+          // When navigating to the "/product-detail" route, build the ProductDetail widget.
           '/product-detail': (context) => ProductDetail(),
           // Topic routes
           '/woman-topic': (context) => Category(),

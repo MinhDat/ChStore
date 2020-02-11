@@ -1,7 +1,7 @@
-import 'package:ChStore/utils/ChTextStyle.dart';
-import 'package:ChStore/utils/System.dart';
-import 'package:flutter/material.dart';
+import 'package:ChStore/utility/main.dart';
 import 'package:ChStore/model/main.dart';
+
+import 'package:flutter/material.dart';
 
 const RADIUS_CIRCULAR = 20.0;
 // Templates
@@ -42,15 +42,13 @@ class ChCard extends StatelessWidget {
             left: 0,
             child: Container(
               decoration: new BoxDecoration(
-                borderRadius: new BorderRadius.only(
-                  bottomLeft: Radius.circular(RADIUS_CIRCULAR),
-                  bottomRight: Radius.circular(RADIUS_CIRCULAR),
-                ),
+                borderRadius:
+                    new BorderRadius.all(Radius.circular(RADIUS_CIRCULAR)),
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   // Add one stop for each color. Stops should increase from 0 to 1
-                  stops: [0.1, 0.5, 0.7, 0.9],
+                  stops: [0.3, 0.5, 0.7, 0.9],
                   colors: [
                     // Colors are easy thanks to Flutter's Colors class.
                     Colors.white10.withOpacity(0),
@@ -86,6 +84,10 @@ class ChCard extends StatelessWidget {
     );
 
     return Container(
+      decoration: new BoxDecoration(
+        borderRadius: new BorderRadius.all(Radius.circular(RADIUS_CIRCULAR)),
+        color: ChColor.main,
+      ),
       child: Stack(
         children: widgetList,
       ),

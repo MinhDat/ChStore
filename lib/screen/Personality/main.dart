@@ -1,16 +1,15 @@
+import 'package:ChStore/utility/main.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/utils/main.dart';
-
-class Personal extends StatefulWidget {
+class Personality extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return PersonalState();
+    return _PersonalityState();
   }
 }
 
-class PersonalState extends State<Personal> {
-  double avatarSize = System.screenSize.width / 10;
+class _PersonalityState extends State<Personality> {
+  double _avatarSize = System.screenSize.height / 16;
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +18,7 @@ class PersonalState extends State<Personal> {
         Container(
           decoration: new BoxDecoration(
               border: Border(
-            bottom: BorderSide(
-              color: ChColor.background,
-              width: 5.0,
-            ),
+            bottom: BorderSide(color: ChColor.background, width: 5.0),
           )),
           child: GestureDetector(
             onTap: () => Navigator.pushNamed(context, '/profile'),
@@ -33,10 +29,9 @@ class PersonalState extends State<Personal> {
                   child: Container(
                     margin: EdgeInsets.all(20),
                     child: CircleAvatar(
-                      radius: avatarSize,
-                      backgroundImage:
-                          NetworkImage('https://picsum.photos/200'),
-                    ),
+                        radius: _avatarSize,
+                        backgroundImage:
+                            NetworkImage('https://picsum.photos/200')),
                   ),
                 ),
                 Expanded(
@@ -44,10 +39,8 @@ class PersonalState extends State<Personal> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Charlie',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
+                      Text('Charlie',
+                          style: TextStyle(fontWeight: FontWeight.bold)),
                       Text('Software Developer'),
                     ],
                   ),
@@ -60,10 +53,7 @@ class PersonalState extends State<Personal> {
           padding: EdgeInsets.all(20),
           decoration: new BoxDecoration(
             border: Border(
-              bottom: BorderSide(
-                color: ChColor.background,
-                width: 5.0,
-              ),
+              bottom: BorderSide(color: ChColor.background, width: 5.0),
             ),
           ),
           child: Row(
@@ -79,11 +69,8 @@ class PersonalState extends State<Personal> {
                 padding: EdgeInsets.only(top: 10, bottom: 10),
                 decoration: new BoxDecoration(
                   border: Border(
-                    bottom: BorderSide(
-                      color: ChColor.background,
-                      width: 1.0,
-                    ),
-                  ),
+                      bottom:
+                          BorderSide(color: ChColor.background, width: 1.0)),
                 ),
                 child: Row(
                   children: <Widget>[
@@ -97,10 +84,7 @@ class PersonalState extends State<Personal> {
                 padding: EdgeInsets.only(top: 10, bottom: 10),
                 decoration: new BoxDecoration(
                   border: Border(
-                    bottom: BorderSide(
-                      color: ChColor.background,
-                      width: 1.0,
-                    ),
+                    bottom: BorderSide(color: ChColor.background, width: 1.0),
                   ),
                 ),
                 child: Text("Setting"),
@@ -110,10 +94,7 @@ class PersonalState extends State<Personal> {
                 padding: EdgeInsets.only(top: 10, bottom: 10),
                 decoration: new BoxDecoration(
                   border: Border(
-                    bottom: BorderSide(
-                      color: ChColor.background,
-                      width: 1.0,
-                    ),
+                    bottom: BorderSide(color: ChColor.background, width: 1.0),
                   ),
                 ),
                 child: Text("Return Order"),

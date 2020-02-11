@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:ChStore/widget/Progress/RadialPainter.dart';
-import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/utility/main.dart';
 
 import 'package:flutter/material.dart';
 

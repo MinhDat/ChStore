@@ -1,14 +1,14 @@
-import 'package:ChStore/bloc/Bloc.dart';
+import 'package:ChStore/bloc/main.dart';
 import 'package:ChStore/model/Product.dart';
-import 'package:ChStore/utils/ChTextStyle.dart';
+import 'package:ChStore/utility/ChTextStyle.dart';
 import 'package:flutter/material.dart';
-import 'package:ChStore/utils/System.dart';
-import 'package:ChStore/utils/ChColor.dart';
+import 'package:ChStore/utility/System.dart';
+import 'package:ChStore/utility/ChColor.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddToCart extends StatefulWidget {
   AddToCart(this.data, {this.size = 15, this.showIcon = true});
-  Product data;
+  final Product data;
   final double size;
   final bool showIcon;
 
@@ -19,22 +19,15 @@ class AddToCart extends StatefulWidget {
 class AddToCartState extends State<AddToCart> {
   GlobalKey _buttonKey = GlobalKey();
 
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
   handleClick(BuildContext context) {
     final CounterBloc counterBloc = BlocProvider.of<CounterBloc>(context);
     final RenderBox renderBoxRed = _buttonKey.currentContext.findRenderObject();
-    final currentOffset = renderBoxRed.localToGlobal(Offset.zero);
-    AnimationOffset _next =
-        AnimationOffset(begin: currentOffset, end: System.shoppingCartOffset);
+    final _offset = renderBoxRed.localToGlobal(Offset.zero);
+    final _size = renderBoxRed.size;
+    AnimationOffset _next = AnimationOffset(
+        begin:
+            Offset(_offset.dx + _size.width / 2, _offset.dy + _size.height / 2),
+        end: System.shoppingCartOffset);
     Product existed = allShoppingCarts.firstWhere((p) => p.id == widget.data.id,
         orElse: () => null);
 

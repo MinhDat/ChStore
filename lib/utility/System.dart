@@ -7,8 +7,7 @@ class AnimationOffset {
     this.begin = const Offset(0, 0),
     this.end = const Offset(0, 0),
   });
-  Offset begin;
-  Offset end;
+  Offset begin, end;
 }
 
 class System {

@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/utility/main.dart';
 import 'package:ChStore/model/main.dart';
 import 'package:ChStore/widget/main.dart';
 

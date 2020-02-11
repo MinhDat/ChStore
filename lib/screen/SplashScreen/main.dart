@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/utility/main.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -42,10 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 Image.asset('icon/ChStore_white.png', height: 50, width: 50),
                 Text(
                   "ChStore",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 40,
-                  ),
+                  style: TextStyle(color: Colors.white, fontSize: 40),
                 ),
               ],
             ),

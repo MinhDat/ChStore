@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ChStore/utils/ChTextStyle.dart';
+import 'package:ChStore/utility/ChTextStyle.dart';
 
 class SocialInfo extends StatelessWidget {
   SocialInfo(this.content, {this.bgColor, this.textColor, this.assetImage});

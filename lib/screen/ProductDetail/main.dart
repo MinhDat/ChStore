@@ -1,21 +1,21 @@
-import 'package:flutter/material.dart';
-
-import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/utility/main.dart';
 import 'package:ChStore/widget/main.dart';
 import 'package:ChStore/model/main.dart';
+
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter/material.dart';
 
 class ProductDetail extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _WidgetList();
+    return _ProductDetailState();
   }
 }
 
-class _WidgetList extends State<ProductDetail> {
-  Product product;
+class _ProductDetailState extends State<ProductDetail> {
+  Product _product;
   GlobalKey _keySCContainer = GlobalKey();
-  Size sizeSCContainer;
+  Size _sizeSCContainer;
   ScrollController _scrollController;
   double percentGradient;
 
@@ -30,11 +30,12 @@ class _WidgetList extends State<ProductDetail> {
           setState(() {
             percentGradient = 0.0;
           });
-        } else if (_scrollController.offset <= sizeSCContainer.height) {
+        } else if (_scrollController.offset <= _sizeSCContainer.height) {
           setState(() {
-            percentGradient = _scrollController.offset / sizeSCContainer.height;
+            percentGradient =
+                _scrollController.offset / _sizeSCContainer.height;
           });
-        } else if (_scrollController.offset > sizeSCContainer.height) {
+        } else if (_scrollController.offset > _sizeSCContainer.height) {
           setState(() {
             percentGradient = 1.0;
           });
@@ -50,7 +51,7 @@ class _WidgetList extends State<ProductDetail> {
 
   void _favoriteHandle() {
     setState(() {
-      product.favorited = !product.favorited;
+      _product.favorited = !_product.favorited;
     });
   }
 
@@ -62,7 +63,7 @@ class _WidgetList extends State<ProductDetail> {
     final RenderBox renderBoxRed =
         _keySCContainer.currentContext.findRenderObject();
     setState(() {
-      sizeSCContainer = renderBoxRed.size;
+      _sizeSCContainer = renderBoxRed.size;
     });
   }
 
@@ -70,7 +71,7 @@ class _WidgetList extends State<ProductDetail> {
   Widget build(BuildContext context) {
     RouteSettings settings = ModalRoute.of(context).settings;
     setState(() {
-      product = settings.arguments;
+      _product = settings.arguments;
     });
 
     return Scaffold(
@@ -90,7 +91,7 @@ class _WidgetList extends State<ProductDetail> {
                         height: System.screenSize.height,
                         width: System.screenSize.width,
                         child: Image.network(
-                          product.image,
+                          _product.image,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -125,13 +126,13 @@ class _WidgetList extends State<ProductDetail> {
                           children: <Widget>[
                             Padding(
                               padding: EdgeInsets.only(right: 20, left: 20),
-                              child: Text(product.name,
+                              child: Text(_product.name,
                                   style: ChTextStyle.cardName),
                             ),
                             Padding(
                               padding: EdgeInsets.only(
                                   right: 20, left: 20, bottom: 10),
-                              child: Text("\$${product.price}",
+                              child: Text("\$${_product.price}",
                                   style: ChTextStyle.cardPrice),
                             ),
                             Container(
@@ -143,15 +144,11 @@ class _WidgetList extends State<ProductDetail> {
                                     ChColor.main.withOpacity(percentGradient),
                                 border: Border(
                                   bottom: BorderSide(
-                                    color: ChColor.border,
-                                    width: 2.0,
-                                  ),
+                                      color: ChColor.border, width: 2.0),
                                 ),
                               ),
-                              child: AddToCart(
-                                product,
-                                size: ChTextSize.size20,
-                              ),
+                              child:
+                                  AddToCart(_product, size: ChTextSize.size20),
                             ),
                           ],
                         ),
@@ -165,10 +162,8 @@ class _WidgetList extends State<ProductDetail> {
                             left: 20, right: 20, top: 10, bottom: 10),
                         decoration: BoxDecoration(
                           border: Border(
-                            bottom: BorderSide(
-                              color: ChColor.border,
-                              width: 1.0,
-                            ),
+                            bottom:
+                                BorderSide(color: ChColor.border, width: 1.0),
                           ),
                         ),
                         child: Column(
@@ -177,14 +172,12 @@ class _WidgetList extends State<ProductDetail> {
                               children: <Widget>[
                                 Expanded(
                                   flex: 4,
-                                  child: Text(
-                                    "Producer:",
-                                    style: ChTextStyle.label,
-                                  ),
+                                  child: Text("Producer:",
+                                      style: ChTextStyle.label),
                                 ),
                                 Expanded(
                                   flex: 6,
-                                  child: Text(product.producer,
+                                  child: Text(_product.producer,
                                       style: ChTextStyle.normal),
                                 ),
                               ],
@@ -193,14 +186,12 @@ class _WidgetList extends State<ProductDetail> {
                               children: <Widget>[
                                 Expanded(
                                   flex: 4,
-                                  child: Text(
-                                    "Origin:",
-                                    style: ChTextStyle.label,
-                                  ),
+                                  child:
+                                      Text("Origin:", style: ChTextStyle.label),
                                 ),
                                 Expanded(
                                   flex: 6,
-                                  child: Text(product.origin,
+                                  child: Text(_product.origin,
                                       style: ChTextStyle.normal),
                                 ),
                               ],
@@ -209,15 +200,13 @@ class _WidgetList extends State<ProductDetail> {
                               children: <Widget>[
                                 Expanded(
                                   flex: 4,
-                                  child: Text(
-                                    "Production Date:",
-                                    style: ChTextStyle.label,
-                                  ),
+                                  child: Text("Production Date:",
+                                      style: ChTextStyle.label),
                                 ),
                                 Expanded(
                                   flex: 6,
                                   child: Text(
-                                      "${product.productionDate.year}-${product.productionDate.month}-${product.productionDate.day}",
+                                      "${_product.productionDate.year}-${_product.productionDate.month}-${_product.productionDate.day}",
                                       style: ChTextStyle.normal),
                                 ),
                               ],
@@ -228,7 +217,7 @@ class _WidgetList extends State<ProductDetail> {
                       Container(
                         padding: EdgeInsets.only(
                             top: 10, bottom: 10, right: 20, left: 20),
-                        child: Text(product.description,
+                        child: Text(_product.description,
                             style: ChTextStyle.normal),
                       ),
                       Container(
@@ -236,14 +225,9 @@ class _WidgetList extends State<ProductDetail> {
                             top: 10, bottom: 10, right: 20, left: 20),
                         decoration: BoxDecoration(
                           border: Border(
-                            top: BorderSide(
-                              color: ChColor.border,
-                              width: 1.0,
-                            ),
-                            bottom: BorderSide(
-                              color: ChColor.border,
-                              width: 1.0,
-                            ),
+                            top: BorderSide(color: ChColor.border, width: 1.0),
+                            bottom:
+                                BorderSide(color: ChColor.border, width: 1.0),
                           ),
                         ),
                         child: Column(
@@ -255,9 +239,8 @@ class _WidgetList extends State<ProductDetail> {
                                   child: Text(
                                     "Rating",
                                     style: TextStyle(
-                                      fontSize: System.screenSize.width / 20,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                        fontSize: System.screenSize.width / 20,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 ),
                                 Expanded(
@@ -272,10 +255,8 @@ class _WidgetList extends State<ProductDetail> {
                                     itemPadding: EdgeInsets.symmetric(
                                         horizontal:
                                             System.screenSize.width / 100),
-                                    itemBuilder: (context, _) => Icon(
-                                      Icons.star,
-                                      color: Colors.amber,
-                                    ),
+                                    itemBuilder: (context, _) =>
+                                        Icon(Icons.star, color: Colors.amber),
                                     onRatingUpdate: (rating) {
                                       print(rating);
                                     },
@@ -517,7 +498,7 @@ class _WidgetList extends State<ProductDetail> {
             child: IconButton(
               icon: Icon(Icons.favorite),
               iconSize: 35,
-              color: product.favorited ? ChColor.primary : Colors.white,
+              color: _product.favorited ? ChColor.primary : Colors.white,
               onPressed: () {
                 _favoriteHandle();
               },

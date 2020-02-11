@@ -1,26 +1,26 @@
-import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/utility/main.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/utils/ChColor.dart';
+import 'package:ChStore/utility/ChColor.dart';
 
 //Focus Type
 const UNFOCUSED_TEXT = false;
 const FOCUSED_TEXT = true;
 //Change Type
-const NO_WORDS = false;
-const HAS_WORDS = true;
+const NOT_EXIST_WORD = false;
+const EXISTED_WORD = true;
 
 class SearchBox extends StatefulWidget {
   SearchBox({
     this.isFocused: false,
-    this.onFocused,
+    this.onFocus,
     this.onUnfocused,
-    this.onChangeWords,
+    this.onChangeWord,
   });
   final bool isFocused;
-  final FocusedCalback onFocused;
+  final FocusedCalback onFocus;
   final UnfocusedCalback onUnfocused;
-  final ChangeWordsCalback onChangeWords;
+  final ChangeWordsCalback onChangeWord;
 
   @override
   State<StatefulWidget> createState() {
@@ -55,11 +55,11 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
   }
 
   void _handleTap() {
-    widget.onFocused();
+    widget.onFocus();
   }
 
   void _handleChange(data) {
-    widget.onChangeWords(data.toString());
+    widget.onChangeWord(data.toString());
   }
 
   @override

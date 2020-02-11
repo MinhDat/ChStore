@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ChColor {
-  static Color primary = Colors.red[400];
+  static Color primary = Colors.red[800];
   static Color primaryLight = Colors.redAccent[100]; //Colors.red[300];
   static Color label = Colors.black;
   static Color unfocus = Colors.black54;

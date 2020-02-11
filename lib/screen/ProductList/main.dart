@@ -1,9 +1,9 @@
-import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/utility/main.dart';
 import 'package:ChStore/widget/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:ChStore/bloc/Bloc.dart';
+import 'package:ChStore/bloc/main.dart';
 
 class ProductList extends StatefulWidget {
   @override

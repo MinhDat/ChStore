@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/utility/main.dart';
 import 'package:ChStore/widget/main.dart';
 import 'package:ChStore/screen/main.dart';
 
 class ProductCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScrollableHeader(
+    return ScrollHeader(
       title: "Discovery",
       headerAppBar: Container(
         alignment: Alignment.topLeft,

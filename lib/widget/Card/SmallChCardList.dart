@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/utility/main.dart';
 
 //Template Type
 const PRODUCTS_TYPE = 0;

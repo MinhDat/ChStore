@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/widget/main.dart';
-import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/utility/main.dart';
 import 'package:ChStore/screen/main.dart';
 
 const BACK_ACTION = false;
@@ -78,7 +78,7 @@ class ShoppingCartState extends State<ShoppingCart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ScrollableHeader(
+      body: ScrollHeader(
         title: "Shopping Cart",
         headerAppBar: Container(
           alignment: Alignment.topLeft,

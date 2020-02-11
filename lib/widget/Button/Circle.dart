@@ -1,4 +1,4 @@
-import 'package:ChStore/utils/ChColor.dart';
+import 'package:ChStore/utility/ChColor.dart';
 import 'package:flutter/material.dart';
 
 class Circle extends StatelessWidget {

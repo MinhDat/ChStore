@@ -1,6 +1,6 @@
-import 'package:ChStore/screen/Home/BLoCRenderItem.dart';
+import 'package:ChStore/screen/HomePage/BLoCRenderItem.dart';
 import 'package:ChStore/widget/main.dart';
-import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/utility/main.dart';
 
 import 'package:flutter/material.dart';
 
@@ -37,23 +37,25 @@ class _HomePageState extends State<HomePage> {
 
   ScrollController _scrollController;
   bool _isFocused;
-  bool _hasWords;
+  bool _existedWord;
   bool _isShowHeader;
 
   @override
   void initState() {
     super.initState();
     _isFocused = UNFOCUSED_TEXT;
-    _hasWords = NO_WORDS;
+    _existedWord = NOT_EXIST_WORD;
     _isShowHeader = true;
     _scrollController = ScrollController()
       ..addListener(() {
+        // Focused in search box
         if (_scrollController.offset == HEADER_HEIGHT) {
           setState(() {
             _isFocused = FOCUSED_TEXT;
             _scrollController.jumpTo(0.0);
           });
         }
+        // Checking show header
         setState(() {
           _isShowHeader = _scrollController.offset < HEADER_HEIGHT;
         });
@@ -66,10 +68,10 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
-  void _onFocused() {
+  void _onFocus() {
     if (_isFocused == UNFOCUSED_TEXT) {
       _scrollController.animateTo(
-        40.0,
+        HEADER_HEIGHT,
         duration: Duration(milliseconds: 500),
         curve: Curves.ease,
       );
@@ -79,35 +81,35 @@ class _HomePageState extends State<HomePage> {
   void _onUnfocused() {
     setState(() {
       _isFocused = UNFOCUSED_TEXT;
-      _hasWords = NO_WORDS;
+      _existedWord = NOT_EXIST_WORD;
     });
   }
 
-  void _onChangeWords(String data) {
-    if (data.length > 0 && _hasWords == NO_WORDS) {
+  void _onChangeWord(String data) {
+    if (data.length > 0 && _existedWord == NOT_EXIST_WORD) {
       setState(() {
-        _hasWords = HAS_WORDS;
+        _existedWord = EXISTED_WORD;
       });
     }
-    if (data.length == 0 && _hasWords == HAS_WORDS) {
+    if (data.length == 0 && _existedWord == EXISTED_WORD) {
       setState(() {
-        _hasWords = NO_WORDS;
+        _existedWord = NOT_EXIST_WORD;
       });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return ScrollableHeader(
+    return ScrollHeader(
       title: "ChStore",
       enableIcon: true,
       headerAppBar: Header(),
       isShowHeader: _isShowHeader,
       childAppBar: SearchBox(
         isFocused: _isFocused,
-        onFocused: _onFocused,
+        onFocus: _onFocus,
         onUnfocused: _onUnfocused,
-        onChangeWords: _onChangeWords,
+        onChangeWord: _onChangeWord,
       ),
       isFocused: _isFocused,
       scrollController: _scrollController,
@@ -121,7 +123,9 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           ListView(children: [BLoCRenderItem()]),
-          _isFocused ? SearchList(hasWords: _hasWords) : SizedBox.shrink(),
+          _isFocused
+              ? SearchList(existedWord: _existedWord)
+              : SizedBox.shrink(),
         ],
       ),
     );

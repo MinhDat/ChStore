@@ -1,8 +1,8 @@
 // TODO Implement this library.
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/utils/ChTextStyle.dart';
-import 'package:ChStore/utils/ChColor.dart';
+import 'package:ChStore/utility/ChTextStyle.dart';
+import 'package:ChStore/utility/ChColor.dart';
 
 import 'package:ChStore/model/Popularity.dart';
 

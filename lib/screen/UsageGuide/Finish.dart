@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/utility/main.dart';
 
 class Finish extends StatelessWidget {
   @override

@@ -1,7 +1,7 @@
-import 'package:ChStore/utils/main.dart';
+import 'package:ChStore/utility/main.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/utils/ChColor.dart';
+import 'package:ChStore/utility/ChColor.dart';
 import 'package:ChStore/widget/main.dart';
 
 class Search extends StatefulWidget {
@@ -14,13 +14,13 @@ class Search extends StatefulWidget {
 class _WidgetList extends State<Search> {
   ScrollController _scrollController;
   bool _isFocused;
-  bool _hasWords;
+  bool _existedWord;
 
   @override
   void initState() {
     super.initState();
     _isFocused = UNFOCUSED_TEXT;
-    _hasWords = NO_WORDS;
+    _existedWord = NOT_EXIST_WORD;
     _scrollController = ScrollController()
       ..addListener(() {
         if (_scrollController.offset == HEADER_HEIGHT) {
@@ -38,7 +38,7 @@ class _WidgetList extends State<Search> {
     super.dispose();
   }
 
-  void _onFocused() {
+  void _onFocus() {
     if (_isFocused == UNFOCUSED_TEXT) {
       _scrollController.animateTo(
         HEADER_HEIGHT,
@@ -51,19 +51,19 @@ class _WidgetList extends State<Search> {
   void _onUnfocused() {
     setState(() {
       _isFocused = UNFOCUSED_TEXT;
-      _hasWords = NO_WORDS;
+      _existedWord = NOT_EXIST_WORD;
     });
   }
 
-  void _onChangeWords(String data) {
-    if (data.length > 0 && _hasWords == NO_WORDS) {
+  void _onChangeWord(String data) {
+    if (data.length > 0 && _existedWord == NOT_EXIST_WORD) {
       setState(() {
-        _hasWords = HAS_WORDS;
+        _existedWord = EXISTED_WORD;
       });
     }
-    if (data.length == 0 && _hasWords == HAS_WORDS) {
+    if (data.length == 0 && _existedWord == EXISTED_WORD) {
       setState(() {
-        _hasWords = NO_WORDS;
+        _existedWord = NOT_EXIST_WORD;
       });
     }
   }
@@ -72,7 +72,7 @@ class _WidgetList extends State<Search> {
   Widget build(BuildContext context) {
     return Container(
       color: ChColor.main,
-      child: ScrollableHeader(
+      child: ScrollHeader(
         title: "Search",
         headerAppBar: Container(
           alignment: Alignment.topLeft,
@@ -81,9 +81,9 @@ class _WidgetList extends State<Search> {
         ),
         childAppBar: SearchBox(
           isFocused: _isFocused,
-          onFocused: _onFocused,
+          onFocus: _onFocus,
           onUnfocused: _onUnfocused,
-          onChangeWords: _onChangeWords,
+          onChangeWord: _onChangeWord,
         ),
         isFocused: _isFocused,
         scrollController: _scrollController,
@@ -99,8 +99,8 @@ class _WidgetList extends State<Search> {
                       left: 0,
                       child: Scaffold(
                         backgroundColor:
-                            _hasWords ? ChColor.main : ChColor.foreground,
-                        body: _hasWords ? SearchResult() : SizedBox.shrink(),
+                            _existedWord ? ChColor.main : ChColor.foreground,
+                        body: _existedWord ? SearchResult() : SizedBox.shrink(),
                       ),
                     )
                   : SizedBox.shrink(),

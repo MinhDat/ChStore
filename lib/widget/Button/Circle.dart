@@ -1,19 +1,18 @@
-import 'package:ChStore/utility/ChColor.dart';
+import 'package:ChStore/utility/main.dart';
 import 'package:flutter/material.dart';
 
 class Circle extends StatelessWidget {
   final GestureTapCallback onTap;
   final Widget icon;
   final Color bgColor;
+  final double size;
 
-  const Circle({Key key, this.onTap, this.icon, this.bgColor})
+  const Circle({Key key, this.onTap, this.icon, this.bgColor, this.size: 30})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    double size = 30.0;
-
-    return new InkResponse(
+    return InkResponse(
       onTap: onTap,
       child: new Container(
         width: size,

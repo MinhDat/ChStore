@@ -1,8 +1,6 @@
 import 'package:ChStore/utility/main.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ChStore/utility/ChColor.dart';
-
 //Focus Type
 const UNFOCUSED_TEXT = false;
 const FOCUSED_TEXT = true;

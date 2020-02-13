@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:ChStore/utility/ChColor.dart';
+import 'package:ChStore/utility/main.dart';
 import 'package:flutter/material.dart';
 
 /// An indicator showing the currently selected page of a PageController

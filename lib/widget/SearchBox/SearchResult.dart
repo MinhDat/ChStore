@@ -46,7 +46,9 @@ class SearchResultState extends State<SearchResult> {
                     return Center(
                         child: Text("No items", style: ChTextStyle.noItem));
                   }
-                  return ItemList(products: state.products);
+                  return Padding(
+                      padding: EdgeInsets.only(left: 10, right: 10),
+                      child: ItemList(products: state.products));
                 }
               })
             ])

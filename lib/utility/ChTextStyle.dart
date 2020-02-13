@@ -13,7 +13,57 @@ class ChTextSize {
   static double size33 = System.screenSize.width / 33;
 }
 
+class ChColor {
+  static Color primary_v1 = Color(0xFF1E975A);
+  static Color primary_v1_dart = Color(0xFF13864D);
+  static Color label_v1 = Colors.white;
+  static Color content_v1 = Colors.white;
+  static Color title_v1 = Colors.black;
+
+  ///
+  static Color primary = Colors.red[800];
+  static Color primaryLight = Colors.redAccent[100]; //Colors.red[300];
+  static Color label = Colors.black;
+  static Color unfocus = Colors.black54;
+  static Color shadow = Colors.black38;
+  static Color foreground = Colors.black.withOpacity(0.5);
+  static Color link = Colors.blue;
+  static Color complete = Colors.green;
+  static Color initialization = Colors.grey;
+  static Color border = Colors.grey[200];
+  static Color background = Colors.grey[200];
+  static Color backgroundDark = Colors.grey[300];
+  static Color negative = Colors.grey[400];
+  static Color main = Colors.white;
+  static Color popularityIcon = Color(0xFFCCCCCC);
+  static Color facebook = Color(0xff3b5998);
+  static Color zalo = Color(0xff0180c7);
+}
+
 class ChTextStyle {
+  static TextStyle label_v1 = TextStyle(
+    color: ChColor.label_v1,
+    fontWeight: FontWeight.bold,
+    fontSize: ChTextSize.size24,
+  );
+
+  static TextStyle content_v1 = TextStyle(
+    color: ChColor.content_v1,
+    fontSize: ChTextSize.size24,
+  );
+
+  static TextStyle cardName_v1 = TextStyle(
+    fontSize: ChTextSize.size15,
+    fontWeight: FontWeight.bold,
+    color: ChColor.title_v1,
+  );
+  static TextStyle cardPrice_v1 = TextStyle(
+    fontSize: ChTextSize.size20,
+    color: ChColor.primary_v1_dart,
+  );
+
+  ///
+
   static TextStyle header = TextStyle(
     color: ChColor.main,
     fontSize: ChTextSize.size24,

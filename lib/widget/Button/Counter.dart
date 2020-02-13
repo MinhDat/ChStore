@@ -1,9 +1,9 @@
 import 'package:ChStore/bloc/main.dart';
 import 'package:ChStore/utility/System.dart';
 import 'package:ChStore/utility/main.dart';
-import 'package:flutter/material.dart';
-import 'package:ChStore/utility/ChColor.dart';
 import 'package:ChStore/model/Product.dart';
+
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Constants

@@ -8,6 +8,8 @@ const NOT_SHOW_HEADER = true;
 const HEADER_HEIGHT = 40.0;
 const APP_BAR_HEIGHT = 95.0;
 
+final APP_BAR_COLOR = ChColor.primary_v1;
+
 class ScrollPage extends StatelessWidget {
   final String title;
   final bool isFocused;
@@ -34,7 +36,7 @@ class ScrollPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: ChColor.primary,
+      color: APP_BAR_COLOR,
       child: SafeArea(
         child: NestedScrollView(
           controller: scrollController ?? ScrollController(),
@@ -49,7 +51,7 @@ class ScrollPage extends StatelessWidget {
               pinned: true,
             ),
             SliverAppBar(
-              backgroundColor: ChColor.primary,
+              backgroundColor: APP_BAR_COLOR,
               pinned: true,
               expandedHeight: isFocused
                   ? 0
@@ -107,7 +109,7 @@ class SliverHeader extends SliverPersistentHeaderDelegate {
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
-      color: ChColor.primary,
+      color: APP_BAR_COLOR,
       child: Stack(
         fit: StackFit.expand,
         overflow: Overflow.visible,

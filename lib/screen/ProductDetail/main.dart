@@ -2,8 +2,10 @@ import 'package:ChStore/utility/main.dart';
 import 'package:ChStore/widget/main.dart';
 import 'package:ChStore/model/main.dart';
 
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter/material.dart';
+
+import 'Comment.dart';
+import 'Ratting.dart';
 
 class ProductDetail extends StatefulWidget {
   @override
@@ -17,12 +19,12 @@ class _ProductDetailState extends State<ProductDetail> {
   GlobalKey _keySCContainer = GlobalKey();
   Size _sizeSCContainer;
   ScrollController _scrollController;
-  double percentGradient;
+  double percentGradient = 0;
 
   @override
   void initState() {
     super.initState();
-    percentGradient = 0;
+    // Listen completed render event
     WidgetsBinding.instance.addPostFrameCallback(_onBuildCompleted);
     _scrollController = ScrollController()
       ..addListener(() {
@@ -88,18 +90,25 @@ class _ProductDetailState extends State<ProductDetail> {
                   Stack(
                     children: <Widget>[
                       Container(
-                        height: System.screenSize.height,
+                        height: System.screenSize.height * 0.8,
                         width: System.screenSize.width,
-                        child: Image.network(
-                          _product.image,
-                          fit: BoxFit.cover,
+                        color: ChColor.primary_v1,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(40)),
+                          child: Image.network(
+                            _product.image,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                       Container(
-                        height: System.screenSize.height,
+                        height: System.screenSize.height * 0.8,
                         width: System.screenSize.width,
                         // Add box decoration
                         decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(40)),
                           // Box decoration takes a gradient
                           gradient: LinearGradient(
                             // Where the linear gradient begins and ends
@@ -109,16 +118,16 @@ class _ProductDetailState extends State<ProductDetail> {
                             stops: [0.1, 0.5, 0.7, 0.9],
                             colors: [
                               // Colors are easy thanks to Flutter's Colors class.
-                              Colors.white10.withOpacity(0),
-                              Colors.white12,
-                              Colors.white24,
+                              Colors.white70,
                               Colors.white60,
+                              Colors.white12,
+                              Colors.white10.withOpacity(0),
                             ],
                           ),
                         ),
                       ),
                       Positioned(
-                        bottom: 0,
+                        top: 80,
                         left: 0,
                         right: 0,
                         child: Column(
@@ -127,381 +136,172 @@ class _ProductDetailState extends State<ProductDetail> {
                             Padding(
                               padding: EdgeInsets.only(right: 20, left: 20),
                               child: Text(_product.name,
-                                  style: ChTextStyle.cardName),
+                                  style: ChTextStyle.cardName_v1),
                             ),
                             Padding(
                               padding: EdgeInsets.only(
                                   right: 20, left: 20, bottom: 10),
                               child: Text("\$${_product.price}",
-                                  style: ChTextStyle.cardPrice),
+                                  style: ChTextStyle.cardPrice_v1),
                             ),
-                            Container(
-                              key: _keySCContainer,
-                              padding: EdgeInsets.only(
-                                  left: 20, right: 20, top: 10, bottom: 10),
-                              decoration: BoxDecoration(
-                                color:
-                                    ChColor.main.withOpacity(percentGradient),
-                                border: Border(
-                                  bottom: BorderSide(
-                                      color: ChColor.border, width: 2.0),
-                                ),
-                              ),
-                              child:
-                                  AddToCart(_product, size: ChTextSize.size20),
-                            ),
+                            // Container(
+                            //   key: _keySCContainer,
+                            //   padding: EdgeInsets.only(
+                            //       left: 20, right: 20, top: 10, bottom: 10),
+                            //   decoration: BoxDecoration(
+                            //     color:
+                            //         ChColor.main.withOpacity(percentGradient),
+                            //     border: Border(
+                            //       bottom: BorderSide(
+                            //           color: ChColor.border, width: 2.0),
+                            //     ),
+                            //   ),
+                            //   child:
+                            //       AddToCart(_product, size: ChTextSize.size20),
+                            // ),
                           ],
                         ),
-                      )
+                      ),
+                      Positioned(
+                        bottom: 20,
+                        left: 20,
+                        child: Circle(
+                          size: 50,
+                          bgColor: ChColor.primary_v1_dart,
+                          icon: Icon(Icons.add_shopping_cart,
+                              color: ChColor.main),
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ),
                     ],
                   ),
-                  Column(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.only(
-                            left: 20, right: 20, top: 10, bottom: 10),
-                        decoration: BoxDecoration(
-                          border: Border(
-                            bottom:
-                                BorderSide(color: ChColor.border, width: 1.0),
+                  Container(
+                    padding: EdgeInsets.only(
+                        left: 20, right: 20, top: 10, bottom: 10),
+                    decoration: BoxDecoration(
+                      color: ChColor.primary_v1,
+                    ),
+                    child: Column(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(bottom: 10),
+                          decoration: BoxDecoration(
+                            border: Border(
+                                bottom: BorderSide(
+                                    color: ChColor.border, width: 1.0)),
+                          ),
+                          child: Column(
+                            children: [
+                              Row(
+                                children: <Widget>[
+                                  Expanded(
+                                    flex: 4,
+                                    child: Text("Producer:",
+                                        style: ChTextStyle.label_v1),
+                                  ),
+                                  Expanded(
+                                    flex: 6,
+                                    child: Text(_product.producer,
+                                        style: ChTextStyle.content_v1),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: <Widget>[
+                                  Expanded(
+                                    flex: 4,
+                                    child: Text("Origin:",
+                                        style: ChTextStyle.label_v1),
+                                  ),
+                                  Expanded(
+                                    flex: 6,
+                                    child: Text(_product.origin,
+                                        style: ChTextStyle.content_v1),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: <Widget>[
+                                  Expanded(
+                                    flex: 4,
+                                    child: Text("Production Date:",
+                                        style: ChTextStyle.label_v1),
+                                  ),
+                                  Expanded(
+                                    flex: 6,
+                                    child: Text(
+                                        "${_product.productionDate.year}-${_product.productionDate.month}-${_product.productionDate.day}",
+                                        style: ChTextStyle.content_v1),
+                                  ),
+                                ],
+                              )
+                            ],
                           ),
                         ),
-                        child: Column(
-                          children: [
-                            Row(
-                              children: <Widget>[
-                                Expanded(
-                                  flex: 4,
-                                  child: Text("Producer:",
-                                      style: ChTextStyle.label),
-                                ),
-                                Expanded(
-                                  flex: 6,
-                                  child: Text(_product.producer,
-                                      style: ChTextStyle.normal),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: <Widget>[
-                                Expanded(
-                                  flex: 4,
-                                  child:
-                                      Text("Origin:", style: ChTextStyle.label),
-                                ),
-                                Expanded(
-                                  flex: 6,
-                                  child: Text(_product.origin,
-                                      style: ChTextStyle.normal),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: <Widget>[
-                                Expanded(
-                                  flex: 4,
-                                  child: Text("Production Date:",
-                                      style: ChTextStyle.label),
-                                ),
-                                Expanded(
-                                  flex: 6,
-                                  child: Text(
-                                      "${_product.productionDate.year}-${_product.productionDate.month}-${_product.productionDate.day}",
-                                      style: ChTextStyle.normal),
-                                ),
-                              ],
-                            )
-                          ],
+                        Container(
+                          color: ChColor.primary_v1,
+                          padding: EdgeInsets.only(top: 10, bottom: 10),
+                          child: Text(_product.description,
+                              style: ChTextStyle.content_v1),
                         ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(
-                            top: 10, bottom: 10, right: 20, left: 20),
-                        child: Text(_product.description,
-                            style: ChTextStyle.normal),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(
-                            top: 10, bottom: 10, right: 20, left: 20),
-                        decoration: BoxDecoration(
-                          border: Border(
-                            top: BorderSide(color: ChColor.border, width: 1.0),
-                            bottom:
-                                BorderSide(color: ChColor.border, width: 1.0),
-                          ),
-                        ),
-                        child: Column(
-                          children: [
-                            Row(
-                              children: <Widget>[
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    "Rating",
-                                    style: TextStyle(
-                                        fontSize: System.screenSize.width / 20,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 8,
-                                  child: RatingBar(
-                                    initialRating: 0,
-                                    itemSize: System.screenSize.width / 10,
-                                    minRating: 1,
-                                    direction: Axis.horizontal,
-                                    allowHalfRating: true,
-                                    itemCount: 5,
-                                    itemPadding: EdgeInsets.symmetric(
-                                        horizontal:
-                                            System.screenSize.width / 100),
-                                    itemBuilder: (context, _) =>
-                                        Icon(Icons.star, color: Colors.amber),
-                                    onRatingUpdate: (rating) {
-                                      print(rating);
-                                    },
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(top: 5),
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  filled: true,
-                                  fillColor: ChColor.border,
-                                  contentPadding: const EdgeInsets.only(
-                                      left: 14.0,
-                                      right: 14.0,
-                                      bottom: 5.0,
-                                      top: 5.0),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: ChColor.border),
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: ChColor.border),
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  hintText: 'Name',
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(top: 5),
-                              child: TextFormField(
-                                maxLines: 2,
-                                decoration: InputDecoration(
-                                  filled: true,
-                                  fillColor: ChColor.border,
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: ChColor.border),
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: ChColor.border),
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  hintText: 'Write something...',
-                                ),
-                              ),
-                            ),
-                            FlatButton(
-                              color: Colors.blue,
-                              onPressed: () {},
-                              child: Container(
-                                width: System.screenSize.width,
-                                child: Text(
-                                  "Send",
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ),
-                            Row(
-                              children: <Widget>[
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    "3.0",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: System.screenSize.width / 10),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 8,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      RatingBar(
-                                        initialRating: 1,
-                                        itemSize: System.screenSize.width / 10,
-                                        minRating: 1,
-                                        direction: Axis.horizontal,
-                                        allowHalfRating: true,
-                                        itemCount: 5,
-                                        itemPadding: EdgeInsets.symmetric(
-                                            horizontal:
-                                                System.screenSize.width / 100),
-                                        itemBuilder: (context, _) => Icon(
-                                          Icons.star,
-                                          color: Colors.amber,
-                                        ),
-                                        ignoreGestures: true,
-                                        onRatingUpdate: (double value) {},
-                                      ),
-                                      RatingBar(
-                                        initialRating: 2,
-                                        itemSize: System.screenSize.width / 10,
-                                        minRating: 1,
-                                        direction: Axis.horizontal,
-                                        allowHalfRating: true,
-                                        itemCount: 5,
-                                        itemPadding: EdgeInsets.symmetric(
-                                            horizontal:
-                                                System.screenSize.width / 100),
-                                        itemBuilder: (context, _) => Icon(
-                                          Icons.star,
-                                          color: Colors.amber,
-                                        ),
-                                        ignoreGestures: true,
-                                        onRatingUpdate: (double value) {},
-                                      ),
-                                      RatingBar(
-                                        initialRating: 3,
-                                        itemSize: System.screenSize.width / 10,
-                                        minRating: 1,
-                                        direction: Axis.horizontal,
-                                        allowHalfRating: true,
-                                        itemCount: 5,
-                                        itemPadding: EdgeInsets.symmetric(
-                                            horizontal:
-                                                System.screenSize.width / 100),
-                                        itemBuilder: (context, _) => Icon(
-                                          Icons.star,
-                                          color: Colors.amber,
-                                        ),
-                                        ignoreGestures: true,
-                                        onRatingUpdate: (double value) {},
-                                      ),
-                                      RatingBar(
-                                        initialRating: 4,
-                                        itemSize: System.screenSize.width / 10,
-                                        minRating: 1,
-                                        direction: Axis.horizontal,
-                                        allowHalfRating: true,
-                                        itemCount: 5,
-                                        itemPadding: EdgeInsets.symmetric(
-                                            horizontal:
-                                                System.screenSize.width / 100),
-                                        itemBuilder: (context, _) => Icon(
-                                          Icons.star,
-                                          color: Colors.amber,
-                                        ),
-                                        ignoreGestures: true,
-                                        onRatingUpdate: (double value) {},
-                                      ),
-                                      RatingBar(
-                                        initialRating: 5,
-                                        itemSize: System.screenSize.width / 10,
-                                        minRating: 1,
-                                        direction: Axis.horizontal,
-                                        allowHalfRating: true,
-                                        itemCount: 5,
-                                        itemPadding: EdgeInsets.symmetric(
-                                            horizontal:
-                                                System.screenSize.width / 100),
-                                        itemBuilder: (context, _) => Icon(
-                                          Icons.star,
-                                          color: Colors.amber,
-                                        ),
-                                        ignoreGestures: true,
-                                        onRatingUpdate: (double value) {},
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(
-                            left: 20, right: 20, top: 10, bottom: 10),
-                        decoration: BoxDecoration(
-                          border: Border(
-                            bottom: BorderSide(
-                              color: ChColor.border,
-                              width: 1.0,
+                        Container(
+                          padding: EdgeInsets.only(top: 10, bottom: 10),
+                          decoration: BoxDecoration(
+                            color: ChColor.primary_v1,
+                            border: Border(
+                              top:
+                                  BorderSide(color: ChColor.border, width: 1.0),
+                              bottom:
+                                  BorderSide(color: ChColor.border, width: 1.0),
                             ),
                           ),
+                          child: Ratting(),
                         ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text('Name'),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                RatingBar(
-                                  initialRating: 4,
-                                  itemSize: System.screenSize.width / 30,
-                                  minRating: 1,
-                                  direction: Axis.horizontal,
-                                  allowHalfRating: true,
-                                  itemCount: 5,
-                                  itemPadding: EdgeInsets.symmetric(
-                                      horizontal:
-                                          System.screenSize.width / 300),
-                                  itemBuilder: (context, _) => Icon(
-                                    Icons.star,
-                                    color: Colors.amber,
-                                  ),
-                                  ignoreGestures: true,
-                                  onRatingUpdate: (double value) {},
-                                ),
-                                Text("05/02/2020"),
-                              ],
+                        Container(
+                          padding: EdgeInsets.only(top: 10, bottom: 10),
+                          decoration: BoxDecoration(
+                            color: ChColor.primary_v1,
+                            border: Border(
+                              bottom: BorderSide(
+                                color: ChColor.border,
+                                width: 1.0,
+                              ),
                             ),
-                            Text("very good")
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
+                          ),
+                          child: Comment(),
+                        )
+                      ],
+                    ),
+                  )
                 ],
               ),
             ],
           ),
           Positioned(
-            top: System.screenSize.width / 9,
-            right: System.screenSize.width / 12,
+            top: 40,
+            right: 20,
             child: Circle(
-              icon: Icon(
-                Icons.close,
-                color: ChColor.main,
-              ),
+              bgColor: ChColor.primary_v1_dart,
+              icon: Icon(Icons.close, color: ChColor.main),
               onTap: () {
                 Navigator.pop(context);
               },
             ),
           ),
           Positioned(
-            top: System.screenSize.width / 12,
-            left: System.screenSize.width / 12,
-            child: IconButton(
-              icon: Icon(Icons.favorite),
-              iconSize: 35,
-              color: _product.favorited ? ChColor.primary : Colors.white,
-              onPressed: () {
+            top: 40,
+            left: 20,
+            child: InkResponse(
+              onTap: () {
                 _favoriteHandle();
               },
+              child: Icon(
+                Icons.favorite,
+                size: 35,
+                color: _product.favorited ? ChColor.primary : Colors.white,
+              ),
             ),
           ),
         ],

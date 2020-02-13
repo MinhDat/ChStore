@@ -1,10 +1,8 @@
 // TODO Implement this library.
-import 'package:flutter/material.dart';
-
-import 'package:ChStore/utility/ChTextStyle.dart';
-import 'package:ChStore/utility/ChColor.dart';
-
+import 'package:ChStore/utility/main.dart';
 import 'package:ChStore/model/Popularity.dart';
+
+import 'package:flutter/material.dart';
 
 const RIGHT = true;
 const LEFT = false;

@@ -33,26 +33,19 @@ class Profile extends StatelessWidget {
               child: ListView(
                 padding: EdgeInsets.only(top: 0),
                 children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
-                    child: Stack(
-                      children: [
-                        Container(height: panelSize),
-                        Positioned(
-                          top: avatarSize,
-                          right: 0,
-                          left: 0,
-                          bottom: 0,
-                          child: Container(
-                            padding: EdgeInsets.only(top: avatarSize),
-                            decoration: new BoxDecoration(
-                              color: ChColor.main,
-                              borderRadius:
-                                  new BorderRadius.all(Radius.circular(5)),
-                            ),
+                  Stack(children: <Widget>[
+                    Stack(
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.only(top: avatarSize),
+                          child: CardContainer(
                             child: Column(
                               children: [
-                                Text("Charlie", style: ChTextStyle.title),
+                                Padding(
+                                  padding: EdgeInsets.only(top: avatarSize),
+                                  child:
+                                      Text("Charlie", style: ChTextStyle.title),
+                                ),
                                 Text("Software Developer",
                                     style: ChTextStyle.description),
                                 Row(
@@ -61,8 +54,7 @@ class Profile extends StatelessWidget {
                                     Expanded(
                                       flex: 5,
                                       child: Padding(
-                                        padding: EdgeInsets.only(
-                                            left: 20, right: 10),
+                                        padding: EdgeInsets.only(right: 5),
                                         child: SocialInfo(
                                           "Facebook",
                                           bgColor: ChColor.facebook,
@@ -78,8 +70,7 @@ class Profile extends StatelessWidget {
                                     Expanded(
                                       flex: 5,
                                       child: Padding(
-                                        padding: EdgeInsets.only(
-                                            left: 10, right: 20),
+                                        padding: EdgeInsets.only(left: 5),
                                         child: SocialInfo(
                                           "Zalo",
                                           bgColor: ChColor.zalo,
@@ -100,9 +91,8 @@ class Profile extends StatelessWidget {
                           ),
                         ),
                         Positioned(
-                          top: 0,
-                          right:
-                              ((System.screenSize.width - 40) / 2) - avatarSize,
+                          top: 7,
+                          right: (System.screenSize.width / 2) - avatarSize,
                           child: CircleAvatar(
                             radius: avatarSize,
                             backgroundImage:
@@ -111,99 +101,81 @@ class Profile extends StatelessWidget {
                         ),
                       ],
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
-                    child: Container(
-                      height: analyticSize,
-                      decoration: new BoxDecoration(
-                        color: ChColor.main,
-                        borderRadius: new BorderRadius.all(Radius.circular(5)),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Padding(
-                            padding: EdgeInsets.only(left: 10, right: 10),
-                            child: Icon(Icons.shopping_basket),
-                          ),
-                          Text("| 56", style: ChTextStyle.normal),
-                          Padding(
-                            padding: EdgeInsets.only(left: 10, right: 10),
-                            child: Image.asset('icon/like.png',
-                                height: 25, width: 25),
-                          ),
-                          Text("| 200", style: ChTextStyle.normal),
-                          Padding(
-                            padding: EdgeInsets.only(left: 10, right: 10),
-                            child: Icon(Icons.share),
-                          ),
-                          Text("| 496", style: ChTextStyle.normal),
-                        ],
-                      ),
+                  ]),
+                  CardContainer(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.only(left: 10, right: 10),
+                          child: Icon(Icons.shopping_basket),
+                        ),
+                        Text("| 56", style: ChTextStyle.normal),
+                        Padding(
+                          padding: EdgeInsets.only(left: 10, right: 10),
+                          child: Image.asset('icon/like.png',
+                              height: 25, width: 25),
+                        ),
+                        Text("| 200", style: ChTextStyle.normal),
+                        Padding(
+                          padding: EdgeInsets.only(left: 10, right: 10),
+                          child: Icon(Icons.share),
+                        ),
+                        Text("| 496", style: ChTextStyle.normal),
+                      ],
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
-                    child: Container(
-                      // height: activeSize,
-                      decoration: new BoxDecoration(
-                        color: ChColor.main,
-                        borderRadius: new BorderRadius.all(Radius.circular(5)),
-                      ),
-                      child: BlocBuilder<DataBloc, DataState>(
-                          builder: (context, state) {
-                        if (state is DataError) {
-                          return Center(child: Text('failed to fetch data'));
-                        }
-                        if (state is DataUninitialized) {
-                          return Center(
-                            child: Padding(
-                              padding: EdgeInsets.only(top: 10, bottom: 10),
-                              child: CircularProgressIndicator(),
+                  CardContainer(
+                    child: BlocBuilder<DataBloc, DataState>(
+                        builder: (context, state) {
+                      if (state is DataError) {
+                        return Center(child: Text('failed to fetch data'));
+                      }
+                      if (state is DataUninitialized) {
+                        return Center(
+                          child: Padding(
+                            padding: EdgeInsets.only(top: 10, bottom: 10),
+                            child: CircularProgressIndicator(),
+                          ),
+                        );
+                      }
+                      if (state is DataLoaded) {
+                        return Column(children: [
+                          Container(
+                            padding:
+                                EdgeInsets.only(top: 10, left: 10, bottom: 10),
+                            width: System.screenSize.width,
+                            child: Stack(
+                              children: [
+                                Text("All products", style: ChTextStyle.title),
+                                Positioned(
+                                  right: 20,
+                                  bottom: 0,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      Navigator.pushNamed(
+                                          context, '/product-list');
+                                    },
+                                    child: Text("See All",
+                                        style: ChTextStyle.link),
+                                  ),
+                                )
+                              ],
                             ),
-                          );
-                        }
-                        if (state is DataLoaded) {
-                          return Column(children: [
-                            Container(
-                              padding: EdgeInsets.only(
-                                  top: 20, left: 20, bottom: 10),
-                              width: System.screenSize.width,
-                              child: Stack(
-                                children: [
-                                  Text("All products",
-                                      style: ChTextStyle.title),
-                                  Positioned(
-                                    right: 20,
-                                    bottom: 0,
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        Navigator.pushNamed(
-                                            context, '/product-list');
-                                      },
-                                      child: Text("See All",
-                                          style: ChTextStyle.link),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            ItemList(
-                                products:
-                                    state.products.getRange(0, 7).toList())
-                          ]);
-                        }
-                      }),
-                    ),
-                  )
+                          ),
+                          ItemList(
+                              products: state.products.getRange(0, 7).toList())
+                        ]);
+                      }
+                    }),
+                  ),
                 ],
               ),
             ),
           ),
           Positioned(
             top: System.screenSize.width / 9,
-            right: System.screenSize.width / 12,
+            right: 10,
             child: Circle(
               icon: Icon(
                 Icons.close,

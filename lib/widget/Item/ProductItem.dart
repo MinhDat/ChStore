@@ -48,7 +48,7 @@ class ProductItem extends StatelessWidget {
           },
           child: Container(
             height: 130.0,
-            padding: const EdgeInsets.only(top: 5.0, left: 20.0, right: 20.0),
+            padding: const EdgeInsets.only(top: 5.0),
             color: ChColor.main,
             child: Row(
               children: [

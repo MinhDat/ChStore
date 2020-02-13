@@ -81,7 +81,6 @@ class ChCardPageState extends State<ChCardPage> {
     return Container(
       height: System.screenSize.width,
       width: System.screenSize.width,
-      padding: const EdgeInsets.only(left: 20.0, right: 20.0),
       decoration: new BoxDecoration(
         boxShadow: <BoxShadow>[
           BoxShadow(

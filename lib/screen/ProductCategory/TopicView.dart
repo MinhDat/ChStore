@@ -7,6 +7,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 //Template Type
 const NORMAL_LIST_TYPE = 1;
 
+const TOPIC_HEIGHT = 130.0;
+const TOPIC_BORDER_RADIUS = 5.0;
+
 class TopicView extends StatelessWidget {
   TopicView(this._parentContext, {this.type: NORMAL_LIST_TYPE});
   final BuildContext _parentContext;
@@ -32,32 +35,33 @@ class TopicView extends StatelessWidget {
               return MapEntry(
                 index,
                 GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(
-                      _parentContext,
-                      '/${topic.name.toLowerCase()}-topic',
-                      arguments: topic,
-                    );
-                  },
-                  child: Stack(
-                    children: [
+                    onTap: () {
+                      Navigator.pushNamed(
+                        _parentContext,
+                        '/${topic.name.toLowerCase()}-topic',
+                        arguments: topic,
+                      );
+                    },
+                    child: Stack(children: [
                       Container(
                         margin:
-                            EdgeInsets.only(left: 20.0, right: 20.0, top: 10.0),
-                        height: 130,
+                            EdgeInsets.only(bottom: 10, left: 10, right: 10),
+                        height: TOPIC_HEIGHT,
                         width: System.screenSize.width,
                         decoration: new BoxDecoration(
-                          borderRadius: new BorderRadius.circular(10.0),
+                          borderRadius:
+                              new BorderRadius.circular(TOPIC_BORDER_RADIUS),
                           boxShadow: <BoxShadow>[
                             BoxShadow(
                               color: ChColor.shadow,
                               offset: Offset(0.0, 1.0),
-                              blurRadius: 10.0,
+                              blurRadius: TOPIC_BORDER_RADIUS,
                             ),
                           ],
                         ),
                         child: ClipRRect(
-                          borderRadius: new BorderRadius.circular(10.0),
+                          borderRadius:
+                              new BorderRadius.circular(TOPIC_BORDER_RADIUS),
                           child: topic.image != null
                               ? Image.asset(
                                   topic.image,
@@ -68,27 +72,13 @@ class TopicView extends StatelessWidget {
                                 ),
                         ),
                       ),
-                      Positioned(
-                        top: 10,
-                        right: 10,
-                        bottom: 0,
-                        child: Container(
-                          height: 130,
-                          width: System.screenSize.width,
-                          alignment: _alignment,
-                          padding: EdgeInsets.only(right: 20.0, left: 20.0),
-                          decoration: new BoxDecoration(
-                            borderRadius: new BorderRadius.circular(10.0),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.only(right: 20.0, left: 20.0),
-                            child: Text(topic.name, style: ChTextStyle.topic),
-                          ),
-                        ),
+                      Container(
+                        height: TOPIC_HEIGHT,
+                        alignment: _alignment,
+                        padding: EdgeInsets.only(right: 40.0, left: 40.0),
+                        child: Text(topic.name, style: ChTextStyle.topic),
                       ),
-                    ],
-                  ),
-                ),
+                    ])),
               );
             })
             .values

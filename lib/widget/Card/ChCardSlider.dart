@@ -46,8 +46,6 @@ class ChCardSliderState extends State<ChCardSlider> {
 
     return Container(
       height: _screenHeight,
-      // width: _screenWidth,
-      padding: const EdgeInsets.only(left: 20.0),
       child: ListView(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,

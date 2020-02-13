@@ -111,14 +111,17 @@ class _HomePageState extends State<HomePage> {
     return ScrollPage(
       title: "ChStore",
       enableIcon: true,
-      headerAppBar: Header(),
+      headerAppBar: Padding(
+          padding: EdgeInsets.only(left: 10, right: 10), child: Header()),
       isShowHeader: _isShowHeader,
-      childAppBar: SearchBox(
-        isFocused: _isFocused,
-        onFocus: _onFocus,
-        onUnfocused: _onUnfocused,
-        onChangeWord: _onChangeWord,
-      ),
+      childAppBar: Padding(
+          padding: EdgeInsets.only(left: 10, right: 10),
+          child: SearchBox(
+            isFocused: _isFocused,
+            onFocus: _onFocus,
+            onUnfocused: _onUnfocused,
+            onChangeWord: _onChangeWord,
+          )),
       isFocused: _isFocused,
       scrollController: _scrollController,
       child: Stack(

@@ -67,8 +67,7 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
     return AnimatedContainer(
       duration: Duration(seconds: 1),
       height: 35.0,
-      margin: const EdgeInsets.only(
-          top: 0.0, left: 20.0, right: 20.0, bottom: 10.0),
+      margin: const EdgeInsets.only(top: 0.0, bottom: 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

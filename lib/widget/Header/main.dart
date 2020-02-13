@@ -37,7 +37,7 @@ class Header extends StatelessWidget {
             Row(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(left: 20, right: 5),
+                  padding: EdgeInsets.only(right: 5),
                   child: Image.asset('icon/ChStore_white.png',
                       height: System.screenSize.width * 0.08,
                       width: System.screenSize.width * 0.08,
@@ -48,7 +48,7 @@ class Header extends StatelessWidget {
             ),
             Container(
               alignment: Alignment.topLeft,
-              padding: EdgeInsets.only(left: 20.0, bottom: 10.0),
+              padding: EdgeInsets.only(bottom: 10.0),
               child: Text(
                 "${_week[_now.weekday - 1]} ${_now.day} ${_month[_now.month - 1]}",
                 style: ChTextStyle.date,
@@ -56,10 +56,7 @@ class Header extends StatelessWidget {
             ),
           ],
         ),
-        Padding(
-          padding: EdgeInsets.only(right: 20),
-          child: Icon(Icons.person, size: 40.0),
-        ),
+        Icon(Icons.person, size: 40.0),
       ],
     );
   }

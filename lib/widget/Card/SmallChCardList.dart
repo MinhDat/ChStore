@@ -6,6 +6,8 @@ import 'package:ChStore/utility/main.dart';
 const PRODUCTS_TYPE = 0;
 const CATEGORIES_TYPE = 1;
 
+const SMALL_CARD_BORDER_RADIUS = 5.0;
+
 class SmallChCardList extends StatefulWidget {
   SmallChCardList(this._parentContext,
       {this.type: PRODUCTS_TYPE, this.dataList});
@@ -22,7 +24,6 @@ class _SmallChCardListState extends State<SmallChCardList> {
 
   @override
   Widget build(BuildContext context) {
-    final RouteSettings settings = ModalRoute.of(context).settings;
     final double itemWidth = System.screenSize.width / 2.0;
     double itemMediumHeight = System.screenSize.width / 2.0;
     double itemMaxHeight = itemMediumHeight * 1.3;
@@ -82,8 +83,8 @@ class _SmallChCardListState extends State<SmallChCardList> {
       bool isLeftColumn,
       int index,
       int lastItem) {
-    final double leftOffset = isLeftColumn ? 20.0 : 10.0;
-    final double rightOffset = isLeftColumn ? 10.0 : 20.0;
+    final double leftOffset = isLeftColumn ? 0 : 5.0;
+    final double rightOffset = isLeftColumn ? 5.0 : 0;
     Widget bgImage;
 
     List<Widget> nameDes = [
@@ -91,8 +92,8 @@ class _SmallChCardListState extends State<SmallChCardList> {
         flex: 8,
         child: Container(
           alignment: Alignment.bottomLeft,
-          padding: EdgeInsets.only(left: 10.0, bottom: 10.0),
-          child: Text(data.name, style: ChTextStyle.smallCardName, maxLines: 3),
+          padding: EdgeInsets.all(10),
+          child: Text(data.name, style: ChTextStyle.smallCardName, maxLines: 2),
         ),
       ),
     ];
@@ -139,21 +140,23 @@ class _SmallChCardListState extends State<SmallChCardList> {
                 : itemMaxHeight,
             width: itemWidth,
             margin: EdgeInsets.only(
-              top: 20.0,
+              bottom: 10.0,
               left: leftOffset,
               right: rightOffset,
             ),
             child: ClipRRect(
-                borderRadius: BorderRadius.circular(10.0), child: bgImage),
+                borderRadius: BorderRadius.circular(SMALL_CARD_BORDER_RADIUS),
+                child: bgImage),
           ),
           Positioned(
-            bottom: 0,
+            bottom: 10,
             right: rightOffset,
-            top: 20.0,
+            top: 0,
             left: leftOffset,
             child: Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderRadius:
+                    BorderRadius.all(Radius.circular(SMALL_CARD_BORDER_RADIUS)),
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,

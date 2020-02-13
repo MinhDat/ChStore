@@ -15,12 +15,12 @@ class PopularityView extends StatelessWidget {
     return ListView(
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 20, bottom: 10, top: 20),
+          padding: EdgeInsets.only(bottom: 10, top: 20),
           child: Text("Popular Categories", style: ChTextStyle.title),
         ),
         PopularCategories(),
         Padding(
-          padding: EdgeInsets.only(left: 20, top: 20),
+          padding: EdgeInsets.only(top: 20),
           child: Text("Popular Tags", style: ChTextStyle.title),
         ),
         PopularTags(),
@@ -31,11 +31,11 @@ class PopularityView extends StatelessWidget {
 
 class PopularCategories extends StatelessWidget {
   Expanded _renderRow(data, position) {
-    double marginLeft = 20;
+    double marginLeft = 0;
     double marginRight = 5;
     if (position) {
       marginLeft = 5;
-      marginRight = 20;
+      marginRight = 0;
     }
     return Expanded(
       flex: 5,
@@ -97,7 +97,7 @@ class PopularTags extends StatelessWidget {
 
     for (int i = 0; i < popularTags.length; i++) {
       _popularTags.add(Container(
-        margin: EdgeInsets.only(left: 20, right: 20),
+        margin: EdgeInsets.only(left: 10, right: 10),
         alignment: Alignment.centerLeft,
         decoration: new BoxDecoration(
           border: Border(

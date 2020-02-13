@@ -4,6 +4,7 @@ export 'package:ChStore/widget/Button/Counter.dart';
 export 'package:ChStore/widget/Button/SocialInfo.dart';
 export 'package:ChStore/widget/Button/Square.dart';
 
+export 'package:ChStore/widget/Card/CardContainer.dart';
 export 'package:ChStore/widget/Card/ChCard.dart';
 export 'package:ChStore/widget/Card/ChCardPage.dart';
 export 'package:ChStore/widget/Card/ChCardSlider.dart';

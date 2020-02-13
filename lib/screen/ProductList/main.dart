@@ -45,16 +45,19 @@ class _ProductListState extends State<ProductList> {
             if (state.products.isEmpty) {
               return Center(child: Text('no products'));
             }
-            return ListView.builder(
-              itemBuilder: (BuildContext context, int index) {
-                return index >= state.products.length
-                    ? BottomLoader()
-                    : ProductItem(item: state.products[index]);
-              },
-              itemCount: state.hasReachedMax
-                  ? state.products.length
-                  : state.products.length + 1,
-              controller: _scrollController,
+            return Padding(
+              padding: EdgeInsets.only(left: 10, right: 10),
+              child: ListView.builder(
+                itemBuilder: (BuildContext context, int index) {
+                  return index >= state.products.length
+                      ? BottomLoader()
+                      : ProductItem(item: state.products[index]);
+                },
+                itemCount: state.hasReachedMax
+                    ? state.products.length
+                    : state.products.length + 1,
+                controller: _scrollController,
+              ),
             );
           }
           return Center(

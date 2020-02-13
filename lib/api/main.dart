@@ -29,10 +29,10 @@ class ChApi {
   List<Topic> getTopics() {
     return [
       Topic(
-          id: 6, name: "Woman", image: "lib/picture/topic//woman-category.jpg"),
-      Topic(id: 7, name: "Man", image: "lib/picture/topic//man-category.jpg"),
+          id: 6, name: "Woman", image: "lib/picture/topic/woman-category.jpg"),
+      Topic(id: 7, name: "Man", image: "lib/picture/topic/man-category.jpg"),
       Topic(
-          id: 0, name: "Sport", image: "lib/picture/topic//sport-category.png"),
+          id: 0, name: "Sport", image: "lib/picture/topic/sport-category.png"),
       Topic(id: 8, name: "Child"
           // image: "lib/picture/topic//sport-category.png",
           ),

@@ -72,7 +72,6 @@ class ItemListState extends State<ItemList> {
 Widget stackBehindDismiss() {
   return Container(
     alignment: Alignment.centerRight,
-    padding: EdgeInsets.only(right: 20.0),
     color: ChColor.primaryLight,
     child: Icon(
       Icons.delete,

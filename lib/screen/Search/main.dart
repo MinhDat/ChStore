@@ -76,36 +76,38 @@ class _WidgetList extends State<Search> {
         title: "Search",
         headerAppBar: Container(
           alignment: Alignment.topLeft,
-          padding: EdgeInsets.only(left: 20.0, bottom: 20),
+          padding: EdgeInsets.only(left: 10.0, bottom: 10),
           child: Text("Search", style: ChTextStyle.logo),
         ),
-        childAppBar: SearchBox(
-          isFocused: _isFocused,
-          onFocus: _onFocus,
-          onUnfocused: _onUnfocused,
-          onChangeWord: _onChangeWord,
+        childAppBar: Padding(
+          padding: EdgeInsets.only(left: 10.0),
+          child: SearchBox(
+            isFocused: _isFocused,
+            onFocus: _onFocus,
+            onUnfocused: _onUnfocused,
+            onChangeWord: _onChangeWord,
+          ),
         ),
         isFocused: _isFocused,
         scrollController: _scrollController,
-        child: Container(
-          child: Stack(
-            children: [
-              PopularityView(),
-              _isFocused
-                  ? Positioned(
-                      bottom: 0,
-                      right: 0,
-                      top: 0,
-                      left: 0,
-                      child: Scaffold(
-                        backgroundColor:
-                            _existedWord ? ChColor.main : ChColor.foreground,
-                        body: _existedWord ? SearchResult() : SizedBox.shrink(),
-                      ),
-                    )
-                  : SizedBox.shrink(),
-            ],
-          ),
+        child: Stack(
+          children: [
+            Padding(
+                padding: EdgeInsets.only(left: 10, right: 10),
+                child: PopularityView()),
+            _isFocused
+                ? Positioned(
+                    bottom: 0,
+                    right: 0,
+                    top: 0,
+                    left: 0,
+                    child: Scaffold(
+                      backgroundColor:
+                          _existedWord ? ChColor.main : ChColor.foreground,
+                      body: _existedWord ? SearchResult() : SizedBox.shrink(),
+                    ))
+                : SizedBox.shrink(),
+          ],
         ),
       ),
     );

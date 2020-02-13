@@ -3,7 +3,7 @@ import 'package:ChStore/model/main.dart';
 
 import 'package:flutter/material.dart';
 
-const RADIUS_CIRCULAR = 20.0;
+const RADIUS_CIRCULAR = 5.0;
 // Templates
 const NONE = 0;
 const FOR_PAGE_VIEW = 1;

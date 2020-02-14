@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 const RADIAL_ACTIVE = true;
 const RADIAL_DEACTIVE = false;
 
+const RADIUS_SIZE = 40.0;
+
 class RadialProgress extends StatefulWidget {
   final Widget child;
   final bool active;
@@ -55,24 +57,22 @@ class RadialProgressState extends State<RadialProgress> {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        height: 45.0,
-        width: 45.0,
+        height: RADIUS_SIZE,
+        width: RADIUS_SIZE,
         margin: EdgeInsets.only(left: 10, right: 10),
         child: CustomPaint(
           foregroundPainter: RadialPainter(
-              lineColor: ChColor.main,
+              lineColor: Colors.grey,
               completeColor: ChColor.complete,
               completePercent: _percentage,
               width: 2.0),
           child: Padding(
             padding: const EdgeInsets.all(2.0),
             child: Container(
-              height: 45.0,
-              width: 45.0,
-              decoration: BoxDecoration(
-                color: ChColor.main,
-                shape: BoxShape.circle,
-              ),
+              height: RADIUS_SIZE,
+              width: RADIUS_SIZE,
+              decoration:
+                  BoxDecoration(color: ChColor.main, shape: BoxShape.circle),
               child: widget.child,
             ),
           ),

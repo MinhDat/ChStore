@@ -55,11 +55,11 @@ class LinearProgressState extends State<LinearProgress> {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        height: 45,
-        width: (System.screenSize.width - 65 * 3 - 20) / 2.0,
+        height: 40,
+        width: ((System.screenSize.width - 60 * 3 - 44) / 2.0),
         child: CustomPaint(
           foregroundPainter: LinearPainter(
-            lineColor: ChColor.main,
+            lineColor: Colors.grey,
             completeColor: ChColor.complete,
             completePercent: _percentage,
             width: 2,

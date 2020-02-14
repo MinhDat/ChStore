@@ -44,8 +44,7 @@ class TopicView extends StatelessWidget {
                     },
                     child: Stack(children: [
                       Container(
-                        margin:
-                            EdgeInsets.only(bottom: 10, left: 10, right: 10),
+                        margin: EdgeInsets.only(bottom: 10),
                         height: TOPIC_HEIGHT,
                         width: System.screenSize.width,
                         decoration: new BoxDecoration(

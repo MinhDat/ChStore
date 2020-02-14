@@ -1,11 +1,7 @@
 import 'package:ChStore/screen/HomePage/BLoCRenderItem.dart';
 import 'package:ChStore/widget/main.dart';
-import 'package:ChStore/utility/main.dart';
 
 import 'package:flutter/material.dart';
-
-const HAS_FOCUSED = true;
-const HAS_NOT_FOCUSED = false;
 
 class HomePage extends StatefulWidget {
   @override
@@ -87,8 +83,8 @@ class _HomePageState extends State<HomePage> {
   void _onUnfocused() {
     setState(() {
       _isFocused = UNFOCUSED_TEXT;
-      _hasFocused = HAS_NOT_FOCUSED;
       _existedWord = NOT_EXIST_WORD;
+      _hasFocused = HAS_NOT_FOCUSED;
       _isShowHeader = SHOW_HEADER;
     });
   }
@@ -114,25 +110,16 @@ class _HomePageState extends State<HomePage> {
       headerAppBar: Padding(
           padding: EdgeInsets.only(left: 10, right: 10), child: Header()),
       isShowHeader: _isShowHeader,
-      childAppBar: Padding(
-          padding: EdgeInsets.only(left: 10, right: 10),
-          child: SearchBox(
-            isFocused: _isFocused,
-            onFocus: _onFocus,
-            onUnfocused: _onUnfocused,
-            onChangeWord: _onChangeWord,
-          )),
+      childAppBar: SearchBox(
+        isFocused: _isFocused,
+        onFocus: _onFocus,
+        onUnfocused: _onUnfocused,
+        onChangeWord: _onChangeWord,
+      ),
       isFocused: _isFocused,
       scrollController: _scrollController,
       child: Stack(
         children: [
-          Positioned(
-            top: 0,
-            child: Wallpaper(
-              height: System.screenSize.height / 3,
-              width: System.screenSize.width,
-            ),
-          ),
           ListView(children: [BLoCRenderItem()]),
           _isFocused
               ? SearchList(existedWord: _existedWord)

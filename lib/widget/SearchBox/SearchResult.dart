@@ -36,22 +36,25 @@ class SearchResultState extends State<SearchResult> {
   Widget build(BuildContext context) {
     return Center(
       child: showResult
-          ? ListView(children: [
-              BlocBuilder<DataBloc, DataState>(builder: (context, state) {
-                if (state is DataError) {
-                  return Center(child: Text('failed to fetch data'));
-                }
-                if (state is DataLoaded) {
-                  if (state.products.isEmpty) {
-                    return Center(
-                        child: Text("No items", style: ChTextStyle.noItem));
+          ? Container(
+              decoration: BoxDecoration(
+                  border: Border(top: BorderSide(color: ChColor.border))),
+              child: ListView(children: [
+                BlocBuilder<DataBloc, DataState>(builder: (context, state) {
+                  if (state is DataError) {
+                    return Center(child: Text('failed to fetch data'));
                   }
-                  return Padding(
-                      padding: EdgeInsets.only(left: 10, right: 10),
-                      child: ItemList(products: state.products));
-                }
-              })
-            ])
+                  if (state is DataLoaded) {
+                    if (state.products.isEmpty) {
+                      return Center(
+                          child: Text("No items", style: ChTextStyle.noItem));
+                    }
+                    return Container(
+                        padding: EdgeInsets.only(left: 10, right: 10),
+                        child: ItemList(products: state.products));
+                  }
+                })
+              ]))
           : Align(
               alignment: Alignment.topCenter, child: LinearProgressIndicator()),
     );

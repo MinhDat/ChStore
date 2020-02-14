@@ -181,7 +181,7 @@ class Profile extends StatelessWidget {
                 Icons.close,
                 color: ChColor.primary,
               ),
-              bgColor: Colors.white.withOpacity(0.6),
+              bgColor: ChColor.main_v1.withOpacity(0.6),
               onTap: () {
                 Navigator.pop(context);
               },

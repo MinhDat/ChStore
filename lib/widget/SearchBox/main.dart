@@ -65,7 +65,7 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
     return AnimatedContainer(
       duration: Duration(seconds: 1),
       height: 35.0,
-      margin: const EdgeInsets.only(top: 0.0, bottom: 10.0),
+      margin: const EdgeInsets.only(top: 0.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -79,7 +79,7 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                     },
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: ChColor.main,
+                      fillColor: ChColor.search_fill_v1,
                       prefixIcon: new Icon(
                         Icons.search,
                         color: ChColor.initialization,
@@ -106,7 +106,7 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                       alignment: Alignment.centerLeft,
                       padding: const EdgeInsets.only(left: 11.0),
                       decoration: BoxDecoration(
-                        color: ChColor.main,
+                        color: ChColor.search_fill_v1,
                         border: new Border.all(color: ChColor.border),
                         borderRadius: BorderRadius.circular(10.0),
                       ),

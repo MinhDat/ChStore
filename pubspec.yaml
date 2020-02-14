@@ -92,6 +92,11 @@ flutter:
 
     # Background
     - lib/picture/background/version_1.png
+    - lib/picture/background/bg1.jpg
+    - lib/picture/background/bg1_header.jpg
+    - lib/picture/background/bg1_body.jpg
+    - lib/picture/background/bg2.jpg
+    - lib/picture/background/bg3.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

@@ -14,7 +14,6 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         initialRoute: '/',
-        theme: ThemeData(primarySwatch: Colors.red),
         routes: {
           // When navigating to the "/" route, build the SplashScreen widget.
           '/': (context) => SplashScreen(),

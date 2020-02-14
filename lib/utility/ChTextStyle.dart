@@ -19,6 +19,8 @@ class ChColor {
   static Color label_v1 = Colors.white;
   static Color content_v1 = Colors.white;
   static Color title_v1 = Colors.black;
+  static Color main_v1 = Colors.white;
+  static Color search_fill_v1 = Color(0xFFFFFAEC);
 
   ///
   static Color primary = Colors.red[800];
@@ -60,6 +62,18 @@ class ChTextStyle {
   static TextStyle cardPrice_v1 = TextStyle(
     fontSize: ChTextSize.size20,
     color: ChColor.primary_v1_dart,
+  );
+
+  static TextStyle logo_v1 = TextStyle(
+    fontSize: ChTextSize.size14,
+    fontWeight: FontWeight.bold,
+    color: ChColor.primary_v1_dart,
+  );
+
+  static TextStyle scrollHeader_v1 = TextStyle(
+    color: ChColor.primary_v1_dart,
+    fontWeight: FontWeight.bold,
+    fontSize: ChTextSize.size26,
   );
 
   ///

@@ -12,20 +12,28 @@ class Search extends StatefulWidget {
 
 class _WidgetList extends State<Search> {
   ScrollController _scrollController;
-  bool _isFocused;
-  bool _existedWord;
+  bool _isFocused = UNFOCUSED_TEXT;
+  bool _existedWord = NOT_EXIST_WORD;
+  bool _isShowHeader = SHOW_HEADER;
+  bool _hasFocused = HAS_NOT_FOCUSED;
 
   @override
   void initState() {
     super.initState();
-    _isFocused = UNFOCUSED_TEXT;
-    _existedWord = NOT_EXIST_WORD;
     _scrollController = ScrollController()
       ..addListener(() {
-        if (_scrollController.offset == HEADER_HEIGHT) {
+        // Focused in search box
+        if (_hasFocused && _scrollController.offset == HEADER_HEIGHT) {
           setState(() {
             _isFocused = FOCUSED_TEXT;
             _scrollController.jumpTo(0.0);
+          });
+        }
+
+        // Checking show header
+        if (!_hasFocused) {
+          setState(() {
+            _isShowHeader = _scrollController.offset < HEADER_HEIGHT;
           });
         }
       });
@@ -39,6 +47,9 @@ class _WidgetList extends State<Search> {
 
   void _onFocus() {
     if (_isFocused == UNFOCUSED_TEXT) {
+      _hasFocused = HAS_FOCUSED;
+      _isShowHeader = NOT_SHOW_HEADER;
+
       _scrollController.animateTo(
         HEADER_HEIGHT,
         duration: Duration(milliseconds: 500),
@@ -51,6 +62,8 @@ class _WidgetList extends State<Search> {
     setState(() {
       _isFocused = UNFOCUSED_TEXT;
       _existedWord = NOT_EXIST_WORD;
+      _hasFocused = HAS_NOT_FOCUSED;
+      _isShowHeader = SHOW_HEADER;
     });
   }
 
@@ -76,16 +89,14 @@ class _WidgetList extends State<Search> {
         headerAppBar: Container(
           alignment: Alignment.topLeft,
           padding: EdgeInsets.only(left: 10.0, bottom: 10),
-          child: Text("Search", style: ChTextStyle.logo),
+          child: Text("Search", style: ChTextStyle.logo_v1),
         ),
-        childAppBar: Padding(
-          padding: EdgeInsets.only(left: 10.0),
-          child: SearchBox(
-            isFocused: _isFocused,
-            onFocus: _onFocus,
-            onUnfocused: _onUnfocused,
-            onChangeWord: _onChangeWord,
-          ),
+        isShowHeader: _isShowHeader,
+        childAppBar: SearchBox(
+          isFocused: _isFocused,
+          onFocus: _onFocus,
+          onUnfocused: _onUnfocused,
+          onChangeWord: _onChangeWord,
         ),
         isFocused: _isFocused,
         scrollController: _scrollController,

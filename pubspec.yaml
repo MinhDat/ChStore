@@ -48,6 +48,7 @@ flutter:
   assets:
     # Icons
     - icon/ChStore_red.png
+    - icon/logo.png
     - icon/ChStore_white.png
     - icon/today-icon.png
     - icon/toggle-menu-icon.png

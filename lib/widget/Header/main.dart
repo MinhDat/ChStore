@@ -38,7 +38,7 @@ class Header extends StatelessWidget {
               children: [
                 Padding(
                   padding: EdgeInsets.only(right: 5),
-                  child: Image.asset('icon/ChStore_white.png',
+                  child: Image.asset('icon/logo.png',
                       height: System.screenSize.width * 0.08,
                       width: System.screenSize.width * 0.08,
                       fit: BoxFit.cover),

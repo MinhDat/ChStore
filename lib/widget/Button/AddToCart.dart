@@ -13,6 +13,20 @@ class AddToCart extends StatefulWidget {
 
   @override
   AddToCartState createState() => new AddToCartState();
+
+  static exec(BuildContext context, Product data) {
+    final CounterBloc counterBloc = BlocProvider.of<CounterBloc>(context);
+    Product existed =
+        allShoppingCarts.firstWhere((p) => p.id == data.id, orElse: () => null);
+
+    if (existed == null) {
+      allShoppingCarts.add(data);
+    } else {
+      existed.count++;
+    }
+
+    counterBloc.add(IncrementEvent(1));
+  }
 }
 
 class AddToCartState extends State<AddToCart> {

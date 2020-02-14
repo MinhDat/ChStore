@@ -95,7 +95,7 @@ class _ProductDetailState extends State<ProductDetail> {
                         color: ChColor.primary_v1,
                         child: ClipRRect(
                           borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(40)),
+                              bottomLeft: Radius.circular(80)),
                           child: Image.network(
                             _product.image,
                             fit: BoxFit.cover,
@@ -134,13 +134,13 @@ class _ProductDetailState extends State<ProductDetail> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Padding(
-                              padding: EdgeInsets.only(right: 20, left: 20),
+                              padding: EdgeInsets.only(right: 30, left: 30),
                               child: Text(_product.name,
                                   style: ChTextStyle.cardName_v1),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(
-                                  right: 20, left: 20, bottom: 10),
+                              padding:
+                                  EdgeInsets.only(right: 30, left: 30, top: 10),
                               child: Text("\$${_product.price}",
                                   style: ChTextStyle.cardPrice_v1),
                             ),
@@ -163,15 +163,15 @@ class _ProductDetailState extends State<ProductDetail> {
                         ),
                       ),
                       Positioned(
-                        bottom: 20,
-                        left: 20,
+                        bottom: 30,
+                        left: 30,
                         child: Circle(
                           size: 50,
                           bgColor: ChColor.primary_v1_dart,
                           icon: Icon(Icons.add_shopping_cart,
                               color: ChColor.main),
                           onTap: () {
-                            Navigator.pop(context);
+                            AddToCart.exec(context, _product);
                           },
                         ),
                       ),
@@ -281,7 +281,7 @@ class _ProductDetailState extends State<ProductDetail> {
           ),
           Positioned(
             top: 40,
-            right: 20,
+            right: 30,
             child: Circle(
               bgColor: ChColor.primary_v1_dart,
               icon: Icon(Icons.close, color: ChColor.main),
@@ -292,7 +292,7 @@ class _ProductDetailState extends State<ProductDetail> {
           ),
           Positioned(
             top: 40,
-            left: 20,
+            left: 30,
             child: InkResponse(
               onTap: () {
                 _favoriteHandle();

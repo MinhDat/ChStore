@@ -35,13 +35,9 @@ class TopicView extends StatelessWidget {
               return MapEntry(
                 index,
                 GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(
-                        _parentContext,
-                        '/${topic.name.toLowerCase()}-topic',
-                        arguments: topic,
-                      );
-                    },
+                    onTap: () => Navigator.pushNamed(
+                        _parentContext, '/${topic.name.toLowerCase()}-topic',
+                        arguments: topic),
                     child: Stack(children: [
                       Container(
                         margin: EdgeInsets.only(bottom: 10),

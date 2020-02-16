@@ -122,15 +122,12 @@ class _SmallChCardListState extends State<SmallChCardList> {
     }
 
     return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(
+      onTap: () => Navigator.pushNamed(
           widget._parentContext,
           widget.type == CATEGORIES_TYPE
               ? '/${data.name.toLowerCase()}-category'
               : '/product-detail',
-          arguments: data,
-        );
-      },
+          arguments: data),
       child: Stack(
         children: [
           Container(

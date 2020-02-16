@@ -81,9 +81,7 @@ class CounterState extends State<Counter> {
       mainAxisSize: MainAxisSize.min,
       children: [
         InkWell(
-          onTap: () {
-            handleChange(DECREMENT, counterBloc);
-          },
+          onTap: () => handleChange(DECREMENT, counterBloc),
           child: Container(
             height: counterSize,
             width: counterSize,
@@ -116,9 +114,7 @@ class CounterState extends State<Counter> {
           child: countNumber,
         ),
         InkWell(
-          onTap: () {
-            handleChange(INCREMENT, counterBloc);
-          },
+          onTap: () => handleChange(INCREMENT, counterBloc),
           child: Container(
             height: counterSize,
             width: counterSize,

@@ -43,9 +43,8 @@ class ProductItem extends StatelessWidget {
                 state.categories.firstWhere((t) => t.id == item.categoryId));
 
         return GestureDetector(
-          onTap: () {
-            Navigator.pushNamed(context, '/product-detail', arguments: item);
-          },
+          onTap: () =>
+              Navigator.pushNamed(context, '/product-detail', arguments: item),
           child: Container(
             height: 130.0,
             padding: const EdgeInsets.only(top: 5.0),

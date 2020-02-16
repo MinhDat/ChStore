@@ -60,7 +60,7 @@ class ItemListState extends State<ItemList> {
                 ),
               )
               .toList();
-          return ListView(children: productList);
+          return Column(children: productList);
         }
     }
     return Center(
@@ -72,6 +72,7 @@ class ItemListState extends State<ItemList> {
 Widget stackBehindDismiss() {
   return Container(
     alignment: Alignment.centerRight,
+    padding: EdgeInsets.only(right: 20),
     color: ChColor.primaryLight,
     child: Icon(
       Icons.delete,

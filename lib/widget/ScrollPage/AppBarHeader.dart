@@ -1,0 +1,58 @@
+import 'package:ChStore/utility/main.dart';
+import 'package:flutter/material.dart';
+
+class AppBarHeader extends SliverPersistentHeaderDelegate {
+  final double headerHeight;
+  final String title;
+  final bool enableIcon;
+  bool isFocused;
+
+  AppBarHeader(
+      {@required this.headerHeight,
+      this.isFocused: false,
+      this.title: "",
+      this.enableIcon: false});
+
+  final _iconSize = System.screenSize.width * 0.05;
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return Container(
+      color: ChColor.main_v1
+          .withOpacity(this.isFocused ? 1 : shrinkOffset / headerHeight),
+      child: Stack(
+        fit: StackFit.expand,
+        overflow: Overflow.visible,
+        children: [
+          Center(
+            child: Opacity(
+              opacity: this.isFocused ? 1 : (shrinkOffset / headerHeight),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  enableIcon
+                      ? Image.asset('icon/logo.png',
+                          height: _iconSize,
+                          width: _iconSize,
+                          fit: BoxFit.cover)
+                      : SizedBox.shrink(),
+                  Text(this.title, style: ChTextStyle.scrollHeader_v1),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  double get maxExtent => headerHeight;
+
+  @override
+  double get minExtent => headerHeight;
+
+  @override
+  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) => true;
+}

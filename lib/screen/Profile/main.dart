@@ -10,8 +10,6 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     double profileSize = System.screenSize.height / 3;
     double avatarSize = System.screenSize.height / 16;
-    double panelSize = System.screenSize.height / 3;
-    double analyticSize = profileSize / 4;
 
     return Scaffold(
       backgroundColor: ChColor.border,
@@ -20,9 +18,7 @@ class Profile extends StatelessWidget {
           Positioned(
             top: 0,
             child: Wallpaper(
-              height: profileSize - 5,
-              width: System.screenSize.width,
-            ),
+                height: profileSize - 5, width: System.screenSize.width),
           ),
           Positioned(
             top: profileSize / 3,
@@ -107,9 +103,8 @@ class Profile extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Padding(
-                          padding: EdgeInsets.only(left: 10, right: 10),
-                          child: Icon(Icons.shopping_basket),
-                        ),
+                            padding: EdgeInsets.only(left: 10, right: 10),
+                            child: Icon(Icons.shopping_basket)),
                         Text("| 56", style: ChTextStyle.normal),
                         Padding(
                           padding: EdgeInsets.only(left: 10, right: 10),
@@ -118,9 +113,8 @@ class Profile extends StatelessWidget {
                         ),
                         Text("| 200", style: ChTextStyle.normal),
                         Padding(
-                          padding: EdgeInsets.only(left: 10, right: 10),
-                          child: Icon(Icons.share),
-                        ),
+                            padding: EdgeInsets.only(left: 10, right: 10),
+                            child: Icon(Icons.share)),
                         Text("| 496", style: ChTextStyle.normal),
                       ],
                     ),
@@ -152,10 +146,8 @@ class Profile extends StatelessWidget {
                                   right: 20,
                                   bottom: 0,
                                   child: GestureDetector(
-                                    onTap: () {
-                                      Navigator.pushNamed(
-                                          context, '/product-list');
-                                    },
+                                    onTap: () => Navigator.pushNamed(
+                                        context, '/product-list'),
                                     child: Text("See All",
                                         style: ChTextStyle.link),
                                   ),
@@ -177,14 +169,9 @@ class Profile extends StatelessWidget {
             top: System.screenSize.width / 9,
             right: 10,
             child: Circle(
-              icon: Icon(
-                Icons.close,
-                color: ChColor.primary,
-              ),
+              icon: Icon(Icons.close, color: ChColor.primary_v1),
               bgColor: ChColor.main_v1.withOpacity(0.6),
-              onTap: () {
-                Navigator.pop(context);
-              },
+              onTap: () => Navigator.pop(context),
             ),
           ),
         ],

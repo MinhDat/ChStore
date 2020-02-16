@@ -18,13 +18,8 @@ class ChCardSliderState extends State<ChCardSlider> {
   List<GestureDetector> _renderList() {
     List<GestureDetector> productList = widget._products.map((product) {
       return GestureDetector(
-        onTap: () {
-          Navigator.pushNamed(
-            context,
-            '/product-detail',
-            arguments: product,
-          );
-        },
+        onTap: () =>
+            Navigator.pushNamed(context, '/product-detail', arguments: product),
         child: Padding(
           padding: EdgeInsets.only(right: 10),
           child: ChCard(

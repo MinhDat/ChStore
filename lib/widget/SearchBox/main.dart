@@ -98,9 +98,7 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                     ),
                   )
                 : GestureDetector(
-                    onTap: () {
-                      _handleTap();
-                    },
+                    onTap: () => _handleTap(),
                     child: Container(
                       height: 35.0,
                       alignment: Alignment.centerLeft,

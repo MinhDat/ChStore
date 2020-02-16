@@ -170,9 +170,7 @@ class _ProductDetailState extends State<ProductDetail> {
                           bgColor: ChColor.primary_v1_dart,
                           icon: Icon(Icons.add_shopping_cart,
                               color: ChColor.main),
-                          onTap: () {
-                            AddToCart.exec(context, _product);
-                          },
+                          onTap: () => AddToCart.exec(context, _product),
                         ),
                       ),
                     ],
@@ -180,9 +178,7 @@ class _ProductDetailState extends State<ProductDetail> {
                   Container(
                     padding: EdgeInsets.only(
                         left: 20, right: 20, top: 10, bottom: 10),
-                    decoration: BoxDecoration(
-                      color: ChColor.primary_v1,
-                    ),
+                    decoration: BoxDecoration(color: ChColor.primary_v1),
                     child: Column(
                       children: [
                         Container(
@@ -285,18 +281,14 @@ class _ProductDetailState extends State<ProductDetail> {
             child: Circle(
               bgColor: ChColor.primary_v1_dart,
               icon: Icon(Icons.close, color: ChColor.main),
-              onTap: () {
-                Navigator.pop(context);
-              },
+              onTap: () => Navigator.pop(context),
             ),
           ),
           Positioned(
             top: 40,
             left: 30,
             child: InkResponse(
-              onTap: () {
-                _favoriteHandle();
-              },
+              onTap: () => _favoriteHandle(),
               child: Icon(
                 Icons.favorite,
                 size: 35,

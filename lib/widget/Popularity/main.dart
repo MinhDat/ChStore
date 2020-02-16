@@ -7,26 +7,6 @@ import 'package:flutter/material.dart';
 const RIGHT = true;
 const LEFT = false;
 
-class PopularityView extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        Padding(
-          padding: EdgeInsets.only(bottom: 10, top: 20),
-          child: Text("Popular Categories", style: ChTextStyle.title),
-        ),
-        PopularCategories(),
-        Padding(
-          padding: EdgeInsets.only(top: 20),
-          child: Text("Popular Tags", style: ChTextStyle.title),
-        ),
-        PopularTags(),
-      ],
-    );
-  }
-}
-
 class PopularCategories extends StatelessWidget {
   Expanded _renderRow(data, position) {
     double marginLeft = 0;

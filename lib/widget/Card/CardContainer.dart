@@ -14,7 +14,7 @@ class CardContainer extends StatelessWidget {
         color: ChColor.main,
         margin: EdgeInsets.all(0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             this.label != null

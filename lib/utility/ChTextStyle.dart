@@ -90,6 +90,7 @@ class ChTextStyle {
   );
   static TextStyle date = TextStyle(
     color: ChColor.label,
+    fontWeight: FontWeight.bold,
     fontSize: ChTextSize.size26,
   );
   static TextStyle price = TextStyle(
@@ -192,7 +193,7 @@ class ChTextStyle {
 
   static TextStyle cancel = TextStyle(
     fontSize: ChTextSize.size20,
-    fontWeight: FontWeight.bold,
+    // fontWeight: FontWeight.bold,
     color: Colors.blueAccent,
   );
 

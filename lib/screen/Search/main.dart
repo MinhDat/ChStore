@@ -3,6 +3,8 @@ import 'package:ChStore/widget/main.dart';
 
 import 'package:flutter/material.dart';
 
+import 'SearchPage.dart';
+
 class Search extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -102,9 +104,7 @@ class _WidgetList extends State<Search> {
         scrollController: _scrollController,
         child: Stack(
           children: [
-            Padding(
-                padding: EdgeInsets.only(left: 10, right: 10),
-                child: PopularityView()),
+            SearchPage(),
             _isFocused
                 ? Positioned(
                     bottom: 0,

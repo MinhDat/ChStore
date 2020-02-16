@@ -22,10 +22,10 @@ class ProductCategory extends StatelessWidget {
             label: Text('Categories', style: ChTextStyle.title),
             child: CategoryView(),
           ),
-          // CardContainer(
-          //   label: Text('Topics', style: ChTextStyle.title),
-          //   child: TopicView(context),
-          // ),
+          CardContainer(
+            label: Text('Topics', style: ChTextStyle.title),
+            child: TopicView(context),
+          ),
           // Padding(
           //   padding: EdgeInsets.only(top: 10, left: 10),
           //   child: Text('Categories', style: ChTextStyle.title),
@@ -34,14 +34,14 @@ class ProductCategory extends StatelessWidget {
           //   padding: EdgeInsets.only(left: 10, right: 10, top: 10),
           //   child: CategoryView(),
           // ),
-          Padding(
-            padding: EdgeInsets.only(left: 10),
-            child: Text('Topics', style: ChTextStyle.title),
-          ),
-          Padding(
-            padding: EdgeInsets.all(10),
-            child: TopicView(context),
-          ),
+          // Padding(
+          //   padding: EdgeInsets.only(left: 10),
+          //   child: Text('Topics', style: ChTextStyle.title),
+          // ),
+          // Padding(
+          //   padding: EdgeInsets.all(10),
+          //   child: TopicView(context),
+          // ),
         ],
       ),
     );

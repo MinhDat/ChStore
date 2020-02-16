@@ -193,7 +193,6 @@ class ChTextStyle {
 
   static TextStyle cancel = TextStyle(
     fontSize: ChTextSize.size20,
-    // fontWeight: FontWeight.bold,
     color: Colors.blueAccent,
   );
 

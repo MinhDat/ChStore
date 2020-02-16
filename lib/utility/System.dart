@@ -1,6 +1,7 @@
 import 'dart:ui';
+import 'package:sqflite/sqflite.dart';
 
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:ChStore/data/main.dart';
 
 class AnimationOffset {
   AnimationOffset({
@@ -11,10 +12,10 @@ class AnimationOffset {
 }
 
 class System {
-  static String key = 'first_usage';
   static Offset shoppingCartOffset = Offset(0, 0);
   static Size screenSize;
   static SetPositionAnimateCalback setPositionAnimateCalback;
+  static DatabaseHelper databaseHelper = DatabaseHelper();
 
   static Function get move {
     return setPositionAnimateCalback;
@@ -25,14 +26,19 @@ class System {
   }
 
   static Future<bool> get firstUsage async {
-    final prefs = await SharedPreferences.getInstance();
-    bool value = prefs.getBool(key);
-    return value == null ? true : value;
+    final Database database = await databaseHelper.initializeDatabase();
+
+    int _first = Sqflite.firstIntValue(
+        await database.rawQuery('SELECT * FROM FirstUsage'));
+    await database.close();
+
+    return _first == null ? true : _first == 1;
   }
 
   static setFirstUsage(bool value) async {
-    final prefs = await SharedPreferences.getInstance();
-    prefs.setBool(key, value);
+    final Database database = await databaseHelper.initializeDatabase();
+    await database.insert('FirstUsage', {'first': 0});
+    await database.close();
   }
 }
 

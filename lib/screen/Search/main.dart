@@ -91,7 +91,7 @@ class _WidgetList extends State<Search> {
         headerAppBar: Container(
           alignment: Alignment.topLeft,
           padding: EdgeInsets.only(left: 10.0, bottom: 10),
-          child: Text("Search", style: ChTextStyle.logo_v1),
+          child: Text("Search", style: ChTextStyle.logo),
         ),
         isShowHeader: _isShowHeader,
         childAppBar: SearchBox(

@@ -49,7 +49,7 @@ class DotsIndicator extends AnimatedWidget {
         child: new Material(
           color: controller.page == index ||
                   (controller.page == null && index == 0)
-              ? ChColor.primary_v1
+              ? ChColor.primary
               : ChColor.initialization,
           type: MaterialType.circle,
           child: new Container(

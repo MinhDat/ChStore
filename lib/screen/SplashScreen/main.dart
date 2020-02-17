@@ -33,6 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     System.screenSize = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: ChColor.main,
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
@@ -51,7 +52,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 Text(
                   "ChStore",
                   style: TextStyle(
-                      color: ChColor.primary_v1_dart,
+                      color: ChColor.primaryDart,
                       fontSize: 40,
                       fontWeight: FontWeight.bold),
                 ),

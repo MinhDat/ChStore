@@ -60,7 +60,7 @@ class ScrollPage extends StatelessWidget {
               pinned: true,
             ),
             SliverAppBar(
-              backgroundColor: ChColor.main_v1.withOpacity(0),
+              backgroundColor: ChColor.main.withOpacity(0),
               pinned: true,
               expandedHeight: isFocused
                   ? 0

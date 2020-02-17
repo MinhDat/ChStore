@@ -92,7 +92,7 @@ class _ProductDetailState extends State<ProductDetail> {
                       Container(
                         height: System.screenSize.height * 0.8,
                         width: System.screenSize.width,
-                        color: ChColor.primary_v1,
+                        color: ChColor.primary,
                         child: ClipRRect(
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(80)),
@@ -136,29 +136,14 @@ class _ProductDetailState extends State<ProductDetail> {
                             Padding(
                               padding: EdgeInsets.only(right: 30, left: 30),
                               child: Text(_product.name,
-                                  style: ChTextStyle.cardName_v1),
+                                  style: ChTextStyle.detailName),
                             ),
                             Padding(
                               padding:
                                   EdgeInsets.only(right: 30, left: 30, top: 10),
                               child: Text("\$${_product.price}",
-                                  style: ChTextStyle.cardPrice_v1),
+                                  style: ChTextStyle.detailPrice),
                             ),
-                            // Container(
-                            //   key: _keySCContainer,
-                            //   padding: EdgeInsets.only(
-                            //       left: 20, right: 20, top: 10, bottom: 10),
-                            //   decoration: BoxDecoration(
-                            //     color:
-                            //         ChColor.main.withOpacity(percentGradient),
-                            //     border: Border(
-                            //       bottom: BorderSide(
-                            //           color: ChColor.border, width: 2.0),
-                            //     ),
-                            //   ),
-                            //   child:
-                            //       AddToCart(_product, size: ChTextSize.size20),
-                            // ),
                           ],
                         ),
                       ),
@@ -167,7 +152,7 @@ class _ProductDetailState extends State<ProductDetail> {
                         left: 30,
                         child: Circle(
                           size: 50,
-                          bgColor: ChColor.primary_v1_dart,
+                          bgColor: ChColor.primaryDart,
                           icon: Icon(Icons.add_shopping_cart,
                               color: ChColor.main),
                           onTap: () => AddToCart.exec(context, _product),
@@ -178,7 +163,7 @@ class _ProductDetailState extends State<ProductDetail> {
                   Container(
                     padding: EdgeInsets.only(
                         left: 20, right: 20, top: 10, bottom: 10),
-                    decoration: BoxDecoration(color: ChColor.primary_v1),
+                    decoration: BoxDecoration(color: ChColor.primary),
                     child: Column(
                       children: [
                         Container(
@@ -195,12 +180,12 @@ class _ProductDetailState extends State<ProductDetail> {
                                   Expanded(
                                     flex: 4,
                                     child: Text("Producer:",
-                                        style: ChTextStyle.label_v1),
+                                        style: ChTextStyle.label),
                                   ),
                                   Expanded(
                                     flex: 6,
                                     child: Text(_product.producer,
-                                        style: ChTextStyle.content_v1),
+                                        style: ChTextStyle.content),
                                   ),
                                 ],
                               ),
@@ -209,12 +194,12 @@ class _ProductDetailState extends State<ProductDetail> {
                                   Expanded(
                                     flex: 4,
                                     child: Text("Origin:",
-                                        style: ChTextStyle.label_v1),
+                                        style: ChTextStyle.label),
                                   ),
                                   Expanded(
                                     flex: 6,
                                     child: Text(_product.origin,
-                                        style: ChTextStyle.content_v1),
+                                        style: ChTextStyle.content),
                                   ),
                                 ],
                               ),
@@ -223,13 +208,13 @@ class _ProductDetailState extends State<ProductDetail> {
                                   Expanded(
                                     flex: 4,
                                     child: Text("Production Date:",
-                                        style: ChTextStyle.label_v1),
+                                        style: ChTextStyle.label),
                                   ),
                                   Expanded(
                                     flex: 6,
                                     child: Text(
                                         "${_product.productionDate.year}-${_product.productionDate.month}-${_product.productionDate.day}",
-                                        style: ChTextStyle.content_v1),
+                                        style: ChTextStyle.content),
                                   ),
                                 ],
                               )
@@ -237,15 +222,15 @@ class _ProductDetailState extends State<ProductDetail> {
                           ),
                         ),
                         Container(
-                          color: ChColor.primary_v1,
+                          color: ChColor.primary,
                           padding: EdgeInsets.only(top: 10, bottom: 10),
                           child: Text(_product.description,
-                              style: ChTextStyle.content_v1),
+                              style: ChTextStyle.content),
                         ),
                         Container(
                           padding: EdgeInsets.only(top: 10, bottom: 10),
                           decoration: BoxDecoration(
-                            color: ChColor.primary_v1,
+                            color: ChColor.primary,
                             border: Border(
                               top:
                                   BorderSide(color: ChColor.border, width: 1.0),
@@ -258,7 +243,7 @@ class _ProductDetailState extends State<ProductDetail> {
                         Container(
                           padding: EdgeInsets.only(top: 10, bottom: 10),
                           decoration: BoxDecoration(
-                            color: ChColor.primary_v1,
+                            color: ChColor.primary,
                             border: Border(
                               bottom: BorderSide(
                                 color: ChColor.border,
@@ -279,7 +264,7 @@ class _ProductDetailState extends State<ProductDetail> {
             top: 40,
             right: 30,
             child: Circle(
-              bgColor: ChColor.primary_v1_dart,
+              bgColor: ChColor.primaryDart,
               icon: Icon(Icons.close, color: ChColor.main),
               onTap: () => Navigator.pop(context),
             ),
@@ -292,7 +277,7 @@ class _ProductDetailState extends State<ProductDetail> {
               child: Icon(
                 Icons.favorite,
                 size: 35,
-                color: _product.favorited ? ChColor.primary : Colors.white,
+                color: _product.favorited ? ChColor.favorite : Colors.white,
               ),
             ),
           ),

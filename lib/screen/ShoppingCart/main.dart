@@ -85,7 +85,7 @@ class ShoppingCartState extends State<ShoppingCart> {
           headerAppBar: Container(
             alignment: Alignment.topLeft,
             padding: EdgeInsets.only(left: 20.0, bottom: 20),
-            child: Text("Shopping Cart", style: ChTextStyle.logo_v1),
+            child: Text("Shopping Cart", style: ChTextStyle.logo),
           ),
           isShowHeader: _isShowHeader,
           scrollController: _scrollController,

@@ -43,7 +43,7 @@ class Header extends StatelessWidget {
                       width: System.screenSize.width * 0.08,
                       fit: BoxFit.cover),
                 ),
-                Text("ChStore", style: ChTextStyle.logo_v1),
+                Text("ChStore", style: ChTextStyle.logo),
               ],
             ),
             Container(

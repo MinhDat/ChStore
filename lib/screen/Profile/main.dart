@@ -169,8 +169,8 @@ class Profile extends StatelessWidget {
             top: System.screenSize.width / 9,
             right: 10,
             child: Circle(
-              icon: Icon(Icons.close, color: ChColor.primary_v1),
-              bgColor: ChColor.main_v1.withOpacity(0.6),
+              icon: Icon(Icons.close, color: ChColor.primary),
+              bgColor: ChColor.main.withOpacity(0.6),
               onTap: () => Navigator.pop(context),
             ),
           ),

@@ -14,7 +14,7 @@ class ProductCategory extends StatelessWidget {
       headerAppBar: Container(
         alignment: Alignment.topLeft,
         padding: EdgeInsets.only(left: 10.0),
-        child: Text("Discovery", style: ChTextStyle.logo_v1),
+        child: Text("Discovery", style: ChTextStyle.logo),
       ),
       child: ListView(
         children: <Widget>[

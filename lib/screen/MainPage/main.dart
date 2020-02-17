@@ -72,21 +72,21 @@ class _MainpageState extends State<Mainpage>
                 icon: new Image.asset('icon/today-icon.png',
                     height: 22,
                     width: 22,
-                    color: _index == 0 ? ChColor.primary_v1 : ChColor.unfocus),
+                    color: _index == 0 ? ChColor.primary : ChColor.unfocus),
                 title: SizedBox.shrink(),
               ),
               BottomNavigationBarItem(
                 icon: new Image.asset('icon/toggle-menu-icon.png',
                     height: 22,
                     width: 22,
-                    color: _index == 1 ? ChColor.primary_v1 : ChColor.unfocus),
+                    color: _index == 1 ? ChColor.primary : ChColor.unfocus),
                 title: SizedBox.shrink(),
               ),
               BottomNavigationBarItem(
                 icon: new Image.asset('icon/search-icon.png',
                     height: 22,
                     width: 22,
-                    color: _index == 2 ? ChColor.primary_v1 : ChColor.unfocus),
+                    color: _index == 2 ? ChColor.primary : ChColor.unfocus),
                 title: SizedBox.shrink(),
               ),
               BottomNavigationBarItem(
@@ -101,7 +101,7 @@ class _MainpageState extends State<Mainpage>
                         child: Icon(Icons.shopping_cart,
                             key: _keyShoppingCart,
                             color: _index == 3
-                                ? ChColor.primary_v1
+                                ? ChColor.primary
                                 : ChColor.unfocus),
                       ),
                       Positioned(
@@ -111,8 +111,7 @@ class _MainpageState extends State<Mainpage>
                             builder: (context, count) {
                           return count > 0
                               ? Text("$count",
-                                  style:
-                                      ChTextStyle.flexColor(ChColor.primary_v1))
+                                  style: ChTextStyle.flexColor(ChColor.primary))
                               : SizedBox.shrink();
                         }),
                       )
@@ -123,7 +122,7 @@ class _MainpageState extends State<Mainpage>
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.person,
-                    color: _index == 4 ? ChColor.primary_v1 : ChColor.unfocus),
+                    color: _index == 4 ? ChColor.primary : ChColor.unfocus),
                 title: SizedBox.shrink(),
               ),
             ],
@@ -137,7 +136,7 @@ class _MainpageState extends State<Mainpage>
               width: 10.0,
               height: 10.0,
               decoration: BoxDecoration(
-                color: ChColor.primary_v1,
+                color: ChColor.primary,
                 borderRadius: BorderRadius.circular(10.0),
               ),
             ),

@@ -92,6 +92,7 @@ flutter:
 
     # Background
     # - lib/asset/image/background/version_1.png
+    # - lib/asset/image/background/noimagefound.png
     - lib/asset/image/background/bg1.jpg
     - lib/asset/image/background/bg1_body.jpg
     # - lib/asset/image/background/bg2.jpg

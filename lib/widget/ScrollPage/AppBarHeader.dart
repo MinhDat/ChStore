@@ -19,7 +19,7 @@ class AppBarHeader extends SliverPersistentHeaderDelegate {
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
-      color: ChColor.main_v1
+      color: ChColor.main
           .withOpacity(this.isFocused ? 1 : shrinkOffset / headerHeight),
       child: Stack(
         fit: StackFit.expand,
@@ -37,7 +37,7 @@ class AppBarHeader extends SliverPersistentHeaderDelegate {
                           width: _iconSize,
                           fit: BoxFit.cover)
                       : SizedBox.shrink(),
-                  Text(this.title, style: ChTextStyle.scrollHeader_v1),
+                  Text(this.title, style: ChTextStyle.scrollHeader),
                 ],
               ),
             ),

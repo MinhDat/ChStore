@@ -14,7 +14,7 @@ class Ratting extends StatelessWidget {
               child: Text(
                 "Rating",
                 style: TextStyle(
-                    color: ChColor.label_v1,
+                    color: ChColor.label,
                     fontSize: System.screenSize.width / 20,
                     fontWeight: FontWeight.bold),
               ),
@@ -86,7 +86,7 @@ class Ratting extends StatelessWidget {
             child: Text(
               "Send",
               textAlign: TextAlign.center,
-              style: TextStyle(color: ChColor.label_v1),
+              style: TextStyle(color: ChColor.label),
             ),
           ),
         ),
@@ -97,7 +97,7 @@ class Ratting extends StatelessWidget {
               child: Text(
                 "3.0",
                 style: TextStyle(
-                    color: ChColor.label_v1,
+                    color: ChColor.label,
                     fontWeight: FontWeight.bold,
                     fontSize: System.screenSize.width / 10),
               ),

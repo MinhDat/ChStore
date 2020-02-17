@@ -79,11 +79,11 @@ class AddToCartState extends State<AddToCart> {
   Widget build(BuildContext context) {
     return FlatButton(
       key: _buttonKey,
-      color: ChColor.primary_v1_dart,
+      color: ChColor.primaryDart,
       textColor: ChColor.main,
       shape: new RoundedRectangleBorder(
           borderRadius: new BorderRadius.circular(5.0),
-          side: BorderSide(color: ChColor.primary_v1_dart)),
+          side: BorderSide(color: ChColor.primaryDart)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,

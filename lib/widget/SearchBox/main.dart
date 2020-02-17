@@ -79,7 +79,7 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                     },
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: ChColor.search_fill_v1,
+                      fillColor: ChColor.searchBox,
                       prefixIcon: new Icon(
                         Icons.search,
                         color: ChColor.initialization,
@@ -104,7 +104,7 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                       alignment: Alignment.centerLeft,
                       padding: const EdgeInsets.only(left: 11.0),
                       decoration: BoxDecoration(
-                        color: ChColor.search_fill_v1,
+                        color: ChColor.searchBox,
                         border: new Border.all(color: ChColor.border),
                         borderRadius: BorderRadius.circular(10.0),
                       ),

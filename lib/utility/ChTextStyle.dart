@@ -14,82 +14,71 @@ class ChTextSize {
 }
 
 class ChColor {
-  static Color primary_v1 = Color(0xFF1E975A);
-  static Color primary_v1_dart = Color(0xFF13864D);
-  static Color label_v1 = Colors.white;
-  static Color content_v1 = Colors.white;
-  static Color title_v1 = Colors.black;
-  static Color main_v1 = Colors.white;
-  static Color search_fill_v1 = Color(0xFFFFFAEC);
-
-  ///
-  static Color primary = Colors.red[800];
-  static Color primaryLight = Colors.redAccent[100]; //Colors.red[300];
-  static Color label = Colors.black;
+  static Color primary = Color(0xFF1E975A);
+  static Color primaryDart = Color(0xFF13864D);
+  static Color label = Colors.white;
+  static Color content = Colors.white;
+  static Color title = Colors.black;
+  static Color main = Colors.white;
+  static Color searchBox = Color(0xFFFFFAEC);
   static Color unfocus = Colors.black54;
+  static Color background = Colors.grey[200];
   static Color shadow = Colors.black38;
+  static Color border = Colors.grey[200];
+  static Color favorite = Colors.red;
+  static Color facebook = Color(0xff3b5998);
+  static Color zalo = Color(0xff0180c7);
   static Color foreground = Colors.black.withOpacity(0.5);
+  static Color negative = Colors.grey[400];
   static Color link = Colors.blue;
   static Color complete = Colors.green;
   static Color initialization = Colors.grey;
-  static Color border = Colors.grey[200];
-  static Color background = Colors.grey[200];
-  static Color backgroundDark = Colors.grey[300];
-  static Color negative = Colors.grey[400];
-  static Color main = Colors.white;
   static Color popularityIcon = Color(0xFFCCCCCC);
-  static Color facebook = Color(0xff3b5998);
-  static Color zalo = Color(0xff0180c7);
+  static Color dismiss = Colors.red[800];
 }
 
 class ChTextStyle {
-  static TextStyle label_v1 = TextStyle(
-    color: ChColor.label_v1,
+  static TextStyle label = TextStyle(
+    color: ChColor.label,
     fontWeight: FontWeight.bold,
     fontSize: ChTextSize.size24,
   );
 
-  static TextStyle content_v1 = TextStyle(
-    color: ChColor.content_v1,
+  static TextStyle content = TextStyle(
+    color: ChColor.content,
     fontSize: ChTextSize.size24,
   );
 
-  static TextStyle cardName_v1 = TextStyle(
+  static TextStyle detailName = TextStyle(
     fontSize: ChTextSize.size15,
     fontWeight: FontWeight.bold,
-    color: ChColor.title_v1,
+    color: ChColor.title,
   );
-  static TextStyle cardPrice_v1 = TextStyle(
+  static TextStyle detailPrice = TextStyle(
     fontSize: ChTextSize.size20,
-    color: ChColor.primary_v1_dart,
+    color: ChColor.primaryDart,
   );
 
-  static TextStyle logo_v1 = TextStyle(
+  static TextStyle logo = TextStyle(
     fontSize: ChTextSize.size14,
     fontWeight: FontWeight.bold,
-    color: ChColor.primary_v1_dart,
+    color: ChColor.primaryDart,
   );
 
-  static TextStyle scrollHeader_v1 = TextStyle(
-    color: ChColor.primary_v1_dart,
+  static TextStyle scrollHeader = TextStyle(
+    color: ChColor.primaryDart,
     fontWeight: FontWeight.bold,
     fontSize: ChTextSize.size26,
   );
-
-  ///
 
   static TextStyle header = TextStyle(
     color: ChColor.main,
     fontSize: ChTextSize.size24,
     fontWeight: FontWeight.bold,
   );
-  static TextStyle logo = TextStyle(
-    fontSize: ChTextSize.size14,
-    fontWeight: FontWeight.bold,
-    color: ChColor.main,
-  );
+
   static TextStyle date = TextStyle(
-    color: ChColor.label,
+    color: ChColor.dismiss,
     fontWeight: FontWeight.bold,
     fontSize: ChTextSize.size26,
   );
@@ -106,22 +95,17 @@ class ChTextStyle {
     color: ChColor.main,
   );
   static TextStyle cardName = TextStyle(
-    fontSize: ChTextSize.size15,
+    fontSize: ChTextSize.size24,
     fontWeight: FontWeight.bold,
-    color: ChColor.primary,
+    color: ChColor.title,
   );
   static TextStyle cardPrice = TextStyle(
-    fontSize: ChTextSize.size20,
-    color: ChColor.primary,
+    fontSize: ChTextSize.size26,
+    color: ChColor.title,
   );
   static TextStyle cardCounter = TextStyle(
     fontSize: ChTextSize.size30,
-    color: ChColor.primary_v1_dart,
-  );
-  static TextStyle label = TextStyle(
-    color: ChColor.label,
-    fontWeight: FontWeight.bold,
-    fontSize: ChTextSize.size24,
+    color: ChColor.primaryDart,
   );
 
   static TextStyle payment = TextStyle(
@@ -153,11 +137,7 @@ class ChTextStyle {
     fontSize: ChTextSize.size33,
     color: ChColor.main,
   );
-  static TextStyle scrollHeader = TextStyle(
-    color: ChColor.main,
-    fontWeight: FontWeight.w600,
-    fontSize: ChTextSize.size26,
-  );
+
   static TextStyle topic = TextStyle(
     fontSize: ChTextSize.size14,
     fontWeight: FontWeight.bold,

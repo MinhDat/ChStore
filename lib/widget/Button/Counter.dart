@@ -86,7 +86,7 @@ class CounterState extends State<Counter> {
             height: counterSize,
             width: counterSize,
             decoration: BoxDecoration(
-              color: ChColor.primary_v1_dart,
+              color: ChColor.primaryDart,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(counterRadius),
                 bottomLeft: Radius.circular(counterRadius),
@@ -105,11 +105,11 @@ class CounterState extends State<Counter> {
           decoration: BoxDecoration(
             border: Border(
               top: BorderSide(
-                  color: ChColor.primary_v1_dart, width: counterRadiusInner),
+                  color: ChColor.primaryDart, width: counterRadiusInner),
               bottom: BorderSide(
-                  color: ChColor.primary_v1_dart, width: counterRadiusInner),
+                  color: ChColor.primaryDart, width: counterRadiusInner),
             ),
-            color: ChColor.primary_v1_dart,
+            color: ChColor.primaryDart,
           ),
           child: countNumber,
         ),
@@ -119,7 +119,7 @@ class CounterState extends State<Counter> {
             height: counterSize,
             width: counterSize,
             decoration: BoxDecoration(
-              color: ChColor.primary_v1_dart,
+              color: ChColor.primaryDart,
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(counterRadius),
                 bottomRight: Radius.circular(counterRadius),

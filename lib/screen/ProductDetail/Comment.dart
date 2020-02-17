@@ -8,7 +8,7 @@ class Comment extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text('Name', style: TextStyle(color: ChColor.content_v1)),
+        Text('Name', style: TextStyle(color: ChColor.content)),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -28,10 +28,10 @@ class Comment extends StatelessWidget {
               ignoreGestures: true,
               onRatingUpdate: (double value) {},
             ),
-            Text("05/02/2020", style: TextStyle(color: ChColor.content_v1)),
+            Text("05/02/2020", style: TextStyle(color: ChColor.content)),
           ],
         ),
-        Text("very good", style: TextStyle(color: ChColor.content_v1))
+        Text("very good", style: TextStyle(color: ChColor.content))
       ],
     );
   }

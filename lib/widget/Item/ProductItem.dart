@@ -6,9 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductItem extends StatelessWidget {
-  ProductItem({this.type: NORMAL_LIST_TYPE, this.item});
+  ProductItem(
+      {this.type: NORMAL_LIST_TYPE, this.item, this.animateCart: false});
   final int type;
   final Product item;
+  final bool animateCart;
   @override
   Widget build(BuildContext context) {
     List<Widget> productLineSecond = [
@@ -21,7 +23,8 @@ class ProductItem extends StatelessWidget {
         productLineSecond.add(
           Expanded(
             flex: 6, // 60%
-            child: AddToCart(item, size: ChTextSize.size30, showIcon: false),
+            child: AddToCart(item,
+                size: ChTextSize.size30, animateCart: this.animateCart),
           ),
         );
         break;

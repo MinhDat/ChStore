@@ -62,8 +62,9 @@ class BLoCRenderItem extends StatelessWidget {
                     ),
                   ],
                 ),
-                child:
-                    ItemList(products: state.products.getRange(0, 7).toList()),
+                child: ItemList(
+                    products: state.products.getRange(0, 7).toList(),
+                    animateCart: true),
               ),
               CardContainer(
                   label: Text("Hashtags", style: ChTextStyle.title),

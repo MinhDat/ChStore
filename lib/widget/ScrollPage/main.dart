@@ -42,7 +42,7 @@ class ScrollPage extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage("lib/picture/background/bg1_body.jpg"),
+            image: AssetImage("lib/asset/image/background/bg1_body.jpg"),
             fit: BoxFit.fitWidth,
             alignment: Alignment.topCenter),
       ),

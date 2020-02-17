@@ -6,10 +6,10 @@ import 'package:ChStore/utility/main.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddToCart extends StatefulWidget {
-  AddToCart(this.data, {this.size = 15, this.showIcon = true});
+  AddToCart(this.data, {this.size = 15, this.animateCart = false});
   final Product data;
   final double size;
-  final bool showIcon;
+  final bool animateCart;
 
   @override
   AddToCartState createState() => new AddToCartState();
@@ -49,7 +49,7 @@ class AddToCartState extends State<AddToCart> {
     } else {
       existed.count++;
     }
-    if (!widget.showIcon) {
+    if (widget.animateCart) {
       System.move(_next);
     }
     counterBloc.add(IncrementEvent(1));
@@ -59,23 +59,19 @@ class AddToCartState extends State<AddToCart> {
   Widget build(BuildContext context) {
     return FlatButton(
       key: _buttonKey,
-      color: ChColor.primaryLight,
+      color: ChColor.primary_v1_dart,
       textColor: ChColor.main,
       shape: new RoundedRectangleBorder(
           borderRadius: new BorderRadius.circular(5.0),
-          side: BorderSide(color: ChColor.primaryLight)),
+          side: BorderSide(color: ChColor.primary_v1_dart)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         children: [
-          Text(widget.showIcon ? "ADD TO CART" : "ADD",
-              style: ChTextStyle.buttonCart(widget.size)),
-          widget.showIcon
-              ? Padding(
-                  padding: EdgeInsets.only(left: 5),
-                  child: Icon(Icons.add_shopping_cart, size: widget.size),
-                )
-              : SizedBox.shrink()
+          Text("ADD", style: ChTextStyle.buttonCart(widget.size)),
+          Padding(
+              padding: EdgeInsets.only(left: 5),
+              child: Icon(Icons.add_shopping_cart, size: widget.size))
         ],
       ),
       onPressed: () => handleClick(context),

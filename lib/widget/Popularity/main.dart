@@ -1,4 +1,3 @@
-// TODO Implement this library.
 import 'package:ChStore/utility/main.dart';
 import 'package:ChStore/model/Popularity.dart';
 
@@ -22,7 +21,7 @@ class PopularCategories extends StatelessWidget {
             left: marginLeft, right: marginRight, top: 5, bottom: 5),
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: ChColor.backgroundDark,
+          color: ChColor.background,
           borderRadius: new BorderRadius.all(Radius.circular(10.0)),
         ),
         child: Stack(

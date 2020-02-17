@@ -37,8 +37,8 @@ class _SplashScreenState extends State<SplashScreen> {
         fit: StackFit.expand,
         children: <Widget>[
           Container(
-            child: Image.asset('lib/picture/background/version_1.png',
-                fit: BoxFit.cover),
+            child: Image.asset('lib/asset/image/background/bg1.jpg',
+                fit: BoxFit.fitWidth, alignment: Alignment.topCenter),
           ),
           Positioned(
             top: 2 * System.screenSize.height / 3,
@@ -47,10 +47,13 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Image.asset('icon/ChStore_white.png', height: 50, width: 50),
+                Image.asset('icon/logo.png', height: 50, width: 50),
                 Text(
                   "ChStore",
-                  style: TextStyle(color: Colors.white, fontSize: 40),
+                  style: TextStyle(
+                      color: ChColor.primary_v1_dart,
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold),
                 ),
               ],
             ),

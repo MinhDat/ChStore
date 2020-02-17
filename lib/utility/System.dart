@@ -3,6 +3,8 @@ import 'package:sqflite/sqflite.dart';
 
 import 'package:ChStore/data/main.dart';
 
+const ENABLE_USAGE_GUIDE = false;
+
 class AnimationOffset {
   AnimationOffset({
     this.begin = const Offset(0, 0),
@@ -32,6 +34,7 @@ class System {
         await database.rawQuery('SELECT * FROM FirstUsage'));
     await database.close();
 
+    if (ENABLE_USAGE_GUIDE) return true;
     return _first == null ? true : _first == 1;
   }
 

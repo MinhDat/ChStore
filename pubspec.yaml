@@ -47,9 +47,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     # Icons
-    - icon/ChStore_red.png
     - icon/logo.png
-    - icon/ChStore_white.png
     - icon/today-icon.png
     - icon/toggle-menu-icon.png
     - icon/search-icon.png
@@ -69,35 +67,34 @@ flutter:
     - icon/shoe.png
 
     # Bank
-    - lib/picture/banking/acb.png
-    - lib/picture/banking/agribank.png
-    - lib/picture/banking/sacombank.png
-    - lib/picture/banking/techcombank.png
-    - lib/picture/banking/tpbank.jpg
-    - lib/picture/banking/vietcombank.png
-    - lib/picture/banking/vietinbank.png
-    - lib/picture/banking/vpbank.jpg
+    - lib/asset/image/banking/acb.png
+    - lib/asset/image/banking/agribank.png
+    - lib/asset/image/banking/sacombank.png
+    - lib/asset/image/banking/techcombank.png
+    - lib/asset/image/banking/tpbank.jpg
+    - lib/asset/image/banking/vietcombank.png
+    - lib/asset/image/banking/vietinbank.png
+    - lib/asset/image/banking/vpbank.jpg
 
     # Topic
-    - lib/picture/topic/man-category.jpg
-    - lib/picture/topic/woman-category.jpg
-    - lib/picture/topic/sport-category.png
+    - lib/asset/image/topic/man-category.jpg
+    - lib/asset/image/topic/woman-category.jpg
+    - lib/asset/image/topic/sport-category.png
 
     # Category
-    - lib/picture/category/sports.jpg
-    - lib/picture/category/travel.jpg
-    - lib/picture/category/music.jpg
-    - lib/picture/category/gaming.jpg
-    - lib/picture/category/photography.jpg
-    - lib/picture/category/food.jpg
+    - lib/asset/image/category/sports.jpg
+    - lib/asset/image/category/travel.jpg
+    - lib/asset/image/category/music.jpg
+    - lib/asset/image/category/gaming.jpg
+    - lib/asset/image/category/photography.jpg
+    - lib/asset/image/category/food.jpg
 
     # Background
-    - lib/picture/background/version_1.png
-    - lib/picture/background/bg1.jpg
-    - lib/picture/background/bg1_header.jpg
-    - lib/picture/background/bg1_body.jpg
-    - lib/picture/background/bg2.jpg
-    - lib/picture/background/bg3.jpg
+    # - lib/asset/image/background/version_1.png
+    - lib/asset/image/background/bg1.jpg
+    - lib/asset/image/background/bg1_body.jpg
+    # - lib/asset/image/background/bg2.jpg
+    # - lib/asset/image/background/bg3.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

@@ -116,7 +116,7 @@ class ChTextStyle {
   );
   static TextStyle cardCounter = TextStyle(
     fontSize: ChTextSize.size30,
-    color: ChColor.primaryLight,
+    color: ChColor.primary_v1_dart,
   );
   static TextStyle label = TextStyle(
     color: ChColor.label,

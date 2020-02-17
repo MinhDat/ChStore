@@ -43,7 +43,7 @@ class _ProductListState extends State<ProductList> {
           }
           if (state is DataLoaded) {
             if (state.products.isEmpty) {
-              return Center(child: Text('no products'));
+              return Center(child: Text('no items'));
             }
             return Padding(
               padding: EdgeInsets.only(left: 10, right: 10),
@@ -62,9 +62,8 @@ class _ProductListState extends State<ProductList> {
           }
           return Center(
             child: Padding(
-              padding: EdgeInsets.only(top: 10, bottom: 10),
-              child: CircularProgressIndicator(),
-            ),
+                padding: EdgeInsets.only(top: 10, bottom: 10),
+                child: CircularProgressIndicator()),
           );
         },
       ),
@@ -87,9 +86,8 @@ class BottomLoader extends StatelessWidget {
       alignment: Alignment.center,
       child: Center(
         child: Padding(
-          padding: EdgeInsets.only(top: 10, bottom: 10),
-          child: CircularProgressIndicator(),
-        ),
+            padding: EdgeInsets.only(top: 10, bottom: 10),
+            child: CircularProgressIndicator()),
       ),
     );
   }

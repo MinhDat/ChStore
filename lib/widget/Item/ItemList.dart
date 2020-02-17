@@ -10,9 +10,11 @@ const NORMAL_LIST_TYPE = 0;
 const SHOPPING_CART_LIST_TYPE = 1;
 
 class ItemList extends StatefulWidget {
-  ItemList({this.products, this.type: NORMAL_LIST_TYPE});
+  ItemList(
+      {this.products, this.type: NORMAL_LIST_TYPE, this.animateCart: false});
   final int type;
   final List<Product> products;
+  final bool animateCart;
 
   @override
   ItemListState createState() => new ItemListState();
@@ -38,7 +40,8 @@ class ItemListState extends State<ItemList> {
       case NORMAL_LIST_TYPE:
         if (productList.length == 0) {
           productList = widget.products
-              .map((product) => ProductItem(item: product))
+              .map((product) =>
+                  ProductItem(item: product, animateCart: widget.animateCart))
               .toList();
         }
 

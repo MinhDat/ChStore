@@ -16,44 +16,55 @@ class ChApi {
 
   List<Category> getCategories() {
     return [
-      Category(id: 0, name: "Sport", image: "lib/picture/category/sports.jpg"),
-      Category(id: 1, name: "Travel", image: "lib/picture/category/travel.jpg"),
-      Category(id: 2, name: "Music", image: "lib/picture/category/music.jpg"),
-      Category(id: 3, name: "Gaming", image: "lib/picture/category/gaming.jpg"),
       Category(
-          id: 4, name: "Photo", image: "lib/picture/category/photography.jpg"),
-      Category(id: 5, name: "Food", image: "lib/picture/category/food.jpg"),
+          id: 0, name: "Sport", image: "lib/asset/image/category/sports.jpg"),
+      Category(
+          id: 1, name: "Travel", image: "lib/asset/image/category/travel.jpg"),
+      Category(
+          id: 2, name: "Music", image: "lib/asset/image/category/music.jpg"),
+      Category(
+          id: 3, name: "Gaming", image: "lib/asset/image/category/gaming.jpg"),
+      Category(
+          id: 4,
+          name: "Photo",
+          image: "lib/asset/image/category/photography.jpg"),
+      Category(id: 5, name: "Food", image: "lib/asset/image/category/food.jpg"),
     ];
   }
 
   List<Topic> getTopics() {
     return [
       Topic(
-          id: 6, name: "Woman", image: "lib/picture/topic/woman-category.jpg"),
-      Topic(id: 7, name: "Man", image: "lib/picture/topic/man-category.jpg"),
+          id: 6,
+          name: "Woman",
+          image: "lib/asset/image/topic/woman-category.jpg"),
       Topic(
-          id: 0, name: "Sport", image: "lib/picture/topic/sport-category.png"),
+          id: 7, name: "Man", image: "lib/asset/image/topic/man-category.jpg"),
+      Topic(
+          id: 0,
+          name: "Sport",
+          image: "lib/asset/image/topic/sport-category.png"),
       Topic(id: 8, name: "Child"
-          // image: "lib/picture/topic//sport-category.png",
+          // image: "lib/asset/image/topic//sport-category.png",
           ),
       Topic(
         id: 9,
-        // image: "lib/picture/topic//sport-category.png",
+        // image: "lib/asset/image/topic//sport-category.png",
         name: "Animal",
       ),
       Topic(
         id: 10,
-        // image: "lib/picture/topic//sport-category.png",
+        // image: "lib/asset/image/topic//sport-category.png",
         name: "Life",
       ),
       Topic(
         id: 1,
-        // image: "lib/picture/topic//sport-category.png",
+        // image: "lib/asset/image/topic//sport-category.png",
         name: "Travel",
       ),
       Topic(
         id: 11,
-        // image: "lib/picture/topic//sport-category.png",
+        // image: "lib/asset/image/topic//sport-category.png",
         name: "Book",
       ),
     ];

@@ -22,7 +22,7 @@ class UsageGuideState extends State<UsageGuide> {
     super.initState();
     _currentIndex = 0;
     _pageController =
-        new PageController(initialPage: _currentIndex, keepPage: true);
+        PageController(initialPage: _currentIndex, keepPage: true);
   }
 
   @override
@@ -34,47 +34,55 @@ class UsageGuideState extends State<UsageGuide> {
   @override
   Widget build(BuildContext context) {
     final List<Widget> _pages = <Widget>[
-      new ConstrainedBox(
-        constraints: const BoxConstraints.expand(),
-        child: new FlutterLogo(colors: Colors.blue),
+      Padding(
+        padding: EdgeInsets.only(top: 105, right: 20, left: 20, bottom: 40),
+        child: CardContainer(
+          child: Center(child: Text("ChStore")),
+        ),
       ),
-      new ConstrainedBox(
-        constraints: const BoxConstraints.expand(),
-        child: new FlutterLogo(
-            style: FlutterLogoStyle.stacked, colors: Colors.red),
+      Padding(
+        padding: EdgeInsets.only(top: 105, right: 20, left: 20, bottom: 40),
+        child: CardContainer(
+          child: Center(child: Text("ChStore")),
+        ),
       ),
       Finish(),
     ];
 
-    return new Scaffold(
-      body: new IconTheme(
-        data: new IconThemeData(color: _kArrowColor),
-        child: new Stack(
+    return Scaffold(
+      body: IconTheme(
+        data: IconThemeData(color: _kArrowColor),
+        child: Stack(
           children: <Widget>[
-            new PageView.builder(
-              physics: new AlwaysScrollableScrollPhysics(),
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image:
+                        AssetImage("lib/asset/image/background/bg1_body.jpg"),
+                    fit: BoxFit.fitWidth,
+                    alignment: Alignment.topCenter),
+              ),
+            ),
+            PageView.builder(
+              physics: AlwaysScrollableScrollPhysics(),
               controller: _pageController,
-              itemBuilder: (BuildContext context, int index) {
-                return _pages[index % _pages.length];
-              },
+              itemBuilder: (BuildContext context, int index) =>
+                  _pages[index % _pages.length],
               itemCount: _pages.length,
             ),
-            new Positioned(
+            Positioned(
               bottom: 0.0,
               left: 0.0,
               right: 0.0,
-              child: new Container(
+              child: Container(
                 padding: const EdgeInsets.all(20.0),
-                child: new Center(
-                  child: new DotsIndicator(
+                child: Center(
+                  child: DotsIndicator(
                     controller: _pageController,
                     itemCount: _pages.length,
                     onPageSelected: (int page) {
-                      _pageController.animateToPage(
-                        page,
-                        duration: _kDuration,
-                        curve: _kCurve,
-                      );
+                      _pageController.animateToPage(page,
+                          duration: _kDuration, curve: _kCurve);
                     },
                   ),
                 ),

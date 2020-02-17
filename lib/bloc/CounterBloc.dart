@@ -1,4 +1,3 @@
-import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,7 +12,7 @@ abstract class CounterEvent extends Equatable {
 class IncrementEvent extends CounterEvent {
   final int number;
 
-  const IncrementEvent(@required this.number);
+  const IncrementEvent({this.number: 1});
 
   @override
   List<Object> get props => [number];
@@ -25,7 +24,7 @@ class IncrementEvent extends CounterEvent {
 class DecrementEvent extends CounterEvent {
   final int number;
 
-  const DecrementEvent(@required this.number);
+  const DecrementEvent({this.number: 1});
 
   @override
   List<Object> get props => [number];

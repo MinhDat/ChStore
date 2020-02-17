@@ -4,6 +4,7 @@ import 'package:ChStore/utility/ChTextStyle.dart';
 import 'package:flutter/material.dart';
 import 'package:ChStore/utility/main.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class AddToCart extends StatefulWidget {
   AddToCart(this.data, {this.size = 15, this.animateCart = false});
@@ -25,7 +26,15 @@ class AddToCart extends StatefulWidget {
       existed.count++;
     }
 
-    counterBloc.add(IncrementEvent(1));
+    counterBloc.add(IncrementEvent());
+    Fluttertoast.showToast(
+        msg: "Added to shopping cart",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIos: 1,
+        backgroundColor: Colors.black87,
+        textColor: Colors.white,
+        fontSize: 16.0);
   }
 }
 
@@ -49,10 +58,21 @@ class AddToCartState extends State<AddToCart> {
     } else {
       existed.count++;
     }
+
     if (widget.animateCart) {
       System.move(_next);
+    } else {
+      Fluttertoast.showToast(
+          msg: "Added to shopping cart",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIos: 1,
+          backgroundColor: Colors.black87,
+          textColor: Colors.white,
+          fontSize: 16.0);
     }
-    counterBloc.add(IncrementEvent(1));
+
+    counterBloc.add(IncrementEvent());
   }
 
   @override

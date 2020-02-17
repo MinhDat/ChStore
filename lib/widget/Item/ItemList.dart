@@ -4,6 +4,7 @@ import 'package:ChStore/utility/main.dart';
 import 'package:ChStore/widget/main.dart';
 import 'package:ChStore/model/main.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 // Template Type
 const NORMAL_LIST_TYPE = 0;
@@ -56,9 +57,17 @@ class ItemListState extends State<ItemList> {
                   key: ObjectKey(item),
                   child: ProductItem(type: widget.type, item: item),
                   onDismissed: (direction) {
-                    counterBloc.add(DecrementEvent(item.count));
+                    counterBloc.add(DecrementEvent(number: item.count));
                     item.count = 1;
                     allShoppingCarts.removeWhere((p) => p.id == item.id);
+                    Fluttertoast.showToast(
+                        msg: "Removed items from shopping cart",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.CENTER,
+                        timeInSecForIos: 1,
+                        backgroundColor: Colors.black87,
+                        textColor: Colors.white,
+                        fontSize: 16.0);
                   },
                 ),
               )

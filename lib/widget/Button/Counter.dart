@@ -63,11 +63,11 @@ class CounterState extends State<Counter> {
   void handleChange(type, CounterBloc counterBloc) {
     Product productItem = allShoppingCarts.firstWhere((a) => a.id == widget.id);
     if (type == DECREMENT && allShoppingCarts[widget.id].count > 1) {
-      counterBloc.add(DecrementEvent(1));
+      counterBloc.add(DecrementEvent());
       productItem.count--;
     }
     if (type == INCREMENT) {
-      counterBloc.add(IncrementEvent(1));
+      counterBloc.add(IncrementEvent());
       productItem.count++;
     }
     _textEditingController.text = allShoppingCarts[widget.id].count.toString();

@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
 
 import 'package:ChStore/data/main.dart';
@@ -18,6 +19,9 @@ class System {
   static Size screenSize;
   static SetPositionAnimateCalback setPositionAnimateCalback;
   static DatabaseHelper databaseHelper = DatabaseHelper();
+  static GlobalKey keyShoppingCartAppBar = GlobalKey();
+  static GlobalKey keyShoppingCartSearch = GlobalKey();
+  static bool showHeader = true;
 
   static Function get move {
     return setPositionAnimateCalback;

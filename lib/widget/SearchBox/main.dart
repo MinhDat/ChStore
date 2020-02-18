@@ -1,5 +1,8 @@
+import 'package:ChStore/bloc/main.dart';
 import 'package:ChStore/utility/main.dart';
+import 'package:ChStore/widget/main.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 //Focus Type
 const UNFOCUSED_TEXT = false;
@@ -8,56 +11,30 @@ const FOCUSED_TEXT = true;
 const NOT_EXIST_WORD = false;
 const EXISTED_WORD = true;
 
-class SearchBox extends StatefulWidget {
+class SearchBox extends StatelessWidget {
   SearchBox({
-    this.isFocused: false,
+    this.focused: false,
+    this.showCart: false,
     this.onFocus,
     this.onUnfocused,
     this.onChangeWord,
   });
-  final bool isFocused;
+  final bool focused;
+  final bool showCart;
   final FocusedCalback onFocus;
   final UnfocusedCalback onUnfocused;
   final ChangeWordsCalback onChangeWord;
 
-  @override
-  State<StatefulWidget> createState() {
-    return SearchBoxState();
-  }
-}
-
-class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
-  AnimationController _animationController;
-  CurvedAnimation _sideFinalTextAnimation;
-
-  @override
-  void initState() {
-    super.initState();
-    _animationController =
-        AnimationController(vsync: this, duration: const Duration(seconds: 1));
-
-    _sideFinalTextAnimation = CurvedAnimation(
-      curve: Curves.bounceInOut,
-      parent: _animationController,
-    );
-  }
-
-  @override
-  void dispose() {
-    _animationController.dispose();
-    super.dispose();
-  }
-
   void _handleCancel() {
-    widget.onUnfocused();
+    onUnfocused();
   }
 
   void _handleTap() {
-    widget.onFocus();
+    onFocus();
   }
 
   void _handleChange(data) {
-    widget.onChangeWord(data.toString());
+    onChangeWord(data.toString());
   }
 
   @override
@@ -70,8 +47,8 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
-            flex: widget.isFocused ? 8 : 10,
-            child: widget.isFocused
+            flex: focused || showCart ? 8 : 10,
+            child: focused
                 ? TextField(
                     autofocus: true,
                     onChanged: (data) {
@@ -129,24 +106,25 @@ class SearchBoxState extends State<SearchBox> with TickerProviderStateMixin {
                     ),
                   ),
           ),
-          (widget.isFocused
+          (focused
               ? Expanded(
                   flex: 2,
-                  child: SizeTransition(
-                    sizeFactor: _sideFinalTextAnimation,
-                    axis: Axis.horizontal,
-                    axisAlignment: -1,
-                    child: GestureDetector(
-                      onTap: () => _handleCancel(),
-                      child: AnimatedContainer(
-                        duration: Duration(seconds: 1),
-                        alignment: Alignment.centerRight,
-                        child: Text("Cancel", style: ChTextStyle.cancel),
-                      ),
+                  child: GestureDetector(
+                    onTap: () => _handleCancel(),
+                    child: AnimatedContainer(
+                      duration: Duration(seconds: 1),
+                      alignment: Alignment.centerRight,
+                      child: Text("Cancel", style: ChTextStyle.cancel),
                     ),
                   ),
                 )
-              : SizedBox.shrink()),
+              : showCart
+                  ? Expanded(
+                      flex: 2,
+                      child: Container(
+                          alignment: Alignment.centerRight,
+                          child: ShoppingCart()))
+                  : SizedBox.shrink()),
         ],
       ),
     );

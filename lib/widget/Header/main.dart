@@ -1,4 +1,5 @@
 import 'package:ChStore/utility/main.dart';
+import 'package:ChStore/widget/main.dart';
 import 'package:flutter/material.dart';
 
 class Header extends StatelessWidget {
@@ -56,7 +57,7 @@ class Header extends StatelessWidget {
             ),
           ],
         ),
-        Icon(Icons.person, size: 40.0),
+        ShoppingCart(),
       ],
     );
   }

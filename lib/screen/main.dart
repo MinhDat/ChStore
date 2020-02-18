@@ -1,5 +1,6 @@
 export 'package:ChStore/screen/HomePage/main.dart';
 export 'package:ChStore/screen/Category/main.dart';
+export 'package:ChStore/screen/Notice/main.dart';
 export 'package:ChStore/screen/MainPage/main.dart';
 export 'package:ChStore/screen/Personality/main.dart';
 

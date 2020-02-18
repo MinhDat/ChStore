@@ -3,6 +3,7 @@ export 'package:ChStore/widget/Button/Circle.dart';
 export 'package:ChStore/widget/Button/Counter.dart';
 export 'package:ChStore/widget/Button/SocialInfo.dart';
 export 'package:ChStore/widget/Button/Square.dart';
+export 'package:ChStore/widget/Button/ShoppingCart.dart';
 
 export 'package:ChStore/widget/Card/CardContainer.dart';
 export 'package:ChStore/widget/Card/ChCard.dart';

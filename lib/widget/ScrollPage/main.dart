@@ -16,8 +16,8 @@ const HAS_NOT_FOCUSED = false;
 
 class ScrollPage extends StatelessWidget {
   final String title;
-  final bool isFocused;
-  final bool isShowHeader;
+  final bool focused;
+  final bool showHeader;
   final Widget headerAppBar;
   final Widget childAppBar;
   final Widget child;
@@ -26,8 +26,8 @@ class ScrollPage extends StatelessWidget {
 
   ScrollPage(
       {this.title: "",
-      this.isFocused: false,
-      this.isShowHeader: true,
+      this.focused: false,
+      this.showHeader: true,
       this.scrollController,
       this.headerAppBar,
       this.childAppBar,
@@ -54,7 +54,7 @@ class ScrollPage extends StatelessWidget {
             SliverPersistentHeader(
               delegate: AppBarHeader(
                   headerHeight: HEADER_HEIGHT,
-                  isFocused: isFocused,
+                  focused: focused,
                   title: title,
                   enableIcon: enableIcon),
               pinned: true,
@@ -62,29 +62,29 @@ class ScrollPage extends StatelessWidget {
             SliverAppBar(
               backgroundColor: ChColor.main.withOpacity(0),
               pinned: true,
-              expandedHeight: isFocused
+              expandedHeight: focused
                   ? 0
                   : (childAppBar != null
-                      ? isShowHeader ? _appBarMaxHeght : APP_BAR_HEIGHT
+                      ? showHeader ? _appBarMaxHeght : APP_BAR_HEIGHT
                       : _appBarMinHeght),
-              floating: !isFocused,
+              floating: !focused,
               bottom: PreferredSize(
-                preferredSize: Size.fromHeight(isFocused
+                preferredSize: Size.fromHeight(focused
                     ? 0
                     : (childAppBar != null
-                        ? isShowHeader ? _appBarMaxHeght : APP_BAR_HEIGHT
+                        ? showHeader ? _appBarMaxHeght : APP_BAR_HEIGHT
                         : _appBarMinHeght)), // Add this code
                 child: SizedBox.shrink(), // Add this code
               ),
               flexibleSpace: Column(
                 children: <Widget>[
-                  !isShowHeader
+                  !showHeader
                       ? Container(height: HEADER_HEIGHT - 10)
                       : SizedBox.shrink(),
-                  isShowHeader && !isFocused ? headerAppBar : SizedBox.shrink(),
+                  showHeader && !focused ? headerAppBar : SizedBox.shrink(),
                   AppBarChild(
-                      isFocused: isFocused,
-                      isShowHeader: isShowHeader,
+                      focused: focused,
+                      showHeader: showHeader,
                       childAppBar: childAppBar)
                 ],
               ),

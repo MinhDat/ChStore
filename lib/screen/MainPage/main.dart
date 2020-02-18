@@ -14,24 +14,16 @@ class Mainpage extends StatefulWidget {
 
 class _MainpageState extends State<Mainpage>
     with SingleTickerProviderStateMixin {
-  int _index;
-  //creating Key for shopping cart
-  GlobalKey _keyShoppingCart = GlobalKey();
+  int _index = 0;
   AnimationController _controller;
-  Offset _begin, _end;
+  Offset _begin = Offset.zero;
+  Offset _end = Offset.zero;
   Animation _offsetAnimation;
-  double _visibleAnimate;
+  double _visibleAnimate = 0.0;
 
   @override
   void initState() {
     super.initState();
-    // Listen completed render event
-    WidgetsBinding.instance.addPostFrameCallback(_onBuildCompleted);
-
-    _index = 0;
-    _begin = _end = Offset.zero;
-    _visibleAnimate = 0.0;
-
     _controller = AnimationController(
       duration: const Duration(milliseconds: 500),
       vsync: this,
@@ -90,34 +82,8 @@ class _MainpageState extends State<Mainpage>
                 title: SizedBox.shrink(),
               ),
               BottomNavigationBarItem(
-                icon: Container(
-                  height: 40,
-                  width: 40,
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        top: 8,
-                        right: 10,
-                        child: Icon(Icons.shopping_cart,
-                            key: _keyShoppingCart,
-                            color: _index == 3
-                                ? ChColor.primary
-                                : ChColor.unfocus),
-                      ),
-                      Positioned(
-                        top: 0,
-                        right: 0,
-                        child: BlocBuilder<CounterBloc, int>(
-                            builder: (context, count) {
-                          return count > 0
-                              ? Text("$count",
-                                  style: ChTextStyle.flexColor(ChColor.primary))
-                              : SizedBox.shrink();
-                        }),
-                      )
-                    ],
-                  ),
-                ),
+                icon: Icon(Icons.notifications,
+                    color: _index == 3 ? ChColor.primary : ChColor.unfocus),
                 title: SizedBox.shrink(),
               ),
               BottomNavigationBarItem(
@@ -155,7 +121,7 @@ class _MainpageState extends State<Mainpage>
       case 2:
         return Search();
       case 3:
-        return ShoppingCart();
+        return Notice();
       case 4:
         return Personality();
       default:
@@ -174,19 +140,19 @@ class _MainpageState extends State<Mainpage>
     setState(() {
       _visibleAnimate = 1.0;
       _begin = Offset(state.begin.dx / 10, state.begin.dy / 10);
-      _end = Offset(
-          System.shoppingCartOffset.dx / 10, System.shoppingCartOffset.dy / 10);
+
+      // Get offset shopping cart
+      final RenderBox renderBoxRed = System.showHeader
+          ? System.keyShoppingCartAppBar.currentContext.findRenderObject()
+          : System.keyShoppingCartSearch.currentContext.findRenderObject();
+
+      final _offsetCart = renderBoxRed.localToGlobal(Offset(0, 0));
+      final _sizeCart = renderBoxRed.size;
+      _end = Offset((_offsetCart.dx + _sizeCart.width / 2) / 10,
+          (_offsetCart.dy + _sizeCart.height / 2) / 10);
       _offsetAnimation = _generateAnimationPosition();
+      // Forward animation
       _controller.forward();
     });
-  }
-
-  // After rendered
-  void _onBuildCompleted(_) {
-    final RenderBox renderBoxRed =
-        _keyShoppingCart.currentContext.findRenderObject();
-    final positionShoppingCart = renderBoxRed.localToGlobal(Offset(0, 0));
-
-    System.shoppingCartOffset = positionShoppingCart;
   }
 }

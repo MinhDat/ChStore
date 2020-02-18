@@ -5,11 +5,11 @@ class AppBarHeader extends SliverPersistentHeaderDelegate {
   final double headerHeight;
   final String title;
   final bool enableIcon;
-  bool isFocused;
+  bool focused;
 
   AppBarHeader(
       {@required this.headerHeight,
-      this.isFocused: false,
+      this.focused: false,
       this.title: "",
       this.enableIcon: false});
 
@@ -20,14 +20,14 @@ class AppBarHeader extends SliverPersistentHeaderDelegate {
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
       color: ChColor.main
-          .withOpacity(this.isFocused ? 1 : shrinkOffset / headerHeight),
+          .withOpacity(this.focused ? 1 : shrinkOffset / headerHeight),
       child: Stack(
         fit: StackFit.expand,
         overflow: Overflow.visible,
         children: [
           Center(
             child: Opacity(
-              opacity: this.isFocused ? 1 : (shrinkOffset / headerHeight),
+              opacity: this.focused ? 1 : (shrinkOffset / headerHeight),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

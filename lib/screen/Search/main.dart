@@ -14,9 +14,9 @@ class Search extends StatefulWidget {
 
 class _WidgetList extends State<Search> {
   ScrollController _scrollController;
-  bool _isFocused = UNFOCUSED_TEXT;
+  bool _focused = UNFOCUSED_TEXT;
   bool _existedWord = NOT_EXIST_WORD;
-  bool _isShowHeader = SHOW_HEADER;
+  bool _showHeader = SHOW_HEADER;
   bool _hasFocused = HAS_NOT_FOCUSED;
 
   @override
@@ -27,7 +27,7 @@ class _WidgetList extends State<Search> {
         // Focused in search box
         if (_hasFocused && _scrollController.offset == HEADER_HEIGHT) {
           setState(() {
-            _isFocused = FOCUSED_TEXT;
+            _focused = FOCUSED_TEXT;
             _scrollController.jumpTo(0.0);
           });
         }
@@ -35,7 +35,7 @@ class _WidgetList extends State<Search> {
         // Checking show header
         if (!_hasFocused) {
           setState(() {
-            _isShowHeader = _scrollController.offset < HEADER_HEIGHT;
+            _showHeader = _scrollController.offset < HEADER_HEIGHT;
           });
         }
       });
@@ -48,9 +48,9 @@ class _WidgetList extends State<Search> {
   }
 
   void _onFocus() {
-    if (_isFocused == UNFOCUSED_TEXT) {
+    if (_focused == UNFOCUSED_TEXT) {
       _hasFocused = HAS_FOCUSED;
-      _isShowHeader = NOT_SHOW_HEADER;
+      _showHeader = NOT_SHOW_HEADER;
 
       _scrollController.animateTo(
         HEADER_HEIGHT,
@@ -62,10 +62,10 @@ class _WidgetList extends State<Search> {
 
   void _onUnfocused() {
     setState(() {
-      _isFocused = UNFOCUSED_TEXT;
+      _focused = UNFOCUSED_TEXT;
       _existedWord = NOT_EXIST_WORD;
       _hasFocused = HAS_NOT_FOCUSED;
-      _isShowHeader = SHOW_HEADER;
+      _showHeader = SHOW_HEADER;
     });
   }
 
@@ -93,19 +93,19 @@ class _WidgetList extends State<Search> {
           padding: EdgeInsets.only(left: 10.0, bottom: 10),
           child: Text("Search", style: ChTextStyle.logo),
         ),
-        isShowHeader: _isShowHeader,
+        showHeader: _showHeader,
         childAppBar: SearchBox(
-          isFocused: _isFocused,
+          focused: _focused,
           onFocus: _onFocus,
           onUnfocused: _onUnfocused,
           onChangeWord: _onChangeWord,
         ),
-        isFocused: _isFocused,
+        focused: _focused,
         scrollController: _scrollController,
         child: Stack(
           children: [
             SearchPage(),
-            _isFocused
+            _focused
                 ? Positioned(
                     bottom: 0,
                     right: 0,

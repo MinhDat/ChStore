@@ -115,7 +115,7 @@ class ChTextStyle {
   );
 
   static TextStyle method = TextStyle(
-    color: ChColor.label,
+    color: ChColor.title,
     fontSize: ChTextSize.size22,
   );
 
@@ -182,6 +182,6 @@ class ChTextStyle {
       );
   static TextStyle flexColor(color) => TextStyle(
         color: color,
-        fontSize: ChTextSize.size33,
+        fontSize: ChTextSize.size26,
       );
 }

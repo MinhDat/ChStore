@@ -91,12 +91,8 @@ flutter:
     - lib/asset/image/category/food.jpg
 
     # Background
-    # - lib/asset/image/background/version_1.png
-    # - lib/asset/image/background/noimagefound.png
     - lib/asset/image/background/bg1.jpg
     - lib/asset/image/background/bg1_body.jpg
-    # - lib/asset/image/background/bg2.jpg
-    # - lib/asset/image/background/bg3.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

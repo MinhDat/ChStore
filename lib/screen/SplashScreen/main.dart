@@ -39,10 +39,10 @@ class _SplashScreenState extends State<SplashScreen> {
         children: <Widget>[
           Container(
             child: Image.asset('lib/asset/image/background/bg1.jpg',
-                fit: BoxFit.fitWidth, alignment: Alignment.topCenter),
+                fit: BoxFit.fitWidth, alignment: Alignment.center),
           ),
           Positioned(
-            top: 2 * System.screenSize.height / 3,
+            top: System.screenSize.height / 7,
             left: 0,
             right: 0,
             child: Row(

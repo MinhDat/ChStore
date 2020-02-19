@@ -25,7 +25,7 @@ class ChCardSliderState extends State<ChCardSlider> {
           child: ChCard(
             product,
             itemWidth: System.screenSize.width / 2,
-            itemHeight: System.screenSize.width / 3,
+            itemHeight: System.screenSize.width / 3.5,
             type: FOR_SLIDER,
             // itemWidth: _screenWidth - 20,
           ),
@@ -38,10 +38,8 @@ class ChCardSliderState extends State<ChCardSlider> {
 
   @override
   Widget build(BuildContext context) {
-    double _screenHeight = System.screenSize.width / 2;
-
     return Container(
-      height: _screenHeight,
+      height: System.screenSize.width / 2,
       child: ListView(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,

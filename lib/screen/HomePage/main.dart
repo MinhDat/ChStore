@@ -32,7 +32,6 @@ class _HomePageState extends State<HomePage> {
       if (!_hasFocused) {
         setState(() {
           _showHeader = _scrollController.offset < HEADER_HEIGHT;
-          System.showHeader = _showHeader;
         });
       }
     });
@@ -48,7 +47,6 @@ class _HomePageState extends State<HomePage> {
     if (_focused == UNFOCUSED_TEXT) {
       _hasFocused = HAS_FOCUSED;
       _showHeader = NOT_SHOW_HEADER;
-      System.showHeader = _showHeader;
 
       _scrollController.animateTo(
         HEADER_HEIGHT,
@@ -64,7 +62,6 @@ class _HomePageState extends State<HomePage> {
       _existedWord = NOT_EXIST_WORD;
       _hasFocused = HAS_NOT_FOCUSED;
       _showHeader = SHOW_HEADER;
-      System.showHeader = _showHeader;
     });
   }
 

@@ -24,26 +24,20 @@ class _PersonalityState extends State<Personality> {
             onTap: () => Navigator.pushNamed(context, '/profile'),
             child: Row(
               children: [
-                Expanded(
-                  flex: 3,
-                  child: Container(
-                    margin: EdgeInsets.all(20),
-                    child: CircleAvatar(
-                        radius: _avatarSize,
-                        backgroundImage:
-                            NetworkImage('https://picsum.photos/200')),
-                  ),
+                Container(
+                  margin: EdgeInsets.all(20),
+                  child: CircleAvatar(
+                      radius: _avatarSize,
+                      backgroundImage:
+                          NetworkImage('https://picsum.photos/200')),
                 ),
-                Expanded(
-                  flex: 7,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Charlie',
-                          style: TextStyle(fontWeight: FontWeight.bold)),
-                      Text('Software Developer'),
-                    ],
-                  ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Charlie',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    Text('Software Developer'),
+                  ],
                 ),
               ],
             ),

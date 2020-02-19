@@ -31,41 +31,44 @@ class _ProductListState extends State<ProductList> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: ChColor.primary,
-        title: Text("Product List", style: ChTextStyle.header),
-      ),
-      body: BlocBuilder<DataBloc, DataState>(
-        builder: (context, state) {
-          if (state is DataError) {
-            return Center(child: Text('failed to fetch data'));
-          }
-          if (state is DataLoaded) {
-            if (state.products.isEmpty) {
-              return Center(child: Text('no items'));
+    return AnimateSC(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: ChColor.primary,
+          title: Text("Product List", style: ChTextStyle.header),
+          // actions: <Widget>[ShoppingCart()],
+        ),
+        body: BlocBuilder<DataBloc, DataState>(
+          builder: (context, state) {
+            if (state is DataError) {
+              return Center(child: Text('failed to fetch data'));
             }
-            return Padding(
-              padding: EdgeInsets.only(left: 10, right: 10),
-              child: ListView.builder(
-                itemBuilder: (BuildContext context, int index) {
-                  return index >= state.products.length
-                      ? BottomLoader()
-                      : ProductItem(item: state.products[index]);
-                },
-                itemCount: state.hasReachedMax
-                    ? state.products.length
-                    : state.products.length + 1,
-                controller: _scrollController,
-              ),
+            if (state is DataLoaded) {
+              if (state.products.isEmpty) {
+                return Center(child: Text('no items'));
+              }
+              return Padding(
+                padding: EdgeInsets.only(left: 10, right: 10),
+                child: ListView.builder(
+                  itemBuilder: (BuildContext context, int index) {
+                    return index >= state.products.length
+                        ? BottomLoader()
+                        : ProductItem(item: state.products[index]);
+                  },
+                  itemCount: state.hasReachedMax
+                      ? state.products.length
+                      : state.products.length + 1,
+                  controller: _scrollController,
+                ),
+              );
+            }
+            return Center(
+              child: Padding(
+                  padding: EdgeInsets.only(top: 10, bottom: 10),
+                  child: CircularProgressIndicator()),
             );
-          }
-          return Center(
-            child: Padding(
-                padding: EdgeInsets.only(top: 10, bottom: 10),
-                child: CircularProgressIndicator()),
-          );
-        },
+          },
+        ),
       ),
     );
   }

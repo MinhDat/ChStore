@@ -4,14 +4,15 @@ import 'package:flutter/material.dart';
 class CardContainer extends StatelessWidget {
   final Widget label;
   final Widget child;
-  CardContainer({this.label, @required this.child});
+  final Color color;
+  CardContainer({this.label, @required this.child, this.color});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(10),
       child: Card(
-        color: ChColor.main,
+        color: color ?? ChColor.main,
         margin: EdgeInsets.all(0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

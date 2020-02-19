@@ -6,12 +6,12 @@ import 'package:ChStore/utility/main.dart';
 
 import 'package:flutter/material.dart';
 
-class ShoppingCart extends StatefulWidget {
+class ShoppingCartPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => ShoppingCartState();
+  State<StatefulWidget> createState() => _ShoppingCartPageState();
 }
 
-class ShoppingCartState extends State<ShoppingCart> {
+class _ShoppingCartPageState extends State<ShoppingCartPage> {
   int _currentIndex = 0;
   bool _showHeader = SHOW_HEADER;
   PageController _pageController;
@@ -28,9 +28,7 @@ class ShoppingCartState extends State<ShoppingCart> {
     _scrollController = ScrollController()
       ..addListener(() {
         // Checking show header
-        setState(() {
-          _showHeader = _scrollController.offset < HEADER_HEIGHT;
-        });
+        setState(() => _showHeader = _scrollController.offset < HEADER_HEIGHT);
       });
   }
 

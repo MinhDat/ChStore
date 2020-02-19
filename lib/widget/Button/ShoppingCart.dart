@@ -13,7 +13,7 @@ class ShoppingCart extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(top: 7, right: 5),
             child: Icon(Icons.shopping_cart,
-                key: System.keyShoppingCartSearch, size: 30),
+                key: System.keyShoppingCart, size: 30),
           ),
           Positioned(
             top: 0,

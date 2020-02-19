@@ -1,3 +1,5 @@
+export 'package:ChStore/widget/AnimateSC/main.dart';
+
 export 'package:ChStore/widget/Button/AddToCart.dart';
 export 'package:ChStore/widget/Button/Circle.dart';
 export 'package:ChStore/widget/Button/Counter.dart';

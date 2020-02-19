@@ -2,6 +2,8 @@ import 'package:ChStore/utility/main.dart';
 import 'package:ChStore/widget/Card/CardContainer.dart';
 import 'package:flutter/material.dart';
 
+import 'NoticeItem.dart';
+
 class Notice extends StatefulWidget {
   @override
   _NoticeState createState() => _NoticeState();
@@ -10,13 +12,7 @@ class Notice extends StatefulWidget {
 class _NoticeState extends State<Notice> {
   @override
   Widget build(BuildContext context) {
-    final List<Widget> _widgets = List<Widget>.generate(
-      9,
-      (i) => Container(
-          height: 90,
-          margin: EdgeInsets.only(bottom: 5),
-          color: ChColor.border),
-    );
+    final List<Widget> _widgets = List<Widget>.generate(9, (i) => NoticeItem());
 
     return Scaffold(
         body: Container(
@@ -30,6 +26,7 @@ class _NoticeState extends State<Notice> {
               children: <Widget>[
                 CardContainer(
                     label: Text("Notification", style: ChTextStyle.title),
+                    color: ChColor.border,
                     child: Container(
                       child: Column(
                         children: _widgets,

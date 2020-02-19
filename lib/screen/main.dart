@@ -12,7 +12,7 @@ export 'package:ChStore/screen/ProductList/main.dart';
 export 'package:ChStore/screen/Profile/main.dart';
 
 export 'package:ChStore/screen/Search/main.dart';
-export 'package:ChStore/screen/ShoppingCart/main.dart';
+export 'package:ChStore/screen/ShoppingCartPage/main.dart';
 export 'package:ChStore/screen/SplashScreen/main.dart';
 
 export 'package:ChStore/screen/UsageGuide/main.dart';

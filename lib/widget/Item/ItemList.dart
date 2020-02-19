@@ -58,8 +58,10 @@ class ItemListState extends State<ItemList> {
                   child: ProductItem(type: widget.type, item: item),
                   onDismissed: (direction) {
                     counterBloc.add(DecrementEvent(number: item.count));
-                    item.count = 1;
-                    allShoppingCarts.removeWhere((p) => p.id == item.id);
+                    setState(() {
+                      item.count = 1;
+                      allShoppingCarts.removeWhere((p) => p.id == item.id);
+                    });
                     Fluttertoast.showToast(
                         msg: "Removed items from shopping cart",
                         toastLength: Toast.LENGTH_SHORT,

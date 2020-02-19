@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           // Products route
           '/product-list': (context) => ProductList(),
           '/profile': (context) => Profile(),
-          '/shopping-cart': (context) => ShoppingCart(),
+          '/shopping-cart': (context) => ShoppingCartPage(),
           // '/notice': (context) => ShoppingCart(),
         },
       ),

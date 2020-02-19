@@ -19,9 +19,7 @@ class System {
   static Size screenSize;
   static SetPositionAnimateCalback setPositionAnimateCalback;
   static DatabaseHelper databaseHelper = DatabaseHelper();
-  static GlobalKey keyShoppingCartAppBar = GlobalKey();
-  static GlobalKey keyShoppingCartSearch = GlobalKey();
-  static bool showHeader = true;
+  static GlobalKey keyShoppingCart = GlobalKey();
 
   static Function get move {
     return setPositionAnimateCalback;

@@ -14,13 +14,13 @@ const EXISTED_WORD = true;
 class SearchBox extends StatelessWidget {
   SearchBox({
     this.focused: false,
-    this.showCart: false,
+    // this.showCart: false,
     this.onFocus,
     this.onUnfocused,
     this.onChangeWord,
   });
   final bool focused;
-  final bool showCart;
+  // final bool showCart;
   final FocusedCalback onFocus;
   final UnfocusedCalback onUnfocused;
   final ChangeWordsCalback onChangeWord;
@@ -47,7 +47,7 @@ class SearchBox extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
-            flex: focused || showCart ? 8 : 10,
+            flex: 8,
             child: focused
                 ? TextField(
                     autofocus: true,
@@ -118,13 +118,7 @@ class SearchBox extends StatelessWidget {
                     ),
                   ),
                 )
-              : showCart
-                  ? Expanded(
-                      flex: 2,
-                      child: Container(
-                          alignment: Alignment.centerRight,
-                          child: ShoppingCart()))
-                  : SizedBox.shrink()),
+              : SizedBox.shrink()),
         ],
       ),
     );

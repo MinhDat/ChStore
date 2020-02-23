@@ -94,7 +94,8 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                   active: RADIAL_ACTIVE,
                   child: Icon(Icons.shopping_basket, color: ChColor.complete),
                 ),
-                LinearProgress(key: _globalLinearCheckOutKey),
+                LinearProgress(
+                    key: _globalLinearCheckOutKey, showHeader: _showHeader),
                 RadialProgress(
                   key: _globalRadialCheckOutKey,
                   child: Icon(
@@ -104,7 +105,8 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                         : ChColor.initialization,
                   ),
                 ),
-                LinearProgress(key: _globalLinearDoneKey),
+                LinearProgress(
+                    key: _globalLinearDoneKey, showHeader: _showHeader),
                 RadialProgress(
                   key: _globalRadialDoneKey,
                   child: Icon(

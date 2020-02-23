@@ -14,13 +14,13 @@ class Comment extends StatelessWidget {
           children: <Widget>[
             RatingBar(
               initialRating: 4,
-              itemSize: System.screenSize.width / 30,
+              itemSize: System.media.size.width / 30,
               minRating: 1,
               direction: Axis.horizontal,
               allowHalfRating: true,
               itemCount: 5,
               itemPadding: EdgeInsets.symmetric(
-                  horizontal: System.screenSize.width / 300),
+                  horizontal: System.media.size.width / 300),
               itemBuilder: (context, _) => Icon(
                 Icons.star,
                 color: Colors.amber,

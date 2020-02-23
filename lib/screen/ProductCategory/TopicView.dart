@@ -42,7 +42,7 @@ class TopicView extends StatelessWidget {
                       Container(
                         margin: EdgeInsets.only(bottom: 10),
                         height: TOPIC_HEIGHT,
-                        width: System.screenSize.width,
+                        width: System.media.size.width,
                         decoration: new BoxDecoration(
                           borderRadius:
                               new BorderRadius.circular(TOPIC_BORDER_RADIUS),

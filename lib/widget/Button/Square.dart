@@ -9,8 +9,8 @@ class Square extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Container(
-      width: System.screenSize.width / 4,
-      height: System.screenSize.width / 6,
+      width: System.media.size.width / 4,
+      height: System.media.size.width / 6,
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: ChColor.main,

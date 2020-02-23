@@ -13,7 +13,7 @@ class AppBarHeader extends SliverPersistentHeaderDelegate {
       this.title: "",
       this.enableIcon: false});
 
-  final _iconSize = System.screenSize.width * 0.05;
+  final _iconSize = System.media.size.width * 0.05;
 
   @override
   Widget build(

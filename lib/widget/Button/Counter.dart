@@ -22,10 +22,10 @@ class Counter extends StatefulWidget {
 class CounterState extends State<Counter> {
   TextField countNumber;
   TextEditingController _textEditingController;
-  double counterRadius = System.screenSize.width / 50;
-  double counterRadiusInner = System.screenSize.width / 100;
-  double counterSize = System.screenSize.width / 10;
-  double counterSizeInner = System.screenSize.width / 12;
+  double counterRadius = System.media.size.width / 50;
+  double counterRadiusInner = System.media.size.width / 100;
+  double counterSize = System.media.size.width / 10;
+  double counterSizeInner = System.media.size.width / 12;
 
   @override
   void initState() {

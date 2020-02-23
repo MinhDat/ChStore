@@ -2,15 +2,15 @@ import 'package:ChStore/utility/main.dart';
 import 'package:flutter/material.dart';
 
 class ChTextSize {
-  static double size14 = System.screenSize.width / 14;
-  static double size15 = System.screenSize.width / 15;
-  static double size16 = System.screenSize.width / 16;
-  static double size20 = System.screenSize.width / 20;
-  static double size22 = System.screenSize.width / 22;
-  static double size24 = System.screenSize.width / 24;
-  static double size26 = System.screenSize.width / 26;
-  static double size30 = System.screenSize.width / 30;
-  static double size33 = System.screenSize.width / 33;
+  static double size14 = System.media.size.width / 14;
+  static double size15 = System.media.size.width / 15;
+  static double size16 = System.media.size.width / 16;
+  static double size20 = System.media.size.width / 20;
+  static double size22 = System.media.size.width / 22;
+  static double size24 = System.media.size.width / 24;
+  static double size26 = System.media.size.width / 26;
+  static double size30 = System.media.size.width / 30;
+  static double size33 = System.media.size.width / 33;
 }
 
 class ChColor {

@@ -28,6 +28,9 @@ export 'package:ChStore/widget/Progress/RadialProgress.dart';
 export 'package:ChStore/widget/Progress/LinearPageProgress.dart';
 export 'package:ChStore/widget/ProgressList/main.dart';
 
+export 'package:ChStore/widget/ScrollableView/main.dart';
+export 'package:ChStore/widget/ScrollableView/FloatingAppBar.dart';
+
 export 'package:ChStore/widget/ScrollPage/main.dart';
 
 export 'package:ChStore/widget/SearchBox/main.dart';

@@ -34,8 +34,8 @@ class ScrollPage extends StatelessWidget {
       @required this.child,
       this.enableIcon: false});
 
-  final double _appBarMaxHeght = System.screenSize.width / 2.5;
-  final double _appBarMinHeght = System.screenSize.width / 7;
+  final double _appBarMaxHeght = System.media.size.width / 2.5;
+  final double _appBarMinHeght = System.media.size.width / 7;
 
   @override
   Widget build(BuildContext context) {

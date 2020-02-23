@@ -24,8 +24,8 @@ class _SmallChCardListState extends State<SmallChCardList> {
 
   @override
   Widget build(BuildContext context) {
-    final double itemWidth = System.screenSize.width / 2.0;
-    double itemMediumHeight = System.screenSize.width / 2.0;
+    final double itemWidth = System.media.size.width / 2.0;
+    double itemMediumHeight = System.media.size.width / 2.0;
     double itemMaxHeight = itemMediumHeight * 1.3;
 
     switch (widget.type) {

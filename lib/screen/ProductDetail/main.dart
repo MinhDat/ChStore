@@ -90,8 +90,8 @@ class _ProductDetailState extends State<ProductDetail> {
                   Stack(
                     children: <Widget>[
                       Container(
-                        height: System.screenSize.height * 0.8,
-                        width: System.screenSize.width,
+                        height: System.media.size.height * 0.8,
+                        width: System.media.size.width,
                         color: ChColor.primary,
                         child: ClipRRect(
                           borderRadius: BorderRadius.only(
@@ -103,8 +103,8 @@ class _ProductDetailState extends State<ProductDetail> {
                         ),
                       ),
                       Container(
-                        height: System.screenSize.height * 0.8,
-                        width: System.screenSize.width,
+                        height: System.media.size.height * 0.8,
+                        width: System.media.size.width,
                         // Add box decoration
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(

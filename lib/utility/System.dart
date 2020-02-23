@@ -16,7 +16,7 @@ class AnimationOffset {
 
 class System {
   static Offset shoppingCartOffset = Offset(0, 0);
-  static Size screenSize;
+  static MediaQueryData media;
   static SetPositionAnimateCalback setPositionAnimateCalback;
   static DatabaseHelper databaseHelper = DatabaseHelper();
   static GlobalKey keyShoppingCart = GlobalKey();

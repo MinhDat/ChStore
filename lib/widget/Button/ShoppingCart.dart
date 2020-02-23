@@ -16,7 +16,7 @@ class ShoppingCart extends StatelessWidget {
                 key: System.keyShoppingCart, size: 30),
           ),
           Positioned(
-            top: 0,
+            top: -3,
             right: 0,
             child: BlocBuilder<CounterBloc, int>(builder: (context, count) {
               return count > 0

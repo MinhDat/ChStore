@@ -10,7 +10,9 @@ const LINEAR_DEACTIVE = false;
 
 class LinearProgress extends StatefulWidget {
   final bool active;
-  LinearProgress({Key key, this.active}) : super(key: key);
+  final bool showHeader;
+  LinearProgress({Key key, this.active, this.showHeader: false})
+      : super(key: key);
   @override
   State<StatefulWidget> createState() {
     return LinearProgressState();
@@ -56,7 +58,8 @@ class LinearProgressState extends State<LinearProgress> {
     return Center(
       child: Container(
         height: 40,
-        width: ((System.screenSize.width - 60 * 3 - 44) / 2.0),
+        width: ((System.media.size.width - 60 * 3 - 44) / 2.0) +
+            (widget.showHeader ? 11 : 0),
         child: CustomPaint(
           foregroundPainter: LinearPainter(
             lineColor: Colors.grey,

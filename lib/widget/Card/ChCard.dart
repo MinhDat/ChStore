@@ -17,7 +17,7 @@ class ChCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _itemWidth = itemWidth ?? System.screenSize.width - 40;
+    double _itemWidth = itemWidth ?? System.media.size.width - 40;
     double _itemHeight = itemHeight ?? _itemWidth;
 
     return Container(

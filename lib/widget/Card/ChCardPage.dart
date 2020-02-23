@@ -72,15 +72,15 @@ class ChCardPageState extends State<ChCardPage> {
         child: ChCard(
           product,
           type: FOR_PAGE_VIEW,
-          itemWidth: System.screenSize.width,
-          itemHeight: System.screenSize.width * 0.6,
+          itemWidth: System.media.size.width,
+          itemHeight: System.media.size.width * 0.6,
         ),
       );
     }).toList();
 
     return Container(
-      height: System.screenSize.width * 0.85,
-      width: System.screenSize.width,
+      height: System.media.size.width * 0.85,
+      width: System.media.size.width,
       decoration: new BoxDecoration(
         boxShadow: <BoxShadow>[
           BoxShadow(
@@ -99,9 +99,9 @@ class ChCardPageState extends State<ChCardPage> {
             children: productList,
           ),
           Positioned(
-            top: System.screenSize.width * 0.4,
+            top: System.media.size.width * 0.4,
             child: Container(
-              width: System.screenSize.width - 40,
+              width: System.media.size.width - 40,
               child: ProgressList(activations: activations, seconds: 7),
             ),
           )

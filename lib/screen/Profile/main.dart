@@ -8,8 +8,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    double profileSize = System.screenSize.height / 3;
-    double avatarSize = System.screenSize.height / 16;
+    double profileSize = System.media.size.height / 3;
+    double avatarSize = System.media.size.height / 16;
 
     return Scaffold(
       backgroundColor: ChColor.border,
@@ -18,14 +18,14 @@ class Profile extends StatelessWidget {
           Positioned(
             top: 0,
             child: Wallpaper(
-                height: profileSize - 5, width: System.screenSize.width),
+                height: profileSize - 5, width: System.media.size.width),
           ),
           Positioned(
             top: profileSize / 3,
             right: 0,
             child: Container(
-              height: System.screenSize.height - (profileSize / 2),
-              width: System.screenSize.width,
+              height: System.media.size.height - (profileSize / 2),
+              width: System.media.size.width,
               child: ListView(
                 padding: EdgeInsets.only(top: 0),
                 children: <Widget>[
@@ -88,7 +88,7 @@ class Profile extends StatelessWidget {
                         ),
                         Positioned(
                           top: 7,
-                          right: (System.screenSize.width / 2) - avatarSize,
+                          right: (System.media.size.width / 2) - avatarSize,
                           child: CircleAvatar(
                             radius: avatarSize,
                             backgroundImage:
@@ -138,7 +138,7 @@ class Profile extends StatelessWidget {
                           Container(
                             padding:
                                 EdgeInsets.only(top: 10, left: 10, bottom: 10),
-                            width: System.screenSize.width,
+                            width: System.media.size.width,
                             child: Stack(
                               children: [
                                 Text("All products", style: ChTextStyle.title),
@@ -166,7 +166,7 @@ class Profile extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: System.screenSize.width / 9,
+            top: System.media.size.width / 9,
             right: 10,
             child: Circle(
               icon: Icon(Icons.close, color: ChColor.primary),

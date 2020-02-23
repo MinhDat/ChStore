@@ -6,44 +6,61 @@ import 'package:ChStore/widget/main.dart';
 
 import 'package:flutter/material.dart';
 
-class ProductCategory extends StatelessWidget {
+class ProductCategory extends StatefulWidget {
+  @override
+  _ProductCategoryState createState() => _ProductCategoryState();
+}
+
+class _ProductCategoryState extends State<ProductCategory> {
+  final ScrollController _scrollController = ScrollController();
+  bool _showHeader = NOT_SHOW_HEADER;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _scrollController.addListener(() {
+      setState(() => _showHeader = _scrollController.offset > INITIAL_OFFSET);
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    // TODO: implement dispose
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return ScrollPage(
-      title: "Discovery",
-      headerAppBar: Container(
-        alignment: Alignment.topLeft,
-        padding: EdgeInsets.only(left: 10.0),
-        child: Text("Discovery", style: ChTextStyle.logo),
+    return ScrollableView(
+      floatingAppBar: FloatingAppBar(
+        showHeader: _showHeader,
+        header: Text("Discovery", style: ChTextStyle.scrollHeader),
+        identify: Container(
+          alignment: Alignment.topLeft,
+          padding: EdgeInsets.only(left: 10.0, top: 20),
+          child: Text("Discovery", style: ChTextStyle.logo),
+        ),
       ),
-      child: ListView(
-        children: <Widget>[
-          CardContainer(
-            label: Text('Categories', style: ChTextStyle.title),
-            child: CategoryView(),
+      child: ListView(controller: _scrollController, children: [
+        Container(
+          margin: EdgeInsets.only(top: 20),
+          color: ChColor.foreground.withOpacity(0.1),
+          child: Column(
+            children: <Widget>[
+              CardContainer(
+                label: Text('Categories', style: ChTextStyle.title),
+                child: CategoryView(),
+              ),
+              CardContainer(
+                label: Text('Topics', style: ChTextStyle.title),
+                child: TopicView(context),
+              ),
+            ],
           ),
-          CardContainer(
-            label: Text('Topics', style: ChTextStyle.title),
-            child: TopicView(context),
-          ),
-          // Padding(
-          //   padding: EdgeInsets.only(top: 10, left: 10),
-          //   child: Text('Categories', style: ChTextStyle.title),
-          // ),
-          // Padding(
-          //   padding: EdgeInsets.only(left: 10, right: 10, top: 10),
-          //   child: CategoryView(),
-          // ),
-          // Padding(
-          //   padding: EdgeInsets.only(left: 10),
-          //   child: Text('Topics', style: ChTextStyle.title),
-          // ),
-          // Padding(
-          //   padding: EdgeInsets.all(10),
-          //   child: TopicView(context),
-          // ),
-        ],
-      ),
+        ),
+      ]),
     );
   }
 }

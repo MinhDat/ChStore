@@ -2,7 +2,7 @@ import 'package:ChStore/utility/main.dart';
 import 'package:ChStore/widget/main.dart';
 import 'package:flutter/material.dart';
 
-class Header extends StatelessWidget {
+class Identity extends StatelessWidget {
   DateTime _now = new DateTime.now();
   List<String> _month = [
     "January",
@@ -40,8 +40,8 @@ class Header extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(right: 5),
                   child: Image.asset('icon/logo.png',
-                      height: System.screenSize.width * 0.08,
-                      width: System.screenSize.width * 0.08,
+                      height: System.media.size.width * 0.08,
+                      width: System.media.size.width * 0.08,
                       fit: BoxFit.cover),
                 ),
                 Text("ChStore", style: ChTextStyle.logo),

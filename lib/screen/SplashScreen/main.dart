@@ -31,7 +31,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    System.screenSize = MediaQuery.of(context).size;
+    System.media = MediaQuery.of(context);
+
     return Scaffold(
       backgroundColor: ChColor.main,
       body: Stack(
@@ -42,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 fit: BoxFit.fitWidth, alignment: Alignment.center),
           ),
           Positioned(
-            top: System.screenSize.height / 7,
+            top: System.media.size.height / 7,
             left: 0,
             right: 0,
             child: Row(

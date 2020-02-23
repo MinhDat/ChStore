@@ -13,27 +13,23 @@ class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
   bool _focused = UNFOCUSED_TEXT;
   bool _existedWord = NOT_EXIST_WORD;
-  bool _showHeader = SHOW_HEADER;
   bool _hasFocused = HAS_NOT_FOCUSED;
+  bool _showHeader = NOT_SHOW_HEADER;
+  final _iconSize = System.media.size.width * 0.05;
 
   @override
   void initState() {
     super.initState();
     _scrollController.addListener(() {
       // Focused in search box
-      if (_hasFocused && _scrollController.offset == HEADER_HEIGHT) {
+      if (_hasFocused && _focused == UNFOCUSED_TEXT) {
         setState(() {
           _focused = FOCUSED_TEXT;
-          _scrollController.jumpTo(0.0);
+          _scrollController.jumpTo(INITIAL_OFFSET);
         });
       }
 
-      // Checking show header
-      if (!_hasFocused) {
-        setState(() {
-          _showHeader = _scrollController.offset < HEADER_HEIGHT;
-        });
-      }
+      setState(() => _showHeader = _scrollController.offset > INITIAL_OFFSET);
     });
   }
 
@@ -46,11 +42,9 @@ class _HomePageState extends State<HomePage> {
   void _onFocus() {
     if (_focused == UNFOCUSED_TEXT) {
       _hasFocused = HAS_FOCUSED;
-      _showHeader = NOT_SHOW_HEADER;
-
       _scrollController.animateTo(
-        HEADER_HEIGHT,
-        duration: Duration(milliseconds: 500),
+        System.media.padding.top,
+        duration: Duration(seconds: 1),
         curve: Curves.ease,
       );
     }
@@ -61,46 +55,82 @@ class _HomePageState extends State<HomePage> {
       _focused = UNFOCUSED_TEXT;
       _existedWord = NOT_EXIST_WORD;
       _hasFocused = HAS_NOT_FOCUSED;
-      _showHeader = SHOW_HEADER;
     });
   }
 
   void _onChangeWord(String data) {
     if (data.length > 0 && _existedWord == NOT_EXIST_WORD) {
-      setState(() {
-        _existedWord = EXISTED_WORD;
-      });
+      setState(() => _existedWord = EXISTED_WORD);
     }
     if (data.length == 0 && _existedWord == EXISTED_WORD) {
-      setState(() {
-        _existedWord = NOT_EXIST_WORD;
-      });
+      setState(() => _existedWord = NOT_EXIST_WORD);
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return ScrollPage(
-      title: "ChStore",
-      enableIcon: true,
-      headerAppBar: Padding(
-          padding: EdgeInsets.only(left: 10, right: 10), child: Header()),
-      showHeader: _showHeader,
-      childAppBar: SearchBox(
-        focused: _focused,
-        showCart: !_showHeader,
-        onFocus: _onFocus,
-        onUnfocused: _onUnfocused,
-        onChangeWord: _onChangeWord,
+    return ScrollableView(
+      focused: !_focused,
+      floatingAppBar: FloatingAppBar(
+        showHeader: _showHeader || _focused,
+        header: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('icon/logo.png',
+                height: _iconSize, width: _iconSize, fit: BoxFit.cover),
+            Text("ChStore", style: ChTextStyle.scrollHeader),
+          ],
+        ),
+        identify: Padding(
+            padding: EdgeInsets.only(left: 10, right: 10), child: Identity()),
+        appBar: Container(
+          padding: EdgeInsets.all(10),
+          margin: _focused || _showHeader
+              ? EdgeInsets.all(0)
+              : EdgeInsets.only(left: 10, right: 10),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(5)),
+              border: Border.all(
+                  color: ChColor.border
+                      .withOpacity(_focused || _showHeader ? 0 : 1)),
+              color: ChColor.main),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Expanded(
+                flex: 8,
+                child: SearchBox(
+                  focused: _focused,
+                  onFocus: _onFocus,
+                  onUnfocused: _onUnfocused,
+                  onChangeWord: _onChangeWord,
+                ),
+              ),
+              !_focused && _showHeader
+                  ? Expanded(
+                      flex: 2,
+                      child: Align(
+                          alignment: Alignment.centerRight,
+                          child: ShoppingCart()))
+                  : SizedBox.shrink(),
+            ],
+          ),
+        ),
       ),
-      focused: _focused,
-      scrollController: _scrollController,
-      child: Stack(
-        children: [
-          ListView(children: [BLoCRenderItem()]),
-          _focused ? SearchList(existedWord: _existedWord) : SizedBox.shrink(),
-        ],
-      ),
+      child: ListView(controller: _scrollController, children: [
+        Container(
+          margin: EdgeInsets.only(top: _focused ? 0 : 10),
+          color: ChColor.foreground.withOpacity(0.1),
+          child: Stack(
+            children: [
+              BLoCRenderItem(),
+              _focused
+                  ? SearchList(existedWord: _existedWord)
+                  : SizedBox.shrink(),
+            ],
+          ),
+        ),
+      ]),
     );
   }
 }

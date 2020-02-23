@@ -9,7 +9,7 @@ class FourCircleItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _itemWidth = (System.screenSize.width - 40) / 4;
+    double _itemWidth = (System.media.size.width - 40) / 4;
 
     return Row(
       mainAxisSize: MainAxisSize.max,

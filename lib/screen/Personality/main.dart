@@ -9,7 +9,7 @@ class Personality extends StatefulWidget {
 }
 
 class _PersonalityState extends State<Personality> {
-  double _avatarSize = System.screenSize.height / 16;
+  double _avatarSize = System.media.size.height / 16;
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +74,7 @@ class _PersonalityState extends State<Personality> {
                 ),
               ),
               Container(
-                width: System.screenSize.width,
+                width: System.media.size.width,
                 padding: EdgeInsets.only(top: 10, bottom: 10),
                 decoration: new BoxDecoration(
                   border: Border(
@@ -84,7 +84,7 @@ class _PersonalityState extends State<Personality> {
                 child: Text("Setting"),
               ),
               Container(
-                width: System.screenSize.width,
+                width: System.media.size.width,
                 padding: EdgeInsets.only(top: 10, bottom: 10),
                 decoration: new BoxDecoration(
                   border: Border(

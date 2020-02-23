@@ -15,7 +15,7 @@ class Ratting extends StatelessWidget {
                 "Rating",
                 style: TextStyle(
                     color: ChColor.label,
-                    fontSize: System.screenSize.width / 20,
+                    fontSize: System.media.size.width / 20,
                     fontWeight: FontWeight.bold),
               ),
             ),
@@ -23,13 +23,13 @@ class Ratting extends StatelessWidget {
               flex: 8,
               child: RatingBar(
                 initialRating: 0,
-                itemSize: System.screenSize.width / 10,
+                itemSize: System.media.size.width / 10,
                 minRating: 1,
                 direction: Axis.horizontal,
                 allowHalfRating: true,
                 itemCount: 5,
                 itemPadding: EdgeInsets.symmetric(
-                    horizontal: System.screenSize.width / 100),
+                    horizontal: System.media.size.width / 100),
                 itemBuilder: (context, _) =>
                     Icon(Icons.star, color: Colors.amber),
                 onRatingUpdate: (rating) {
@@ -82,7 +82,7 @@ class Ratting extends StatelessWidget {
           color: Colors.blue,
           onPressed: () {},
           child: Container(
-            width: System.screenSize.width,
+            width: System.media.size.width,
             child: Text(
               "Send",
               textAlign: TextAlign.center,
@@ -99,7 +99,7 @@ class Ratting extends StatelessWidget {
                 style: TextStyle(
                     color: ChColor.label,
                     fontWeight: FontWeight.bold,
-                    fontSize: System.screenSize.width / 10),
+                    fontSize: System.media.size.width / 10),
               ),
             ),
             Expanded(
@@ -109,13 +109,13 @@ class Ratting extends StatelessWidget {
                 children: [
                   RatingBar(
                     initialRating: 1,
-                    itemSize: System.screenSize.width / 10,
+                    itemSize: System.media.size.width / 10,
                     minRating: 1,
                     direction: Axis.horizontal,
                     allowHalfRating: true,
                     itemCount: 5,
                     itemPadding: EdgeInsets.symmetric(
-                        horizontal: System.screenSize.width / 100),
+                        horizontal: System.media.size.width / 100),
                     itemBuilder: (context, _) => Icon(
                       Icons.star,
                       color: Colors.amber,
@@ -125,13 +125,13 @@ class Ratting extends StatelessWidget {
                   ),
                   RatingBar(
                     initialRating: 2,
-                    itemSize: System.screenSize.width / 10,
+                    itemSize: System.media.size.width / 10,
                     minRating: 1,
                     direction: Axis.horizontal,
                     allowHalfRating: true,
                     itemCount: 5,
                     itemPadding: EdgeInsets.symmetric(
-                        horizontal: System.screenSize.width / 100),
+                        horizontal: System.media.size.width / 100),
                     itemBuilder: (context, _) => Icon(
                       Icons.star,
                       color: Colors.amber,
@@ -141,13 +141,13 @@ class Ratting extends StatelessWidget {
                   ),
                   RatingBar(
                     initialRating: 3,
-                    itemSize: System.screenSize.width / 10,
+                    itemSize: System.media.size.width / 10,
                     minRating: 1,
                     direction: Axis.horizontal,
                     allowHalfRating: true,
                     itemCount: 5,
                     itemPadding: EdgeInsets.symmetric(
-                        horizontal: System.screenSize.width / 100),
+                        horizontal: System.media.size.width / 100),
                     itemBuilder: (context, _) => Icon(
                       Icons.star,
                       color: Colors.amber,
@@ -157,13 +157,13 @@ class Ratting extends StatelessWidget {
                   ),
                   RatingBar(
                     initialRating: 4,
-                    itemSize: System.screenSize.width / 10,
+                    itemSize: System.media.size.width / 10,
                     minRating: 1,
                     direction: Axis.horizontal,
                     allowHalfRating: true,
                     itemCount: 5,
                     itemPadding: EdgeInsets.symmetric(
-                        horizontal: System.screenSize.width / 100),
+                        horizontal: System.media.size.width / 100),
                     itemBuilder: (context, _) => Icon(
                       Icons.star,
                       color: Colors.amber,
@@ -173,13 +173,13 @@ class Ratting extends StatelessWidget {
                   ),
                   RatingBar(
                     initialRating: 5,
-                    itemSize: System.screenSize.width / 10,
+                    itemSize: System.media.size.width / 10,
                     minRating: 1,
                     direction: Axis.horizontal,
                     allowHalfRating: true,
                     itemCount: 5,
                     itemPadding: EdgeInsets.symmetric(
-                        horizontal: System.screenSize.width / 100),
+                        horizontal: System.media.size.width / 100),
                     itemBuilder: (context, _) => Icon(
                       Icons.star,
                       color: Colors.amber,

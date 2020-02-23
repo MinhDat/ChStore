@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Column(
       children: [
         CardContainer(
           label: Text("Popular Categories", style: ChTextStyle.title),

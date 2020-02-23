@@ -19,7 +19,7 @@ class NoticeItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-              width: System.screenSize.width * .55,
+              width: System.media.size.width * .55,
               child: Text(
                 "Comming soon",
                 style: TextStyle(
@@ -29,7 +29,7 @@ class NoticeItem extends StatelessWidget {
               ),
             ),
             Container(
-              width: System.screenSize.width * .55,
+              width: System.media.size.width * .55,
               child: Text(
                 content,
                 style: TextStyle(color: Colors.black, fontSize: 10),

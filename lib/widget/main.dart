@@ -14,7 +14,8 @@ export 'package:ChStore/widget/Card/ChCardSlider.dart';
 export 'package:ChStore/widget/Card/SmallChCardList.dart';
 
 export 'package:ChStore/widget/DotsIndicator/main.dart';
-export 'package:ChStore/widget/Header/main.dart';
+
+export 'package:ChStore/widget/Identity/main.dart';
 
 export 'package:ChStore/widget/Item/CircleItem.dart';
 export 'package:ChStore/widget/Item/FourCircleItem.dart';
@@ -30,8 +31,6 @@ export 'package:ChStore/widget/ProgressList/main.dart';
 
 export 'package:ChStore/widget/ScrollableView/main.dart';
 export 'package:ChStore/widget/ScrollableView/FloatingAppBar.dart';
-
-export 'package:ChStore/widget/ScrollPage/main.dart';
 
 export 'package:ChStore/widget/SearchBox/main.dart';
 export 'package:ChStore/widget/SearchBox/SearchList.dart';

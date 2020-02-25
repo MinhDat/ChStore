@@ -15,7 +15,7 @@ class CheckOutState extends State<CheckOut> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Column(
       children: <Widget>[
         Card(
           child: Padding(

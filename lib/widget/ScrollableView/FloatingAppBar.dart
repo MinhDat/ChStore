@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class FloatingAppBar extends StatelessWidget {
   FloatingAppBar(
       {Key key,
-      this.showHeader: true,
+      this.showHeader: false,
       this.header: const SizedBox.shrink(),
       this.identify: const SizedBox.shrink(),
       this.appBar: const SizedBox.shrink()})
@@ -17,12 +17,10 @@ class FloatingAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size _screenSize = MediaQuery.of(context).size;
-
     return Container(
-        padding: EdgeInsets.only(
-            top: showHeader ? System.media.padding.top : 10, bottom: 10),
-        width: _screenSize.width,
+        padding:
+            EdgeInsets.only(top: System.media.padding.top + 10, bottom: 10),
+        width: System.media.size.width,
         decoration: BoxDecoration(
           color: ChColor.main.withOpacity(showHeader ? 1 : 0),
           border: Border(

@@ -13,9 +13,9 @@ class SearchList extends StatelessWidget {
       right: 0,
       top: 0,
       left: 0,
-      child: Scaffold(
-        backgroundColor: existedWord ? ChColor.main : ChColor.foreground,
-        body: existedWord ? SearchResult() : null,
+      child: Container(
+        color: existedWord ? ChColor.main : ChColor.foreground,
+        child: existedWord ? SearchResult() : SizedBox.shrink(),
       ),
     );
   }

@@ -2,7 +2,7 @@ import 'package:ChStore/utility/main.dart';
 import 'package:ChStore/widget/main.dart';
 import 'package:flutter/material.dart';
 
-class Header extends StatelessWidget {
+class Identity extends StatelessWidget {
   DateTime _now = new DateTime.now();
   List<String> _month = [
     "January",

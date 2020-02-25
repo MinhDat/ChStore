@@ -1,1 +1,0 @@
-const FLOATING_APP_BAR_TOP = 25.0;

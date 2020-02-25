@@ -1,13 +1,22 @@
+import 'package:ChStore/utility/main.dart';
 import 'package:flutter/material.dart';
 
-import 'Constant.dart';
+const DISABLE_SCROLL = false;
+const ENABLE_SCROLL = false;
+const INITIAL_OFFSET = 0.0;
+// Show header type
+const SHOW_HEADER = true;
+const NOT_SHOW_HEADER = false;
+
+const HAS_FOCUSED = true;
+const HAS_NOT_FOCUSED = false;
 
 class ScrollableView extends StatefulWidget {
   ScrollableView(
       {Key key,
-      this.floatingAppBarTop: FLOATING_APP_BAR_TOP,
+      this.floatingAppBarTop: 0,
       this.child,
-      this.controller,
+      this.focused: HAS_FOCUSED,
       this.floatingAppBar})
       : super(key: key);
 
@@ -22,18 +31,16 @@ class ScrollableView extends StatefulWidget {
 
   final Widget child;
   final Widget floatingAppBar;
-  final ScrollController controller;
   final double floatingAppBarTop;
+  final bool focused;
 
   @override
   _ScrollableViewState createState() => _ScrollableViewState();
 }
 
 class _ScrollableViewState extends State<ScrollableView> {
-  double _floatingAppBarTop = FLOATING_APP_BAR_TOP;
-  GlobalKey _floatingAppBarKey = GlobalKey();
+  final GlobalKey _floatingAppBarKey = GlobalKey();
   double _childTop = 0;
-  double _topTransform = 0;
 
   @override
   void initState() {
@@ -41,17 +48,6 @@ class _ScrollableViewState extends State<ScrollableView> {
     super.initState();
     // Listen completed render event
     WidgetsBinding.instance.addPostFrameCallback(_onBuildCompleted);
-
-    widget.controller.addListener(() {
-      // Focused in search box
-      double tmp = widget.floatingAppBarTop - widget.controller.offset;
-      setState(() {
-        _floatingAppBarTop = tmp > 0
-            ? tmp > widget.floatingAppBarTop ? widget.floatingAppBarTop : tmp
-            : 0;
-        _topTransform = widget.floatingAppBarTop - _floatingAppBarTop + 1;
-      });
-    });
   }
 
   @override
@@ -62,6 +58,7 @@ class _ScrollableViewState extends State<ScrollableView> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+    final double _paddingTop = _childTop - (widget.focused ? 0 : 25);
 
     return Container(
         decoration: BoxDecoration(
@@ -73,13 +70,13 @@ class _ScrollableViewState extends State<ScrollableView> {
         child: Stack(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.only(top: _childTop - _topTransform),
+              padding: EdgeInsets.only(top: _paddingTop),
               child: widget.child,
             ),
             widget.floatingAppBar != null
                 ? Positioned(
                     key: _floatingAppBarKey,
-                    top: _floatingAppBarTop,
+                    top: widget.floatingAppBarTop,
                     child: widget.floatingAppBar,
                   )
                 : SizedBox.shrink(),
@@ -89,10 +86,12 @@ class _ScrollableViewState extends State<ScrollableView> {
 
   // After rendered
   void _onBuildCompleted(_) {
-    final RenderBox renderBox =
-        _floatingAppBarKey.currentContext.findRenderObject();
-    setState(() {
-      _childTop = renderBox.size.height;
-    });
+    if (_floatingAppBarKey.currentContext != null) {
+      final RenderBox renderBox =
+          _floatingAppBarKey.currentContext.findRenderObject();
+
+      setState(() =>
+          _childTop = renderBox.size.height - System.media.padding.top - 10);
+    }
   }
 }

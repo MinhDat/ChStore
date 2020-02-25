@@ -13,7 +13,7 @@ class ShoppingCartPage extends StatefulWidget {
 
 class _ShoppingCartPageState extends State<ShoppingCartPage> {
   int _currentIndex = 0;
-  bool _showHeader = SHOW_HEADER;
+  bool _showHeader = NOT_SHOW_HEADER;
   PageController _pageController;
   ScrollController _scrollController;
   GlobalKey<LinearProgressState> _globalLinearCheckOutKey = GlobalKey();
@@ -28,7 +28,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
     _scrollController = ScrollController()
       ..addListener(() {
         // Checking show header
-        setState(() => _showHeader = _scrollController.offset < HEADER_HEIGHT);
+        setState(() => _showHeader = _scrollController.offset > INITIAL_OFFSET);
       });
   }
 
@@ -79,54 +79,77 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Stack(children: [
-          ScrollPage(
-            title: "Shopping Cart",
-            headerAppBar: Container(
-              alignment: Alignment.topLeft,
-              padding: EdgeInsets.only(left: 20.0, bottom: 20),
-              child: Text("Shopping Cart", style: ChTextStyle.logo),
-            ),
-            showHeader: _showHeader,
-            scrollController: _scrollController,
-            childAppBar: Row(
-              children: <Widget>[
-                RadialProgress(
-                  active: RADIAL_ACTIVE,
-                  child: Icon(Icons.shopping_basket, color: ChColor.complete),
+          ScrollableView(
+            floatingAppBar: FloatingAppBar(
+              showHeader: _showHeader,
+              header: Text("Shopping Cart", style: ChTextStyle.scrollHeader),
+              identify: Container(
+                alignment: Alignment.topLeft,
+                padding: EdgeInsets.only(left: 20.0, bottom: 20),
+                child: Text("Shopping Cart", style: ChTextStyle.logo),
+              ),
+              appBar: Container(
+                padding: EdgeInsets.all(10),
+                margin: _showHeader
+                    ? EdgeInsets.all(0)
+                    : EdgeInsets.only(left: 10, right: 10),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    border: Border.all(
+                        color: ChColor.border.withOpacity(_showHeader ? 0 : 1)),
+                    color: ChColor.main),
+                child: Row(
+                  children: <Widget>[
+                    RadialProgress(
+                      active: RADIAL_ACTIVE,
+                      child:
+                          Icon(Icons.shopping_basket, color: ChColor.complete),
+                    ),
+                    LinearProgress(
+                        key: _globalLinearCheckOutKey, showHeader: _showHeader),
+                    RadialProgress(
+                      key: _globalRadialCheckOutKey,
+                      child: Icon(
+                        Icons.attach_money,
+                        color: _currentIndex > 0
+                            ? ChColor.complete
+                            : ChColor.initialization,
+                      ),
+                    ),
+                    LinearProgress(
+                        key: _globalLinearDoneKey, showHeader: _showHeader),
+                    RadialProgress(
+                      key: _globalRadialDoneKey,
+                      child: Icon(
+                        Icons.done,
+                        color: _currentIndex > 1
+                            ? ChColor.complete
+                            : ChColor.initialization,
+                      ),
+                    ),
+                  ],
                 ),
-                LinearProgress(
-                    key: _globalLinearCheckOutKey, showHeader: _showHeader),
-                RadialProgress(
-                  key: _globalRadialCheckOutKey,
-                  child: Icon(
-                    Icons.attach_money,
-                    color: _currentIndex > 0
-                        ? ChColor.complete
-                        : ChColor.initialization,
-                  ),
-                ),
-                LinearProgress(
-                    key: _globalLinearDoneKey, showHeader: _showHeader),
-                RadialProgress(
-                  key: _globalRadialDoneKey,
-                  child: Icon(
-                    Icons.done,
-                    color: _currentIndex > 1
-                        ? ChColor.complete
-                        : ChColor.initialization,
-                  ),
-                ),
-              ],
+              ),
             ),
             child: PageView(
               physics: NeverScrollableScrollPhysics(),
               controller: _pageController,
               children: [
-                ListView(children: [
-                  CardContainer(child: ItemList(type: SHOPPING_CART_LIST_TYPE))
+                ListView(
+                  controller: _scrollController,
+                  children: <Widget>[
+                    CardContainer(
+                        child: ItemList(type: SHOPPING_CART_LIST_TYPE)),
+                  ],
+                ),
+                ListView(controller: _scrollController, children: <Widget>[
+                  CardContainer(child: CheckOut()),
                 ]),
-                CheckOut(),
-                Text("Completed payment", style: ChTextStyle.normal)
+                ListView(controller: _scrollController, children: <Widget>[
+                  CardContainer(
+                    child: Text("Completed payment", style: ChTextStyle.normal),
+                  ),
+                ]),
               ],
             ),
           ),

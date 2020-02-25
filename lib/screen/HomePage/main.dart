@@ -1,9 +1,9 @@
-import 'package:ChStore/screen/HomePage/BLoCRenderItem.dart';
 import 'package:ChStore/utility/main.dart';
-import 'package:ChStore/widget/ScrollableView/Constant.dart';
 import 'package:ChStore/widget/main.dart';
 
 import 'package:flutter/material.dart';
+
+import './BLoCRenderItem.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -15,27 +15,22 @@ class _HomePageState extends State<HomePage> {
   bool _focused = UNFOCUSED_TEXT;
   bool _existedWord = NOT_EXIST_WORD;
   bool _hasFocused = HAS_NOT_FOCUSED;
-  bool _showHeader = false;
+  bool _showHeader = NOT_SHOW_HEADER;
   final _iconSize = System.media.size.width * 0.05;
-  GlobalKey _identityKey = GlobalKey();
-  double _floatingAppBarTop = 0;
 
   @override
   void initState() {
     super.initState();
     _scrollController.addListener(() {
       // Focused in search box
-      if (_hasFocused && _scrollController.offset == HEADER_HEIGHT) {
+      if (_hasFocused && _focused == UNFOCUSED_TEXT) {
         setState(() {
           _focused = FOCUSED_TEXT;
-          _scrollController.jumpTo(0.0);
+          _scrollController.jumpTo(INITIAL_OFFSET);
         });
       }
 
-      setState(() {
-        _showHeader = FLOATING_APP_BAR_TOP - _scrollController.offset <=
-            System.media.padding.top;
-      });
+      setState(() => _showHeader = _scrollController.offset > INITIAL_OFFSET);
     });
   }
 
@@ -49,8 +44,8 @@ class _HomePageState extends State<HomePage> {
     if (_focused == UNFOCUSED_TEXT) {
       _hasFocused = HAS_FOCUSED;
       _scrollController.animateTo(
-        HEADER_HEIGHT,
-        duration: Duration(milliseconds: 500),
+        System.media.padding.top,
+        duration: Duration(seconds: 1),
         curve: Curves.ease,
       );
     }
@@ -66,23 +61,19 @@ class _HomePageState extends State<HomePage> {
 
   void _onChangeWord(String data) {
     if (data.length > 0 && _existedWord == NOT_EXIST_WORD) {
-      setState(() {
-        _existedWord = EXISTED_WORD;
-      });
+      setState(() => _existedWord = EXISTED_WORD);
     }
     if (data.length == 0 && _existedWord == EXISTED_WORD) {
-      setState(() {
-        _existedWord = NOT_EXIST_WORD;
-      });
+      setState(() => _existedWord = NOT_EXIST_WORD);
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return ScrollableView(
-      controller: _scrollController,
+      focused: !_focused,
       floatingAppBar: FloatingAppBar(
-        showHeader: _showHeader,
+        showHeader: _showHeader || _focused,
         header: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -92,46 +83,55 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         identify: Padding(
-          key: _identityKey,
-          padding: EdgeInsets.only(left: 10, right: 10),
-          child: Header(),
-        ),
+            padding: EdgeInsets.only(left: 10, right: 10), child: Identity()),
         appBar: Container(
           padding: EdgeInsets.all(10),
-          margin: _focused
+          margin: _focused || _showHeader
               ? EdgeInsets.all(0)
               : EdgeInsets.only(left: 10, right: 10),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(_focused ? 0 : 5)),
-            border: Border.all(color: _focused ? ChColor.main : ChColor.border),
-            color: ChColor.main,
-          ),
-          child: SearchBox(
-            focused: _focused,
-            onFocus: _onFocus,
-            onUnfocused: _onUnfocused,
-            onChangeWord: _onChangeWord,
+              borderRadius: BorderRadius.all(Radius.circular(5)),
+              border: Border.all(
+                  color: ChColor.border
+                      .withOpacity(_focused || _showHeader ? 0 : 1)),
+              color: ChColor.main),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Expanded(
+                flex: 8,
+                child: SearchBox(
+                  focused: _focused,
+                  onFocus: _onFocus,
+                  onUnfocused: _onUnfocused,
+                  onChangeWord: _onChangeWord,
+                ),
+              ),
+              !_focused && _showHeader
+                  ? Expanded(
+                      flex: 2,
+                      child: Align(
+                          alignment: Alignment.centerRight,
+                          child: ShoppingCart()))
+                  : SizedBox.shrink(),
+            ],
           ),
         ),
       ),
-      child: Stack(
-        children: [
-          ListView(
-            // physics: NeverScrollableScrollPhysics(),
-            controller: _scrollController,
-            children: [BLoCRenderItem()],
+      child: ListView(controller: _scrollController, children: [
+        Container(
+          margin: EdgeInsets.only(top: _focused ? 0 : 10),
+          color: ChColor.foreground.withOpacity(0.1),
+          child: Stack(
+            children: [
+              BLoCRenderItem(),
+              _focused
+                  ? SearchList(existedWord: _existedWord)
+                  : SizedBox.shrink(),
+            ],
           ),
-          _focused ? SearchList(existedWord: _existedWord) : SizedBox.shrink(),
-        ],
-      ),
+        ),
+      ]),
     );
-  }
-
-  // After rendered
-  void _onBuildCompleted(_) {
-    final RenderBox renderBox = _identityKey.currentContext.findRenderObject();
-    setState(() {
-      _floatingAppBarTop = renderBox.size.height;
-    });
   }
 }

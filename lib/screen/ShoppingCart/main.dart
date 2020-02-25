@@ -1,17 +1,17 @@
-import 'BottomNavigationShopping.dart';
-import 'Payment/main.dart';
-
 import 'package:ChStore/widget/main.dart';
 import 'package:ChStore/utility/main.dart';
 
 import 'package:flutter/material.dart';
 
-class ShoppingCartPage extends StatefulWidget {
+import 'ShoppingAction.dart';
+import 'Payment/main.dart';
+
+class ShoppingCart extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _ShoppingCartPageState();
+  State<StatefulWidget> createState() => _ShoppingCartState();
 }
 
-class _ShoppingCartPageState extends State<ShoppingCartPage> {
+class _ShoppingCartState extends State<ShoppingCart> {
   int _currentIndex = 0;
   bool _showHeader = NOT_SHOW_HEADER;
   PageController _pageController;
@@ -88,16 +88,8 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                 padding: EdgeInsets.only(left: 20.0, bottom: 20),
                 child: Text("Shopping Cart", style: ChTextStyle.logo),
               ),
-              appBar: Container(
-                padding: EdgeInsets.all(10),
-                margin: _showHeader
-                    ? EdgeInsets.all(0)
-                    : EdgeInsets.only(left: 10, right: 10),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
-                    border: Border.all(
-                        color: ChColor.border.withOpacity(_showHeader ? 0 : 1)),
-                    color: ChColor.main),
+              appBar: AppBarWrapper(
+                showHeader: _showHeader,
                 child: Row(
                   children: <Widget>[
                     RadialProgress(
@@ -138,15 +130,14 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                 ListView(
                   controller: _scrollController,
                   children: <Widget>[
-                    CardContainer(
-                        child: ItemList(type: SHOPPING_CART_LIST_TYPE)),
+                    CardWrapper(child: ItemList(type: SHOPPING_CART_LIST_TYPE)),
                   ],
                 ),
                 ListView(controller: _scrollController, children: <Widget>[
-                  CardContainer(child: CheckOut()),
+                  CardWrapper(child: CheckOut()),
                 ]),
                 ListView(controller: _scrollController, children: <Widget>[
-                  CardContainer(
+                  CardWrapper(
                     child: Text("Completed payment", style: ChTextStyle.normal),
                   ),
                 ]),
@@ -163,6 +154,6 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
             ),
           ),
         ]),
-        bottomNavigationBar: BottomNavigationShopping(_onChangePage));
+        bottomNavigationBar: ShoppingAction(_onChangePage));
   }
 }

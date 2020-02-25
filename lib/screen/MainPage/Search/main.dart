@@ -14,20 +14,17 @@ class Search extends StatefulWidget {
 
 class _SearchState extends State<Search> {
   final ScrollController _scrollController = ScrollController();
-  bool _focused = UNFOCUSED_TEXT;
+  bool _focus = HAS_NOT_FOCUSED;
   bool _existedWord = NOT_EXIST_WORD;
-  bool _hasFocused = HAS_NOT_FOCUSED;
   bool _showHeader = NOT_SHOW_HEADER;
-  final _iconSize = System.media.size.width * 0.05;
 
   @override
   void initState() {
     super.initState();
     _scrollController.addListener(() {
       // Focused in search box
-      if (_hasFocused && _focused == UNFOCUSED_TEXT) {
+      if (_focus == HAS_FOCUSED && _existedWord == NOT_EXIST_WORD) {
         setState(() {
-          _focused = FOCUSED_TEXT;
           _scrollController.jumpTo(INITIAL_OFFSET);
         });
       }
@@ -43,21 +40,17 @@ class _SearchState extends State<Search> {
   }
 
   void _onFocus() {
-    if (_focused == UNFOCUSED_TEXT) {
-      _hasFocused = HAS_FOCUSED;
-      _scrollController.animateTo(
-        System.media.padding.top,
-        duration: Duration(seconds: 1),
-        curve: Curves.ease,
-      );
+    if (_focus == HAS_NOT_FOCUSED) {
+      _focus = HAS_FOCUSED;
+      _scrollController.animateTo(System.media.padding.top,
+          duration: Duration(seconds: 1), curve: Curves.ease);
     }
   }
 
   void _onUnfocused() {
     setState(() {
-      _focused = UNFOCUSED_TEXT;
+      _focus = HAS_NOT_FOCUSED;
       _existedWord = NOT_EXIST_WORD;
-      _hasFocused = HAS_NOT_FOCUSED;
     });
   }
 
@@ -73,28 +66,20 @@ class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return ScrollableView(
-      focused: !_focused,
+      focus: _focus,
       floatingAppBar: FloatingAppBar(
-        showHeader: _showHeader || _focused,
+        showHeader: _showHeader || _focus,
         header: Text("Search", style: ChTextStyle.scrollHeader),
         identify: Container(
           alignment: Alignment.topLeft,
           padding: EdgeInsets.only(left: 10.0, top: 20),
           child: Text("Search", style: ChTextStyle.logo),
         ),
-        appBar: Container(
-          padding: EdgeInsets.all(10),
-          margin: _focused || _showHeader
-              ? EdgeInsets.all(0)
-              : EdgeInsets.only(left: 10, right: 10),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(5)),
-              border: Border.all(
-                  color: ChColor.border
-                      .withOpacity(_focused || _showHeader ? 0 : 1)),
-              color: ChColor.main),
+        appBar: AppBarWrapper(
+          focus: _focus,
+          showHeader: _showHeader,
           child: SearchBox(
-              focused: _focused,
+              focus: _focus,
               onFocus: _onFocus,
               onUnfocused: _onUnfocused,
               onChangeWord: _onChangeWord),
@@ -102,15 +87,11 @@ class _SearchState extends State<Search> {
       ),
       child: ListView(controller: _scrollController, children: [
         Container(
-          margin: EdgeInsets.only(top: _focused ? 20 : 0),
           color: ChColor.foreground.withOpacity(0.1),
-          child: Stack(
-            children: [
-              SearchPage(),
-              _focused
-                  ? SearchList(existedWord: _existedWord)
-                  : SizedBox.shrink(),
-            ],
+          child: SearchResult(
+            focus: _focus,
+            existedWord: _existedWord,
+            child: SearchPage(),
           ),
         ),
       ]),

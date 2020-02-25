@@ -12,20 +12,18 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
-  bool _focused = UNFOCUSED_TEXT;
-  bool _existedWord = NOT_EXIST_WORD;
-  bool _hasFocused = HAS_NOT_FOCUSED;
-  bool _showHeader = NOT_SHOW_HEADER;
   final _iconSize = System.media.size.width * 0.05;
+  bool _focus = HAS_NOT_FOCUSED;
+  bool _existedWord = NOT_EXIST_WORD;
+  bool _showHeader = NOT_SHOW_HEADER;
 
   @override
   void initState() {
     super.initState();
     _scrollController.addListener(() {
       // Focused in search box
-      if (_hasFocused && _focused == UNFOCUSED_TEXT) {
+      if (_focus == HAS_FOCUSED && _existedWord == NOT_EXIST_WORD) {
         setState(() {
-          _focused = FOCUSED_TEXT;
           _scrollController.jumpTo(INITIAL_OFFSET);
         });
       }
@@ -41,21 +39,17 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _onFocus() {
-    if (_focused == UNFOCUSED_TEXT) {
-      _hasFocused = HAS_FOCUSED;
-      _scrollController.animateTo(
-        System.media.padding.top,
-        duration: Duration(seconds: 1),
-        curve: Curves.ease,
-      );
+    if (_focus == HAS_NOT_FOCUSED) {
+      _focus = HAS_FOCUSED;
+      _scrollController.animateTo(System.media.padding.top,
+          duration: Duration(seconds: 1), curve: Curves.ease);
     }
   }
 
   void _onUnfocused() {
     setState(() {
-      _focused = UNFOCUSED_TEXT;
+      _focus = HAS_NOT_FOCUSED;
       _existedWord = NOT_EXIST_WORD;
-      _hasFocused = HAS_NOT_FOCUSED;
     });
   }
 
@@ -71,9 +65,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return ScrollableView(
-      focused: !_focused,
+      focus: _focus,
       floatingAppBar: FloatingAppBar(
-        showHeader: _showHeader || _focused,
+        showHeader: _showHeader || _focus,
         header: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -84,35 +78,26 @@ class _HomePageState extends State<HomePage> {
         ),
         identify: Padding(
             padding: EdgeInsets.only(left: 10, right: 10), child: Identity()),
-        appBar: Container(
-          padding: EdgeInsets.all(10),
-          margin: _focused || _showHeader
-              ? EdgeInsets.all(0)
-              : EdgeInsets.only(left: 10, right: 10),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(5)),
-              border: Border.all(
-                  color: ChColor.border
-                      .withOpacity(_focused || _showHeader ? 0 : 1)),
-              color: ChColor.main),
+        appBar: AppBarWrapper(
+          focus: _focus,
+          showHeader: _showHeader,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Expanded(
                 flex: 8,
                 child: SearchBox(
-                  focused: _focused,
+                  focus: _focus,
                   onFocus: _onFocus,
                   onUnfocused: _onUnfocused,
                   onChangeWord: _onChangeWord,
                 ),
               ),
-              !_focused && _showHeader
+              !_focus && _showHeader
                   ? Expanded(
                       flex: 2,
                       child: Align(
-                          alignment: Alignment.centerRight,
-                          child: ShoppingCart()))
+                          alignment: Alignment.centerRight, child: ShowCart()))
                   : SizedBox.shrink(),
             ],
           ),
@@ -120,15 +105,12 @@ class _HomePageState extends State<HomePage> {
       ),
       child: ListView(controller: _scrollController, children: [
         Container(
-          margin: EdgeInsets.only(top: _focused ? 0 : 10),
+          margin: EdgeInsets.only(top: _focus ? 0 : 10),
           color: ChColor.foreground.withOpacity(0.1),
-          child: Stack(
-            children: [
-              BLoCRenderItem(),
-              _focused
-                  ? SearchList(existedWord: _existedWord)
-                  : SizedBox.shrink(),
-            ],
+          child: SearchResult(
+            focus: _focus,
+            existedWord: _existedWord,
+            child: BLoCRenderItem(),
           ),
         ),
       ]),

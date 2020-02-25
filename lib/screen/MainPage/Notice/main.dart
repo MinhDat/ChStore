@@ -46,7 +46,7 @@ class _NoticeState extends State<Notice> {
         Container(
           margin: EdgeInsets.only(top: 20),
           color: ChColor.foreground.withOpacity(0.1),
-          child: CardContainer(
+          child: CardWrapper(
             color: ChColor.border,
             child: Container(child: Column(children: _widgets)),
           ),

@@ -6,12 +6,12 @@ import 'package:ChStore/widget/main.dart';
 
 import 'package:flutter/material.dart';
 
-class ProductCategory extends StatefulWidget {
+class Discovery extends StatefulWidget {
   @override
-  _ProductCategoryState createState() => _ProductCategoryState();
+  _DiscoveryState createState() => _DiscoveryState();
 }
 
-class _ProductCategoryState extends State<ProductCategory> {
+class _DiscoveryState extends State<Discovery> {
   final ScrollController _scrollController = ScrollController();
   bool _showHeader = NOT_SHOW_HEADER;
 
@@ -49,11 +49,11 @@ class _ProductCategoryState extends State<ProductCategory> {
           color: ChColor.foreground.withOpacity(0.1),
           child: Column(
             children: <Widget>[
-              CardContainer(
+              CardWrapper(
                 label: Text('Categories', style: ChTextStyle.title),
                 child: CategoryView(),
               ),
-              CardContainer(
+              CardWrapper(
                 label: Text('Topics', style: ChTextStyle.title),
                 child: TopicView(context),
               ),

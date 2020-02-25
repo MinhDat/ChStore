@@ -7,14 +7,14 @@ class SearchPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CardContainer(
+        CardWrapper(
           label: Text("Popular Categories", style: ChTextStyle.title),
           child: Container(
             padding: EdgeInsets.only(bottom: 10),
             child: PopularCategories(),
           ),
         ),
-        CardContainer(
+        CardWrapper(
           label: Text("Populations", style: ChTextStyle.title),
           child: Container(
             padding: EdgeInsets.only(bottom: 10),
@@ -25,11 +25,3 @@ class SearchPage extends StatelessWidget {
     );
   }
 }
-
-// CardContainer(
-//                 label: Text("Populations", style: ChTextStyle.title),
-//                 child: Container(
-//                   padding: EdgeInsets.only(bottom: 10),
-//                   child: PopularTags(),
-//                 ),
-//               )

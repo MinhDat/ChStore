@@ -36,21 +36,21 @@ class BLoCRenderItem extends StatelessWidget {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              CardContainer(
+              CardWrapper(
                 child: Column(children: [
                   FourCircleItem(state.types.getRange(0, 4).toList()),
                   FourCircleItem(state.types.getRange(4, 8).toList()),
                 ]),
               ),
-              CardContainer(
+              CardWrapper(
                 label: Text("Today", style: ChTextStyle.title),
                 child: ChCardPage(state.products.getRange(14, 20).toList()),
               ),
-              CardContainer(
+              CardWrapper(
                 label: Text("News", style: ChTextStyle.title),
                 child: ChCardSlider(state.products.getRange(7, 14).toList()),
               ),
-              CardContainer(
+              CardWrapper(
                 label: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -66,10 +66,10 @@ class BLoCRenderItem extends StatelessWidget {
                     products: state.products.getRange(0, 7).toList(),
                     animateCart: true),
               ),
-              CardContainer(
+              CardWrapper(
                   label: Text("Hashtags", style: ChTextStyle.title),
                   child: PopularCategories()),
-              CardContainer(
+              CardWrapper(
                 label: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -86,7 +86,7 @@ class BLoCRenderItem extends StatelessWidget {
                   dataList: state.products.getRange(14, 20).toList(),
                 ),
               ),
-              CardContainer(
+              CardWrapper(
                 label: Text("Populations", style: ChTextStyle.title),
                 child: Container(
                   padding: EdgeInsets.only(bottom: 10),

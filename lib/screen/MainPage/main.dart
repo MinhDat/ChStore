@@ -1,8 +1,13 @@
-import 'package:ChStore/screen/main.dart';
 import 'package:ChStore/utility/main.dart';
 import 'package:ChStore/widget/main.dart';
 
 import 'package:flutter/material.dart';
+
+import 'Discovery/main.dart';
+import 'HomePage/main.dart';
+import 'Notice/main.dart';
+import 'Personality/main.dart';
+import 'Search/main.dart';
 
 class Mainpage extends StatefulWidget {
   @override
@@ -63,7 +68,7 @@ class _MainpageState extends State<Mainpage> {
       case 0:
         return HomePage();
       case 1:
-        return ProductCategory();
+        return Discovery();
       case 2:
         return Search();
       case 3:

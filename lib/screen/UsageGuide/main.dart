@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
-import 'package:ChStore/screen/main.dart';
 import 'package:ChStore/widget/main.dart';
+
+import 'Finish.dart';
 
 class UsageGuide extends StatefulWidget {
   @override
@@ -36,13 +36,13 @@ class UsageGuideState extends State<UsageGuide> {
     final List<Widget> _pages = <Widget>[
       Padding(
         padding: EdgeInsets.only(top: 105, right: 20, left: 20, bottom: 40),
-        child: CardContainer(
+        child: CardWrapper(
           child: Center(child: Text("ChStore")),
         ),
       ),
       Padding(
         padding: EdgeInsets.only(top: 105, right: 20, left: 20, bottom: 40),
-        child: CardContainer(
+        child: CardWrapper(
           child: Center(child: Text("ChStore")),
         ),
       ),

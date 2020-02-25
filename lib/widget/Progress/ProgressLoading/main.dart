@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:ChStore/widget/Progress/LinearPageProgress.dart';
 
-class ProgressList extends StatefulWidget {
+class ProgressLoading extends StatefulWidget {
   final List<GlobalKey<LinearPageProgressState>> activations;
   final int seconds;
-  ProgressList({this.activations, this.seconds: 7});
+  ProgressLoading({this.activations, this.seconds: 7});
   @override
-  _ProgressListState createState() => _ProgressListState();
+  _ProgressLoadingState createState() => _ProgressLoadingState();
 }
 
-class _ProgressListState extends State<ProgressList> {
+class _ProgressLoadingState extends State<ProgressLoading> {
   List<Widget> _widgetList;
 
   @override

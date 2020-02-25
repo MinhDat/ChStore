@@ -57,7 +57,7 @@ class Identity extends StatelessWidget {
             ),
           ],
         ),
-        ShoppingCart(),
+        ShowCart(),
       ],
     );
   }

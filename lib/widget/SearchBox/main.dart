@@ -1,24 +1,18 @@
 import 'package:ChStore/utility/main.dart';
-import 'package:ChStore/widget/main.dart';
 import 'package:flutter/material.dart';
 
-//Focus Type
-const UNFOCUSED_TEXT = false;
-const FOCUSED_TEXT = true;
 //Change Type
 const NOT_EXIST_WORD = false;
 const EXISTED_WORD = true;
 
 class SearchBox extends StatelessWidget {
   SearchBox({
-    this.focused: false,
-    // this.showCart: false,
+    this.focus: false,
     this.onFocus,
     this.onUnfocused,
     this.onChangeWord,
   });
-  final bool focused;
-  // final bool showCart;
+  final bool focus;
   final FocusedCalback onFocus;
   final UnfocusedCalback onUnfocused;
   final ChangeWordsCalback onChangeWord;
@@ -46,7 +40,7 @@ class SearchBox extends StatelessWidget {
         children: [
           Expanded(
             flex: 8,
-            child: focused
+            child: focus
                 ? TextField(
                     autofocus: true,
                     onChanged: (data) {
@@ -104,7 +98,7 @@ class SearchBox extends StatelessWidget {
                     ),
                   ),
           ),
-          (focused
+          (focus
               ? Expanded(
                   flex: 2,
                   child: GestureDetector(

@@ -1,11 +1,11 @@
 import 'package:ChStore/utility/main.dart';
 import 'package:flutter/material.dart';
 
-class CardContainer extends StatelessWidget {
+class CardWrapper extends StatelessWidget {
   final Widget label;
   final Widget child;
   final Color color;
-  CardContainer({this.label, @required this.child, this.color});
+  CardWrapper({this.label, @required this.child, this.color});
 
   @override
   Widget build(BuildContext context) {

@@ -16,7 +16,7 @@ class ScrollableView extends StatefulWidget {
       {Key key,
       this.floatingAppBarTop: 0,
       this.child,
-      this.focused: HAS_FOCUSED,
+      this.focus: HAS_NOT_FOCUSED,
       this.floatingAppBar})
       : super(key: key);
 
@@ -32,7 +32,7 @@ class ScrollableView extends StatefulWidget {
   final Widget child;
   final Widget floatingAppBar;
   final double floatingAppBarTop;
-  final bool focused;
+  final bool focus;
 
   @override
   _ScrollableViewState createState() => _ScrollableViewState();
@@ -58,7 +58,7 @@ class _ScrollableViewState extends State<ScrollableView> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    final double _paddingTop = _childTop - (widget.focused ? 0 : 25);
+    final double _paddingTop = _childTop - (widget.focus ? 25 : 0);
 
     return Container(
         decoration: BoxDecoration(

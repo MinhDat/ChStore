@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 const BACK_ACTION = false;
 const NEXT_ACTION = true;
 
-class BottomNavigationShopping extends StatelessWidget {
+class ShoppingAction extends StatelessWidget {
   final Function onChange;
-  BottomNavigationShopping(this.onChange);
+  ShoppingAction(this.onChange);
 
   @override
   Widget build(BuildContext context) {

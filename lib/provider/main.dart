@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class DataProvider extends StatelessWidget {
   DataProvider(this._child);
   final Widget _child;
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(

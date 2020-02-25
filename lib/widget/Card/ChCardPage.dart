@@ -102,7 +102,7 @@ class ChCardPageState extends State<ChCardPage> {
             top: System.media.size.width * 0.4,
             child: Container(
               width: System.media.size.width - 40,
-              child: ProgressList(activations: activations, seconds: 7),
+              child: ProgressLoading(activations: activations, seconds: 7),
             ),
           )
         ],

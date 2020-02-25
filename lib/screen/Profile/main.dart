@@ -34,7 +34,7 @@ class Profile extends StatelessWidget {
                       children: <Widget>[
                         Padding(
                           padding: EdgeInsets.only(top: avatarSize),
-                          child: CardContainer(
+                          child: CardWrapper(
                             child: Column(
                               children: [
                                 Padding(
@@ -98,7 +98,7 @@ class Profile extends StatelessWidget {
                       ],
                     ),
                   ]),
-                  CardContainer(
+                  CardWrapper(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -119,7 +119,7 @@ class Profile extends StatelessWidget {
                       ],
                     ),
                   ),
-                  CardContainer(
+                  CardWrapper(
                     child: BlocBuilder<DataBloc, DataState>(
                         builder: (context, state) {
                       if (state is DataError) {

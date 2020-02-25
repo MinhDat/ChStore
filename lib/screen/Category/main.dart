@@ -22,9 +22,7 @@ class Category extends StatelessWidget {
         }
         if (state is DataLoaded) {
           if (state.products.isEmpty) {
-            return Center(
-              child: Text("No items", style: ChTextStyle.noItem),
-            );
+            return Center(child: Text("No items", style: ChTextStyle.noItem));
           }
           List dataList = state.products
               .where((item) => (item.categoryId == _topic.id))

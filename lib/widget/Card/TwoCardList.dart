@@ -8,18 +8,17 @@ const CATEGORIES_TYPE = 1;
 
 const SMALL_CARD_BORDER_RADIUS = 5.0;
 
-class SmallChCardList extends StatefulWidget {
-  SmallChCardList(this._parentContext,
-      {this.type: PRODUCTS_TYPE, this.dataList});
+class TwoCardList extends StatefulWidget {
+  TwoCardList(this._parentContext, {this.type: PRODUCTS_TYPE, this.dataList});
   final BuildContext _parentContext;
   final int type;
   List dataList = [];
 
   @override
-  _SmallChCardListState createState() => _SmallChCardListState();
+  _TwoCardListState createState() => _TwoCardListState();
 }
 
-class _SmallChCardListState extends State<SmallChCardList> {
+class _TwoCardListState extends State<TwoCardList> {
   final int firstItem = 0;
 
   @override
@@ -93,7 +92,7 @@ class _SmallChCardListState extends State<SmallChCardList> {
         child: Container(
           alignment: Alignment.bottomLeft,
           padding: EdgeInsets.all(10),
-          child: Text(data.name, style: ChTextStyle.smallCardName, maxLines: 2),
+          child: Text(data.name, style: Style.twoCardName, maxLines: 2),
         ),
       ),
     ];
@@ -112,8 +111,8 @@ class _SmallChCardListState extends State<SmallChCardList> {
               padding: EdgeInsets.only(left: 10.0),
               decoration: BoxDecoration(
                   border: Border(
-                      bottom: BorderSide(width: 1.0, color: ChColor.main))),
-              child: Text("\$${data.price}", style: ChTextStyle.smallCardPrice),
+                      bottom: BorderSide(width: 1.0, color: AppColor.main))),
+              child: Text("\$${data.price}", style: Style.twoCardPrice),
             ),
           ),
         );
@@ -158,8 +157,8 @@ class _SmallChCardListState extends State<SmallChCardList> {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    ChColor.main.withOpacity(0.3),
-                    ChColor.shadow.withOpacity(0.3),
+                    AppColor.main.withOpacity(0.3),
+                    AppColor.shadow.withOpacity(0.3),
                   ],
                 ),
               ),

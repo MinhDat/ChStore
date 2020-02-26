@@ -9,8 +9,8 @@ const NONE = 0;
 const FOR_PAGE_VIEW = 1;
 const FOR_SLIDER = 2;
 
-class ChCard extends StatelessWidget {
-  ChCard(this.product, {this.itemHeight, this.itemWidth, this.type = NONE});
+class CardView extends StatelessWidget {
+  CardView(this.product, {this.itemHeight, this.itemWidth, this.type = NONE});
   final Product product;
   final int type;
   final double itemHeight, itemWidth;
@@ -23,7 +23,7 @@ class ChCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(RADIUS_CIRCULAR)),
-        color: ChColor.main,
+        color: AppColor.main,
       ),
       child: Column(children: [
         Stack(
@@ -76,8 +76,8 @@ class ChCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(product.name, style: ChTextStyle.cardName, maxLines: 2),
-              Text("\$${product.price}", style: ChTextStyle.cardPrice)
+              Text(product.name, style: Style.productName, maxLines: 2),
+              Text("\$${product.price}", style: Style.productPrice)
             ],
           ),
         ),

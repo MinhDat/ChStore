@@ -6,26 +6,18 @@ import 'package:ChStore/data/main.dart';
 
 const ENABLE_USAGE_GUIDE = false;
 
-class AnimationOffset {
-  AnimationOffset({
-    this.begin = const Offset(0, 0),
-    this.end = const Offset(0, 0),
-  });
-  Offset begin, end;
-}
-
 class System {
-  static Offset shoppingCartOffset = Offset(0, 0);
   static MediaQueryData media;
-  static SetPositionAnimateCalback setPositionAnimateCalback;
+  static SetOffsetAnimateCalback setPositionAnimateCalback;
   static DatabaseHelper databaseHelper = DatabaseHelper();
   static GlobalKey keyShoppingCart = GlobalKey();
+  static GlobalKey keyShoppingCartSecond = GlobalKey();
 
   static Function get move {
     return setPositionAnimateCalback;
   }
 
-  static set move(SetPositionAnimateCalback function) {
+  static set move(SetOffsetAnimateCalback function) {
     setPositionAnimateCalback = function;
   }
 
@@ -47,4 +39,4 @@ class System {
   }
 }
 
-typedef SetPositionAnimateCalback = void Function(AnimationOffset state);
+typedef SetOffsetAnimateCalback = void Function(Offset state);

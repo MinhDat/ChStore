@@ -67,8 +67,8 @@ class ItemListState extends State<ItemList> {
                         toastLength: Toast.LENGTH_SHORT,
                         gravity: ToastGravity.CENTER,
                         timeInSecForIos: 1,
-                        backgroundColor: Colors.black87,
-                        textColor: Colors.white,
+                        backgroundColor: AppColor.foreground,
+                        textColor: AppColor.label,
                         fontSize: 16.0);
                   },
                 ),
@@ -78,7 +78,7 @@ class ItemListState extends State<ItemList> {
         }
     }
     return Center(
-      child: Text("No items", style: ChTextStyle.noItem),
+      child: Text("No items", style: Style.noItem),
     );
   }
 }
@@ -87,10 +87,10 @@ Widget stackBehindDismiss() {
   return Container(
     alignment: Alignment.centerRight,
     padding: EdgeInsets.only(right: 20),
-    color: ChColor.dismiss,
+    color: AppColor.dismiss,
     child: Icon(
       Icons.delete,
-      color: Colors.white,
+      color: AppColor.main,
     ),
   );
 }

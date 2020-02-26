@@ -2,19 +2,19 @@ import 'package:ChStore/utility/System.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ChStore/model/Product.dart';
-import 'package:ChStore/widget/Card/ChCard.dart';
+import 'package:ChStore/widget/Card/CardView.dart';
 
-class ChCardSlider extends StatefulWidget {
-  ChCardSlider(this._products);
+class CardSlider extends StatefulWidget {
+  CardSlider(this._products);
   final List<Product> _products;
 
   @override
   State<StatefulWidget> createState() {
-    return ChCardSliderState();
+    return CardSliderState();
   }
 }
 
-class ChCardSliderState extends State<ChCardSlider> {
+class CardSliderState extends State<CardSlider> {
   List<GestureDetector> _renderList() {
     List<GestureDetector> productList = widget._products.map((product) {
       return GestureDetector(
@@ -22,7 +22,7 @@ class ChCardSliderState extends State<ChCardSlider> {
             Navigator.pushNamed(context, '/product-detail', arguments: product),
         child: Padding(
           padding: EdgeInsets.only(right: 10),
-          child: ChCard(
+          child: CardView(
             product,
             itemWidth: System.media.size.width / 2,
             itemHeight: System.media.size.width / 3.5,

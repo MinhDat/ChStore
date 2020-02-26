@@ -19,7 +19,7 @@ class SearchResult extends StatelessWidget {
         !existedWord ? child : SizedBox.shrink(),
         focus
             ? Container(
-                height: System.media.size.height, color: ChColor.foreground)
+                height: System.media.size.height, color: AppColor.foreground)
             : SizedBox.shrink(),
         existedWord ? SearchData() : SizedBox.shrink(),
       ],

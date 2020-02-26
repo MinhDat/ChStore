@@ -36,25 +36,25 @@ class _DiscoveryState extends State<Discovery> {
     return ScrollableView(
       floatingAppBar: FloatingAppBar(
         showHeader: _showHeader,
-        header: Text("Discovery", style: ChTextStyle.scrollHeader),
+        header: Text("Discovery", style: Style.scrollHeader),
         identify: Container(
           alignment: Alignment.topLeft,
           padding: EdgeInsets.only(left: 10.0, top: 20),
-          child: Text("Discovery", style: ChTextStyle.logo),
+          child: Text("Discovery", style: Style.logo),
         ),
       ),
       child: ListView(controller: _scrollController, children: [
         Container(
           margin: EdgeInsets.only(top: 20),
-          color: ChColor.foreground.withOpacity(0.1),
+          color: AppColor.foreground.withOpacity(0.1),
           child: Column(
             children: <Widget>[
               CardWrapper(
-                label: Text('Categories', style: ChTextStyle.title),
+                label: Text('Categories', style: Style.title),
                 child: CategoryView(),
               ),
               CardWrapper(
-                label: Text('Topics', style: ChTextStyle.title),
+                label: Text('Topics', style: Style.title),
                 child: TopicView(context),
               ),
             ],

@@ -64,8 +64,8 @@ class LinearPageProgressState extends State<LinearPageProgress> {
         margin: EdgeInsets.only(top: 35),
         child: CustomPaint(
           foregroundPainter: LinearPagePainter(
-            lineColor: ChColor.initialization,
-            completeColor: ChColor.main,
+            lineColor: AppColor.initialization,
+            completeColor: AppColor.main,
             completePercent: _percentage,
             width: 5,
           ),

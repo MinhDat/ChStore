@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             Image.asset('icon/logo.png',
                 height: _iconSize, width: _iconSize, fit: BoxFit.cover),
-            Text("ChStore", style: ChTextStyle.scrollHeader),
+            Text("ChStore", style: Style.scrollHeader),
           ],
         ),
         identify: Padding(
@@ -106,7 +106,7 @@ class _HomePageState extends State<HomePage> {
       child: ListView(controller: _scrollController, children: [
         Container(
           margin: EdgeInsets.only(top: _focus ? 0 : 10),
-          color: ChColor.foreground.withOpacity(0.1),
+          color: AppColor.foreground.withOpacity(0.1),
           child: SearchResult(
             focus: _focus,
             existedWord: _existedWord,

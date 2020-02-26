@@ -6,16 +6,16 @@ import 'package:ChStore/widget/main.dart';
 
 import 'package:flutter/material.dart';
 
-class ChCardPage extends StatefulWidget {
-  ChCardPage(this._products);
+class CardViewPage extends StatefulWidget {
+  CardViewPage(this._products);
   final List<Product> _products;
   @override
   State<StatefulWidget> createState() {
-    return ChCardPageState();
+    return CardViewPageState();
   }
 }
 
-class ChCardPageState extends State<ChCardPage> {
+class CardViewPageState extends State<CardViewPage> {
   List<GlobalKey<LinearPageProgressState>> activations;
   PageController _pageController;
   int _currentIndex = 0;
@@ -69,7 +69,7 @@ class ChCardPageState extends State<ChCardPage> {
       return GestureDetector(
         onTap: () =>
             Navigator.pushNamed(context, '/product-detail', arguments: product),
-        child: ChCard(
+        child: CardView(
           product,
           type: FOR_PAGE_VIEW,
           itemWidth: System.media.size.width,
@@ -84,7 +84,7 @@ class ChCardPageState extends State<ChCardPage> {
       decoration: new BoxDecoration(
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: ChColor.shadow,
+            color: AppColor.shadow,
             offset: Offset(0.0, 3.0),
             blurRadius: 20.0,
           ),

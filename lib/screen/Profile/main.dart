@@ -12,7 +12,7 @@ class Profile extends StatelessWidget {
     double avatarSize = System.media.size.height / 16;
 
     return Scaffold(
-      backgroundColor: ChColor.border,
+      backgroundColor: AppColor.border,
       body: Stack(
         children: <Widget>[
           Positioned(
@@ -39,11 +39,10 @@ class Profile extends StatelessWidget {
                               children: [
                                 Padding(
                                   padding: EdgeInsets.only(top: avatarSize),
-                                  child:
-                                      Text("Charlie", style: ChTextStyle.title),
+                                  child: Text("Charlie", style: Style.title),
                                 ),
                                 Text("Software Developer",
-                                    style: ChTextStyle.description),
+                                    style: Style.jobInfo),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: <Widget>[
@@ -53,8 +52,8 @@ class Profile extends StatelessWidget {
                                         padding: EdgeInsets.only(right: 5),
                                         child: SocialInfo(
                                           "Facebook",
-                                          bgColor: ChColor.facebook,
-                                          textColor: ChColor.main,
+                                          bgColor: AppColor.facebook,
+                                          textColor: AppColor.main,
                                           assetImage: Image.asset(
                                             'icon/facebook_white.png',
                                             height: 15,
@@ -69,13 +68,13 @@ class Profile extends StatelessWidget {
                                         padding: EdgeInsets.only(left: 5),
                                         child: SocialInfo(
                                           "Zalo",
-                                          bgColor: ChColor.zalo,
-                                          textColor: ChColor.main,
+                                          bgColor: AppColor.zalo,
+                                          textColor: AppColor.main,
                                           assetImage: Image.asset(
                                             'icon/zalo.png',
                                             height: 20,
                                             width: 20,
-                                            color: ChColor.main,
+                                            color: AppColor.main,
                                           ),
                                         ),
                                       ),
@@ -105,17 +104,17 @@ class Profile extends StatelessWidget {
                         Padding(
                             padding: EdgeInsets.only(left: 10, right: 10),
                             child: Icon(Icons.shopping_basket)),
-                        Text("| 56", style: ChTextStyle.normal),
+                        Text("| 56", style: Style.normal),
                         Padding(
                           padding: EdgeInsets.only(left: 10, right: 10),
                           child: Image.asset('icon/like.png',
                               height: 25, width: 25),
                         ),
-                        Text("| 200", style: ChTextStyle.normal),
+                        Text("| 200", style: Style.normal),
                         Padding(
                             padding: EdgeInsets.only(left: 10, right: 10),
                             child: Icon(Icons.share)),
-                        Text("| 496", style: ChTextStyle.normal),
+                        Text("| 496", style: Style.normal),
                       ],
                     ),
                   ),
@@ -141,15 +140,14 @@ class Profile extends StatelessWidget {
                             width: System.media.size.width,
                             child: Stack(
                               children: [
-                                Text("All products", style: ChTextStyle.title),
+                                Text("All products", style: Style.title),
                                 Positioned(
                                   right: 20,
                                   bottom: 0,
                                   child: GestureDetector(
                                     onTap: () => Navigator.pushNamed(
                                         context, '/product-list'),
-                                    child: Text("See All",
-                                        style: ChTextStyle.link),
+                                    child: Text("See All", style: Style.link),
                                   ),
                                 )
                               ],
@@ -169,8 +167,8 @@ class Profile extends StatelessWidget {
             top: System.media.size.width / 9,
             right: 10,
             child: Circle(
-              icon: Icon(Icons.close, color: ChColor.primary),
-              bgColor: ChColor.main.withOpacity(0.6),
+              icon: Icon(Icons.close, color: AppColor.primary),
+              bgColor: AppColor.main.withOpacity(0.6),
               onTap: () => Navigator.pop(context),
             ),
           ),

@@ -12,7 +12,7 @@ class CardWrapper extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(10),
       child: Card(
-        color: color ?? ChColor.main,
+        color: color ?? AppColor.main,
         margin: EdgeInsets.all(0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

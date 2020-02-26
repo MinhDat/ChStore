@@ -35,19 +35,19 @@ class _NoticeState extends State<Notice> {
     return ScrollableView(
       floatingAppBar: FloatingAppBar(
         showHeader: _showHeader,
-        header: Text("Notification", style: ChTextStyle.scrollHeader),
+        header: Text("Notification", style: Style.scrollHeader),
         identify: Container(
           alignment: Alignment.topLeft,
           padding: EdgeInsets.only(left: 10.0, top: 20),
-          child: Text("Notification", style: ChTextStyle.logo),
+          child: Text("Notification", style: Style.logo),
         ),
       ),
       child: ListView(controller: _scrollController, children: [
         Container(
           margin: EdgeInsets.only(top: 20),
-          color: ChColor.foreground.withOpacity(0.1),
+          color: AppColor.foreground.withOpacity(0.1),
           child: CardWrapper(
-            color: ChColor.border,
+            color: AppColor.border,
             child: Container(child: Column(children: _widgets)),
           ),
         ),

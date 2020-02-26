@@ -11,7 +11,7 @@ class ShoppingAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: ChColor.main,
+      color: AppColor.main,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
@@ -21,17 +21,17 @@ class ShoppingAction extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.only(left: 20, top: 10, right: 5, bottom: 10),
               child: FlatButton(
-                color: ChColor.negative,
+                color: AppColor.negative,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Icon(Icons.arrow_back, color: ChColor.main),
+                    Icon(Icons.arrow_back, color: AppColor.main),
                     Padding(
                         padding: EdgeInsets.all(15),
-                        child: Text("Back", style: ChTextStyle.button)),
+                        child: Text("Back", style: Style.button)),
                   ],
                 ),
                 onPressed: () => onChange(BACK_ACTION),
@@ -43,7 +43,7 @@ class ShoppingAction extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.only(left: 5, top: 10, right: 20, bottom: 10),
               child: FlatButton(
-                color: ChColor.complete,
+                color: AppColor.complete,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0)),
                 child: Row(
@@ -52,8 +52,8 @@ class ShoppingAction extends StatelessWidget {
                   children: [
                     Padding(
                         padding: EdgeInsets.all(15),
-                        child: Text("Next", style: ChTextStyle.button)),
-                    Icon(Icons.arrow_forward, color: ChColor.main),
+                        child: Text("Next", style: Style.button)),
+                    Icon(Icons.arrow_forward, color: AppColor.main),
                   ],
                 ),
                 onPressed: () => onChange(NEXT_ACTION),

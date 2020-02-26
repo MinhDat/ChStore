@@ -37,17 +37,17 @@ class CounterState extends State<Counter> {
     countNumber = TextField(
       controller: _textEditingController,
       textAlign: TextAlign.center,
-      style: ChTextStyle.cardCounter,
+      style: Style.counter,
       decoration: InputDecoration(
         filled: true,
-        fillColor: ChColor.main,
+        fillColor: AppColor.main,
         contentPadding: const EdgeInsets.all(5),
         border: OutlineInputBorder(
-          borderSide: BorderSide(color: ChColor.main),
+          borderSide: BorderSide(color: AppColor.main),
           borderRadius: BorderRadius.circular(counterRadius),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: ChColor.main),
+          borderSide: BorderSide(color: AppColor.main),
           borderRadius: BorderRadius.circular(counterRadius),
         ),
       ),
@@ -86,7 +86,7 @@ class CounterState extends State<Counter> {
             height: counterSize,
             width: counterSize,
             decoration: BoxDecoration(
-              color: ChColor.primaryDart,
+              color: AppColor.primaryDart,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(counterRadius),
                 bottomLeft: Radius.circular(counterRadius),
@@ -95,7 +95,7 @@ class CounterState extends State<Counter> {
             child: Icon(
               Icons.remove,
               size: 20.0,
-              color: ChColor.main,
+              color: AppColor.main,
             ),
           ),
         ),
@@ -105,11 +105,11 @@ class CounterState extends State<Counter> {
           decoration: BoxDecoration(
             border: Border(
               top: BorderSide(
-                  color: ChColor.primaryDart, width: counterRadiusInner),
+                  color: AppColor.primaryDart, width: counterRadiusInner),
               bottom: BorderSide(
-                  color: ChColor.primaryDart, width: counterRadiusInner),
+                  color: AppColor.primaryDart, width: counterRadiusInner),
             ),
-            color: ChColor.primaryDart,
+            color: AppColor.primaryDart,
           ),
           child: countNumber,
         ),
@@ -119,7 +119,7 @@ class CounterState extends State<Counter> {
             height: counterSize,
             width: counterSize,
             decoration: BoxDecoration(
-              color: ChColor.primaryDart,
+              color: AppColor.primaryDart,
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(counterRadius),
                 bottomRight: Radius.circular(counterRadius),
@@ -128,7 +128,7 @@ class CounterState extends State<Counter> {
             child: Icon(
               Icons.add,
               size: 20.0,
-              color: ChColor.main,
+              color: AppColor.main,
             ),
           ),
         ),

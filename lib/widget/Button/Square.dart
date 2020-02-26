@@ -13,8 +13,8 @@ class Square extends StatelessWidget {
       height: System.media.size.width / 6,
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: ChColor.main,
-        border: Border.all(color: ChColor.border, width: 1.0),
+        color: AppColor.main,
+        border: Border.all(color: AppColor.border, width: 1.0),
         borderRadius: BorderRadius.all(Radius.circular(RADIUS)),
       ),
       child: ClipRRect(

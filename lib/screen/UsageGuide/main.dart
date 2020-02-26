@@ -1,3 +1,4 @@
+import 'package:ChStore/utility/main.dart';
 import 'package:flutter/material.dart';
 import 'package:ChStore/widget/main.dart';
 
@@ -15,7 +16,7 @@ class UsageGuideState extends State<UsageGuide> {
   int _currentIndex;
   static const _kDuration = const Duration(milliseconds: 300);
   static const _kCurve = Curves.ease;
-  final _kArrowColor = Colors.black.withOpacity(0.8);
+  final _kArrowColor = AppColor.title.withOpacity(0.8);
 
   @override
   void initState() {

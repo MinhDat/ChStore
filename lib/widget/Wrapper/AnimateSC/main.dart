@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 class AnimateSC extends StatefulWidget {
   final Widget child;
-  AnimateSC({this.child});
+  final bool secondScreen;
+  AnimateSC({this.child, this.secondScreen: false});
 
   @override
   State<StatefulWidget> createState() => _AnimateSCState();
@@ -55,7 +56,7 @@ class _AnimateSCState extends State<AnimateSC>
               width: 10.0,
               height: 10.0,
               decoration: BoxDecoration(
-                color: ChColor.primary,
+                color: AppColor.primary,
                 borderRadius: BorderRadius.circular(10.0),
               ),
             ),
@@ -72,14 +73,15 @@ class _AnimateSCState extends State<AnimateSC>
   }
 
   // Handle moving item
-  void _handleAnimation(AnimationOffset state) {
+  void _handleAnimation(Offset state) {
     setState(() {
       _visibleAnimate = 1.0;
-      _begin = Offset(state.begin.dx / 10, state.begin.dy / 10);
+      _begin = Offset(state.dx / 10, state.dy / 10);
 
       // Get offset shopping cart
-      final RenderBox renderBox =
-          System.keyShoppingCart.currentContext.findRenderObject();
+      final RenderBox renderBox = widget.secondScreen
+          ? System.keyShoppingCartSecond.currentContext.findRenderObject()
+          : System.keyShoppingCart.currentContext.findRenderObject();
 
       final _offsetCart = renderBox.localToGlobal(Offset(0, 0));
       final _sizeCart = renderBox.size;

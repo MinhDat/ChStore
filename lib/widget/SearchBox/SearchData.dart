@@ -35,15 +35,14 @@ class SearchDataState extends State<SearchData> {
     return showResult
         ? Container(
             padding: EdgeInsets.only(left: 10, right: 10),
-            color: ChColor.main,
+            color: AppColor.main,
             child: BlocBuilder<DataBloc, DataState>(builder: (context, state) {
               if (state is DataError) {
                 return Center(child: Text('failed to fetch data'));
               }
               if (state is DataLoaded) {
                 if (state.products.isEmpty) {
-                  return Center(
-                      child: Text("No items", style: ChTextStyle.noItem));
+                  return Center(child: Text("No items", style: Style.noItem));
                 }
                 return ItemList(products: state.products);
               }

@@ -48,19 +48,19 @@ class SearchBox extends StatelessWidget {
                     },
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: ChColor.searchBox,
+                      fillColor: AppColor.searchBox,
                       prefixIcon: new Icon(
                         Icons.search,
-                        color: ChColor.initialization,
+                        color: AppColor.initialization,
                       ),
                       contentPadding:
                           const EdgeInsets.only(left: 14, right: 14),
                       enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: ChColor.border),
+                        borderSide: BorderSide(color: AppColor.border),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: ChColor.border),
+                        borderSide: BorderSide(color: AppColor.border),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       hintText: 'Enter a search term',
@@ -73,8 +73,8 @@ class SearchBox extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       padding: const EdgeInsets.only(left: 11.0),
                       decoration: BoxDecoration(
-                        color: ChColor.searchBox,
-                        border: new Border.all(color: ChColor.border),
+                        color: AppColor.searchBox,
+                        border: new Border.all(color: AppColor.border),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       child: Row(
@@ -83,7 +83,7 @@ class SearchBox extends StatelessWidget {
                         children: <Widget>[
                           Icon(
                             Icons.search,
-                            color: ChColor.initialization,
+                            color: AppColor.initialization,
                           ),
                           Padding(
                             padding: const EdgeInsets.only(
@@ -91,7 +91,7 @@ class SearchBox extends StatelessWidget {
                               top: 2.0,
                             ),
                             child: Text('Enter a search term',
-                                style: ChTextStyle.searchPlaceHolder),
+                                style: Style.searchPlaceHolder),
                           )
                         ],
                       ),
@@ -106,7 +106,7 @@ class SearchBox extends StatelessWidget {
                     child: AnimatedContainer(
                       duration: Duration(seconds: 1),
                       alignment: Alignment.centerRight,
-                      child: Text("Cancel", style: ChTextStyle.cancel),
+                      child: Text("Cancel", style: Style.cancel),
                     ),
                   ),
                 )

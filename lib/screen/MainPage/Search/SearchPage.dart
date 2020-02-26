@@ -8,14 +8,14 @@ class SearchPage extends StatelessWidget {
     return Column(
       children: [
         CardWrapper(
-          label: Text("Popular Categories", style: ChTextStyle.title),
+          label: Text("Popular Categories", style: Style.title),
           child: Container(
             padding: EdgeInsets.only(bottom: 10),
             child: PopularCategories(),
           ),
         ),
         CardWrapper(
-          label: Text("Populations", style: ChTextStyle.title),
+          label: Text("Populations", style: Style.title),
           child: Container(
             padding: EdgeInsets.only(bottom: 10),
             child: PopularTags(),

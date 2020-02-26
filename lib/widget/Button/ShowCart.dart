@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ShowCart extends StatelessWidget {
+  ShowCart({this.secondScreen: false});
+  final bool secondScreen;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -13,15 +16,17 @@ class ShowCart extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(top: 7, right: 5),
             child: Icon(Icons.shopping_cart,
-                key: System.keyShoppingCart, size: 30),
+                key: this.secondScreen
+                    ? System.keyShoppingCartSecond
+                    : System.keyShoppingCart,
+                size: 30),
           ),
           Positioned(
-            top: -3,
+            top: 0,
             right: 0,
             child: BlocBuilder<CounterBloc, int>(builder: (context, count) {
               return count > 0
-                  ? Text("$count",
-                      style: ChTextStyle.flexColor(ChColor.primary))
+                  ? Text("$count", style: Style.scCouter(AppColor.primary))
                   : SizedBox.shrink();
             }),
           ),

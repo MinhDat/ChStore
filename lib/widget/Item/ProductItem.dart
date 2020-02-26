@@ -15,7 +15,7 @@ class ProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> productLineSecond = [
       Expanded(
-          flex: 4, child: Text("\$${item.price}", style: ChTextStyle.price))
+          flex: 4, child: Text("\$${item.price}", style: Style.productPrice))
     ];
 
     switch (type) {
@@ -24,7 +24,7 @@ class ProductItem extends StatelessWidget {
           Expanded(
             flex: 6, // 60%
             child: AddToCart(item,
-                size: ChTextSize.size30, animateCart: this.animateCart),
+                size: TextSize.size30, animateCart: this.animateCart),
           ),
         );
         break;
@@ -51,7 +51,7 @@ class ProductItem extends StatelessWidget {
           child: Container(
             height: 130.0,
             padding: const EdgeInsets.only(top: 5.0),
-            color: ChColor.main,
+            color: AppColor.main,
             child: Row(
               children: [
                 Expanded(
@@ -75,9 +75,9 @@ class ProductItem extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(category.name.toUpperCase(),
-                                style: ChTextStyle.categoryLabel),
+                                style: Style.categoryLabel),
                             Text(item.name,
-                                style: ChTextStyle.itemName, maxLines: 2),
+                                style: Style.productName, maxLines: 2),
                           ],
                         ),
                       ),
@@ -88,7 +88,7 @@ class ProductItem extends StatelessWidget {
                         decoration: new BoxDecoration(
                           border: Border(
                             bottom: BorderSide(
-                                width: 0.5, color: ChColor.initialization),
+                                width: 0.5, color: AppColor.initialization),
                           ),
                         ),
                         child: Row(

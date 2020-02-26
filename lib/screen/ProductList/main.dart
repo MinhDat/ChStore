@@ -32,11 +32,12 @@ class _ProductListState extends State<ProductList> {
   @override
   Widget build(BuildContext context) {
     return AnimateSC(
+      secondScreen: true,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: ChColor.primary,
-          title: Text("Product List", style: ChTextStyle.header),
-          // actions: <Widget>[ShoppingCart()],
+          backgroundColor: AppColor.primary,
+          title: Text("Product List", style: Style.header),
+          actions: <Widget>[ShowCart(secondScreen: true)],
         ),
         body: BlocBuilder<DataBloc, DataState>(
           builder: (context, state) {
@@ -53,7 +54,8 @@ class _ProductListState extends State<ProductList> {
                   itemBuilder: (BuildContext context, int index) {
                     return index >= state.products.length
                         ? BottomLoader()
-                        : ProductItem(item: state.products[index]);
+                        : ProductItem(
+                            item: state.products[index], animateCart: true);
                   },
                   itemCount: state.hasReachedMax
                       ? state.products.length

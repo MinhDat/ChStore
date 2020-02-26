@@ -21,8 +21,8 @@ class AppBarWrapper extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(5)),
           border: Border.all(
-              color: ChColor.border.withOpacity(focus || showHeader ? 0 : 1)),
-          color: ChColor.main),
+              color: AppColor.border.withOpacity(focus || showHeader ? 0 : 1)),
+          color: AppColor.main),
       child: child,
     );
   }

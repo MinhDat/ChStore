@@ -8,7 +8,7 @@ class Comment extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text('Name', style: TextStyle(color: ChColor.content)),
+        Text('Name', style: TextStyle(color: AppColor.content)),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -23,15 +23,15 @@ class Comment extends StatelessWidget {
                   horizontal: System.media.size.width / 300),
               itemBuilder: (context, _) => Icon(
                 Icons.star,
-                color: Colors.amber,
+                color: AppColor.activateStar,
               ),
               ignoreGestures: true,
               onRatingUpdate: (double value) {},
             ),
-            Text("05/02/2020", style: TextStyle(color: ChColor.content)),
+            Text("05/02/2020", style: TextStyle(color: AppColor.content)),
           ],
         ),
-        Text("very good", style: TextStyle(color: ChColor.content))
+        Text("very good", style: TextStyle(color: AppColor.content))
       ],
     );
   }

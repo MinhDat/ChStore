@@ -43,22 +43,22 @@ class BLoCRenderItem extends StatelessWidget {
                 ]),
               ),
               CardWrapper(
-                label: Text("Today", style: ChTextStyle.title),
-                child: ChCardPage(state.products.getRange(14, 20).toList()),
+                label: Text("Today", style: Style.title),
+                child: CardViewPage(state.products.getRange(14, 20).toList()),
               ),
               CardWrapper(
-                label: Text("News", style: ChTextStyle.title),
-                child: ChCardSlider(state.products.getRange(7, 14).toList()),
+                label: Text("News", style: Style.title),
+                child: CardSlider(state.products.getRange(7, 14).toList()),
               ),
               CardWrapper(
                 label: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("All products", style: ChTextStyle.title),
+                    Text("All products", style: Style.title),
                     GestureDetector(
                       onTap: () =>
                           Navigator.pushNamed(context, '/product-list'),
-                      child: Text("See All", style: ChTextStyle.link),
+                      child: Text("See All", style: Style.link),
                     ),
                   ],
                 ),
@@ -67,27 +67,27 @@ class BLoCRenderItem extends StatelessWidget {
                     animateCart: true),
               ),
               CardWrapper(
-                  label: Text("Hashtags", style: ChTextStyle.title),
+                  label: Text("Hashtags", style: Style.title),
                   child: PopularCategories()),
               CardWrapper(
                 label: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Top trends", style: ChTextStyle.title),
+                    Text("Top trends", style: Style.title),
                     GestureDetector(
                       onTap: () =>
                           Navigator.pushNamed(context, '/product-list'),
-                      child: Text("See All", style: ChTextStyle.link),
+                      child: Text("See All", style: Style.link),
                     ),
                   ],
                 ),
-                child: SmallChCardList(
+                child: TwoCardList(
                   context,
                   dataList: state.products.getRange(14, 20).toList(),
                 ),
               ),
               CardWrapper(
-                label: Text("Populations", style: ChTextStyle.title),
+                label: Text("Populations", style: Style.title),
                 child: Container(
                   padding: EdgeInsets.only(bottom: 10),
                   child: PopularTags(),

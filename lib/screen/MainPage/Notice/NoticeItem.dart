@@ -11,29 +11,20 @@ class NoticeItem extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 5),
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-          color: ChColor.main,
+          color: AppColor.main,
           borderRadius: BorderRadius.all(Radius.circular(5))),
       child: Row(children: [
-        Icon(Icons.notifications, size: 80, color: ChColor.background),
+        Icon(Icons.notifications, size: 80, color: AppColor.background),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
               width: System.media.size.width * .55,
-              child: Text(
-                "Comming soon",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12),
-              ),
+              child: Text("Comming soon", style: Style.noticeLabel),
             ),
             Container(
               width: System.media.size.width * .55,
-              child: Text(
-                content,
-                style: TextStyle(color: Colors.black, fontSize: 10),
-              ),
+              child: Text(content, style: Style.noticeInfo),
             )
           ],
         )

@@ -69,11 +69,11 @@ class _SearchState extends State<Search> {
       focus: _focus,
       floatingAppBar: FloatingAppBar(
         showHeader: _showHeader || _focus,
-        header: Text("Search", style: ChTextStyle.scrollHeader),
+        header: Text("Search", style: Style.scrollHeader),
         identify: Container(
           alignment: Alignment.topLeft,
           padding: EdgeInsets.only(left: 10.0, top: 20),
-          child: Text("Search", style: ChTextStyle.logo),
+          child: Text("Search", style: Style.logo),
         ),
         appBar: AppBarWrapper(
           focus: _focus,
@@ -87,7 +87,7 @@ class _SearchState extends State<Search> {
       ),
       child: ListView(controller: _scrollController, children: [
         Container(
-          color: ChColor.foreground.withOpacity(0.1),
+          color: AppColor.foreground.withOpacity(0.1),
           child: SearchResult(
             focus: _focus,
             existedWord: _existedWord,

@@ -18,7 +18,7 @@ class _PersonalityState extends State<Personality> {
         Container(
           decoration: new BoxDecoration(
               border: Border(
-            bottom: BorderSide(color: ChColor.background, width: 5.0),
+            bottom: BorderSide(color: AppColor.background, width: 5.0),
           )),
           child: GestureDetector(
             onTap: () => Navigator.pushNamed(context, '/profile'),
@@ -47,7 +47,7 @@ class _PersonalityState extends State<Personality> {
           padding: EdgeInsets.all(20),
           decoration: new BoxDecoration(
             border: Border(
-              bottom: BorderSide(color: ChColor.background, width: 5.0),
+              bottom: BorderSide(color: AppColor.background, width: 5.0),
             ),
           ),
           child: Row(
@@ -64,7 +64,7 @@ class _PersonalityState extends State<Personality> {
                 decoration: new BoxDecoration(
                   border: Border(
                       bottom:
-                          BorderSide(color: ChColor.background, width: 1.0)),
+                          BorderSide(color: AppColor.background, width: 1.0)),
                 ),
                 child: Row(
                   children: <Widget>[
@@ -78,7 +78,7 @@ class _PersonalityState extends State<Personality> {
                 padding: EdgeInsets.only(top: 10, bottom: 10),
                 decoration: new BoxDecoration(
                   border: Border(
-                    bottom: BorderSide(color: ChColor.background, width: 1.0),
+                    bottom: BorderSide(color: AppColor.background, width: 1.0),
                   ),
                 ),
                 child: Text("Setting"),
@@ -88,7 +88,7 @@ class _PersonalityState extends State<Personality> {
                 padding: EdgeInsets.only(top: 10, bottom: 10),
                 decoration: new BoxDecoration(
                   border: Border(
-                    bottom: BorderSide(color: ChColor.background, width: 1.0),
+                    bottom: BorderSide(color: AppColor.background, width: 1.0),
                   ),
                 ),
                 child: Text("Return Order"),

@@ -82,11 +82,11 @@ class _ShoppingCartState extends State<ShoppingCart> {
           ScrollableView(
             floatingAppBar: FloatingAppBar(
               showHeader: _showHeader,
-              header: Text("Shopping Cart", style: ChTextStyle.scrollHeader),
+              header: Text("Shopping Cart", style: Style.scrollHeader),
               identify: Container(
                 alignment: Alignment.topLeft,
                 padding: EdgeInsets.only(left: 20.0, bottom: 20),
-                child: Text("Shopping Cart", style: ChTextStyle.logo),
+                child: Text("Shopping Cart", style: Style.logo),
               ),
               appBar: AppBarWrapper(
                 showHeader: _showHeader,
@@ -95,7 +95,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                     RadialProgress(
                       active: RADIAL_ACTIVE,
                       child:
-                          Icon(Icons.shopping_basket, color: ChColor.complete),
+                          Icon(Icons.shopping_basket, color: AppColor.complete),
                     ),
                     LinearProgress(
                         key: _globalLinearCheckOutKey, showHeader: _showHeader),
@@ -104,8 +104,8 @@ class _ShoppingCartState extends State<ShoppingCart> {
                       child: Icon(
                         Icons.attach_money,
                         color: _currentIndex > 0
-                            ? ChColor.complete
-                            : ChColor.initialization,
+                            ? AppColor.complete
+                            : AppColor.initialization,
                       ),
                     ),
                     LinearProgress(
@@ -115,8 +115,8 @@ class _ShoppingCartState extends State<ShoppingCart> {
                       child: Icon(
                         Icons.done,
                         color: _currentIndex > 1
-                            ? ChColor.complete
-                            : ChColor.initialization,
+                            ? AppColor.complete
+                            : AppColor.initialization,
                       ),
                     ),
                   ],
@@ -138,7 +138,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                 ]),
                 ListView(controller: _scrollController, children: <Widget>[
                   CardWrapper(
-                    child: Text("Completed payment", style: ChTextStyle.normal),
+                    child: Text("Completed payment", style: Style.normal),
                   ),
                 ]),
               ],
@@ -148,8 +148,8 @@ class _ShoppingCartState extends State<ShoppingCart> {
             top: 30,
             right: 10,
             child: Circle(
-              bgColor: ChColor.primaryDart,
-              icon: Icon(Icons.close, color: ChColor.main),
+              bgColor: AppColor.primaryDart,
+              icon: Icon(Icons.close, color: AppColor.main),
               onTap: () => Navigator.pop(context),
             ),
           ),

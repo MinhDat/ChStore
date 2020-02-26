@@ -21,18 +21,18 @@ class PopularCategories extends StatelessWidget {
             left: marginLeft, right: marginRight, top: 5, bottom: 5),
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: ChColor.background,
+          color: AppColor.background,
           borderRadius: new BorderRadius.all(Radius.circular(10.0)),
         ),
         child: Stack(
           children: <Widget>[
-            Text(data.name, style: ChTextStyle.popularCategory),
+            Text(data.name, style: Style.popularCategory),
             Align(
               alignment: Alignment.topRight,
               child: Icon(
                 Icons.arrow_forward_ios,
                 size: 20,
-                color: ChColor.popularityIcon,
+                color: AppColor.popularityIcon,
               ),
             )
           ],
@@ -78,12 +78,12 @@ class PopularTags extends StatelessWidget {
         alignment: Alignment.centerLeft,
         decoration: new BoxDecoration(
           border: Border(
-            bottom: BorderSide(width: 0.5, color: ChColor.initialization),
+            bottom: BorderSide(width: 0.5, color: AppColor.initialization),
           ),
         ),
         child: Padding(
           padding: EdgeInsets.only(top: 10, bottom: 10),
-          child: Text(popularTags[i].name, style: ChTextStyle.popularTag),
+          child: Text(popularTags[i].name, style: Style.popularTag),
         ),
       ));
     }

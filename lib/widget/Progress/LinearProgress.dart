@@ -62,8 +62,8 @@ class LinearProgressState extends State<LinearProgress> {
             (widget.showHeader ? 11 : 0),
         child: CustomPaint(
           foregroundPainter: LinearPainter(
-            lineColor: Colors.grey,
-            completeColor: ChColor.complete,
+            lineColor: AppColor.initialization,
+            completeColor: AppColor.complete,
             completePercent: _percentage,
             width: 2,
           ),

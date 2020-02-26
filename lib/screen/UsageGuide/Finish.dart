@@ -8,7 +8,7 @@ class Finish extends StatelessWidget {
       constraints: const BoxConstraints.expand(),
       child: Center(
         child: FlatButton(
-          color: ChColor.primaryDart,
+          color: AppColor.primaryDart,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
           child: Text('Get Started'),

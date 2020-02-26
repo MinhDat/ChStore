@@ -18,7 +18,7 @@ class Circle extends StatelessWidget {
         width: size,
         height: size,
         decoration: new BoxDecoration(
-          color: this.bgColor ?? ChColor.primary.withOpacity(0.6),
+          color: this.bgColor ?? AppColor.primary.withOpacity(0.6),
           shape: BoxShape.circle,
         ),
         child: icon,

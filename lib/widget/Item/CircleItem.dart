@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ChStore/utility/ChTextStyle.dart';
+import 'package:ChStore/utility/Style.dart';
 
 class CircleItem extends StatelessWidget {
   CircleItem({this.itemWidth: 10, this.title: "", this.image});
@@ -21,7 +21,7 @@ class CircleItem extends StatelessWidget {
                 : AssetImage(image),
           ),
         ),
-        Text(title, style: ChTextStyle.normal)
+        Text(title, style: Style.normal)
       ],
     );
   }

@@ -5,13 +5,12 @@ export 'package:ChStore/widget/Button/SocialInfo.dart';
 export 'package:ChStore/widget/Button/Square.dart';
 export 'package:ChStore/widget/Button/ShowCart.dart';
 
-export 'package:ChStore/widget/Card/ChCard.dart';
-export 'package:ChStore/widget/Card/ChCardPage.dart';
-export 'package:ChStore/widget/Card/ChCardSlider.dart';
-export 'package:ChStore/widget/Card/SmallChCardList.dart';
+export 'package:ChStore/widget/Card/CardView.dart';
+export 'package:ChStore/widget/Card/CardPage.dart';
+export 'package:ChStore/widget/Card/CardSlider.dart';
+export 'package:ChStore/widget/Card/TwoCardList.dart';
 
 export 'package:ChStore/widget/DotsIndicator/main.dart';
-
 export 'package:ChStore/widget/Identity/main.dart';
 
 export 'package:ChStore/widget/Item/CircleItem.dart';
@@ -30,10 +29,10 @@ export 'package:ChStore/widget/SearchBox/main.dart';
 export 'package:ChStore/widget/SearchBox/SearchData.dart';
 export 'package:ChStore/widget/SearchBox/SearchResult.dart';
 
+export 'package:ChStore/widget/Wallpaper/main.dart';
+
 export 'package:ChStore/widget/Wrapper/AnimateSC/main.dart';
 export 'package:ChStore/widget/Wrapper/ScrollableView/main.dart';
 export 'package:ChStore/widget/Wrapper/ScrollableView/FloatingAppBar.dart';
 export 'package:ChStore/widget/Wrapper/CardWrapper.dart';
 export 'package:ChStore/widget/Wrapper/AppBarWrapper.dart';
-
-export 'package:ChStore/widget/Wallpaper/main.dart';

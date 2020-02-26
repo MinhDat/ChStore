@@ -14,7 +14,7 @@ class Ratting extends StatelessWidget {
               child: Text(
                 "Rating",
                 style: TextStyle(
-                    color: ChColor.label,
+                    color: AppColor.label,
                     fontSize: System.media.size.width / 20,
                     fontWeight: FontWeight.bold),
               ),
@@ -31,7 +31,7 @@ class Ratting extends StatelessWidget {
                 itemPadding: EdgeInsets.symmetric(
                     horizontal: System.media.size.width / 100),
                 itemBuilder: (context, _) =>
-                    Icon(Icons.star, color: Colors.amber),
+                    Icon(Icons.star, color: AppColor.activateStar),
                 onRatingUpdate: (rating) {
                   print(rating);
                 },
@@ -44,15 +44,15 @@ class Ratting extends StatelessWidget {
           child: TextField(
             decoration: InputDecoration(
               filled: true,
-              fillColor: ChColor.border,
+              fillColor: AppColor.border,
               contentPadding: const EdgeInsets.only(
                   left: 14.0, right: 14.0, bottom: 5.0, top: 5.0),
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: ChColor.border),
+                borderSide: BorderSide(color: AppColor.border),
                 borderRadius: BorderRadius.circular(10.0),
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: ChColor.border),
+                borderSide: BorderSide(color: AppColor.border),
                 borderRadius: BorderRadius.circular(10.0),
               ),
               hintText: 'Name',
@@ -65,13 +65,13 @@ class Ratting extends StatelessWidget {
             maxLines: 2,
             decoration: InputDecoration(
               filled: true,
-              fillColor: ChColor.border,
+              fillColor: AppColor.border,
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: ChColor.border),
+                borderSide: BorderSide(color: AppColor.border),
                 borderRadius: BorderRadius.circular(10.0),
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: ChColor.border),
+                borderSide: BorderSide(color: AppColor.border),
                 borderRadius: BorderRadius.circular(10.0),
               ),
               hintText: 'Write something...',
@@ -79,14 +79,14 @@ class Ratting extends StatelessWidget {
           ),
         ),
         FlatButton(
-          color: Colors.blue,
+          color: AppColor.send,
           onPressed: () {},
           child: Container(
             width: System.media.size.width,
             child: Text(
               "Send",
               textAlign: TextAlign.center,
-              style: TextStyle(color: ChColor.label),
+              style: TextStyle(color: AppColor.label),
             ),
           ),
         ),
@@ -97,7 +97,7 @@ class Ratting extends StatelessWidget {
               child: Text(
                 "3.0",
                 style: TextStyle(
-                    color: ChColor.label,
+                    color: AppColor.label,
                     fontWeight: FontWeight.bold,
                     fontSize: System.media.size.width / 10),
               ),
@@ -118,7 +118,7 @@ class Ratting extends StatelessWidget {
                         horizontal: System.media.size.width / 100),
                     itemBuilder: (context, _) => Icon(
                       Icons.star,
-                      color: Colors.amber,
+                      color: AppColor.activateStar,
                     ),
                     ignoreGestures: true,
                     onRatingUpdate: (double value) {},
@@ -134,7 +134,7 @@ class Ratting extends StatelessWidget {
                         horizontal: System.media.size.width / 100),
                     itemBuilder: (context, _) => Icon(
                       Icons.star,
-                      color: Colors.amber,
+                      color: AppColor.activateStar,
                     ),
                     ignoreGestures: true,
                     onRatingUpdate: (double value) {},
@@ -150,7 +150,7 @@ class Ratting extends StatelessWidget {
                         horizontal: System.media.size.width / 100),
                     itemBuilder: (context, _) => Icon(
                       Icons.star,
-                      color: Colors.amber,
+                      color: AppColor.activateStar,
                     ),
                     ignoreGestures: true,
                     onRatingUpdate: (double value) {},
@@ -166,7 +166,7 @@ class Ratting extends StatelessWidget {
                         horizontal: System.media.size.width / 100),
                     itemBuilder: (context, _) => Icon(
                       Icons.star,
-                      color: Colors.amber,
+                      color: AppColor.activateStar,
                     ),
                     ignoreGestures: true,
                     onRatingUpdate: (double value) {},
@@ -182,7 +182,7 @@ class Ratting extends StatelessWidget {
                         horizontal: System.media.size.width / 100),
                     itemBuilder: (context, _) => Icon(
                       Icons.star,
-                      color: Colors.amber,
+                      color: AppColor.activateStar,
                     ),
                     ignoreGestures: true,
                     onRatingUpdate: (double value) {},

@@ -14,9 +14,9 @@ class CategoryView extends StatelessWidget {
       }
       if (state is DataLoaded) {
         if (state.categories.isEmpty) {
-          return Center(child: Text("No items", style: ChTextStyle.noItem));
+          return Center(child: Text("No items", style: Style.noItem));
         }
-        return SmallChCardList(context,
+        return TwoCardList(context,
             type: CATEGORIES_TYPE, dataList: state.categories);
       }
     });

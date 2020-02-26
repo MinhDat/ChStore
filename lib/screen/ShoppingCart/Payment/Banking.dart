@@ -17,21 +17,21 @@ class Banking extends StatelessWidget {
                 flex: 3,
                 child: Column(children: [
                   Square('lib/asset/image/banking/acb.png'),
-                  Text('ACB', style: ChTextStyle.bankname)
+                  Text('ACB', style: Style.bankname)
                 ]),
               ),
               Expanded(
                 flex: 3,
                 child: Column(children: [
                   Square('lib/asset/image/banking/agribank.png'),
-                  Text('Agribank', style: ChTextStyle.bankname)
+                  Text('Agribank', style: Style.bankname)
                 ]),
               ),
               Expanded(
                 flex: 3,
                 child: Column(children: [
                   Square('lib/asset/image/banking/sacombank.png'),
-                  Text('Sacombank', style: ChTextStyle.bankname)
+                  Text('Sacombank', style: Style.bankname)
                 ]),
               ),
             ],
@@ -46,21 +46,21 @@ class Banking extends StatelessWidget {
                 flex: 3,
                 child: Column(children: [
                   Square('lib/asset/image/banking/techcombank.png'),
-                  Text('Techcombank', style: ChTextStyle.bankname)
+                  Text('Techcombank', style: Style.bankname)
                 ]),
               ),
               Expanded(
                 flex: 3,
                 child: Column(children: [
                   Square('lib/asset/image/banking/tpbank.jpg'),
-                  Text('Tpbank', style: ChTextStyle.bankname)
+                  Text('Tpbank', style: Style.bankname)
                 ]),
               ),
               Expanded(
                 flex: 3,
                 child: Column(children: [
                   Square('lib/asset/image/banking/vietcombank.png'),
-                  Text('Vietcombank', style: ChTextStyle.bankname)
+                  Text('Vietcombank', style: Style.bankname)
                 ]),
               ),
             ],
@@ -75,14 +75,14 @@ class Banking extends StatelessWidget {
                 flex: 3,
                 child: Column(children: [
                   Square('lib/asset/image/banking/vietinbank.png'),
-                  Text('Vietinbank', style: ChTextStyle.bankname)
+                  Text('Vietinbank', style: Style.bankname)
                 ]),
               ),
               Expanded(
                 flex: 3,
                 child: Column(children: [
                   Square('lib/asset/image/banking/vpbank.jpg'),
-                  Text('Vpbank', style: ChTextStyle.bankname)
+                  Text('Vpbank', style: Style.bankname)
                 ]),
               ),
               Expanded(flex: 3, child: SizedBox.shrink())

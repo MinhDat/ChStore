@@ -22,7 +22,7 @@ class TopicView extends StatelessWidget {
       }
       if (state is DataLoaded) {
         if (state.topics.isEmpty) {
-          return Center(child: Text("No items", style: ChTextStyle.noItem));
+          return Center(child: Text("No items", style: Style.noItem));
         }
         List<GestureDetector> _categories = state.topics
             .asMap()
@@ -48,7 +48,7 @@ class TopicView extends StatelessWidget {
                               new BorderRadius.circular(TOPIC_BORDER_RADIUS),
                           boxShadow: <BoxShadow>[
                             BoxShadow(
-                              color: ChColor.shadow,
+                              color: AppColor.shadow,
                               offset: Offset(0.0, 1.0),
                               blurRadius: TOPIC_BORDER_RADIUS,
                             ),
@@ -63,7 +63,7 @@ class TopicView extends StatelessWidget {
                                   fit: BoxFit.cover,
                                 )
                               : Container(
-                                  color: ChColor.main,
+                                  color: AppColor.main,
                                 ),
                         ),
                       ),
@@ -71,7 +71,7 @@ class TopicView extends StatelessWidget {
                         height: TOPIC_HEIGHT,
                         alignment: _alignment,
                         padding: EdgeInsets.only(right: 40.0, left: 40.0),
-                        child: Text(topic.name, style: ChTextStyle.topic),
+                        child: Text(topic.name, style: Style.topic),
                       ),
                     ])),
               );

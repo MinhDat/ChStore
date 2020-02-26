@@ -13,7 +13,7 @@ class Category extends StatelessWidget {
     Topic _topic = _settings.arguments as Topic;
 
     return Scaffold(
-      appBar: AppBar(title: Text("${_topic.name}", style: ChTextStyle.normal)),
+      appBar: AppBar(title: Text("${_topic.name}", style: Style.normal)),
       body: BlocBuilder<DataBloc, DataState>(builder: (context, state) {
         if (state is DataError) {
           return Center(
@@ -22,14 +22,13 @@ class Category extends StatelessWidget {
         }
         if (state is DataLoaded) {
           if (state.products.isEmpty) {
-            return Center(child: Text("No items", style: ChTextStyle.noItem));
+            return Center(child: Text("No items", style: Style.noItem));
           }
           List dataList = state.products
               .where((item) => (item.categoryId == _topic.id))
               .toList();
 
-          return ListView(
-              children: [SmallChCardList(context, dataList: dataList)]);
+          return ListView(children: [TwoCardList(context, dataList: dataList)]);
         }
       }),
     );

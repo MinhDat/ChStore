@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 const DISABLE_SCROLL = false;
 const ENABLE_SCROLL = false;
 const INITIAL_OFFSET = 0.0;
+const PADDING_TOP_DEFAULT = 24;
 // Show header type
 const SHOW_HEADER = true;
 const NOT_SHOW_HEADER = false;
@@ -90,8 +91,12 @@ class _ScrollableViewState extends State<ScrollableView> {
       final RenderBox renderBox =
           _floatingAppBarKey.currentContext.findRenderObject();
 
-      setState(() =>
-          _childTop = renderBox.size.height - System.media.padding.top - 10);
+      final _paddingTop = 10 +
+          (System.media.padding.top > PADDING_TOP_DEFAULT
+              ? System.media.padding.top
+              : PADDING_TOP_DEFAULT);
+
+      setState(() => _childTop = renderBox.size.height - _paddingTop);
     }
   }
 }

@@ -1,4 +1,4 @@
-package com.example.ChStore
+package com.app.ChStore
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
